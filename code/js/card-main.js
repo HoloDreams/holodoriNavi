@@ -8,7 +8,41 @@ function getCardImagePath(fileName, isThumb = false) {
     const group = getCardImageGroup(fileName);
     return `character_card/${isThumb ? 'thumb/' : ''}${group}/${fileName}`;
 }
-const generationOrder = ["0期生", "1期生", "2期生", "ゲーマーズ", "3期生", "4期生", "5期生", "秘密結社holoX", "ReGLOSS", "Advent"];
+const debutGroupOrder = [
+    "ホロライブ0期生",
+    "ホロライブ1期生",
+    "ホロライブ2期生",
+    "ホロライブゲーマーズ",
+    "ホロライブ3期生",
+    "ホロライブ4期生",
+    "hololive Indonesia 1期生",
+    "ホロライブ5期生",
+    "hololive English -Myth-",
+    "hololive Indonesia 2期生",
+    "hololive English -Promise-",
+    "秘密結社holoX",
+    "hololive Indonesia 3期生",
+    "hololive English -Advent-",
+    "ReGLOSS"
+];
+
+const debutMemberOrder = [
+    "ときのそら", "ロボ子さん", "さくらみこ", "AZKi", "星街すいせい",
+    "アキ・ローゼンタール", "赤井はあと", "夏色まつり", "白上フブキ",
+    "百鬼あやめ", "癒月ちょこ", "大空スバル",
+    "大神ミオ", "猫又おかゆ", "戌神ころね",
+    "兎田ぺこら", "不知火フレア", "白銀ノエル", "宝鐘マリン",
+    "角巻わため", "常闇トワ", "姫森ルーナ",
+    "アユンダ・リス", "ムーナ・ホシノヴァ", "アイラニ・イオフィフティーン",
+    "雪花ラミィ", "桃鈴ねね", "獅白ぼたん", "尾丸ポルカ",
+    "森カリオペ", "小鳥遊キアラ", "一伊那尓栖",
+    "クレイジー・オリー", "アーニャ・メルフィッサ", "パヴォリア・レイネ",
+    "IRyS", "オーロ・クロニー", "ハコス・ベールズ",
+    "ラプラス・ダークネス", "鷹嶺ルイ", "博衣こより", "風真いろは",
+    "ベスティア・ゼータ", "カエラ・コヴァルスキア", "こぼ・かなえる",
+    "シオリ・ノヴェラ", "古石ビジュー", "ネリッサ・レイヴンクロフト", "フワワ・アビスガード", "モココ・アビスガード",
+    "音乃瀬奏", "一条莉々華", "儒烏風亭らでん", "轟はじめ"
+];
 
 const skillMaster = {
     1: "スキルアップ10%",
@@ -107,14 +141,21 @@ function renderCards() {
             }
         }
 
-        const genA = a[4] ? a[4].split(',')[1]?.trim() : '';
-        const genB = b[4] ? b[4].split(',')[1]?.trim() : '';
-        const indexA = generationOrder.indexOf(genA);
-        const indexB = generationOrder.indexOf(genB);
-        const orderA = indexA === -1 ? 999 : indexA;
-        const orderB = indexB === -1 ? 999 : indexB;
+        if (currentSort === 'debut-asc') {
+            const genA = a[4] ? a[4].split(',')[1]?.trim() : '';
+            const genB = b[4] ? b[4].split(',')[1]?.trim() : '';
+            const groupA = debutGroupOrder.indexOf(genA);
+            const groupB = debutGroupOrder.indexOf(genB);
+            const orderA = groupA === -1 ? 999 : groupA;
+            const orderB = groupB === -1 ? 999 : groupB;
+            if (orderA !== orderB) return orderA - orderB;
 
-        if (orderA !== orderB) return orderA - orderB;
+            const memberA = debutMemberOrder.indexOf(a[1]);
+            const memberB = debutMemberOrder.indexOf(b[1]);
+            const memberOrderA = memberA === -1 ? 999 : memberA;
+            const memberOrderB = memberB === -1 ? 999 : memberB;
+            if (memberOrderA !== memberOrderB) return memberOrderA - memberOrderB;
+        }
 
         const idA = cardData.indexOf(a);
         const idB = cardData.indexOf(b);
