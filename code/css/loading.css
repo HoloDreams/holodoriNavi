@@ -1,0 +1,105 @@
+﻿/* global loading screen */
+.holodori-loading-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 999999;
+  display: grid;
+  place-items: center;
+  background: #ffffff;
+  color: #00aeff;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.7s ease, visibility 0s linear 0s;
+}
+
+.holodori-loading-screen.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.7s ease, visibility 0s linear 0.7s;
+}
+
+.holodori-loading-inner {
+  width: min(520px, calc(100vw - 48px));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+  text-align: center;
+}
+
+.holodori-loading-text {
+  display: flex;
+  justify-content: center;
+  gap: 2px;
+  margin: 0;
+  color: #00aeff;
+  font-family: "Arial", "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+  font-size: clamp(38px, 8vw, 82px);
+  line-height: 1;
+  font-weight: 900;
+  letter-spacing: 0;
+  text-shadow: 0 5px 0 rgba(0, 174, 255, 0.14);
+}
+
+.holodori-loading-text span {
+  display: inline-block;
+  animation: holodoriLetterJump 5s cubic-bezier(0.2, 0.8, 0.2, 1) infinite;
+  animation-delay: calc(var(--i) * 0.3s);
+}
+
+.holodori-loading-bar {
+  width: min(420px, 82vw);
+  height: 14px;
+  border-radius: 999px;
+  background: rgba(0, 174, 255, 0.18);
+  overflow: hidden;
+  box-shadow: inset 0 0 0 2px rgba(0, 174, 255, 0.35);
+}
+
+.holodori-loading-bar-fill {
+  width: 42%;
+  height: 100%;
+  border-radius: inherit;
+  background: #00aeff;
+  animation: holodoriLoadingGauge 1.6s ease-in-out infinite;
+}
+
+@keyframes holodoriLetterJump {
+  0%, 14%, 100% {
+    transform: translateY(0);
+  }
+  5.4% {
+    transform: translateY(-24px);
+  }
+  9% {
+    transform: translateY(3px);
+  }
+  11.5% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes holodoriLoadingGauge {
+  0% {
+    transform: translateX(-110%);
+  }
+  55% {
+    transform: translateX(75%);
+  }
+  100% {
+    transform: translateX(250%);
+  }
+}
+
+@media (max-width: 640px) {
+  .holodori-loading-inner {
+    gap: 22px;
+  }
+
+  .holodori-loading-bar {
+    height: 12px;
+  }
+}
+
+

@@ -1,0 +1,19 @@
+body { padding: 20px; background: #f4f7f6; font-family: 'Helvetica Neue', Arial, sans-serif; }
+.container { max-width: 1100px; background: white; padding: 40px; border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,0.1); }
+h2 { border-bottom: 2px solid #9b4dca; padding-bottom: 10px; margin-bottom: 30px; }
+.grid-row { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+.section-label { background: #9b4dca; color: white; padding: 6px 12px; margin: 20px 0 10px 0; border-radius: 4px; font-weight: bold; font-size: 1.4rem; }
+label { margin-bottom: 0; font-size: 1.2rem; }
+input[type="text"], input[type="number"] { margin-bottom: 1.5rem; }
+
+.difficulty-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+
+.drop-zone { border: 2px dashed #9b4dca; border-radius: 8px; padding: 20px; text-align: center; cursor: pointer; transition: background 0.3s; margin-bottom: 10px; position: relative; }
+.drop-zone:hover { background: #f0e6f7; }
+#preview_img { max-width: 150px; max-height: 150px; margin-top: 10px; display: none; border-radius: 4px; }
+
+textarea { height: 500px; font-family: 'Consolas', 'Monaco', monospace; font-size: 12px; line-height: 1.4; background: #282c34; color: #abb2bf; padding: 15px; border: none; border-radius: 8px; }
+.button-group { margin-top: 20px; display: flex; gap: 10px; flex-wrap: wrap; }
+.btn-download { background-color: #28a745; border-color: #28a745; }
+
+@media (max-width: 800px) { .grid-row { grid-template-columns: 1fr; } }

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>アイテム一覧 - ホロドリ非公式サイト</title>
+  <link rel="stylesheet" href="css/item_search.css">
+  <link rel="icon" href="img/favicon.ico">
+  <script src="https://unpkg.com/@studio-freight/lenis@1.0.33/dist/lenis.min.js"></script>
+  <link rel="stylesheet" href="css/loading.css">
+  <link rel="stylesheet" href="css/common_menu.css">
+</head>
+<body>
+  <div class="holodori-loading-screen" role="status" aria-live="polite">
+    <div class="holodori-loading-inner">
+      <p class="holodori-loading-text" aria-label="Loading...">
+        <span style="--i: 0;">L</span>
+        <span style="--i: 1;">o</span>
+        <span style="--i: 2;">a</span>
+        <span style="--i: 3;">d</span>
+        <span style="--i: 4;">i</span>
+        <span style="--i: 5;">n</span>
+        <span style="--i: 6;">g</span>
+        <span style="--i: 7;">.</span>
+        <span style="--i: 8;">.</span>
+        <span style="--i: 9;">.</span>
+      </p>
+      <div class="holodori-loading-bar" aria-hidden="true">
+        <div class="holodori-loading-bar-fill"></div>
+      </div>
+    </div>
+  </div>
+  <a href="home.html" class="back-btn">
+    <img src="img/back.png" alt="戻る">
+  </a>
+
+  <nav class="navbar">
+    <div class="logo">
+      <img src="img/logo.webp" alt="logo">
+      <span class="site-title">ホロドリ非公式サイト<br>アイテム一覧</span>
+    </div>
+
+    <ul class="nav-links">
+      <li><a href="https://opening.hololive-dreams.com/" target="_blank">公式サイトはこちら</a></li>
+      <li><a href="https://x.com/hololive_dreams" target="_blank">公式Xはこちら</a></li>
+      <li><a href="https://www.youtube.com/@hololivedreams" target="_blank">公式YouTubeはこちら</a></li>
+    </ul>
+  </nav>
+
+  <main class="fade-in-up">
+    <h1>アイテム一覧</h1>
+
+    <section class="item-intro">
+      <p>ゲーム内アイテムを画像付きで探せる一覧ページです。</p>
+    </section>
+
+    <div class="filter-wrapper">
+      <div class="search-container">
+        <input type="text" id="item-search-input" placeholder="アイテム名または説明で検索">
+      </div>
+    </div>
+
+    <p id="item-page-info" class="item-page-info">
+      全 <span id="total-count">0</span> 件中、<span id="hit-count">0</span> 件を表示
+    </p>
+
+    <div id="item-list-container" class="item-list"></div>
+
+    <div class="pagination">
+      <button id="prev-btn" class="page-btn" type="button">◀</button>
+      <span id="current-page-num">1 / 1</span>
+      <button id="next-btn" class="page-btn" type="button">▶</button>
+    </div>
+  </main>
+
+  <div id="item-modal" class="item-modal" aria-hidden="true">
+    <div class="item-modal-panel" role="dialog" aria-modal="true" aria-labelledby="item-modal-title">
+      <button type="button" id="item-modal-close" class="item-modal-close" aria-label="閉じる">×</button>
+      <img id="item-modal-image" src="" alt="">
+      <div class="item-modal-text">
+        <h2 id="item-modal-title"></h2>
+        <p id="item-modal-description"></p>
+        <div id="item-modal-get" class="item-modal-get" hidden></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/item-data.js"></script>
+  <script src="js/item-search.js"></script>
+  <script>
+    if (window.Lenis) {
+      const lenis = new Lenis({
+        duration: 1.2,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        smooth: true,
+      });
+      window.lenis = lenis;
+      function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
+      requestAnimationFrame(raf);
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('is-show');
+      });
+    }, { rootMargin: '0px 0px -10% 0px' });
+    document.querySelectorAll('.fade-in-up').forEach(el => observer.observe(el));
+  </script>
+  <script src="js/loading.js"></script>
+  <script src="js/common_menu.js"></script>
+</body>
+</html>
+
+

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>ホロドリ楽曲HTML生成ツール</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.1/milligram.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <h2>🎵 楽曲情報HTMLジェネレーター</h2>
+    <div class="grid-row">
+        <div class="input-pane">
+            <div class="section-label">1. 基本情報</div>
+            <label>曲名</label><input type="text" id="song_name">
+            <label>ジャケット画像</label>
+            <div id="drop_zone" class="drop-zone">
+                <p>画像をドロップ or クリック</p>
+                <img id="preview_img" src="#" alt="Preview">
+                <input type="file" id="file_input" accept="image/*" style="display:none">
+            </div>
+            <label>画像ファイル名</label><input type="text" id="img_name">
+            <label>公式曲URL</label><input type="text" id="song_URL">
+            <label>BPM</label><input type="number" id="bpm">
+
+            <div class="section-label">2. 難易度情報</div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                <div><label>EX Lv</label><input type="text" id="ex_lv"></div>
+                <div><label>EX Combo</label><input type="text" id="ex_cb"></div>
+                <div><label>HD Lv</label><input type="text" id="hd_lv"></div>
+                <div><label>HD Combo</label><input type="text" id="hd_cb"></div>
+                <div><label>NM Lv</label><input type="text" id="nm_lv"></div>
+                <div><label>NM Combo</label><input type="text" id="nm_cb"></div>
+                <div><label>ES Lv</label><input type="text" id="es_lv"></div>
+                <div><label>ES Combo</label><input type="text" id="es_cb"></div>
+            </div>
+
+            <div class="section-label">3. YouTube埋め込み</div>
+            <label>Expert</label><input type="text" id="ex_vid" placeholder="<iframe...">
+            <label>Hard</label><input type="text" id="hd_vid" placeholder="<iframe...">
+            <label>Normal</label><input type="text" id="nm_vid" placeholder="<iframe...">
+            <label>Easy</label><input type="text" id="es_vid" placeholder="<iframe...">
+
+            <div class="section-label">4. 譜面について</div>
+            <textarea id="song_comment" style="height: 100px;" placeholder="コメントを入力..."></textarea>
+        </div>
+
+        <div class="output-pane">
+            <div class="section-label">生成結果</div>
+            <textarea id="result_code" readonly></textarea>
+            <div class="button-group">
+                <button class="button" id="btn-generate">① HTMLを生成</button>
+                <button class="button button-outline" id="btn-copy">② コピー</button>
+                <button class="button btn-download" id="btn-download">③ 保存</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="generator.js"></script>
+</body>
+</html>

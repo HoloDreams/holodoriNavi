@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>キャラクターカード情報 - ホロドリ非公式サイト</title>
+  
+  <script src="https://unpkg.com/@studio-freight/lenis@1.0.33/dist/lenis.min.js"></script>
+
+  <link rel="stylesheet" href="css/character_card.css">
+  <link rel="icon" href="img/favicon.ico">
+  
+  <style>
+    body {
+      background-image: url('img/background.png') !important;
+      background-repeat: no-repeat !important;
+      background-position: center center !important;
+      background-size: cover !important;
+      background-attachment: fixed !important;
+    }
+    .navbar {
+      background-color: rgba(248, 248, 248, 0.342) !important;
+      backdrop-filter: blur(10px) !important;
+      -webkit-backdrop-filter: blur(10px) !important;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    /* フェードインアニメーション用CSS */
+    .fade-in-up {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+    .fade-in-up.is-show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+  <link rel="stylesheet" href="css/loading.css">
+  <link rel="stylesheet" href="css/common_menu.css">
+</head>
+
+<body>
+  <div class="holodori-loading-screen" role="status" aria-live="polite">
+    <div class="holodori-loading-inner">
+      <p class="holodori-loading-text" aria-label="Loading...">
+        <span style="--i: 0;">L</span>
+        <span style="--i: 1;">o</span>
+        <span style="--i: 2;">a</span>
+        <span style="--i: 3;">d</span>
+        <span style="--i: 4;">i</span>
+        <span style="--i: 5;">n</span>
+        <span style="--i: 6;">g</span>
+        <span style="--i: 7;">.</span>
+        <span style="--i: 8;">.</span>
+        <span style="--i: 9;">.</span>
+      </p>
+      <div class="holodori-loading-bar" aria-hidden="true">
+        <div class="holodori-loading-bar-fill"></div>
+      </div>
+    </div>
+  </div>
+  <a href="home.html" class="back-btn">
+    <img src="img/back.png" alt="戻る">
+  </a>
+
+  <nav class="navbar">
+    <div class="logo">
+      <img src="img/logo.webp" alt="logo">
+      <span class="site-title">ホロドリ非公式サイト<br>カード情報一覧</span>
+    </div>
+    
+    <ul class="nav-links">
+      <li><a href="https://opening.hololive-dreams.com/" target="_blank">公式サイトはこちら</a></li>
+      <li><a href="https://x.com/hololive_dreams" target="_blank">公式Xはこちら</a></li>
+      <li><a href="https://www.youtube.com/@hololivedreams" target="_blank">公式YouTubeはこちら</a></li>
+    </ul>
+  </nav>
+
+  <main class="fade-in-up">
+    <h1>キャラクターカード一覧</h1>
+
+
+    <div class="card-search-toolbar">
+      <div class="search-container">
+        <input type="text" id="search-input" placeholder="カード名またはホロメンの名前で検索">
+      </div>
+      <button type="button" id="filter-toggle" class="filter-toggle" aria-expanded="false" aria-controls="card-filter-panel">
+        <span class="filter-toggle-icon" aria-hidden="true"></span>
+        <span>絞り込み</span>
+        <span class="filter-toggle-arrow" aria-hidden="true">▼</span>
+      </button>
+    </div>
+
+    <div id="card-filter-panel" class="card-filter-panel" aria-hidden="true">
+      <div id="skill-filter-container" class="skill-filter-container"></div>
+
+      <div class="sort-container">
+        <label for="sort-select">並び替え：</label>
+        <select id="sort-select">
+          <option value="default">新着順</option>
+          <option value="rarity-desc">レアリティが高い順</option>
+          <option value="rarity-asc">レアリティが低い順</option>
+        </select>
+      </div>
+    </div>
+<p id="page-info" style="text-align: center;">
+      全 <span id="total-count">0</span> 枚中、<span id="hit-count">0</span> 枚を表示
+    </p>
+
+    <div id="card-list-container" class="card-list"></div>
+
+    <div class="pagination">
+      <button id="prev-btn" class="page-btn">◀</button>
+      <span id="current-page-num">1 / 1</span>
+      <button id="next-btn" class="page-btn">▶</button>
+    </div>
+  </main>
+
+  <div id="image-modal" class="modal-overlay">
+    <div class="modal-content">
+        <img id="modal-image" src="" alt="card">
+        <div class="skill-wrapper">
+          <p id="modal-name" class="modal-card-name"></p>
+          <p id="modal-rarity"></p>
+          <div id="modal-text-area" class="skill-container"></div>
+        </div>
+    </div>
+  </div>
+
+  <script src="js/card-data.js"></script>
+  <script src="js/card-main.js"></script>
+
+  <script>
+    const lenis = new Lenis({
+      duration: 1.2,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      smooth: true,
+    });
+
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+    requestAnimationFrame(raf);
+
+    // 2. IntersectionObserver (フェードイン) の設定
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-show');
+        }
+      });
+    }, {
+      rootMargin: '0px 0px -10% 0px'
+    });
+
+    document.querySelectorAll('.fade-in-up').forEach(el => observer.observe(el));
+
+  </script>
+  <script src="js/loading.js"></script>
+  <script src="js/common_menu.js"></script>
+</body>
+</html>

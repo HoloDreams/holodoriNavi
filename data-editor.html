@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>Hololive Data Editor</title>
+    <style>
+        body {
+            font-family: monospace;
+            background-color: #1c313b;
+            color: #ffffff;
+            padding: 30px;
+            margin: 0;
+        }
+        h2 {
+            font-size: 20px;
+            font-weight: normal;
+            margin-bottom: 5px;
+            letter-spacing: 1px;
+        }
+        .mode-badge {
+            display: inline-block;
+            background-color: #a2c4c9;
+            color: #1c313b;
+            padding: 2px 8px;
+            font-size: 11px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            border-radius: 3px;
+        }
+        
+        .master-container {
+            margin-bottom: 20px;
+            font-size: 13px;
+            line-height: 1.6;
+            display: none;
+        }
+        .master-list {
+            margin: 5px 0 0 0;
+            padding: 0;
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px 15px;
+            color: #a2c4c9;
+        }
+        .add-skill-trigger {
+            color: #ffffff;
+            text-decoration: underline;
+            cursor: pointer;
+            margin-left: 10px;
+            font-size: 12px;
+        }
+        .add-skill-trigger:hover {
+            color: #a2c4c9;
+        }
+
+        .actions {
+            margin-bottom: 20px;
+        }
+        button {
+            background-color: transparent;
+            color: #ffffff;
+            border: 1px solid #ffffff;
+            padding: 8px 16px;
+            font-family: monospace;
+            font-size: 13px;
+            cursor: pointer;
+            margin-right: 10px;
+            display: inline-block;
+        }
+        button:hover {
+            background-color: #ffffff;
+            color: #1c313b;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            border: 1px solid #ffffff;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            font-size: 13px;
+            font-weight: bold;
+        }
+        input[type="text"], input[type="number"], textarea {
+            width: 100%;
+            box-sizing: border-box;
+            background-color: transparent;
+            color: #ffffff;
+            border: none;
+            font-family: monospace;
+            font-size: 13px;
+            padding: 4px;
+        }
+        input[type="text"]:focus, input[type="number"]:focus, textarea:focus {
+            background-color: rgba(255, 255, 255, 0.1);
+            outline: none;
+        }
+        .filename-cell.dragover {
+            background-color: #ffffff !important;
+        }
+        .filename-cell.dragover input {
+            color: #1c313b !important;
+        }
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+        input[type=number] {
+            -moz-appearance: textfield;
+        }
+        textarea {
+            min-height: 72px;
+            resize: vertical;
+        }
+        .status-message {
+            display: inline-block;
+            margin-left: 10px;
+            font-size: 12px;
+            color: #a2c4c9;
+        }
+        .skill-preview {
+            display: block;
+            font-size: 11px;
+            color: #a2c4c9;
+            margin-top: 2px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        .skill-preview.unknown {
+            color: #ff8e8e;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>DATA EDITOR</h2>
+    <div id="currentMode" class="mode-badge">モード: 未選択 (ファイルを読み込んでください)</div>
+    
+    <div id="masterContainer" class="master-container">
+        <span>スキル対応表:</span>
+        <span class="add-skill-trigger" onclick="addNewSkillMaster()">[+] 新規スキル登録</span>
+        <ul id="masterList" class="master-list"></ul>
+    </div>
+
+    <div class="actions">
+        <button onclick="selectJSFile()">file</button>
+        <button onclick="addRow()">+ ADD ROW</button>
+        <button id="saveBtn" onclick="saveJSFile()" disabled>save</button>
+        <span id="fileStatus" class="status-message">ファイルが選択されていません</span>
+    </div>
+
+    <table id="dataTable">
+        <thead id="tableHead">
+        </tbody>
+        <tbody id="tableBody">
+        </tbody>
+    </table>
+
+<script>
+let fileHandle = null;
+let currentMode = "card";
+let isFileLoaded = false;
+
+let localSkillMaster = {};
+
+window.onload = function() {
+    setupWindowDragAndDrop();
+};
+
+function addNewSkillMaster() {
+    const idInput = prompt("追加するスキルID（半角数字）を入力してください:");
+    if (idInput === null) return;
+    
+    const id = parseInt(idInput.trim());
+    if (isNaN(id)) {
+        alert("有効な数字を入力してください。");
+        return;
+    }
+    
+    if (localSkillMaster[id]) {
+        if (!confirm(`ID: ${id} は既に「${localSkillMaster[id]}」として登録されています。上書きしますか？`)) {
+            return;
+        }
+    }
+    
+    const nameInput = prompt(`ID: ${id} に対応するスキル名を入力してください:`);
+    if (nameInput === null || nameInput.trim() === "") {
+        alert("スキル名が入力されなかったため、登録を中止しました。");
+        return;
+    }
+    
+    localSkillMaster[id] = nameInput.trim();
+    renderMasterHeader();
+    refreshAllSkillPreviews();
+}
+
+function renderMasterHeader() {
+    const container = document.getElementById("masterContainer");
+    const list = document.getElementById("masterList");
+    
+    if (currentMode === "song" || currentMode === "item" || !isFileLoaded) {
+        container.style.display = "none";
+        return;
+    }
+    
+    list.innerHTML = "";
+    const sortedIds = Object.keys(localSkillMaster).sort((a, b) => parseInt(a) - parseInt(b));
+    
+    sortedIds.forEach(id => {
+        const li = document.createElement("li");
+        li.style.display = "inline";
+        li.innerText = `${id}: ${localSkillMaster[id]}`;
+        list.appendChild(li);
+    });
+    
+    container.style.display = "block";
+}
+
+function updateTableHeader() {
+    const thead = document.getElementById("tableHead");
+    if (currentMode === "song") {
+        // 【変更】指定された並び順で楽曲用のヘッダーを構築
+        thead.innerHTML = `
+            <tr>
+                <th style="width: 25%;">曲名</th>
+                <th style="width: 45%;">歌唱メンバー (カンマ区切り)</th>
+                <th style="width: 6%;">expert</th>
+                <th style="width: 6%;">hard</th>
+                <th style="width: 6%;">normal</th>
+                <th style="width: 6%;">easy</th>
+                <th style="width: 6%;">操作</th>
+            </tr>
+        `;
+        document.getElementById("currentMode").innerText = "モード: 楽曲リスト編集 (songList)";
+    } else if (currentMode === "item") {
+        thead.innerHTML = `
+            <tr>
+                <th style="width: 18%;">アイテム名</th>
+                <th style="width: 18%;">画像ファイル名 (Drop可)</th>
+                <th style="width: 38%;">説明</th>
+                <th style="width: 20%;">入手場所 (カンマ区切り)</th>
+                <th style="width: 6%;">操作</th>
+            </tr>
+        `;
+        document.getElementById("currentMode").innerText = "モード: アイテム一覧編集 (itemList)";
+    } else {
+        thead.innerHTML = `
+            <tr>
+                <th style="width: 4%;">レア度</th>
+                <th style="width: 10%;">名前</th>
+                <th style="width: 10%;">ファイル名 (Drop可)</th>
+                <th style="width: 8%;">スキルID</th>
+                <th style="width: 7%;">バージョン</th>
+                <th style="width: 8%;">所属</th>
+                <th style="width: 13%;">検索ワード (カンマ区切り)</th>
+                <th>leader</th>
+                <th>special</th>
+                <th>active</th>
+                <th>passive</th>
+                <th style="width: 4%;">操作</th>
+            </tr>
+        `;
+        document.getElementById("currentMode").innerText = "モード: カードデータ編集 (cardData)";
+    }
+    renderMasterHeader();
+}
+
+function addRowToDOM(data) {
+    const tbody = document.getElementById("tableBody");
+    const tr = document.createElement("tr");
+
+    if (currentMode === "item") {
+        const safeData = data || { name: "", image: "", description: "", get: "" };
+        const getValue = Array.isArray(safeData.get) ? safeData.get.join("、") : (safeData.get || "");
+
+        tr.innerHTML = `
+            <td><input type="text" class="item-name" value="${escapeAttr(safeData.name || '')}" placeholder="アイテム名"></td>
+            <td class="filename-cell item-filename-cell">
+                <input type="text" class="item-image" value="${escapeAttr(safeData.image || '')}" placeholder="画像ファイル名だけ">
+            </td>
+            <td><textarea class="item-description" placeholder="説明">${escapeText(safeData.description || '')}</textarea></td>
+            <td><input type="text" class="item-get" value="${escapeAttr(getValue)}" placeholder="ホロメンクエスト、ログインボーナス"></td>
+            <td><button style="padding: 2px 8px; margin: 0; font-size: 11px;" onclick="deleteRow(this)">DEL</button></td>
+        `;
+
+        const fileCell = tr.querySelector(".item-filename-cell");
+        const fileInput = tr.querySelector(".item-image");
+        const nameInput = tr.querySelector(".item-name");
+
+        fileCell.addEventListener("dragover", (e) => { e.preventDefault(); e.stopPropagation(); fileCell.classList.add("dragover"); });
+        fileCell.addEventListener("dragleave", (e) => { e.preventDefault(); e.stopPropagation(); fileCell.classList.remove("dragover"); });
+        fileCell.addEventListener("drop", (e) => {
+            e.preventDefault(); e.stopPropagation(); fileCell.classList.remove("dragover");
+            const files = e.dataTransfer.files;
+            if (files.length > 0) {
+                const rawFileName = files[0].name;
+                if (rawFileName.endsWith('.js')) return;
+                fileInput.value = rawFileName;
+                if (!nameInput.value.trim()) {
+                    const baseName = rawFileName.substring(0, rawFileName.lastIndexOf('.')) || rawFileName;
+                    nameInput.value = baseName;
+                }
+            }
+        });
+    } else if (currentMode === "song") {
+        // 【変更】songList用データ（曲名, メンバー, 各難易度オブジェクト）を展開
+        const songName = data ? data[0] || "" : "";
+        const members = data ? data[1] || "" : "";
+        const levels = data ? data[2] || { expert: 0, hard: 0, normal: 0, easy: 0 } : { expert: 0, hard: 0, normal: 0, easy: 0 };
+
+        // ご指定の「曲名、メンバー、expert、hard、normal、easy」順に入力欄を追加
+        tr.innerHTML = `
+            <td><input type="text" class="song-name" value="${songName}" placeholder="曲名"></td>
+            <td><input type="text" class="song-members" value="${members}" placeholder="ときのそら, ロボ子さん..."></td>
+            <td><input type="number" class="lv-expert" value="${levels.expert || 0}" min="1" max="50"></td>
+            <td><input type="number" class="lv-hard" value="${levels.hard || 0}" min="1" max="50"></td>
+            <td><input type="number" class="lv-normal" value="${levels.normal || 0}" min="1" max="50"></td>
+            <td><input type="number" class="lv-easy" value="${levels.easy || 0}" min="1" max="50"></td>
+            <td><button style="padding: 2px 8px; margin: 0; font-size: 11px;" onclick="deleteRow(this)">DEL</button></td>
+        `;
+    } else {
+        const safeData = data || [5, "", "", 1, "", {leader:"", special:"", active:"", passive:""}];
+        const tagString = safeData[4] || "";
+        const tags = tagString.split(",").map(t => t.trim());
+        
+        const versionVal = tags[0] || "";
+        const groupVal = tags[1] || "";
+        const searchVal = tags.slice(2).join(", ") || "";
+        const skills = safeData[5] || { leader: "", special: "", active: "", passive: "" };
+        const initialSkillId = safeData[3];
+
+        tr.innerHTML = `
+            <td><input type="number" class="rarity" value="${safeData[0]}" min="1" max="5"></td>
+            <td><input type="text" class="name" value="${safeData[1]}" placeholder="Name"></td>
+            <td class="filename-cell">
+                <input type="text" class="filename" value="${safeData[2]}" placeholder="Drop file here">
+            </td>
+            <td>
+                <input type="number" class="skillid" value="${initialSkillId}" oninput="updateSkillPreview(this)">
+                <span class="skill-preview"></span>
+            </td>
+            <td><input type="text" class="version" value="${versionVal}" placeholder="ver1.0.0"></td>
+            <td><input type="text" class="group" value="${groupVal}" placeholder="所属"></td>
+            <td><input type="text" class="searchword" value="${searchVal}" placeholder="ワード1, ワード2"></td>
+            <td><input type="text" class="leader" value="${skills.leader || ''}"></td>
+            <td><input type="text" class="special" value="${skills.special || ''}"></td>
+            <td><input type="text" class="active" value="${skills.active || ''}"></td>
+            <td><input type="text" class="passive" value="${skills.passive || ''}"></td>
+            <td><button style="padding: 2px 8px; margin: 0; font-size: 11px;" onclick="deleteRow(this)">DEL</button></td>
+        `;
+
+        const skillInput = tr.querySelector(".skillid");
+        updateSkillPreview(skillInput);
+
+        const fileCell = tr.querySelector(".filename-cell");
+        const fileInput = fileCell.querySelector(".filename");
+        const nameInput = tr.querySelector(".name");
+
+        fileCell.addEventListener("dragover", (e) => { e.preventDefault(); e.stopPropagation(); fileCell.classList.add("dragover"); });
+        fileCell.addEventListener("dragleave", (e) => { e.preventDefault(); e.stopPropagation(); fileCell.classList.remove("dragover"); });
+        fileCell.addEventListener("drop", (e) => {
+            e.preventDefault(); e.stopPropagation(); fileCell.classList.remove("dragover");
+            const files = e.dataTransfer.files;
+            if (files.length > 0) {
+                const rawFileName = files[0].name;
+                if (rawFileName.endsWith('.js')) return;
+                fileInput.value = rawFileName;
+                if (!nameInput.value.trim()) {
+                    const baseName = rawFileName.substring(0, rawFileName.lastIndexOf('.')) || rawFileName;
+                    nameInput.value = baseName;
+                }
+            }
+        });
+    }
+    tbody.appendChild(tr);
+}
+
+function escapeAttr(value) {
+    return String(value ?? "")
+        .replace(/&/g, "&amp;")
+        .replace(/"/g, "&quot;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;");
+}
+
+function escapeText(value) {
+    return String(value ?? "")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;");
+}
+
+function jsString(value) {
+    return JSON.stringify(String(value ?? ""));
+}
+
+function updateSkillPreview(inputElement) {
+    const previewSpan = inputElement.nextElementSibling;
+    if (!previewSpan) return;
+    const id = parseInt(inputElement.value);
+    
+    if (localSkillMaster[id]) {
+        previewSpan.innerText = `➔ ${localSkillMaster[id]}`;
+        previewSpan.classList.remove("unknown");
+    } else if (!inputElement.value.trim()) {
+        previewSpan.innerText = "";
+        previewSpan.classList.remove("unknown");
+    } else {
+        previewSpan.innerText = "➔ 未登録のID";
+        previewSpan.classList.add("unknown");
+    }
+}
+
+function refreshAllSkillPreviews() {
+    const inputs = document.querySelectorAll(".skillid");
+    inputs.forEach(input => updateSkillPreview(input));
+}
+
+function addRow() {
+    addRowToDOM(null);
+}
+
+function deleteRow(button) {
+    if(confirm("DELETE THIS ROW?")) {
+        button.closest("tr").remove();
+    }
+}
+
+async function selectJSFile() {
+    try {
+        const [handle] = await window.showOpenFilePicker({
+            types: [{ description: 'JavaScript Files', accept: { 'application/javascript': ['.js'] } }],
+            multiple: false
+        });
+        fileHandle = handle;
+        const file = await fileHandle.getFile();
+        const text = await file.text();
+        parseAndRenderJS(text);
+        updateStatus(file.name);
+    } catch (err) {
+        if (err.name !== 'AbortError') alert("エラー: " + err.message);
+    }
+}
+
+function setupWindowDragAndDrop() {
+    window.addEventListener("dragover", (e) => e.preventDefault());
+    window.addEventListener("drop", async (e) => {
+        e.preventDefault();
+        const items = e.dataTransfer.items;
+        if (items && items[0] && items[0].kind === 'file') {
+            const entry = await items[0].getAsFileSystemHandle();
+            if (entry && entry.kind === 'file' && entry.name.endsWith('.js')) {
+                fileHandle = entry;
+                const file = await fileHandle.getFile();
+                const text = await file.text();
+                parseAndRenderJS(text);
+                updateStatus(file.name);
+            }
+        }
+    });
+}
+
+function updateStatus(fileName) {
+    document.getElementById("fileStatus").innerText = `選択中: ${fileName}`;
+    document.getElementById("saveBtn").disabled = false;
+}
+
+function parseAndRenderJS(jsText) {
+    try {
+        isFileLoaded = true;
+
+        if (jsText.includes("skillMaster")) {
+            extractSkillMaster(jsText);
+        }
+
+        if (jsText.includes("itemList")) {
+            currentMode = "item";
+        } else if (jsText.includes("songList")) {
+            currentMode = "song";
+        } else {
+            currentMode = "card";
+        }
+        updateTableHeader();
+
+        const startIndex = jsText.indexOf('[');
+        const endIndex = jsText.lastIndexOf(']');
+        if (startIndex === -1 || endIndex === -1) {
+            if (jsText.includes("skillMaster") && !jsText.includes("cardData")) {
+                alert("マスタ設定 (skillMaster) を読み込みました！");
+                refreshAllSkillPreviews();
+                return;
+            }
+            alert("有効な配列データが見つかりませんでした。");
+            return;
+        }
+        
+        const arrayDataText = jsText.substring(startIndex, endIndex + 1);
+        const parsedData = new Function(`return ${arrayDataText};`)();
+        
+        if (Array.isArray(parsedData)) {
+            const tbody = document.getElementById("tableBody");
+            tbody.innerHTML = "";
+            parsedData.forEach(data => {
+                if (currentMode === "item") {
+                    if (data && typeof data === "object" && !Array.isArray(data)) addRowToDOM(data);
+                } else if (Array.isArray(data)) {
+                    addRowToDOM(data);
+                }
+            });
+            if (currentMode === "card") refreshAllSkillPreviews();
+        } else {
+            alert("データの解析に失敗しました。");
+        }
+    } catch (err) {
+        alert("JSファイルの解析中にエラーが発生しました:\n" + err.message);
+    }
+}
+
+function extractSkillMaster(jsText) {
+    try {
+        const startMatch = jsText.match(/const\s+skillMaster\s*=\s*\{/);
+        if (!startMatch) return;
+        
+        const startIndex = jsText.indexOf('{', startMatch.index);
+        let braceCount = 1;
+        let endIndex = -1;
+        
+        for (let i = startIndex + 1; i < jsText.length; i++) {
+            if (jsText[i] === '{') braceCount++;
+            if (jsText[i] === '}') braceCount--;
+            if (braceCount === 0) {
+                endIndex = i;
+                break;
+            }
+        }
+        
+        if (endIndex !== -1) {
+            const objectText = jsText.substring(startIndex, endIndex + 1);
+            const parsedObj = new Function(`return ${objectText};`)();
+            if (parsedObj && typeof parsedObj === 'object') {
+                localSkillMaster = parsedObj;
+                renderMasterHeader();
+            }
+        }
+    } catch (e) {
+        console.error("skillMaster の抽出に失敗しました:", e);
+    }
+}
+
+function generateJSString() {
+    const rows = document.querySelectorAll("#tableBody tr");
+    
+    if (currentMode === "item") {
+        let result = "const itemList = [\n";
+        rows.forEach((row, index) => {
+            const name = row.querySelector(".item-name").value;
+            const image = row.querySelector(".item-image").value;
+            const description = row.querySelector(".item-description").value;
+            const get = row.querySelector(".item-get").value;
+
+            result += "  {\n";
+            result += `    name: ${jsString(name)},\n`;
+            result += `    image: ${jsString(image)},\n`;
+            result += `    description: ${jsString(description)},\n`;
+            result += `    get: ${jsString(get)}\n`;
+            result += "  }";
+            if (index < rows.length - 1) result += ",\n";
+            else result += "\n";
+        });
+        result += "];\n";
+        result += "\nconst itemImageBasePath = 'img/item img/';\n";
+        return result;
+    } else if (currentMode === "song") {
+        // 【変更】難易度オブジェクトを含む形で songList ファイルを出力
+        let result = "const songList = [\n";
+        rows.forEach((row, index) => {
+            const songName = row.querySelector(".song-name").value;
+            const members = row.querySelector(".song-members").value;
+            const expert = parseInt(row.querySelector(".lv-expert").value) || 0;
+            const hard = parseInt(row.querySelector(".lv-hard").value) || 0;
+            const normal = parseInt(row.querySelector(".lv-normal").value) || 0;
+            const easy = parseInt(row.querySelector(".lv-easy").value) || 0;
+
+            result += `  ["${songName}", "${members}", { easy: ${easy}, normal: ${normal}, hard: ${hard}, expert: ${expert} }]`;
+            if (index < rows.length - 1) result += ",\n";
+            else result += "\n";
+        });
+        result += "];\n";
+        return result;
+    } else {
+        let result = "// =========================================\n";
+        result += "// 数字とスキルの対応表（IDマスター）\n";
+        result += "// =========================================\n";
+        result += "const skillMaster = {\n";
+        const sortedIds = Object.keys(localSkillMaster).sort((a, b) => parseInt(a) - parseInt(b));
+        sortedIds.forEach((id, idx) => {
+            result += `    ${id}: "${localSkillMaster[id]}"`;
+            if (idx < sortedIds.length - 1) result += ",\n";
+            else result += "\n";
+        });
+        result += "};\n\n";
+
+        result += "const cardData = [\n";
+        rows.forEach((row, index) => {
+            const rarity = parseInt(row.querySelector(".rarity").value) || 0;
+            const name = row.querySelector(".name").value;
+            const filename = row.querySelector(".filename").value;
+            const skillid = parseInt(row.querySelector(".skillid").value) || 0;
+            
+            const version = row.querySelector(".version").value.trim();
+            const group = row.querySelector(".group").value.trim();
+            const searchword = row.querySelector(".searchword").value.trim();
+            
+            let combinedTags = [];
+            if (version) combinedTags.push(version);
+            if (group) combinedTags.push(group);
+            if (searchword) combinedTags.push(searchword);
+            const searchWordStr = combinedTags.join(", ");
+
+            const leader = row.querySelector(".leader").value;
+            const special = row.querySelector(".special").value;
+            const active = row.querySelector(".active").value;
+            const passive = row.querySelector(".passive").value;
+
+            result += `  [ ${rarity}, "${name}", "${filename}", ${skillid}, "${searchWordStr}", \n`;
+            result += `    { leader: "${leader}", special: "${special}", active: "${active}", passive: "${passive}" }\n`;
+            result += `  ]`;
+            
+            if (index < rows.length - 1) result += ",\n";
+            else result += "\n";
+        });
+        result += "];\n";
+        return result;
+    }
+}
+
+async function saveJSFile() {
+    if (!fileHandle) return;
+    try {
+        const jsContent = generateJSString();
+        const writable = await fileHandle.createWritable();
+        await writable.write(jsContent);
+        await writable.close();
+        alert("ファイルを直接上書き保存しました");
+    } catch (err) {
+        alert("保存中にエラーが発生しました:\n" + err.message);
+    }
+}
+
+updateTableHeader();
+</script>
+
+</body>
+</html>

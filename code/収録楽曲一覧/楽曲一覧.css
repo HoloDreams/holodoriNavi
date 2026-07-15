@@ -1,0 +1,345 @@
+body {
+  margin: 0;
+  background-color: #fff; 
+  background-image: url('../img/background.png'); 
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  background-attachment: scroll;
+  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif;
+  overflow-x: hidden;
+}
+
+html, body {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none !important;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 5% !important;
+  background-color: #f8f8f8;
+  box-sizing: border-box;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.logo img {
+  width: 140px !important;
+  height: auto;
+  display: block;
+}
+
+.site-title {
+  font-family: "Hiragino Maru Gothic ProN", "Yu Gothic", sans-serif;
+  font-size: 22px !important;
+  font-weight: 500;
+  background: linear-gradient(-45deg, #46d4ff, #0094d8);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  display: inline-block;
+  line-height: 1.1;
+}
+
+.nav-links {
+  display: flex;
+  flex-direction: row !important;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  gap: 10px !important;
+}
+
+.nav-links a {
+  display: inline-block;
+  text-decoration: none;
+  background-color: #46d4ff;
+  color: rgb(255, 255, 255);
+  padding: 6px 12px !important;
+  border-radius: 6px !important;
+  font-size: 13px !important;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  text-align: center;
+  min-width: auto !important;
+}
+
+.back-btn {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 2000;
+}
+
+.back-btn img {
+  width: 60px;
+  transition: filter 0.3s, transform 0.3s;
+}
+
+.back-btn:hover img {
+  filter: brightness(1.2);
+  transform: translateX(-3px);
+}
+
+.display-title a,
+.bpm-label,
+.bpm-value,
+.lv-text,
+.combo-text,
+.section-title,
+.comment-box {
+  color: #ffffff;
+  text-shadow: 
+    2px 2px 0 #004777,
+    -2px 2px 0 #004777,
+    2px -2px 0 #004777,
+    -2px -2px 0 #004777;
+}
+
+/* --- 曲詳細 --- */
+.song-detail-flex {
+  display: flex;
+  justify-content: center;
+  gap: 80px;
+  padding: 80px 50px 20px;
+  margin: 0 auto;
+  max-width: 1200px;
+  box-sizing: border-box;
+}
+
+.side-jacket img {
+  width: 450px;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.song-info-area {
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+}
+
+.display-title {
+  font-size: 60px;
+  font-weight: bold;
+  margin: 0;
+  line-height: 1.1;
+  word-wrap: break-word;
+}
+
+.display-title a {
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.display-title a:hover {
+  color: #a1bfff;
+}
+
+.bpm-area {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.bpm-label, .bpm-value {
+  font-size: 40px;
+  font-weight: bold;
+}
+
+/* --- 難易度リスト --- */
+.song-stats-vertical {
+  position: relative;
+  height: 220px;
+  margin-top: 20px;
+}
+
+.stat-row {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  position: absolute;
+  white-space: nowrap;
+}
+
+.ex { top: 0px; }
+.hd { top: 55px; }
+.nm { top: 110px; }
+.es { top: 165px; }
+
+.stat-row img { width: 140px; height: auto; }
+.lv-text, .combo-text { font-size: 36px; font-weight: bold; }
+
+.chart-check-section {
+  padding: 40px 50px;
+  text-align: center;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.section-title {
+  font-size: 50px;
+  margin-bottom: 40px;
+  font-weight: bold;
+}
+
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+  justify-items: center;
+}
+
+.video-wrapper {
+  width: 100%;
+  max-width: 600px;
+  padding: 10px 20px 30px;
+  border-radius: 20px;
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(9px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 4px 20px rgba(255, 255, 255, 0.1);
+  box-sizing: border-box;
+}
+
+.video-header img {
+  height: 120px;
+  width: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+.video-wrapper iframe {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 8px;
+  display: block;
+  margin: 0 auto;
+  border: none;
+}
+
+.expert-video { border: 8px solid #b388ff; }
+.hard-video   { border: 8px solid #ff8a80; }
+.normal-video { border: 8px solid #ffcc80; }
+.easy-video   { border: 8px solid #81c784; }
+
+.comment-box {
+  font-family: "M PLUS Rounded 1c";
+  font-size: 32px;
+  line-height: 1.4;
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: left;
+  font-weight: 700;
+  background: #0000008a;
+  padding: 90px;
+  border: 4px solid transparent;
+  margin-bottom: 100px;
+}
+
+@media (max-width: 1024px) {
+  .navbar { padding: 20px 5%; }
+  .site-title { font-size: 32px; }
+  .video-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    padding: 20px;
+    text-align: center;
+  }
+
+  .logo {
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 15px;
+  }
+
+  .logo img { width: 150px; }
+  .site-title { font-size: 20px; line-height: 1.3; }
+
+  .nav-links {
+    align-items: center;
+    width: 100%;
+    gap: 10px;
+  }
+
+  .nav-links li {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .nav-links a {
+    width: 85%;
+    max-width: 320px;
+    font-size: 15px;
+    padding: 12px 0;
+  }
+
+  .song-detail-flex {
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    gap: 20px;
+  }
+
+  .side-jacket {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    order: -1;
+  }
+
+  .side-jacket img { width: 220px; }
+  .song-info-area { width: 100%; text-align: center; }
+  .bpm-area { justify-content: center; margin: 10px 0; width: 100%; }
+}
+
+@media (max-width: 480px) {
+  .display-title { font-size: 26px; }
+  .section-title { font-size: 28px; }
+}
+/* Keep: boxed text sections and small heading underline */
+.operation-block,
+.content-card,
+.comment-box {
+  max-width: 980px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 34px;
+  background: rgba(255, 255, 255, 0.62);
+  border: 1px solid rgba(70, 212, 255, 0.28);
+  border-radius: 18px;
+  box-shadow: 0 12px 30px rgba(0, 148, 216, 0.12);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-sizing: border-box;
+}
+
+h1::after,
+.main-title::after,
+.section-title::after {
+  content: "";
+  display: block;
+  width: 64px;
+  height: 4px;
+  margin: 12px auto 0;
+  border-radius: 999px;
+  background: #46d4ff;
+}

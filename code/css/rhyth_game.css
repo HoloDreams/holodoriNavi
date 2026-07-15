@@ -1,0 +1,696 @@
+﻿body {
+  margin: 0;
+  background-color: #fff; 
+  background-image: url('../img/background.png'); 
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  background-attachment: scroll; 
+  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif;
+  overflow-x: hidden;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 5%;
+  background-color: #f8f8f8;
+  box-sizing: border-box;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.logo img {
+  width: 250px;
+  height: auto;
+  display: block;
+}
+
+.site-title {
+  font-family: "Hiragino Maru Gothic ProN", "Yu Gothic", sans-serif;
+  font-size: 40px;
+  font-weight: 500;
+  background: linear-gradient(-45deg, #46d4ff, #0094d8);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  display: inline-block;
+  line-height: 1.1;
+}
+
+.nav-links {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  gap: 8px;
+}
+
+.nav-links a {
+  display: inline-block;
+  text-decoration: none;
+  background-color: #46d4ff; 
+  color: white;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  text-align: center;
+  min-width: 180px;
+}
+
+.nav-links a:hover {
+  transform: scale(1.05);
+  background-color: #0094d8;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.back-btn {
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  z-index: 2000;
+  text-decoration: none;
+}
+
+.back-btn img {
+  width: 50px;
+  height: auto;
+  transition: filter 0.3s ease, transform 0.3s ease;
+}
+
+.back-btn:hover img {
+  filter: brightness(1.2);
+  transform: translateX(-3px);
+}
+
+.operation-main {
+  padding: 30px 20px;
+  text-align: center;
+}
+
+.double-space {
+  margin-bottom: 3em;
+}
+
+.double-space2 {
+  margin-bottom: 6em;
+}
+
+h1 {
+  font-size: 50px;
+  color: #0094d8;
+  font-weight: bold;
+  font-family: "Hiragino Maru Gothic ProN", "Yu Gothic", sans-serif;
+  margin-top: 50px;
+  margin-bottom: 30px;
+}
+
+h2 {
+  font-size: 28px;
+  color: #3f3f3f;
+  font-weight: bold;
+  font-family: "Hiragino Maru Gothic ProN", "Yu Gothic", sans-serif;
+  margin-top: 50px;
+  margin-bottom: 30px;
+}
+
+
+h2, .operation-block {
+  font-size: 28px;
+  color: #3f3f3f;
+  font-weight: bold;
+  font-family: "Hiragino Maru Gothic ProN", "Yu Gothic", sans-serif;
+  margin-top: 50px;
+  margin-bottom: 30px;
+  text-align: center; /* 念のため中央寄せを確実にする設定 */
+}
+
+.emphasis-section {
+  background-color: rgba(224, 70, 255, 0.301); /* シアン（水色）の超薄い背景色 */
+  padding: 7px;                             /* 内側に適度なすき間を作る */
+  border-radius: 3px;                        /* 四隅を少し丸くして柔らかい印象に */                   /* 上下のセクションとの間にすき間を作る */
+}
+
+.color-blue {
+  color: #0094d8;
+  font-size: 40px;
+}
+
+.color-green {
+  color: #31a827;
+  font-size: 40px;
+}
+
+.color-red {
+  color: #c04f4f;
+  font-size: 40px;
+}
+
+.color-yellow {
+  color: #f5d000;
+  font-size: 40px;
+}
+
+.under-img {
+  margin: 15px auto 0;  /* 左右を「auto」にすることで真ん中に配置されます */
+  max-width: 100%;      /* 画面からはみ出さないようにするお守り */
+  height: auto;         /* 画像の縦横比を崩さない設定 */
+}
+
+h3 {
+  font-size: 20px;
+  color: #3f3f3f;
+}
+
+.title-explanation {
+  font-size: 60px;
+  font-weight: 900;
+  background: linear-gradient(200deg, #8c00ff, #ffffff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  display: block; 
+}
+
+.main-title {
+  font-size: 48px;
+  font-weight: bold;
+  color: #5d7ca3;
+  border-bottom: 4px solid #46d4ff;
+  display: inline-block;
+  margin-bottom: 40px;
+  padding-bottom: 10px;
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    padding: 20px;
+    text-align: center;
+  }
+  .logo {
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  .logo img { width: 200px; }
+  .site-title { font-size: 28px; }
+
+  .nav-links {
+    align-items: center;
+    width: 100%;
+  }
+  .nav-links li {
+    width: 100%;
+  }
+  .nav-links a {
+    width: 90%;
+    max-width: 300px;
+    min-width: unset;
+    font-size: 14px;
+  }
+  
+  .main-title {
+    font-size: 32px;
+  }
+  .back-btn img {
+    width: 40px;
+  }
+  .background-image {
+    width: 250px;
+  }
+}
+
+@media (max-width: 480px) {
+  .site-title { font-size: 24px; }
+  .main-title { font-size: 28px; }
+}
+
+/* スクロールバー非表示 */
+html, body {
+  /* IE, Edge用の設定 */
+  -ms-overflow-style: none;
+  /* Firefox用の設定 */
+  scrollbar-width: none;
+}
+
+/* Chrome, Safari用の設定 */
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none !important;
+}
+
+.navbar {
+  padding: 10px 5% !important;
+}
+
+.logo img {
+  width: 140px !important;
+}
+
+.site-title {
+  font-size: 22px !important;
+}
+
+.nav-links {
+  flex-direction: row !important;
+  gap: 10px !important;
+}
+
+.nav-links a {
+  padding: 6px 12px !important;
+  font-size: 13px !important;
+  min-width: auto !important;
+  border-radius: 6px !important;
+}
+
+@media (max-width: 768px) {
+  .logo {
+    margin-bottom: 10px !;
+  }
+  .nav-links a {
+    width: auto !important;
+    max-width: none !important;
+  }
+}
+
+.content-card,
+.operation-block {
+  max-width: 980px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.notes_img {
+  max-width: min(520px, 90vw);
+  height: auto;
+}
+
+p{
+  display: block !important;
+  color: #3f3f3f;
+  font-size: 28px;
+  line-height: 1.8;
+  font-weight: 700;
+  margin: 0 0 18px;
+  text-align: center;
+  text-shadow: none;
+}
+
+.operation-block p,
+.note-description {
+  display: block !important;
+  color: #3f3f3f;
+  font-size: 28px;
+  line-height: 1.8;
+  font-weight: 700;
+  margin: 0 0 18px;
+  text-align: center;
+  text-shadow: none;
+}
+.operation-block p:last-child,
+.note-description:last-child {
+  margin-bottom: 80px;
+}
+.note-label {
+  display: inline-block;
+  margin-top: 32px;
+  margin-bottom: 18px;
+}
+.notes_img {
+  display: block;
+  margin: 16px auto 28px;
+  max-width: min(520px, 90vw);
+  height: auto;
+}
+.title-explanation {
+  margin-bottom: 56px;
+}
+
+.fade-in-up {
+  opacity: 0;
+  transform: translateX(-64px);
+  transition: opacity 1.7s ease, transform 1.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.fade-in-up.is-show {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+
+/* Keep: boxed text sections and small heading underline */
+.operation-block,
+.content-card,
+.comment-box {
+  max-width: 980px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 34px;
+  background: rgba(255, 255, 255, 0.62);
+  border: 1px solid rgba(70, 212, 255, 0.28);
+  border-radius: 18px;
+  box-shadow: 0 12px 30px rgba(0, 148, 216, 0.12);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-sizing: border-box;
+}
+
+h1::after,
+.main-title::after,
+.section-title::after {
+  content: "";
+  display: block;
+  width: 64px;
+  height: 4px;
+  margin: 12px auto 0;
+  border-radius: 999px;
+  background: #46d4ff;
+}
+
+.score-section {
+  overflow: hidden;
+}
+.score-lead {
+  margin-bottom: 28px !important;
+}
+.score-table-wrap {
+  width: 100%;
+  overflow-x: auto;
+  margin: 0 auto 34px;
+}
+.score-table {
+  width: 100%;
+  min-width: 640px;
+  border-collapse: collapse;
+  color: #3f3f3f;
+  background: rgba(255, 255, 255, 0.78);
+  border-radius: 14px;
+  overflow: hidden;
+  font-size: 20px;
+  font-weight: 700;
+}
+.score-table caption {
+  caption-side: top;
+  padding: 0 0 12px;
+  color: #0086b7;
+  font-size: 24px;
+  font-weight: 900;
+  text-align: left;
+}
+.score-table th,
+.score-table td {
+  padding: 14px 16px;
+  border: 1px solid rgba(0, 148, 216, 0.18);
+  text-align: center;
+  white-space: nowrap;
+}
+.score-table th {
+  color: #ffffff;
+  background: linear-gradient(135deg, #00a7e8, #00d2d8);
+}
+.score-table tbody tr:nth-child(even) {
+  background: rgba(0, 180, 220, 0.08);
+}
+.score-rank-table {
+  min-width: 360px;
+}
+@media (max-width: 700px) {
+  .score-table {
+    min-width: 560px;
+    font-size: 16px;
+  }
+  .score-table caption {
+    font-size: 20px;
+  }
+  .score-table th,
+  .score-table td {
+    padding: 12px 10px;
+  }
+}
+
+.page-toc {
+  max-width: 720px;
+  margin: 46px auto 70px;
+  padding: 26px 28px 30px;
+  background: rgba(255, 255, 255, 0.68);
+  border: 1px solid rgba(70, 212, 255, 0.32);
+  border-radius: 18px;
+  box-shadow: 0 12px 30px rgba(0, 148, 216, 0.12);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+.page-toc .toc-title {
+  margin: 0 0 18px !important;
+  color: #0094d8;
+  font-size: 30px;
+  font-weight: 900;
+  line-height: 1.2;
+}
+.toc-links {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(180px, 1fr));
+  gap: 14px;
+}
+.toc-links a {
+  display: block;
+  padding: 15px 18px;
+  color: #ffffff;
+  background: linear-gradient(135deg, #46d4ff, #0094d8);
+  border-radius: 12px;
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: 900;
+  box-shadow: 0 8px 18px rgba(0, 148, 216, 0.18);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.toc-links a:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px rgba(0, 148, 216, 0.24);
+}
+#notes-section,
+#score-section {
+  scroll-margin-top: 150px;
+}
+@media (max-width: 700px) {
+  .page-toc {
+    margin: 34px auto 54px;
+    padding: 22px 18px 24px;
+  }
+  .toc-links {
+    grid-template-columns: 1fr;
+  }
+  .page-toc .toc-title {
+    font-size: 26px;
+  }
+  .toc-links a {
+    font-size: 18px;
+  }
+}
+
+
+.page-top-button {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 2000;
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  color: #ffffff;
+  background: linear-gradient(135deg, #46d4ff, #0094d8);
+  border: 1px solid rgba(255, 255, 255, 0.72);
+  border-radius: 50%;
+  box-shadow: 0 10px 24px rgba(0, 148, 216, 0.28);
+  text-decoration: none;
+  font-size: 32px;
+  font-weight: 900;
+  line-height: 1;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+}
+.page-top-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 30px rgba(0, 148, 216, 0.34);
+  filter: brightness(1.05);
+}
+html {
+  scroll-behavior: smooth;
+}
+@media (max-width: 700px) {
+  .page-top-button {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 2000;
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  color: #ffffff;
+  background: linear-gradient(135deg, #46d4ff, #0094d8);
+  border: 1px solid rgba(255, 255, 255, 0.72);
+  border-radius: 50%;
+  box-shadow: 0 10px 24px rgba(0, 148, 216, 0.28);
+  text-decoration: none;
+  font-size: 32px;
+  font-weight: 900;
+  line-height: 1;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+}
+}
+/* ?????????? */
+
+/* リズムゲームの遊び方: 画像付き説明 */
+:root {
+  --rhythm-play-image-width: 1000px;
+}
+
+.dream-park-image,
+.rhythm-play-image {
+  display: block;
+  width: min(var(--rhythm-play-image-width), 90vw);
+  max-width: 100%;
+  height: auto;
+  margin: 0;
+}
+
+.dream-park-image-box,
+.rhythm-play-image-box {
+  display: inline-block;
+  padding: 40px;
+  margin: 24px auto 40px;
+  background: rgba(255, 255, 255, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.65);
+  border-radius: 18px;
+  box-shadow: 0 10px 28px rgba(0, 80, 120, 0.18);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+/* 設定各種: タップエフェクト4枚表示 */
+.tap-effect-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+  max-width: 760px;
+  margin: 24px auto 34px;
+}
+
+.tap-effect-image-box {
+  display: block !important;
+  margin: 0 !important;
+  padding: 18px;
+  background: rgba(255, 255, 255, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.65);
+  border-radius: 18px;
+  box-shadow: 0 8px 22px rgba(0, 80, 120, 0.16);
+  box-sizing: border-box;
+}
+
+.tap-effect-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
+
+@media (max-width: 640px) {
+  .tap-effect-grid {
+    grid-template-columns: 1fr;
+    max-width: 360px;
+  }
+}
+.rhythm-options-section h2 {
+  color: #449434 !important;
+  font-size: 36px !important;
+  line-height: 1.25;
+  margin-top: 42px;
+  margin-bottom: 24px;
+}
+/* 各種設定: カテゴリ別トグル */
+.rhythm-option-toggle {
+  width: min(900px, calc(100% - 48px));
+  margin: 18px auto 28px;
+  padding: 0;
+  background: rgba(255, 255, 255, 0.68);
+  border: 1px solid rgba(70, 212, 255, 0.32);
+  border-radius: 18px;
+  box-shadow: 0 12px 30px rgba(0, 148, 216, 0.12);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.rhythm-option-toggle summary {
+  cursor: pointer;
+  list-style: none;
+  padding: 18px 24px;
+  background: #13a1ff;
+  color: #fff;
+  font-size: 26px;
+  font-weight: 900;
+  text-align: left;
+  text-shadow: 0 2px 8px rgba(0, 98, 150, 0.22);
+}
+
+.rhythm-option-toggle summary::-webkit-details-marker {
+  display: none;
+}
+
+.rhythm-option-toggle summary::after {
+  content: "▲";
+  float: right;
+  font-size: 16px;
+  line-height: 32px;
+  opacity: 0.92;
+}
+
+.rhythm-option-toggle:not([open]) summary::after {
+  content: "▼";
+}
+
+.rhythm-option-toggle-content {
+  padding: 28px;
+}
+
+.rhythm-option-toggle-content h2:first-child {
+  margin-top: 0;
+}
+
+@media (max-width: 640px) {
+  .rhythm-option-toggle {
+    width: min(100%, calc(100% - 24px));
+    margin-bottom: 20px;
+  }
+
+  .rhythm-option-toggle summary {
+    padding: 16px 18px;
+    font-size: 21px;
+  }
+
+  .rhythm-option-toggle summary::after {
+    font-size: 14px;
+    line-height: 28px;
+  }
+
+  .rhythm-option-toggle-content {
+    padding: 20px 16px;
+  }
+}
+@media (max-width: 640px) {
+  .fade-in-up {
+    transform: translateX(-32px);
+  }
+  .fade-in-up.is-show {
+    transform: translateX(0);
+  }
+}
+

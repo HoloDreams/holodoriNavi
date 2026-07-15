@@ -1,0 +1,736 @@
+﻿body {
+  margin: 0;
+  background-color: #fff; 
+  background-image: url('../img/background.png'); 
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  background-attachment: scroll; 
+  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif;
+  overflow-x: hidden;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 5%;
+  background-color: #f8f8f8;
+  box-sizing: border-box;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.logo img {
+  width: 250px;
+  height: auto;
+  display: block;
+}
+
+.site-title {
+  font-family: "Hiragino Maru Gothic ProN", "Yu Gothic", sans-serif;
+  font-size: 40px;
+  font-weight: 500;
+  background: linear-gradient(-45deg, #46d4ff, #0094d8);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  display: inline-block;
+  line-height: 1.1;
+}
+
+.nav-links {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  gap: 8px;
+}
+
+.nav-links a {
+  display: inline-block;
+  text-decoration: none;
+  background-color: #46d4ff; 
+  color: white;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  text-align: center;
+  min-width: 180px;
+}
+
+.nav-links a:hover {
+  transform: scale(1.05);
+  background-color: #0094d8;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.back-btn {
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  z-index: 2000;
+  text-decoration: none;
+}
+
+.back-btn img {
+  width: 50px;
+  height: auto;
+  transition: filter 0.3s ease, transform 0.3s ease;
+}
+
+.back-btn:hover img {
+  filter: brightness(1.2);
+  transform: translateX(-3px);
+}
+
+.operation-main {
+  padding: 30px 20px;
+  text-align: center;
+}
+
+.double-space {
+  margin-bottom: 3em;
+}
+
+.double-space2 {
+  margin-bottom: 6em;
+}
+
+h1 {
+  font-size: 50px;
+  color: #0094d8;
+  font-weight: bold;
+  font-family: "Hiragino Maru Gothic ProN", "Yu Gothic", sans-serif;
+  margin-top: 50px;
+  margin-bottom: 30px;
+}
+
+h2 {
+  font-size: 28px;
+  color: #3f3f3f;
+  font-weight: bold;
+  font-family: "Hiragino Maru Gothic ProN", "Yu Gothic", sans-serif;
+  margin-top: 50px;
+  margin-bottom: 30px;
+}
+
+/* 🔍 元のh2の設定に「.operation-block」を追加して、見た目を完全キープ！ */
+h2, .operation-block {
+  font-size: 28px;
+  color: #3f3f3f;
+  font-weight: bold;
+  font-family: "Hiragino Maru Gothic ProN", "Yu Gothic", sans-serif;
+  margin-top: 50px;
+  margin-bottom: 30px;
+  text-align: center; /* 念のため中央寄せを確実にする設定 */
+}
+
+.emphasis-section {
+  background-color: rgba(224, 70, 255, 0.301); /* シアン（水色）の超薄い背景色 */
+  padding: 7px;                             /* 内側に適度なすき間を作る */
+  border-radius: 3px;                        /* 四隅を少し丸くして柔らかい印象に */                   /* 上下のセクションとの間にすき間を作る */
+}
+
+.color-blue {
+  color: #0094d8;
+  font-size: 40px;
+}
+
+.color-green {
+  color: #31a827;
+  font-size: 40px;
+}
+
+.color-red {
+  color: #c04f4f;
+  font-size: 40px;
+}
+
+.under-img {
+  margin: 15px auto 0;  /* 左右を「auto」にすることで真ん中に配置されます */
+  max-width: 100%;      /* 画面からはみ出さないようにするお守り */
+  height: auto;         /* 画像の縦横比を崩さない設定 */
+}
+
+h3 {
+  font-size: 20px;
+  color: #3f3f3f;
+}
+
+.title-explanation {
+  font-size: 60px;
+  font-weight: 900;
+  background: linear-gradient(200deg, #8c00ff, #ffffff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  display: block; 
+}
+
+.main-title {
+  font-size: 48px;
+  font-weight: bold;
+  color: #5d7ca3;
+  border-bottom: 4px solid #46d4ff;
+  display: inline-block;
+  margin-bottom: 40px;
+  padding-bottom: 10px;
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    padding: 20px;
+    text-align: center;
+  }
+  .logo {
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  .logo img { width: 200px; }
+  .site-title { font-size: 28px; }
+
+  .nav-links {
+    align-items: center;
+    width: 100%;
+  }
+  .nav-links li {
+    width: 100%;
+  }
+  .nav-links a {
+    width: 90%;
+    max-width: 300px;
+    min-width: unset;
+    font-size: 14px;
+  }
+  
+  .main-title {
+    font-size: 32px;
+  }
+  .back-btn img {
+    width: 40px;
+  }
+  .background-image {
+    width: 250px;
+  }
+}
+
+@media (max-width: 480px) {
+  .site-title { font-size: 24px; }
+  .main-title { font-size: 28px; }
+}
+
+/* スクロールバー非表示 */
+html, body {
+  /* IE, Edge用の設定 */
+  -ms-overflow-style: none;
+  /* Firefox用の設定 */
+  scrollbar-width: none;
+}
+
+/* Chrome, Safari用の設定 */
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none !important;
+}
+
+.navbar {
+  padding: 10px 5% !important;
+}
+
+.logo img {
+  width: 140px !important;
+}
+
+.site-title {
+  font-size: 22px !important;
+}
+
+.nav-links {
+  flex-direction: row !important;
+  gap: 10px !important;
+}
+
+.nav-links a {
+  padding: 6px 12px !important;
+  font-size: 13px !important;
+  min-width: auto !important;
+  border-radius: 6px !important;
+}
+
+@media (max-width: 768px) {
+  .logo {
+    margin-bottom: 10px !;
+  }
+  .nav-links a {
+    width: auto !important;
+    max-width: none !important;
+  }
+}
+
+.content-card,
+.operation-block {
+  max-width: 980px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.notes_img {
+  max-width: min(520px, 90vw);
+  height: auto;
+}
+.operation-block p,
+.note-description {
+  display: block !important;
+  color: #3f3f3f;
+  font-size: 28px;
+  line-height: 1.8;
+  font-weight: 700;
+  margin: 0 0 18px;
+  text-align: center;
+  text-shadow: none;
+}
+.operation-block p:last-child,
+.note-description:last-child {
+  margin-bottom: 80px;
+}
+.note-label {
+  display: inline-block;
+  margin-top: 32px;
+  margin-bottom: 18px;
+}
+.notes_img {
+  display: block;
+  margin: 16px auto 28px;
+  max-width: min(520px, 90vw);
+  height: auto;
+}
+.title-explanation {
+  margin-bottom: 56px;
+}
+
+.fade-in-up {
+  opacity: 0;
+  transform: translateX(-64px);
+  transition: opacity 1.7s ease, transform 1.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.fade-in-up.is-show {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.emphasis-sectio{
+  background: #fff352;
+}
+
+/* ドリームパーク内の画像サイズ調整 */
+:root {
+  --dream-park-image-width: 1000px;
+}
+
+.dream-park-image,
+.MegaSphere_img {
+  display: block;
+  width: min(var(--dream-park-image-width), 90vw);
+  max-width: 100%;
+  height: auto;
+  margin: 16px auto 32px;
+}
+
+/* ドリームパーク内の画像を囲む半透明ボックス */
+.dream-park-image-box {
+  display: inline-block;
+  padding: 40px;
+  margin: 24px auto 40px;
+  background: rgba(255, 255, 255, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.65);
+  border-radius: 18px;
+  box-shadow: 0 10px 28px rgba(0, 80, 120, 0.18);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.dream-park-image-box .dream-park-image {
+  margin: 0;
+}
+
+/* ドリームパーク本文フォント: Sora ExtraBold */
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@800&display=swap');
+
+:root {
+  --dream-park-text-font: "Sora", "M PLUS Rounded 1c", "Hiragino Maru Gothic ProN", "Yu Gothic", sans-serif;
+  --dream-park-text-weight: 800;
+}
+
+#content-root h1,
+#content-root .operation-block p,
+#content-root .title-explanation {
+  font-family: var(--dream-park-text-font);
+  font-weight: var(--dream-park-text-weight);
+}
+
+/* ドリームパークの画像リンクボタン */
+:root {
+  --dream-park-link-button-width: 180px;
+}
+
+.dream-park-link-button-box {
+  margin: 18px auto 56px !important;
+  text-align: center;
+}
+
+.dream-park-link-button-box a {
+  display: inline-block;
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.dream-park-link-button-box a:hover {
+  transform: translateY(-3px) scale(1.03);
+  filter: brightness(1.08);
+}
+
+.dream-park-link-button-image {
+  display: block;
+  width: min(var(--dream-park-link-button-width), 80vw);
+  max-width: 100%;
+  height: auto;
+}
+
+/* Keep: boxed text sections and small heading underline */
+.operation-block,
+.content-card,
+.comment-box {
+  max-width: 980px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 34px;
+  background: rgba(255, 255, 255, 0.62);
+  border: 1px solid rgba(70, 212, 255, 0.28);
+  border-radius: 18px;
+  box-shadow: 0 12px 30px rgba(0, 148, 216, 0.12);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-sizing: border-box;
+}
+
+h1::after,
+.main-title::after,
+.section-title::after {
+  content: "";
+  display: block;
+  width: 64px;
+  height: 4px;
+  margin: 12px auto 0;
+  border-radius: 999px;
+  background: #46d4ff;
+}
+
+/* ドリームパーク: rhythm_game と揃えた目次・文字色 */
+.dream-park-main-title,
+.park-section-title {
+  color: #0094d8 !important;
+}
+.dream-park-toc {
+  max-width: 720px;
+  margin: 46px auto 70px;
+  padding: 26px 28px 30px;
+  background: rgba(255, 255, 255, 0.68);
+  border: 1px solid rgba(70, 212, 255, 0.32);
+  border-radius: 18px;
+  box-shadow: 0 12px 30px rgba(0, 148, 216, 0.12);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+.dream-park-toc .toc-title {
+  margin: 0 0 18px !important;
+  color: #0094d8;
+  font-size: 30px;
+  font-weight: 900;
+  line-height: 1.2;
+}
+.toc-links {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(180px, 1fr));
+  gap: 14px;
+}
+.toc-links a {
+  display: block;
+  padding: 15px 18px;
+  color: #ffffff;
+  background: linear-gradient(135deg, #46d4ff, #0094d8);
+  border-radius: 12px;
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: 900;
+  box-shadow: 0 8px 18px rgba(0, 148, 216, 0.18);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.toc-links a:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px rgba(0, 148, 216, 0.24);
+}
+#harmony-garden,
+#mega-sphere {
+  scroll-margin-top: 150px;
+}
+#content-root .operation-block p,
+#content-root .title-explanation {
+  color: #3f3f3f;
+}
+#content-root .emphasis-section {
+  color: #0079ad;
+}
+@media (max-width: 700px) {
+  .dream-park-toc {
+    margin: 34px auto 54px;
+    padding: 22px 18px 24px;
+  }
+  .toc-links {
+    grid-template-columns: 1fr;
+  }
+  .dream-park-toc .toc-title {
+    font-size: 26px;
+  }
+  .toc-links a {
+    font-size: 18px;
+  }
+}
+
+.park-heading {
+  margin-top: 78px;
+  margin-bottom: 56px;
+}
+.park-title-purple {
+  color: #a45cff !important;
+}
+
+.page-top-button {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 2000;
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  color: #ffffff;
+  background: linear-gradient(135deg, #46d4ff, #0094d8);
+  border: 1px solid rgba(255, 255, 255, 0.72);
+  border-radius: 50%;
+  box-shadow: 0 10px 24px rgba(0, 148, 216, 0.28);
+  text-decoration: none;
+  font-size: 32px;
+  font-weight: 900;
+  line-height: 1;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+}
+.page-top-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 30px rgba(0, 148, 216, 0.34);
+  filter: brightness(1.05);
+}
+html {
+  scroll-behavior: smooth;
+}
+@media (max-width: 700px) {
+  .page-top-button {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 2000;
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  color: #ffffff;
+  background: linear-gradient(135deg, #46d4ff, #0094d8);
+  border: 1px solid rgba(255, 255, 255, 0.72);
+  border-radius: 50%;
+  box-shadow: 0 10px 24px rgba(0, 148, 216, 0.28);
+  text-decoration: none;
+  font-size: 32px;
+  font-weight: 900;
+  line-height: 1;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+}
+}
+/* ポカジャン説明: クリックで開閉できます */
+.pocajan-rule-summary {
+  width: min(900px, calc(100% - 48px));
+  margin: 18px auto 80px;
+  padding: 0;
+  background: rgba(255, 255, 255, 0.68);
+  border: 1px solid rgba(70, 212, 255, 0.32);
+  border-radius: 18px;
+  box-shadow: 0 12px 30px rgba(0, 148, 216, 0.12);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.pocajan-rule-summary summary {
+  cursor: pointer;
+  list-style: none;
+  padding: 18px 24px;
+  background: #13a1ff;
+  color: #fff;
+  font-family: var(--dream-park-text-font);
+  font-size: 26px;
+  font-weight: var(--dream-park-text-weight);
+  text-align: left;
+  text-shadow: 0 2px 8px rgba(0, 98, 150, 0.22);
+}
+
+.pocajan-rule-summary summary::-webkit-details-marker {
+  display: none;
+}
+
+.pocajan-rule-summary summary::after {
+  content: "▲";
+  float: right;
+  font-size: 16px;
+  line-height: 32px;
+  opacity: 0.92;
+}
+
+.pocajan-rule-summary:not([open]) summary::after {
+  content: "▼";
+}
+
+.pocajan-rule-content {
+  padding: 28px;
+}
+
+.pocajan-rule-content h2 {
+  margin: 0 0 14px;
+  padding-bottom: 8px;
+  color: #0079ad;
+  font-family: var(--dream-park-text-font);
+  font-size: 24px;
+  font-weight: var(--dream-park-text-weight);
+  text-align: left;
+  border-bottom: 2px solid rgba(70, 212, 255, 0.38);
+}
+
+.pocajan-rule-table {
+  width: 100%;
+  margin: 8px 0 28px;
+  border-collapse: separate;
+  border-spacing: 0 10px;
+  font-family: var(--dream-park-text-font);
+}
+
+.pocajan-rule-table th,
+.pocajan-rule-table td {
+  padding: 14px 16px;
+  font-size: 18px;
+  line-height: 1.65;
+  vertical-align: middle;
+}
+
+.pocajan-rule-table th {
+  width: 28%;
+  min-width: 160px;
+  background: rgba(70, 212, 255, 0.92);
+  color: #fff;
+  border-radius: 12px 0 0 12px;
+  text-align: center;
+}
+
+.pocajan-rule-table td {
+  background: rgba(255, 255, 255, 0.86);
+  color: #3f3f3f;
+  border-radius: 0 12px 12px 0;
+  text-align: left;
+}
+
+.pocajan-rule-list {
+  margin: 0;
+  padding-left: 1.35em;
+  color: #3f3f3f;
+  font-family: var(--dream-park-text-font);
+  font-size: 18px;
+  line-height: 1.8;
+  text-align: left;
+}
+
+.pocajan-rule-list li {
+  margin: 0 0 10px;
+}
+
+@media (max-width: 640px) {
+  .pocajan-rule-summary summary {
+    padding: 16px 18px;
+    font-size: 21px;
+  }
+
+  .pocajan-rule-summary summary::after {
+    font-size: 14px;
+    line-height: 28px;
+  }
+
+  .pocajan-rule-content {
+    padding: 20px 16px;
+  }
+
+  .pocajan-rule-table,
+  .pocajan-rule-table tbody,
+  .pocajan-rule-table tr,
+  .pocajan-rule-table th,
+  .pocajan-rule-table td {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .pocajan-rule-table tr {
+    margin: 0 0 12px;
+  }
+
+  .pocajan-rule-table th {
+    min-width: 0;
+    border-radius: 12px 12px 0 0;
+  }
+
+  .pocajan-rule-table td {
+    border-radius: 0 0 12px 12px;
+  }
+}
+/* ??System??? */
+
+
+/* rhythm_game.html冒頭説明と同じ見た目 */
+#content-root .system-intro-text {
+  display: block !important;
+  color: #3f3f3f;
+  font-size: 28px;
+  line-height: 1.8;
+  font-weight: 700;
+  margin: 0 0 18px;
+  text-shadow: none;
+}
+
+@media (max-width: 640px) {
+  .fade-in-up {
+    transform: translateX(-32px);
+  }
+  .fade-in-up.is-show {
+    transform: translateX(0);
+  }
+}
+
+
+.cooking-rule-summary summary {
+  background: #ffbb00;
+}
+

@@ -1,0 +1,430 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ホロドリ非公式サイト</title>
+  <link rel="stylesheet" href="css/home.css">
+  <link rel="icon" href="img/favicon.ico">
+  
+  <script src="https://unpkg.com/@studio-freight/lenis@1.0.33/dist/lenis.min.js"></script>
+
+  <style>
+    body {
+      background-image: url('img/background.png') !important;
+      background-repeat: no-repeat !important;
+      background-position: center center !important;
+      background-size: cover !important;
+      background-attachment: fixed !important;
+    }
+    .navbar {
+      background-color: rgba(248, 248, 248, 0.342) !important;
+      backdrop-filter: blur(10px) !important;
+      -webkit-backdrop-filter: blur(10px) !important;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .fade-in-up {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+    .fade-in-up.is-show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+  <link rel="stylesheet" href="css/loading.css">
+  <link rel="stylesheet" href="css/common_menu.css">
+</head>
+
+<body>
+  <div class="holodori-loading-screen" role="status" aria-live="polite">
+    <div class="holodori-loading-inner">
+      <p class="holodori-loading-text" aria-label="Loading...">
+        <span style="--i: 0;">L</span>
+        <span style="--i: 1;">o</span>
+        <span style="--i: 2;">a</span>
+        <span style="--i: 3;">d</span>
+        <span style="--i: 4;">i</span>
+        <span style="--i: 5;">n</span>
+        <span style="--i: 6;">g</span>
+        <span style="--i: 7;">.</span>
+        <span style="--i: 8;">.</span>
+        <span style="--i: 9;">.</span>
+      </p>
+      <div class="holodori-loading-bar" aria-hidden="true">
+        <div class="holodori-loading-bar-fill"></div>
+      </div>
+    </div>
+  </div>
+<nav class="navbar">
+    <div class="logo">
+      <img src="img/logo.webp" alt="logo">
+      <span class="site-title">ホロライブドリームス<br>非公式サイト</span>
+    </div>
+    
+    <ul class="nav-links">
+      <li><a href="https://opening.hololive-dreams.com/" target="_blank">公式サイトはこちら</a></li>
+      <li><a href="https://x.com/hololive_dreams" target="_blank">公式Xはこちら</a></li>
+      <li><a href="https://www.youtube.com/@hololivedreams" target="_blank">公式YouTubeはこちら</a></li>
+    </ul>
+  </nav>
+
+  <main class="fade-in-up">
+    <section class="home-hero">
+      <p class="home-eyebrow">Run by fans.</p>
+      <h1>ホロライブドリームスを<br>もっと遊びやすく</h1>
+      <p class="home-lead">このサイトでは、ホロライブドリームスの遊び方、リズムゲームの設定、<br>ドリームパーク、収録楽曲、キャラクターカード情報をまとめています。</p>
+      <p class="home-lead">ゲームを始めたばかりの人も、楽曲やカードを探したい人も、<br>必要な情報へすぐ移動できる非公式まとめサイトです。</p>
+    </section>
+
+    <section class="site-overview-section fade-in-up" aria-labelledby="site-overview-title">
+      <h2 id="site-overview-title" class="section-heading">このサイトでできること</h2>
+      <ul class="overview-list">
+        <li>リズムゲームのノーツ、判定、オプション設定を確認できます。</li>
+        <li>ドリームパークの遊び方やミニゲーム、施設の情報をまとめています。</li>
+        <li>収録楽曲をジャケットや難易度つきで探せます。</li>
+        <li>キャラクターカード関連の情報ページへ移動できます。</li>
+        <li>最新ニュース画像を見ながら、公式情報もチェックできます。</li>
+      </ul>
+    </section>
+
+    <section class="download-section fade-in-up" aria-labelledby="download-title">
+      <h2 id="download-title" class="section-heading">アプリダウンロード</h2>
+      <p>各ストアからダウンロードできます。</p>
+      <div class="download-container">
+        <a href="https://apps.apple.com/jp/app/%E3%83%9B%E3%83%AD%E3%83%A9%E3%82%A4%E3%83%96%E3%83%89%E3%83%AA%E3%83%BC%E3%83%A0%E3%82%B9/id6756641135" class="download-btn ios">App Store</a>
+        <a href="https://play.google.com/store/apps/details?id=game.qualiarts.hololive.dreams.jp&pli=1" class="download-btn android">Google Play</a>
+        <a href="https://store.steampowered.com/app/4282500/_/?l=japanese" class="download-btn steam" target="_blank">Steam</a>
+      </div>
+    </section>
+    <div class="blue-strip fade-in-up">
+      <div class="news-container">
+        <span class="news-label">ニュース</span>
+      </div>
+
+      <div class="carousel-wrapper">
+        <button type="button" class="carousel-btn prev-btn" id="carousel-prev">
+          <img src="img/next.png" alt="前へ">
+        </button>
+
+        <div class="carousel-container">
+          <div class="carousel-track" id="carousel-track">
+            <div class="carousel-scroll" id="instagram-news-list"></div>
+          </div>
+        </div>
+
+        <button type="button" class="carousel-btn next-btn" id="carousel-next">
+          <img src="img/prev.png" alt="次へ">
+        </button>
+      </div>
+    </div>
+        <section class="home-links-after-news" aria-labelledby="home-links-title">
+      <div class="home-guide-group home-guide-group-description">
+        <h2 id="home-links-title" class="after-news-heading">ゲームの説明はこちら</h2>
+        <div class="home-guide-list home-guide-list-description">
+          <a href="dream_park.html" class="guide-button">ドリームパーク</a>
+          <a href="rhythm_game.html" class="guide-button">リズムゲーム</a>
+          <a href="unit.html" class="guide-button guide-button-single">ユニット</a>
+        </div>
+      </div>
+
+      <div class="home-guide-group home-guide-group-strategy-bg">
+        <h2 class="after-news-heading">ゲームの攻略はこちら</h2>
+        <div class="home-guide-list home-guide-list-strategy">
+          <a href="song.html" class="guide-button">収録楽曲一覧</a>
+          <a href="character_card.html" class="guide-button">キャラクターカード一覧</a>
+          <a href="item_search.html" class="guide-button guide-button-single">アイテム一覧</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="full-width-box2 fade-in-up">
+    <p>当サイトはホロライブリスナーが作成した非公式サイトです。<br>
+    内容について、カバー株式会社およびホロライブプロダクション公式へのお問い合わせはお控えください。<br><br>
+    サイトに関するお問い合わせは<a href="https://x.com/ampere_coulomb" target="_blank">こちら</a></p>
+  </div>
+  <script src="news_img/instagram-news.js"></script>
+  <script>
+  // Lenis が読み込める環境ではスムーススクロールを有効化する
+  if (window.Lenis) {
+    const lenis = new Lenis({
+      duration: 1.2,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      smooth: true,
+    });
+    function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
+    requestAnimationFrame(raf);
+  }
+
+  function revealAnimatedContent() {
+    const targets = document.querySelectorAll('.fade-in-up');
+    if (!targets.length) return;
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-show');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { rootMargin: '0px 0px -33% 0px' });
+      targets.forEach(el => observer.observe(el));
+    } else {
+      targets.forEach(el => el.classList.add('is-show'));
+    }
+  }
+  function createRandomScrollDecorations() {
+    const placements = [
+      { section: '.site-overview-section', side: 'right', x: 118, y: 0.64, size: 92, rotate: 14 },
+      { section: '.download-section', side: 'left', x: 176, y: 0.32, size: 128, rotate: 10 },
+      { section: '.download-section', side: 'right', x: 58, y: 0.72, size: 108, rotate: -12 },
+    ];
+
+    document.querySelectorAll('.home-scroll-decor').forEach((decor) => decor.remove());
+
+    const observer = 'IntersectionObserver' in window
+      ? new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            entry.target.classList.toggle('is-visible', entry.isIntersecting);
+          });
+        }, { rootMargin: '0px 0px -18% 0px' })
+      : null;
+
+    placements.forEach((placement) => {
+      const section = document.querySelector(placement.section);
+      if (!section) return;
+
+      const decor = document.createElement('div');
+      const sectionTop = section.offsetTop;
+      const sectionHeight = section.offsetHeight;
+      const top = Math.round(sectionTop + sectionHeight * placement.y);
+      const sideOffset = Math.min(placement.x, Math.max(28, window.innerWidth * 0.24));
+
+      decor.className = `home-scroll-decor home-scroll-decor-${placement.side}`;
+      decor.setAttribute('aria-hidden', 'true');
+      decor.style.top = `${top}px`;
+      decor.style.width = `${placement.size}px`;
+      decor.style.height = `${placement.size}px`;
+      decor.style.setProperty('--decor-rotate', `${placement.rotate}deg`);
+      if (placement.side === 'left') {
+        decor.style.left = `${sideOffset}px`;
+      } else {
+        decor.style.right = `${sideOffset}px`;
+      }
+      decor.innerHTML = '<img src="img/scroll_deco_test.svg" alt="">';
+      document.body.appendChild(decor);
+
+      if (observer) {
+        observer.observe(decor);
+      } else {
+        decor.classList.add('is-visible');
+      }
+    });
+  }
+  document.addEventListener('DOMContentLoaded', () => {
+    revealAnimatedContent();
+    createRandomScrollDecorations();
+const list = document.getElementById('instagram-news-list');
+    const prevBtn = document.getElementById('carousel-prev');
+    const nextBtn = document.getElementById('carousel-next');
+    if (!list || !prevBtn || !nextBtn) return;
+
+    const fallbackPosts = [
+      { url: 'https://www.instagram.com/hololivedreams_info/' },
+    ];
+    const posts = Array.isArray(window.instagramNewsPosts) && window.instagramNewsPosts.length
+      ? window.instagramNewsPosts.slice(0, 5)
+      : fallbackPosts;
+
+    const imageViewer = document.createElement('div');
+    imageViewer.className = 'news-image-viewer';
+    imageViewer.innerHTML = `
+      <button type="button" class="news-image-viewer-close" aria-label="閉じる">×</button>
+      <img class="news-image-viewer-img" alt="">
+    `;
+    document.body.appendChild(imageViewer);
+
+    const viewerImg = imageViewer.querySelector('.news-image-viewer-img');
+    const closeViewer = () => {
+      imageViewer.classList.remove('is-open');
+      viewerImg.removeAttribute('src');
+      viewerImg.alt = '';
+    };
+    const openViewer = (src, alt) => {
+      viewerImg.src = src;
+      viewerImg.alt = alt;
+      imageViewer.classList.add('is-open');
+    };
+
+    imageViewer.addEventListener('click', (event) => {
+      if (event.target === imageViewer || event.target.classList.contains('news-image-viewer-close')) {
+        closeViewer();
+      }
+    });
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') closeViewer();
+    });
+
+    const makeItem = (post, index) => {
+      const item = document.createElement('div');
+      item.className = 'carousel-item instagram-news-item';
+      item.dataset.newsIndex = String(index % posts.length);
+
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.className = 'instagram-image-card';
+
+      const img = document.createElement('img');
+      img.src = post.img || post.image || `news_img/${String((index % posts.length) + 1).padStart(2, '0')}.jpg`;
+      img.alt = post.alt || 'ホロドリニュース画像';
+      img.loading = 'lazy';
+
+      button.appendChild(img);
+      button.addEventListener('click', () => openViewer(img.src, img.alt));
+      item.appendChild(button);
+      return item;
+    };
+
+    list.innerHTML = '';
+    const renderLoopItems = () => {
+      list.innerHTML = '';
+      for (let loop = 0; loop < 3; loop += 1) {
+        posts.forEach((post, index) => list.appendChild(makeItem(post, index)));
+      }
+    };
+
+    let activeIndex = posts.length;
+    let isAnimating = false;
+    let animationFrame = 0;
+    const getItems = () => Array.from(list.querySelectorAll('.carousel-item'));
+    const getCenterLeft = (index) => {
+      const items = getItems();
+      const item = items[index];
+      if (!item) return list.scrollLeft;
+      return item.offsetLeft - (list.clientWidth - item.clientWidth) / 2;
+    };
+    const easeOutExpo = (t) => (t >= 1 ? 1 : 1 - Math.pow(2, -10 * t));
+    const animateScrollTo = (targetLeft, duration = 500) => {
+      window.cancelAnimationFrame(animationFrame);
+      const startLeft = list.scrollLeft;
+      const diff = targetLeft - startLeft;
+      const startTime = performance.now();
+      const previousSnap = list.style.scrollSnapType;
+      list.style.scrollSnapType = 'none';
+      const step = (now) => {
+        const progress = Math.min(1, (now - startTime) / duration);
+        list.scrollLeft = startLeft + diff * easeOutExpo(progress);
+        updateActive(false);
+        if (progress < 1) {
+          animationFrame = window.requestAnimationFrame(step);
+        } else {
+          list.scrollLeft = targetLeft;
+          list.style.scrollSnapType = previousSnap;
+        }
+      };
+      animationFrame = window.requestAnimationFrame(step);
+    };
+    const centerItem = (index, behavior = 'smooth') => {
+      const left = getCenterLeft(index);
+      if (behavior === 'auto') {
+        window.cancelAnimationFrame(animationFrame);
+        list.scrollLeft = left;
+        return;
+      }
+      animateScrollTo(left, 500);
+    };
+
+    const getNearestIndex = () => {
+      const items = getItems();
+      const center = list.scrollLeft + list.clientWidth / 2;
+      let nearest = activeIndex;
+      let nearestDistance = Number.POSITIVE_INFINITY;
+      items.forEach((item, index) => {
+        const itemCenter = item.offsetLeft + item.offsetWidth / 2;
+        const distance = Math.abs(center - itemCenter);
+        if (distance < nearestDistance) {
+          nearestDistance = distance;
+          nearest = index;
+        }
+      });
+      return nearest;
+    };
+
+    const updateActive = (commitIndex = true) => {
+      const nearest = getNearestIndex();
+      if (commitIndex) activeIndex = nearest;
+      getItems().forEach((item, index) => item.classList.toggle('is-active', index === nearest));
+    };
+
+    const normalizeLoopPosition = () => {
+      const count = posts.length;
+      if (!count) return;
+      if (activeIndex < count || activeIndex >= count * 2) {
+        const normalized = count + (activeIndex % count + count) % count;
+        activeIndex = normalized;
+        list.classList.add('is-loop-jumping');
+        centerItem(activeIndex, 'auto');
+        updateActive();
+        list.offsetHeight;
+        requestAnimationFrame(() => list.classList.remove('is-loop-jumping'));
+      }
+    };
+
+    const moveTo = (direction) => {
+      if (isAnimating || !posts.length) return;
+      isAnimating = true;
+      const targetIndex = activeIndex + direction;
+      activeIndex = targetIndex;
+      centerItem(targetIndex, 'smooth');
+      window.setTimeout(() => {
+        activeIndex = targetIndex;
+        updateActive(false);
+        normalizeLoopPosition();
+        isAnimating = false;
+      }, 520);
+    };
+
+    renderLoopItems();
+    requestAnimationFrame(() => {
+      centerItem(activeIndex, 'auto');
+      updateActive();
+    });
+
+    let scrollTimer = null;
+    list.addEventListener('scroll', () => {
+      updateActive(!isAnimating);
+      window.clearTimeout(scrollTimer);
+      if (!isAnimating) scrollTimer = window.setTimeout(normalizeLoopPosition, 120);
+    }, { passive: true });
+
+    let autoTimer = window.setInterval(() => moveTo(1), 3600);
+    const restartAuto = () => {
+      window.clearInterval(autoTimer);
+      autoTimer = window.setInterval(() => moveTo(1), 3600);
+    };
+
+    prevBtn.addEventListener('click', () => { moveTo(-1); restartAuto(); });
+    nextBtn.addEventListener('click', () => { moveTo(1); restartAuto(); });
+    window.addEventListener('resize', () => centerItem(activeIndex, 'auto'));
+  });
+</script>
+
+  <script src="js/loading.js"></script>
+  <script src="js/common_menu.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

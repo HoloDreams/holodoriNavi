@@ -1,0 +1,165 @@
+.holodori-menu-button {
+  position: fixed;
+  top: 34px;
+  right: 34px;
+  left: auto;
+  z-index: 2000;
+  width: 56px;
+  height: 56px;
+  border: 0;
+  border-radius: 50%;
+  background: #00aeff;
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 10px 24px rgba(0, 148, 216, 0.24);
+  transition: transform 0.24s cubic-bezier(0.19, 1, 0.22, 1), background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.holodori-menu-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 14px 28px rgba(0, 148, 216, 0.28);
+}
+
+.holodori-menu-button.is-open {
+  background: #fff;
+  box-shadow: 0 12px 28px rgba(0, 148, 216, 0.22);
+}
+
+.holodori-menu-lines {
+  width: 25px;
+  height: 20px;
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: stretch;
+}
+
+.holodori-menu-lines span {
+  display: block;
+  width: 25px;
+  height: 4px;
+  border-radius: 999px;
+  background: #fff;
+  transition: background-color 0.2s ease;
+}
+
+.holodori-menu-button.is-open .holodori-menu-lines span {
+  background: #00aeff;
+}
+
+.holodori-menu-panel {
+  position: fixed;
+  top: 96px;
+  right: 34px;
+  left: auto;
+  z-index: 1999;
+  width: min(320px, calc(100vw - 36px));
+  max-height: calc(100vh - 110px);
+  padding: 20px;
+  border: 2px solid rgba(70, 212, 255, 0.8);
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 18px 46px rgba(0, 112, 170, 0.22);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(96px) translateY(-8px);
+  transition: opacity 0.34s ease, transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow-y: auto;
+}
+
+.holodori-menu-panel.is-open {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(0) translateY(0);
+}
+
+.holodori-menu-title {
+  margin: 0 0 14px;
+  color: #008bd2;
+  font-size: 22px;
+  font-weight: 900;
+  text-align: center;
+}
+
+.holodori-menu-section {
+  margin-top: 16px;
+}
+
+.holodori-menu-section:first-of-type {
+  margin-top: 0;
+}
+
+.holodori-menu-heading {
+  margin: 0 0 8px;
+  color: #008bd2;
+  font-size: 15px;
+  font-weight: 900;
+  border-bottom: 2px solid #b9edff;
+  padding-bottom: 6px;
+}
+
+.holodori-menu-link {
+  display: block;
+  padding: 10px 12px;
+  border-radius: 12px;
+  color: #333;
+  font-size: 16px;
+  font-weight: 800;
+  text-decoration: none;
+  transition: background-color 0.18s ease, color 0.18s ease, transform 0.18s ease;
+}
+
+.holodori-menu-link:hover,
+.holodori-menu-link.is-current {
+  background: #e8f9ff;
+  color: #0094d8;
+  transform: translateX(3px);
+}
+
+.holodori-menu-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 1998;
+  background: rgba(0, 70, 110, 0.16);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+.holodori-menu-backdrop.is-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+@media (max-width: 600px) {
+  .holodori-menu-button {
+    width: 50px;
+    height: 50px;
+    top: 14px;
+    right: 14px;
+    left: auto;
+  }
+
+  .holodori-menu-lines {
+    width: 22px;
+    height: 18px;
+  }
+
+  .holodori-menu-lines span {
+    width: 22px;
+    height: 4px;
+  }
+
+  .holodori-menu-panel {
+    top: 74px;
+    right: 12px;
+    left: auto;
+    width: calc(100vw - 24px);
+    padding: 16px;
+  }
+}

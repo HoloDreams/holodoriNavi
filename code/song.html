@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>収録楽曲情報 - ホロドリ非公式サイト</title>
+  
+  <style>
+    body {
+      background-image: url('img/background.png') !important;
+      background-repeat: no-repeat !important;
+      background-position: center center !important;
+      background-size: cover !important;
+      background-attachment: fixed !important;
+    }
+    .navbar {
+      background-color: rgba(248, 248, 248, 0.342) !important;
+      backdrop-filter: blur(10px) !important;
+      -webkit-backdrop-filter: blur(10px) !important;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    /* フェードインアニメーション用CSS */
+    .fade-in-up {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+    .fade-in-up.is-show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+
+  <script src="https://unpkg.com/@studio-freight/lenis@1.0.33/dist/lenis.min.js"></script>
+  
+  <link rel="stylesheet" href="css/song.css">
+  <link rel="icon" href="img/favicon.ico">
+  <link rel="stylesheet" href="css/loading.css">
+  <link rel="stylesheet" href="css/common_menu.css">
+</head>
+
+<body>
+  <div class="holodori-loading-screen" role="status" aria-live="polite">
+    <div class="holodori-loading-inner">
+      <p class="holodori-loading-text" aria-label="Loading...">
+        <span style="--i: 0;">L</span>
+        <span style="--i: 1;">o</span>
+        <span style="--i: 2;">a</span>
+        <span style="--i: 3;">d</span>
+        <span style="--i: 4;">i</span>
+        <span style="--i: 5;">n</span>
+        <span style="--i: 6;">g</span>
+        <span style="--i: 7;">.</span>
+        <span style="--i: 8;">.</span>
+        <span style="--i: 9;">.</span>
+      </p>
+      <div class="holodori-loading-bar" aria-hidden="true">
+        <div class="holodori-loading-bar-fill"></div>
+      </div>
+    </div>
+  </div>
+  <a href="home.html" class="back-btn">
+    <img src="img/back.png" alt="戻る">
+  </a>
+  
+  <nav class="navbar">
+    <div class="logo">
+      <img src="img/logo.webp" alt="logo">
+      <span class="site-title">ホロドリ非公式サイト<br>収録楽曲情報</span>
+    </div>
+    
+    <ul class="nav-links">
+      <li><a href="https://opening.hololive-dreams.com/" target="_blank">公式サイトはこちら</a></li>
+      <li><a href="https://x.com/hololive_dreams" target="_blank">公式Xはこちら</a></li>
+      <li><a href="https://www.youtube.com/@hololivedreams" target="_blank">公式YouTubeはこちら</a></li>
+    </ul>
+  </nav>
+
+  <main class="fade-in-up">
+    <h1 style="text-align: center; margin-top: 50px;">収録楽曲一覧</h1>
+
+    <div class="filter-wrapper">
+      <div class="search-container">
+        <input type="text" id="search-input" list="song-suggestions" placeholder="曲名またはホロメンの名前で検索">
+        <datalist id="song-suggestions"></datalist>
+      </div>
+
+      <div class="level-filter-container">
+        <label for="difficulty-select" class="filter-label">レベルで絞る：</label>
+        <select id="difficulty-select">
+          <option value="none" selected>指定なし</option>
+          <option value="expert">EXPERT</option>
+          <option value="hard">HARD</option>
+          <option value="normal">NORMAL</option>
+          <option value="easy">EASY</option>
+        </select>
+        <div class="range-inputs">
+          <input type="number" id="level-min" min="1" max="35" placeholder="下限">
+          <span class="range-separator">〜</span>
+          <input type="number" id="level-max" min="1" max="35" placeholder="上限">
+        </div>
+      </div>
+
+      <div class="sort-container">
+        <label for="sort-select" class="filter-label">並び順：</label>
+        <select id="sort-select">
+          <option value="default" selected>デフォルト</option>
+          <option value="level-desc">レベル順</option>
+        </select>
+      </div>
+
+      <div class="song-quick-actions">
+        <button type="button" id="random-song-btn" class="song-action-btn">ランダム1曲</button>
+        <button type="button" id="favorite-filter-btn" class="song-action-btn">お気に入りのみ</button>
+      </div>
+      <div id="random-song-result" class="random-song-result" hidden></div>
+  </div>
+
+    <p id="page-info" style="text-align: center;">
+      全 <span id="total-count">0</span> 曲中、<span id="hit-count">0</span> 曲を表示
+    </p>
+
+    <div id="song-list-container" class="song-list"></div>
+
+    <div class="pagination">
+      <button id="prev-btn" class="page-btn">◀</button>
+      <span id="current-page-num">1 / 1</span>
+      <button id="next-btn" class="page-btn">▶</button>
+    </div>
+  </main>
+
+  <script src="js/song-data.js"></script>
+  <script src="js/song-main.js"></script>
+
+  <script>
+    // 1. Lenis (スムーススクロール) の設定
+    const lenis = new Lenis({
+      duration: 1.2,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      direction: 'vertical',
+      gestureDirection: 'vertical',
+      smooth: true,
+      mouseMultiplier: 1,
+      smoothTouch: false,
+      touchMultiplier: 2,
+      infinite: false,
+    });
+    window.lenis = lenis;
+
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+    requestAnimationFrame(raf);
+
+    // 2. IntersectionObserver (フェードイン) の設定
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-show');
+        }
+      });
+    }, {
+      rootMargin: '0px 0px -10% 0px'
+    });
+
+    // 監視対象を指定
+    document.querySelectorAll('.fade-in-up').forEach(el => observer.observe(el));
+  </script>
+  <script src="js/loading.js"></script>
+  <script src="js/common_menu.js"></script>
+</body>
+</html>
+
+
