@@ -4,10 +4,10 @@ Add-Type -AssemblyName System.Drawing
 $ErrorActionPreference = "Stop"
 
 $Owner = "HoloDreams"
-$Repo = "hololive-dreams-fan-site"
+$Repo = "holidoriNavi"
 $Branch = "main"
 $RepoNewsPath = "code/news_img"
-$LocalNewsDir = "C:\Users\PC\Documents\Codex\2026-07-04\019f2cc2-56ae-77f2-bad6-322eb74ef0ea\work\ホロライブドリームス非公式サイト\code\news_img"
+$LocalNewsDir = "G:\holidoriNavi\code\news_img"
 $CommitMessage = "Update news images"
 $LogFile = Join-Path $env:TEMP "holodori-news-github-upload.log"
 
@@ -257,6 +257,7 @@ try {
     Show-Error ($_.Exception.Message + "`r`n`r`n詳細ログ: " + $LogFile)
     exit 1
 }
+
 
 
 
