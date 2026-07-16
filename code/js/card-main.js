@@ -17,10 +17,10 @@ const debutGroupOrder = [
     "ホロライブ4期生",
     "hololive Indonesia 1期生",
     "ホロライブ5期生",
+    "秘密結社holoX",
     "hololive English -Myth-",
     "hololive Indonesia 2期生",
     "hololive English -Promise-",
-    "秘密結社holoX",
     "hololive Indonesia 3期生",
     "hololive English -Advent-",
     "ReGLOSS"
