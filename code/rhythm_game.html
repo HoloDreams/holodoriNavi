@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
@@ -15,7 +15,15 @@
   </style>
   <link rel="stylesheet" href="css/loading.css">
   <link rel="stylesheet" href="css/common_menu.css">
-</head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-J2HKLB9SM4"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-J2HKLB9SM4');
+  </script></head>
 <body id="page-top">
   <div class="holodori-loading-screen" role="status" aria-live="polite">
     <div class="holodori-loading-inner">
@@ -58,12 +66,34 @@
 
     <nav class="page-toc fade-in-up" aria-label="ページ内目次">
       <p class="toc-title">目次</p>
-      <div class="toc-links"><a href="#rhythm-play-section">リズムゲームの遊び方</a>
-        <a href="#notes-section">ノーツの種類</a>
-        <a href="#score-section">スコア関連</a>
-        <a href="#judge-width-section">各判定幅</a>
-        <a href="#create-score-section">クリエイト譜面</a>
-        <a href="#rhythm-options-section">各種設定</a>
+      <div class="toc-group">
+        <p class="toc-group-title">基本</p>
+        <div class="toc-links">
+          <a href="#rhythm-play-section">リズムゲームの遊び方</a>
+          <a href="#notes-section">ノーツの種類</a>
+          <a href="#judge-width-section">ノーツの判定幅</a>
+          <a href="#voice-section">ボイス</a>
+        </div>
+      </div>
+      <div class="toc-group">
+        <p class="toc-group-title">スコア・報酬</p>
+        <div class="toc-links">
+          <a href="#clear-reward-section">楽曲時間ボーナス</a>
+          <a href="#clear-reward-section">ライブブースト</a>
+          <a href="#score-section">スコア関連</a>
+        </div>
+      </div>
+      <div class="toc-group">
+        <p class="toc-group-title">クリエイト譜面</p>
+        <div class="toc-links">
+          <a href="#create-score-section">クリエイト譜面</a>
+        </div>
+      </div>
+      <div class="toc-group">
+        <p class="toc-group-title">設定</p>
+        <div class="toc-links">
+          <a href="#rhythm-options-section">各種設定</a>
+        </div>
       </div>
     </nav>
 
@@ -119,6 +149,107 @@
     </div>
   </div>
   
+  <p class="double-space2 fade-in-up" id="judge-width-section"><span class="title-explanation">各判定幅</span></p>
+
+  <div class="judgement">
+    <div class="operation-block fade-in-up judge-width-section">
+      <div class="score-table-wrap">
+        <table class="score-table score-judge-width-table">
+          <caption>判定幅</caption>
+          <thead>
+            <tr>
+              <th>ノーマル</th>
+              <th>通常</th>
+              <th>アクセント</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>PERFECT</td><td>±?</td><td>±?</td></tr>
+            <tr><td>GREAT</td><td>±?</td><td>±?</td></tr>
+            <tr><td>GOOD</td><td>±?</td><td>±?</td></tr>
+            <tr><td>BAD</td><td>±?</td><td>±?</td></tr>
+            <tr><td>MISS</td><td>±?</td><td>±?</td></tr>
+          </tbody>
+          <thead>
+            <tr>
+              <th>フリック</th>
+              <th>通常</th>
+              <th>アクセント</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>PERFECT</td><td>±?</td><td>±?</td></tr>
+            <tr><td>GREAT</td><td>±?</td><td>±?</td></tr>
+            <tr><td>GOOD</td><td>±?</td><td>±?</td></tr>
+            <tr><td>BAD</td><td>±?</td><td>±?</td></tr>
+            <tr><td>MISS</td><td>±?</td><td>±?</td></tr>
+          </tbody>
+          <thead>
+            <tr>
+              <th>ロングノーツ</th>
+              <th>通常</th>
+              <th>アクセント</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>PERFECT</td><td>±?</td><td>±?</td></tr>
+            <tr><td>GREAT</td><td>±?</td><td>±?</td></tr>
+            <tr><td>GOOD</td><td>±?</td><td>±?</td></tr>
+            <tr><td>BAD</td><td>±?</td><td>±?</td></tr>
+            <tr><td>MISS</td><td>±?</td><td>±?</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <p class="double-space2 fade-in-up" id="voice-section"><span class="title-explanation">ボイス</span></p>
+
+  <div class="operation-block fade-in-up voice-section">
+    <p class="dream-park-image-box"><img src="rhythm_img/掛け合い.png" alt="ボイス" class="dream-park-image"></p>
+    <p>リズムゲーム中は、リーダーホロメンと各サポートメンバーとの掛け合いが楽しめます。</p>
+    <p>お気に入りのホロメンを編成して、さまざまな会話演出を楽しみましょう。</p>
+  </div>
+
+  <p class="double-space2 fade-in-up" id="clear-reward-section"><span class="title-explanation">クリア報酬</span></p>
+
+  <div class="operation-block fade-in-up clear-reward-section">
+    <h2 class="clear-reward-heading">楽曲時間ボーナス</h2>
+    <p class="dream-park-image-box"><img src="rhythm_img/楽曲時間ボーナス.png" alt="楽曲時間ボーナス" class="dream-park-image"></p>
+    <p>楽曲の長さによって、リズムゲームの報酬にボーナスがつきます。</p>
+    <p>画像例では、プレイ時間が長い楽曲ほど報酬ボーナスが高くなっています。</p>
+    <p>2つの例から見ると、89秒(1分29秒)程度を基準(±0%)として、1秒伸びるごとに約0.85%ずつボーナスが加算されると考えられます。</p>
+    <p>推定式は「(楽曲の秒数 - 89) × 0.85」を四捨五入した値です。</p>
+    <p>※この計算は公開画像からの推定です。実際のゲーム内仕様と異なる可能性があります。</p>
+
+    <h2 class="clear-reward-heading">ライブブースト</h2>
+    <p>ライブブーストを使用すると、リズムゲームの報酬がアップします。</p>
+    <p>ライブブーストが0でも、リズムゲームは何度でも遊べます。</p>
+    <div class="score-table-wrap">
+      <table class="score-table score-rank-table">
+        <caption>ライブブースト倍率</caption>
+        <thead>
+          <tr>
+            <th>個数</th>
+            <th>倍率</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>1個</td><td>×n倍</td></tr>
+          <tr><td>2個</td><td>×n倍</td></tr>
+          <tr><td>3個</td><td>×n倍</td></tr>
+          <tr><td>4個</td><td>×n倍</td></tr>
+          <tr><td>5個</td><td>×n倍</td></tr>
+          <tr><td>6個</td><td>×n倍</td></tr>
+          <tr><td>7個</td><td>×n倍</td></tr>
+          <tr><td>8個</td><td>×n倍</td></tr>
+          <tr><td>9個</td><td>×n倍</td></tr>
+          <tr><td>10個</td><td>×n倍</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
   <p class="double-space2 fade-in-up" id="score-section"><span class="title-explanation">スコア関連</span></p>
 
   <div class="judgement">
@@ -199,60 +330,6 @@
             <tr><td>B</td><td>300,000～</td></tr>
             <tr><td>A</td><td>600,000～</td></tr>
             <tr><td>S</td><td>1,000,000～</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </div>
-
-  <p class="double-space2 fade-in-up" id="judge-width-section"><span class="title-explanation">各判定幅</span></p>
-
-  <div class="judgement">
-    <div class="operation-block fade-in-up judge-width-section">
-      <div class="score-table-wrap">
-        <table class="score-table score-judge-width-table">
-          <caption>判定幅</caption>
-          <thead>
-            <tr>
-              <th>ノーマル</th>
-              <th>通常</th>
-              <th>アクセント</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr><td>PERFECT</td><td>±?</td><td>±?</td></tr>
-            <tr><td>GREAT</td><td>±?</td><td>±?</td></tr>
-            <tr><td>GOOD</td><td>±?</td><td>±?</td></tr>
-            <tr><td>BAD</td><td>±?</td><td>±?</td></tr>
-            <tr><td>MISS</td><td>±?</td><td>±?</td></tr>
-          </tbody>
-          <thead>
-            <tr>
-              <th>フリック</th>
-              <th>通常</th>
-              <th>アクセント</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr><td>PERFECT</td><td>±?</td><td>±?</td></tr>
-            <tr><td>GREAT</td><td>±?</td><td>±?</td></tr>
-            <tr><td>GOOD</td><td>±?</td><td>±?</td></tr>
-            <tr><td>BAD</td><td>±?</td><td>±?</td></tr>
-            <tr><td>MISS</td><td>±?</td><td>±?</td></tr>
-          </tbody>
-          <thead>
-            <tr>
-              <th>ロングノーツ</th>
-              <th>通常</th>
-              <th>アクセント</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr><td>PERFECT</td><td>±?</td><td>±?</td></tr>
-            <tr><td>GREAT</td><td>±?</td><td>±?</td></tr>
-            <tr><td>GOOD</td><td>±?</td><td>±?</td></tr>
-            <tr><td>BAD</td><td>±?</td><td>±?</td></tr>
-            <tr><td>MISS</td><td>±?</td><td>±?</td></tr>
           </tbody>
         </table>
       </div>
@@ -368,6 +445,7 @@
       </div>
     </details>
   </div>
+
   <h3>当ページのノーツ説明は許可をいただき、一部 <a href="https://seesaawiki.jp/hololivedreams/d/%cd%d1%b8%ec%bd%b8#long_notes" target="_blank">hololive Dreams非公式攻略wiki</a> を参考にしています。</h3>
   </main>
   <script src="https://unpkg.com/@studio-freight/lenis@1.0.33/dist/lenis.min.js"></script>
@@ -396,6 +474,7 @@
   <script src="js/common_menu.js"></script>
 </body>
 </html>
+
 
 
 

@@ -437,43 +437,64 @@ h1::after,
 }
 
 .page-toc {
-  max-width: 720px;
+  max-width: 560px;
   margin: 46px auto 70px;
-  padding: 26px 28px 30px;
-  background: rgba(255, 255, 255, 0.68);
-  border: 1px solid rgba(70, 212, 255, 0.32);
-  border-radius: 18px;
-  box-shadow: 0 12px 30px rgba(0, 148, 216, 0.12);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  padding: 26px 30px 30px;
+  background: rgba(255, 255, 255, 0.72);
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
 }
 .page-toc .toc-title {
-  margin: 0 0 18px !important;
+  margin: 0 0 8px !important;
   color: #0094d8;
-  font-size: 30px;
+  font-size: 36px;
   font-weight: 900;
   line-height: 1.2;
 }
+.toc-group {
+  margin-top: 18px;
+  padding-top: 12px;
+  border-top: 3px solid rgba(64, 64, 64, 0.85);
+}
+.toc-group:first-of-type {
+  margin-top: 0;
+}
+.toc-group-title {
+  margin: 0 0 8px;
+  color: #008ed0;
+  font-size: 22px;
+  font-weight: 900;
+  line-height: 1.25;
+  text-align: center;
+}
+.toc-group .toc-links {
+  margin-top: 0;
+}
 .toc-links {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(180px, 1fr));
-  gap: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
 }
 .toc-links a {
   display: block;
-  padding: 15px 18px;
-  color: #ffffff;
-  background: linear-gradient(135deg, #46d4ff, #0094d8);
-  border-radius: 12px;
+  padding: 2px 12px 4px;
+  color: #5f666b;
+  background: transparent;
+  border-radius: 0;
   text-decoration: none;
-  font-size: 20px;
+  font-size: 26px;
   font-weight: 900;
-  box-shadow: 0 8px 18px rgba(0, 148, 216, 0.18);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  line-height: 1.22;
+  text-align: center;
+  box-shadow: none;
+  transition: background-color 0.18s ease, color 0.18s ease;
 }
 .toc-links a:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 12px 24px rgba(0, 148, 216, 0.24);
+  color: #008ed0;
+  background: rgba(70, 212, 255, 0.16);
 }
 #notes-section,
 #score-section {
@@ -484,14 +505,14 @@ h1::after,
     margin: 34px auto 54px;
     padding: 22px 18px 24px;
   }
-  .toc-links {
-    grid-template-columns: 1fr;
-  }
   .page-toc .toc-title {
-    font-size: 26px;
+    font-size: 30px;
   }
   .toc-links a {
-    font-size: 18px;
+    font-size: 21px;
+  }
+  .toc-group-title {
+    font-size: 20px;
   }
 }
 
@@ -613,6 +634,31 @@ html {
   line-height: 1.25;
   margin-top: 42px;
   margin-bottom: 24px;
+}
+
+.clear-reward-heading {
+  color: #0098d8 !important;
+  font-size: 40px !important;
+  line-height: 1.25;
+  margin: 34px 0 22px;
+  font-weight: 900;
+  text-align: center;
+}
+
+.clear-reward-heading::after {
+  content: "";
+  display: block;
+  width: 72px;
+  height: 4px;
+  margin: 12px auto 0;
+  border-radius: 999px;
+  background: #41d4ff;
+}
+
+@media (max-width: 640px) {
+  .clear-reward-heading {
+    font-size: 30px !important;
+  }
 }
 /* 各種設定: カテゴリ別トグル */
 .rhythm-option-toggle {
