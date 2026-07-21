@@ -4,10 +4,10 @@ Add-Type -AssemblyName System.Drawing
 $ErrorActionPreference = "Stop"
 
 $Owner = "HoloDreams"
-$Repo = "holidoriNavi"
+$Repo = "holodoriNavi"
 $Branch = "main"
 $RepoNewsPath = "code/news_img"
-$LocalNewsDir = "G:\holidoriNavi\code\news_img"
+$LocalNewsDir = "G:\holodoriNavi\code\news_img"
 $CommitMessage = "Update news images"
 $LogFile = Join-Path $env:TEMP "holodori-news-github-upload.log"
 

@@ -1,4 +1,4 @@
-// --- DOM取得 ---
+﻿// --- DOM取得 ---
 const dropZone = document.getElementById('drop_zone');
 const fileInput = document.getElementById('file_input');
 const previewImg = document.getElementById('preview_img');
@@ -11,11 +11,17 @@ document.getElementById('btn-download').onclick = downloadHTML;
 
 // --- 画像処理 ---
 dropZone.onclick = () => fileInput.click();
-dropZone.ondragover = (e) => { e.preventDefault(); dropZone.style.background = '#f0e6f7'; };
-dropZone.ondragleave = () => dropZone.style.background = 'transparent';
+dropZone.onkeydown = (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        fileInput.click();
+    }
+};
+dropZone.ondragover = (e) => { e.preventDefault(); dropZone.classList.add('is-dragover'); };
+dropZone.ondragleave = () => dropZone.classList.remove('is-dragover');
 dropZone.ondrop = (e) => {
     e.preventDefault();
-    dropZone.style.background = 'transparent';
+    dropZone.classList.remove('is-dragover');
     if (e.dataTransfer.files.length > 0) handleFile(e.dataTransfer.files[0]);
 };
 fileInput.onchange = (e) => { if (e.target.files.length > 0) handleFile(e.target.files[0]); };
@@ -26,7 +32,7 @@ function handleFile(file) {
     reader.onload = (e) => {
         previewImg.src = e.target.result;
         previewImg.style.display = 'inline-block';
-        dropZone.querySelector('p').style.display = 'none';
+        dropZone.querySelector('.drop-zone-text').style.display = 'none';
     };
     reader.readAsDataURL(file);
 }
@@ -89,7 +95,17 @@ function generateHTML() {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>収録楽曲情報 - ホロドリ非公式サイト</title>
   <link rel="stylesheet" href="楽曲一覧.css">
+  <link rel="stylesheet" href="../css/site_notice.css">
   <link rel="icon" href="../img/favicon.ico">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-J2HKLB9SM4"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-J2HKLB9SM4');
+  </script>
   <style>
     body { background: transparent; margin: 0; }
     .blurred-background { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; background-image: url('${imgPath}'); background-size: cover; background-position: center; filter: blur(20px) brightness(0.8); transform: scale(1.1); }
@@ -105,7 +121,7 @@ function generateHTML() {
     <a href="../song.html" class="back-btn"><img src="../back.png" alt="戻る"></a>
     <nav class="navbar">
       <div class="logo">
-        <img src="../img/logo.webp" alt="logo">
+        <img src="../img/ロゴ.png" alt="logo">
         <span class="site-title">ホロドリ非公式サイト<br>収録楽曲情報</span>
       </div>
       <ul class="nav-links">
@@ -139,6 +155,7 @@ function generateHTML() {
       ${commentSection}
     </main>
   </div>
+  <script src="../js/site_notice.js"></script>
 </body>
 </html>`;
 
@@ -164,3 +181,5 @@ function downloadHTML() {
     a.download = name + ".html";
     a.click();
 }
+
+

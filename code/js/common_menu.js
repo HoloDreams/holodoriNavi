@@ -4,7 +4,8 @@
 
       links: [
         { label: 'HOME', href: 'home.html' },
-        { label: '更新履歴', href: 'update_history.html' }
+        { label: '更新履歴', href: 'update_history.html' },
+        { label: 'このサイトについて', href: 'about.html' }
       ]
     },
     {
