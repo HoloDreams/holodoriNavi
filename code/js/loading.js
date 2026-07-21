@@ -1,12 +1,16 @@
 ﻿(function () {
   function hideLoadingScreen() {
     var loader = document.querySelector('.holodori-loading-screen');
-    if (!loader) return;
+    if (!loader) {
+      document.body.classList.add('holodori-loaded');
+      return;
+    }
     loader.classList.add('is-hidden');
     window.setTimeout(function () {
       if (loader && loader.parentNode) {
         loader.parentNode.removeChild(loader);
       }
+      document.body.classList.add('holodori-loaded');
     }, 800);
   }
 

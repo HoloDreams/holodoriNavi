@@ -142,6 +142,19 @@ body {
   font-weight: 900;
 }
 
+.about-list {
+  margin: 12px 0 0;
+  padding-left: 1.4em;
+}
+
+.about-list li {
+  margin: 8px 0;
+  color: #3f3f3f;
+  font-size: 17px;
+  font-weight: 800;
+  line-height: 1.8;
+}
+
 @media (max-width: 760px) {
   .navbar {
     gap: 12px;
