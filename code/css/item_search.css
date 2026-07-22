@@ -539,3 +539,65 @@ h1::after {
   font-weight: 800;
   box-shadow: 0 5px 12px rgba(0, 148, 216, 0.10);
 }
+
+@media (max-width: 760px) {
+  .item-modal {
+    padding: 18px;
+  }
+
+  .item-modal-close {
+    top: 14px;
+    right: 14px;
+    width: 52px;
+    height: 52px;
+    font-size: 34px !important;
+    line-height: 52px !important;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+  }
+}
+
+@media (max-width: 420px) {
+  .item-modal-close {
+    top: 12px;
+    right: 12px;
+    width: 48px;
+    height: 48px;
+    font-size: 32px !important;
+    line-height: 48px !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .item-list {
+    grid-template-columns: repeat(4, 78px) !important;
+    gap: 10px !important;
+    max-width: calc(100vw - 24px) !important;
+  }
+
+  .item-card {
+    width: 78px !important;
+    height: 78px !important;
+    padding: 6px !important;
+    border-radius: 12px !important;
+  }
+
+  .item-image-wrap {
+    border-radius: 10px !important;
+  }
+}
+
+@media (max-width: 420px) {
+  .item-list {
+    grid-template-columns: repeat(4, 72px) !important;
+    gap: 8px !important;
+  }
+
+  .item-card {
+    width: 72px !important;
+    height: 72px !important;
+    padding: 5px !important;
+  }
+}
