@@ -237,9 +237,9 @@ body::-webkit-scrollbar {
 .easy-video   { border: 8px solid #81c784; }
 
 .comment-box {
-  font-family: "M PLUS Rounded 1c";
-  font-size: 32px;
-  line-height: 1.4;
+  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif;
+  font-size: 13px;
+  line-height: 1.8;
   max-width: 1000px;
   margin: 0 auto;
   text-align: left;
@@ -333,7 +333,9 @@ body::-webkit-scrollbar {
 
 .comment-box {
   color: #333;
-  font-size: clamp(15px, 2.2vw, 22px);
+  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif;
+  font-size: 13px;
+  font-weight: 700;
   line-height: 1.8;
   text-shadow: none;
 }

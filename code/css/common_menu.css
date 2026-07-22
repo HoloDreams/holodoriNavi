@@ -489,3 +489,26 @@ body::before {
     font-size: 20px !important;
   }
 }
+
+html {
+  min-height: 100%;
+  background: #fff;
+}
+
+body {
+  min-height: 100%;
+  background: transparent !important;
+  isolation: isolate;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image: url("../img/background.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
