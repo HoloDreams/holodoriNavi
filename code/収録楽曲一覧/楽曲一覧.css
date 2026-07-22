@@ -98,8 +98,7 @@ body::-webkit-scrollbar {
 .bpm-value,
 .lv-text,
 .combo-text,
-.section-title,
-.comment-box {
+.section-title {
   color: #ffffff;
   text-shadow: 
     2px 2px 0 #004777,
@@ -330,6 +329,18 @@ body::-webkit-scrollbar {
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   box-sizing: border-box;
+}
+
+.comment-box {
+  color: #333;
+  font-size: clamp(15px, 2.2vw, 22px);
+  line-height: 1.8;
+  text-shadow: none;
+}
+
+.comment-box * {
+  color: inherit;
+  text-shadow: none;
 }
 
 h1::after,
