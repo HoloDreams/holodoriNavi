@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
@@ -124,33 +124,174 @@
             font-size: 12px;
             color: #a2c4c9;
         }
-        .skill-preview {
-            display: block;
-            font-size: 11px;
-            color: #a2c4c9;
-            margin-top: 2px;
-            overflow: hidden;
-            text-overflow: ellipsis;
+
+        #dataTable {
+            min-width: 2380px;
+        }
+        th {
             white-space: nowrap;
+            vertical-align: middle;
+            background: rgba(255, 255, 255, 0.05);
         }
-        .skill-preview.unknown {
-            color: #ff8e8e;
+        td {
+            vertical-align: top;
         }
+        #tableBody tr {
+            min-height: 112px;
+        }
+        input[type="text"], input[type="number"], textarea {
+            border: 1px solid rgba(255, 255, 255, 0.22);
+            border-radius: 6px;
+            background-color: rgba(255, 255, 255, 0.04);
+        }
+        textarea {
+            min-height: 96px;
+            line-height: 1.45;
+        }
+        .rarity { min-width: 48px; }
+        .name { min-width: 140px; }
+        .filename { min-width: 165px; }
+        .version { min-width: 100px; }
+        .group { min-width: 130px; }
+        .searchword { min-width: 210px; }
+        .connect-range { min-width: 92px; }
+        .connect-effect,
+        .costume,
+        .leader,
+        .special,
+        .active,
+        .passive {
+            min-width: 170px;
+        }
+        .connect-cell-editor {
+            min-width: 168px;
+        }
+        .connect-cells {
+            margin-top: 8px;
+            font-size: 11px;
+        }
+        .connect-picker {
+            display: grid;
+            grid-template-columns: repeat(5, 28px);
+            grid-auto-rows: 28px;
+            gap: 5px;
+            width: 188px;
+            min-width: 188px;
+            padding: 12px;
+            border-radius: 12px;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.04));
+            border: 1px solid rgba(255, 255, 255, 0.24);
+            box-sizing: border-box;
+            box-shadow: inset 0 0 0 1px rgba(70, 212, 255, 0.08);
+        }
+        .connect-picker .connect-picker-cell {
+            display: flex !important;
+            align-items: center;
+            justify-content: center;
+            width: 28px !important;
+            min-width: 28px !important;
+            max-width: 28px !important;
+            height: 28px !important;
+            min-height: 28px !important;
+            max-height: 28px !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            border: 1px solid rgba(255, 255, 255, 0.38);
+            border-radius: 7px;
+            background: rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.72);
+            font-size: 10px;
+            line-height: 1;
+            cursor: pointer;
+            box-sizing: border-box;
+            appearance: none;
+            user-select: none;
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12);
+            transition: background-color 0.14s ease, border-color 0.14s ease, box-shadow 0.14s ease, transform 0.14s ease;
+        }
+        .connect-picker .connect-picker-cell:hover {
+            background: rgba(70, 212, 255, 0.2);
+            border-color: rgba(184, 242, 255, 0.72);
+            color: #ffffff;
+            transform: translateY(-1px);
+        }
+        .connect-picker .connect-picker-cell.is-yellow {
+            background: #ffd84d;
+            border-color: #fff4a8;
+            color: #2d2a14;
+            box-shadow: 0 0 9px rgba(255, 216, 77, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.35);
+        }
+        .connect-picker .connect-picker-cell.is-green {
+            background: #65ff8a;
+            border-color: #c8ffd5;
+            color: #102b18;
+            box-shadow: 0 0 9px rgba(101, 255, 138, 0.46), inset 0 1px 0 rgba(255, 255, 255, 0.35);
+        }
+        .connect-picker .connect-picker-cell.center {
+            border-radius: 50%;
+            font-weight: bold;
+        }
+        .skill-detail-head {
+            min-width: 520px;
+        }
+        .skill-detail-editor {
+            min-width: 520px;
+        }
+        .skill-detail-editor {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 10px;
+        }
+        .skill-detail-editor label {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            color: #a2c4c9;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        .skill-detail-editor textarea {
+            min-width: 0;
+            width: 100%;
+            min-height: 82px;
+        }
+        /* Connect board shape: square cells, yellow cells only round */
+        .connect-picker .connect-picker-cell,
+        .connect-picker .connect-picker-cell.center,
+        .connect-picker .connect-picker-cell.is-green,
+        .connect-picker .connect-picker-cell.is-green.center {
+            border-radius: 3px !important;
+        }
+        .connect-picker .connect-picker-cell.is-yellow {
+            border-radius: 50% !important;
+        }
+        select.card-type {
+            width: 100%;
+            min-width: 108px;
+            box-sizing: border-box;
+            background-color: rgba(255, 255, 255, 0.04);
+            color: #ffffff;
+            border: 1px solid rgba(255, 255, 255, 0.22);
+            border-radius: 6px;
+            font-family: monospace;
+            font-size: 12px;
+            padding: 6px;
+        }
+        select.card-type option {
+            color: #1c313b;
+        }
+
+
+
     </style>
 </head>
-<body>
+<body oncontextmenu="return false;">
 
     <h2>DATA EDITOR</h2>
     <div id="currentMode" class="mode-badge">モード: 未選択 (ファイルを読み込んでください)</div>
-    
-    <div id="masterContainer" class="master-container">
-        <span>スキル対応表:</span>
-        <span class="add-skill-trigger" onclick="addNewSkillMaster()">[+] 新規スキル登録</span>
-        <ul id="masterList" class="master-list"></ul>
-    </div>
-
     <div class="actions">
-        <button onclick="selectJSFile()">file</button>
+        <button type="button" onclick="selectJSFile()">file</button>
+        <input id="fallbackFileInput" type="file" accept=".js" style="display:none">
         <button onclick="addRow()">+ ADD ROW</button>
         <button id="saveBtn" onclick="saveJSFile()" disabled>save</button>
         <span id="fileStatus" class="status-message">ファイルが選択されていません</span>
@@ -158,70 +299,22 @@
 
     <table id="dataTable">
         <thead id="tableHead">
-        </tbody>
+        </thead>
         <tbody id="tableBody">
         </tbody>
     </table>
 
 <script>
 let fileHandle = null;
+let fallbackFileName = "card-data.js";
 let currentMode = "card";
 let isFileLoaded = false;
 
-let localSkillMaster = {};
 
 window.onload = function() {
     setupWindowDragAndDrop();
+setupFallbackFileInput();
 };
-
-function addNewSkillMaster() {
-    const idInput = prompt("追加するスキルID（半角数字）を入力してください:");
-    if (idInput === null) return;
-    
-    const id = parseInt(idInput.trim());
-    if (isNaN(id)) {
-        alert("有効な数字を入力してください。");
-        return;
-    }
-    
-    if (localSkillMaster[id]) {
-        if (!confirm(`ID: ${id} は既に「${localSkillMaster[id]}」として登録されています。上書きしますか？`)) {
-            return;
-        }
-    }
-    
-    const nameInput = prompt(`ID: ${id} に対応するスキル名を入力してください:`);
-    if (nameInput === null || nameInput.trim() === "") {
-        alert("スキル名が入力されなかったため、登録を中止しました。");
-        return;
-    }
-    
-    localSkillMaster[id] = nameInput.trim();
-    renderMasterHeader();
-    refreshAllSkillPreviews();
-}
-
-function renderMasterHeader() {
-    const container = document.getElementById("masterContainer");
-    const list = document.getElementById("masterList");
-    
-    if (currentMode === "song" || currentMode === "item" || !isFileLoaded) {
-        container.style.display = "none";
-        return;
-    }
-    
-    list.innerHTML = "";
-    const sortedIds = Object.keys(localSkillMaster).sort((a, b) => parseInt(a) - parseInt(b));
-    
-    sortedIds.forEach(id => {
-        const li = document.createElement("li");
-        li.style.display = "inline";
-        li.innerText = `${id}: ${localSkillMaster[id]}`;
-        list.appendChild(li);
-    });
-    
-    container.style.display = "block";
-}
 
 function updateTableHeader() {
     const thead = document.getElementById("tableHead");
@@ -254,22 +347,22 @@ function updateTableHeader() {
         thead.innerHTML = `
             <tr>
                 <th style="width: 4%;">レア度</th>
-                <th style="width: 10%;">名前</th>
-                <th style="width: 10%;">ファイル名 (Drop可)</th>
-                <th style="width: 8%;">スキルID</th>
-                <th style="width: 7%;">バージョン</th>
-                <th style="width: 8%;">所属</th>
-                <th style="width: 13%;">検索ワード (カンマ区切り)</th>
-                <th>leader</th>
-                <th>special</th>
-                <th>active</th>
-                <th>passive</th>
+                <th style="width: 7%;">タイプ</th>
+                <th style="width: 11%;">名前</th>
+                <th style="width: 12%;">ファイル名 (Drop可)</th>
+                <th style="width: 8%;">バージョン</th>
+                <th style="width: 9%;">所属</th>
+                <th style="width: 14%;">検索ワード (カンマ区切り)</th>
+                <th>connect範囲</th>
+                <th>connect位置</th>
+                <th>connect効果</th>
+                <th>衣装スキル</th>
+                <th class="skill-detail-head">スキル詳細</th>
                 <th style="width: 4%;">操作</th>
             </tr>
         `;
         document.getElementById("currentMode").innerText = "モード: カードデータ編集 (cardData)";
     }
-    renderMasterHeader();
 }
 
 function addRowToDOM(data) {
@@ -326,38 +419,51 @@ function addRowToDOM(data) {
             <td><button style="padding: 2px 8px; margin: 0; font-size: 11px;" onclick="deleteRow(this)">DEL</button></td>
         `;
     } else {
-        const safeData = data || [5, "", "", 1, "", {leader:"", special:"", active:"", passive:""}];
-        const tagString = safeData[4] || "";
+        const safeData = data || [5, "", "", "", {leader:"", connect:{range:"", cells:[], effect:""}, costume:"", special:"", active:"", passive:""}];
+        const isOldCardFormat = safeData.length >= 6 && typeof safeData[3] === "number";
+        const tagString = isOldCardFormat ? (safeData[4] || "") : (safeData[3] || "");
         const tags = tagString.split(",").map(t => t.trim());
         
         const versionVal = tags[0] || "";
         const groupVal = tags[1] || "";
         const searchVal = tags.slice(2).join(", ") || "";
-        const skills = safeData[5] || { leader: "", special: "", active: "", passive: "" };
-        const initialSkillId = safeData[3];
+        const skills = (isOldCardFormat ? safeData[5] : safeData[4]) || { leader: "", connect: { range: "", cells: [], effect: "" }, costume: "", special: "", active: "", passive: "" };
+        const connect = normalizeEditorConnect(skills.connect);
+        const typeVal = normalizeCardType(skills.type || "");
 
         tr.innerHTML = `
             <td><input type="number" class="rarity" value="${safeData[0]}" min="1" max="5"></td>
+            <td>
+                <select class="card-type">
+                    <option value="" ${typeVal === "" ? "selected" : ""}>未設定</option>
+                    <option value="cute" ${typeVal === "cute" ? "selected" : ""}>❤ キュート</option>
+                    <option value="pure" ${typeVal === "pure" ? "selected" : ""}>🍃 ピュア</option>
+                    <option value="happy" ${typeVal === "happy" ? "selected" : ""}>☀ ハッピー</option>
+                </select>
+            </td>
             <td><input type="text" class="name" value="${safeData[1]}" placeholder="Name"></td>
             <td class="filename-cell">
                 <input type="text" class="filename" value="${safeData[2]}" placeholder="Drop file here">
             </td>
-            <td>
-                <input type="number" class="skillid" value="${initialSkillId}" oninput="updateSkillPreview(this)">
-                <span class="skill-preview"></span>
-            </td>
             <td><input type="text" class="version" value="${versionVal}" placeholder="ver1.0.0"></td>
             <td><input type="text" class="group" value="${groupVal}" placeholder="所属"></td>
             <td><input type="text" class="searchword" value="${searchVal}" placeholder="ワード1, ワード2"></td>
-            <td><input type="text" class="leader" value="${skills.leader || ''}"></td>
-            <td><input type="text" class="special" value="${skills.special || ''}"></td>
-            <td><input type="text" class="active" value="${skills.active || ''}"></td>
-            <td><input type="text" class="passive" value="${skills.passive || ''}"></td>
+            <td><input type="text" class="connect-range" value="${escapeAttr(connect.range)}" placeholder="3マス効果"></td>
+            <td class="connect-cell-editor">
+                <div class="connect-picker">${createEditorConnectGrid(connect.cells)}</div>
+                <input type="text" class="connect-cells" value="${escapeAttr(connect.cells)}" placeholder="0-24をカンマ区切り">
+            </td>
+            <td><textarea class="connect-effect" placeholder="範囲内のホロメンボード効果を250%UP">${escapeText(connect.effect)}</textarea></td>
+            <td><textarea class="costume" placeholder="衣装スキル">${escapeText(skills.costume || '')}</textarea></td>
+            <td class="skill-detail-editor skill-detail-editor-three">
+                <input type="hidden" class="leader" value="${escapeAttr(skills.leader || '')}">
+                <label>スペシャル<textarea class="special" placeholder="スペシャルスキル">${escapeText(skills.special || '')}</textarea></label>
+                <label>アクティブ<textarea class="active" placeholder="アクティブスキル">${escapeText(skills.active || '')}</textarea></label>
+                <label class="passive-skill-field">パッシブ<textarea class="passive" placeholder="パッシブスキル">${escapeText(skills.passive || '')}</textarea></label>
+            </td>
             <td><button style="padding: 2px 8px; margin: 0; font-size: 11px;" onclick="deleteRow(this)">DEL</button></td>
         `;
-
-        const skillInput = tr.querySelector(".skillid");
-        updateSkillPreview(skillInput);
+        setupConnectPicker(tr);
 
         const fileCell = tr.querySelector(".filename-cell");
         const fileInput = fileCell.querySelector(".filename");
@@ -397,30 +503,144 @@ function escapeText(value) {
         .replace(/>/g, "&gt;");
 }
 
+function normalizeEditorConnect(connect) {
+    if (connect && typeof connect === "object" && !Array.isArray(connect)) {
+        return {
+            range: connect.range || "",
+            cells: formatConnectCells(connect.cells),
+            effect: connect.effect || ""
+        };
+    }
+    return { range: "", cells: "", effect: connect || "" };
+}
+
+function normalizeCardType(value) {
+    const normalized = String(value || "").trim().toLowerCase();
+    if (["cute", "キュート", "キュートタイプ", "❤", "赤"].includes(normalized)) return "cute";
+    if (["pure", "ピュア", "ピュアタイプ", "🍃", "緑"].includes(normalized)) return "pure";
+    if (["happy", "ハッピー", "ハッピータイプ", "☀", "黄", "黄色"].includes(normalized)) return "happy";
+    return "";
+}
+
 function jsString(value) {
     return JSON.stringify(String(value ?? ""));
 }
 
-function updateSkillPreview(inputElement) {
-    const previewSpan = inputElement.nextElementSibling;
-    if (!previewSpan) return;
-    const id = parseInt(inputElement.value);
-    
-    if (localSkillMaster[id]) {
-        previewSpan.innerText = `➔ ${localSkillMaster[id]}`;
-        previewSpan.classList.remove("unknown");
-    } else if (!inputElement.value.trim()) {
-        previewSpan.innerText = "";
-        previewSpan.classList.remove("unknown");
-    } else {
-        previewSpan.innerText = "➔ 未登録のID";
-        previewSpan.classList.add("unknown");
-    }
+function uniqueSortedCells(values) {
+    return Array.from(new Set((values || [])
+        .map(v => parseInt(v, 10))
+        .filter(v => Number.isInteger(v) && v >= 0 && v < 25)))
+        .sort((a, b) => a - b);
 }
 
-function refreshAllSkillPreviews() {
-    const inputs = document.querySelectorAll(".skillid");
-    inputs.forEach(input => updateSkillPreview(input));
+function parsePlainConnectCells(value) {
+    return uniqueSortedCells(String(value || "").split(/[\u3001,\s]+/));
+}
+
+function parseConnectCellMap(value) {
+    if (value && typeof value === "object" && !Array.isArray(value)) {
+        return {
+            yellow: uniqueSortedCells(value.yellow || value.y || []),
+            green: uniqueSortedCells(value.green || value.g || [])
+        };
+    }
+    if (Array.isArray(value)) {
+        return { yellow: uniqueSortedCells(value), green: [] };
+    }
+
+    const text = String(value || "").trim();
+    if (!text) return { yellow: [], green: [] };
+
+    const yellowMatch = text.match(/(?:yellow|y|\u9ec4)\s*[:\uff1a]\s*([^|/;]+)/i);
+    const greenMatch = text.match(/(?:green|g|\u7dd1)\s*[:\uff1a]\s*([^|/;]+)/i);
+    if (yellowMatch || greenMatch) {
+        return {
+            yellow: parsePlainConnectCells(yellowMatch ? yellowMatch[1] : ""),
+            green: parsePlainConnectCells(greenMatch ? greenMatch[1] : "")
+        };
+    }
+
+    return { yellow: parsePlainConnectCells(text), green: [] };
+}
+
+function formatConnectCells(value) {
+    const cellMap = parseConnectCellMap(value);
+    const parts = [];
+    if (cellMap.yellow.length) parts.push(`yellow: ${cellMap.yellow.join(", ")}`);
+    if (cellMap.green.length) parts.push(`green: ${cellMap.green.join(", ")}`);
+    return parts.join(" | ");
+}
+
+function createEditorConnectGrid(value) {
+    const cellMap = parseConnectCellMap(value);
+    const yellowCells = new Set(cellMap.yellow);
+    const greenCells = new Set(cellMap.green);
+    let html = "";
+    for (let i = 0; i < 25; i++) {
+        const classes = ["connect-picker-cell"];
+        if (yellowCells.has(i)) classes.push("is-yellow");
+        if (greenCells.has(i)) classes.push("is-green");
+        if (i === 12) classes.push("center");
+        html += `<button type="button" class="${classes.join(" ")}" data-cell="${i}" title="${i}">${i}</button>`;
+    }
+    return html;
+}
+
+function syncConnectPicker(row) {
+    const input = row.querySelector(".connect-cells");
+    const cellMap = parseConnectCellMap(input ? input.value : "");
+    const yellowCells = new Set(cellMap.yellow);
+    const greenCells = new Set(cellMap.green);
+    row.querySelectorAll(".connect-picker-cell").forEach(cell => {
+        const cellNumber = Number(cell.dataset.cell);
+        cell.classList.toggle("is-yellow", yellowCells.has(cellNumber));
+        cell.classList.toggle("is-green", greenCells.has(cellNumber));
+    });
+}
+
+function toggleConnectCell(row, cellNumber, color) {
+    const input = row.querySelector(".connect-cells");
+    if (!input) return;
+    const cellMap = parseConnectCellMap(input.value);
+    const yellowCells = new Set(cellMap.yellow);
+    const greenCells = new Set(cellMap.green);
+    const targetSet = color === "green" ? greenCells : yellowCells;
+    const otherSet = color === "green" ? yellowCells : greenCells;
+
+    if (targetSet.has(cellNumber)) {
+        targetSet.delete(cellNumber);
+    } else {
+        otherSet.delete(cellNumber);
+        targetSet.add(cellNumber);
+    }
+
+    input.value = formatConnectCells({
+        yellow: Array.from(yellowCells),
+        green: Array.from(greenCells)
+    });
+    syncConnectPicker(row);
+}
+
+function setupConnectPicker(row) {
+    const input = row.querySelector(".connect-cells");
+    const picker = row.querySelector(".connect-picker");
+    if (!input || !picker) return;
+
+    picker.addEventListener("click", (event) => {
+        const cell = event.target.closest(".connect-picker-cell");
+        if (!cell) return;
+        toggleConnectCell(row, Number(cell.dataset.cell), "yellow");
+    });
+
+    picker.addEventListener("contextmenu", (event) => {
+        const cell = event.target.closest(".connect-picker-cell");
+        if (!cell) return;
+        event.preventDefault();
+        toggleConnectCell(row, Number(cell.dataset.cell), "green");
+    });
+
+    input.addEventListener("input", () => syncConnectPicker(row));
+    syncConnectPicker(row);
 }
 
 function addRow() {
@@ -434,19 +654,45 @@ function deleteRow(button) {
 }
 
 async function selectJSFile() {
-    try {
-        const [handle] = await window.showOpenFilePicker({
-            types: [{ description: 'JavaScript Files', accept: { 'application/javascript': ['.js'] } }],
-            multiple: false
-        });
-        fileHandle = handle;
-        const file = await fileHandle.getFile();
+    if (window.showOpenFilePicker) {
+        try {
+            const [handle] = await window.showOpenFilePicker({
+                types: [{ description: 'JavaScript Files', accept: { 'application/javascript': ['.js'], 'text/javascript': ['.js'], 'text/plain': ['.js'] } }],
+                multiple: false
+            });
+            fileHandle = handle;
+            const file = await fileHandle.getFile();
+            fallbackFileName = file.name;
+            const text = await file.text();
+            parseAndRenderJS(text);
+            updateStatus(file.name);
+            return;
+        } catch (err) {
+            if (err.name === 'AbortError') return;
+        }
+    }
+
+    const fallbackInput = document.getElementById("fallbackFileInput");
+    if (!fallbackInput) {
+        alert("ファイル選択欄が見つかりませんでした。");
+        return;
+    }
+    fallbackInput.value = "";
+    fallbackInput.click();
+}
+
+function setupFallbackFileInput() {
+    const fallbackInput = document.getElementById("fallbackFileInput");
+    if (!fallbackInput) return;
+    fallbackInput.addEventListener("change", async () => {
+        const file = fallbackInput.files && fallbackInput.files[0];
+        if (!file) return;
+        fileHandle = null;
+        fallbackFileName = file.name || "card-data.js";
         const text = await file.text();
         parseAndRenderJS(text);
-        updateStatus(file.name);
-    } catch (err) {
-        if (err.name !== 'AbortError') alert("エラー: " + err.message);
-    }
+        updateStatus(fallbackFileName);
+    });
 }
 
 function setupWindowDragAndDrop() {
@@ -475,11 +721,6 @@ function updateStatus(fileName) {
 function parseAndRenderJS(jsText) {
     try {
         isFileLoaded = true;
-
-        if (jsText.includes("skillMaster")) {
-            extractSkillMaster(jsText);
-        }
-
         if (jsText.includes("itemList")) {
             currentMode = "item";
         } else if (jsText.includes("songList")) {
@@ -492,12 +733,7 @@ function parseAndRenderJS(jsText) {
         const startIndex = jsText.indexOf('[');
         const endIndex = jsText.lastIndexOf(']');
         if (startIndex === -1 || endIndex === -1) {
-            if (jsText.includes("skillMaster") && !jsText.includes("cardData")) {
-                alert("マスタ設定 (skillMaster) を読み込みました！");
-                refreshAllSkillPreviews();
-                return;
-            }
-            alert("有効な配列データが見つかりませんでした。");
+alert("有効な配列データが見つかりませんでした。");
             return;
         }
         
@@ -514,43 +750,11 @@ function parseAndRenderJS(jsText) {
                     addRowToDOM(data);
                 }
             });
-            if (currentMode === "card") refreshAllSkillPreviews();
         } else {
             alert("データの解析に失敗しました。");
         }
     } catch (err) {
         alert("JSファイルの解析中にエラーが発生しました:\n" + err.message);
-    }
-}
-
-function extractSkillMaster(jsText) {
-    try {
-        const startMatch = jsText.match(/const\s+skillMaster\s*=\s*\{/);
-        if (!startMatch) return;
-        
-        const startIndex = jsText.indexOf('{', startMatch.index);
-        let braceCount = 1;
-        let endIndex = -1;
-        
-        for (let i = startIndex + 1; i < jsText.length; i++) {
-            if (jsText[i] === '{') braceCount++;
-            if (jsText[i] === '}') braceCount--;
-            if (braceCount === 0) {
-                endIndex = i;
-                break;
-            }
-        }
-        
-        if (endIndex !== -1) {
-            const objectText = jsText.substring(startIndex, endIndex + 1);
-            const parsedObj = new Function(`return ${objectText};`)();
-            if (parsedObj && typeof parsedObj === 'object') {
-                localSkillMaster = parsedObj;
-                renderMasterHeader();
-            }
-        }
-    } catch (e) {
-        console.error("skillMaster の抽出に失敗しました:", e);
     }
 }
 
@@ -595,25 +799,12 @@ function generateJSString() {
         result += "];\n";
         return result;
     } else {
-        let result = "// =========================================\n";
-        result += "// 数字とスキルの対応表（IDマスター）\n";
-        result += "// =========================================\n";
-        result += "const skillMaster = {\n";
-        const sortedIds = Object.keys(localSkillMaster).sort((a, b) => parseInt(a) - parseInt(b));
-        sortedIds.forEach((id, idx) => {
-            result += `    ${id}: "${localSkillMaster[id]}"`;
-            if (idx < sortedIds.length - 1) result += ",\n";
-            else result += "\n";
-        });
-        result += "};\n\n";
-
-        result += "const cardData = [\n";
+        let result = "const cardData = [\n";
         rows.forEach((row, index) => {
             const rarity = parseInt(row.querySelector(".rarity").value) || 0;
             const name = row.querySelector(".name").value;
             const filename = row.querySelector(".filename").value;
-            const skillid = parseInt(row.querySelector(".skillid").value) || 0;
-            
+            const type = row.querySelector(".card-type") ? row.querySelector(".card-type").value : "";
             const version = row.querySelector(".version").value.trim();
             const group = row.querySelector(".group").value.trim();
             const searchword = row.querySelector(".searchword").value.trim();
@@ -624,13 +815,17 @@ function generateJSString() {
             if (searchword) combinedTags.push(searchword);
             const searchWordStr = combinedTags.join(", ");
 
+            const connectRange = row.querySelector(".connect-range").value;
+            const connectCells = parseConnectCellMap(row.querySelector(".connect-cells").value);
+            const connectEffect = row.querySelector(".connect-effect").value;
+            const costume = row.querySelector(".costume").value;
             const leader = row.querySelector(".leader").value;
             const special = row.querySelector(".special").value;
             const active = row.querySelector(".active").value;
             const passive = row.querySelector(".passive").value;
 
-            result += `  [ ${rarity}, "${name}", "${filename}", ${skillid}, "${searchWordStr}", \n`;
-            result += `    { leader: "${leader}", special: "${special}", active: "${active}", passive: "${passive}" }\n`;
+            result += `  [ ${rarity}, ${jsString(name)}, ${jsString(filename)}, ${jsString(searchWordStr)}, \n`;
+            result += `    { type: ${jsString(type)}, leader: ${jsString(leader)}, connect: { range: ${jsString(connectRange)}, cells: { yellow: [${connectCells.yellow.join(", ")}], green: [${connectCells.green.join(", ")}] }, effect: ${jsString(connectEffect)} }, costume: ${jsString(costume)}, special: ${jsString(special)}, active: ${jsString(active)}, passive: ${jsString(passive)} }\n`;
             result += `  ]`;
             
             if (index < rows.length - 1) result += ",\n";
@@ -642,20 +837,45 @@ function generateJSString() {
 }
 
 async function saveJSFile() {
-    if (!fileHandle) return;
     try {
         const jsContent = generateJSString();
-        const writable = await fileHandle.createWritable();
-        await writable.write(jsContent);
-        await writable.close();
-        alert("ファイルを直接上書き保存しました");
+        if (fileHandle && fileHandle.createWritable) {
+            const writable = await fileHandle.createWritable();
+            await writable.write(jsContent);
+            await writable.close();
+            alert("ファイルを直接上書き保存しました");
+            return;
+        }
+
+        const blob = new Blob([jsContent], { type: "text/javascript;charset=utf-8" });
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement("a");
+        link.href = url;
+        link.download = fallbackFileName || "card-data.js";
+        document.body.appendChild(link);
+        link.click();
+        link.remove();
+        URL.revokeObjectURL(url);
+        alert("ブラウザの制限で直接上書きできないため、更新済みファイルをダウンロードしました。元のJSファイルに上書きしてください。");
     } catch (err) {
         alert("保存中にエラーが発生しました:\n" + err.message);
     }
 }
+
+document.addEventListener("contextmenu", (event) => event.preventDefault());
 
 updateTableHeader();
 </script>
 
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+

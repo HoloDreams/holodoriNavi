@@ -1,45 +1,15 @@
 const itemsPerPage = 30;
 let currentPage = 1;
 let filteredSongs = [];
-let showFavoritesOnly = false;
-const favoriteStorageKey = 'holodori-favorite-songs';
-
-function getSongKey(songName) {
-    return String(songName || '').trim();
-}
-
-function loadFavoriteSongs() {
-    try {
-        const saved = JSON.parse(localStorage.getItem(favoriteStorageKey) || '[]');
-        return Array.isArray(saved) ? saved : [];
-    } catch (error) {
-        return [];
-    }
-}
-
-function saveFavoriteSongs(favorites) {
-    localStorage.setItem(favoriteStorageKey, JSON.stringify(favorites));
-}
-
-function isFavoriteSong(songName) {
-    return loadFavoriteSongs().includes(getSongKey(songName));
-}
-
-function toggleFavoriteSong(songName) {
-    const key = getSongKey(songName);
-    const favorites = loadFavoriteSongs();
-    const existingIndex = favorites.indexOf(key);
-    if (existingIndex >= 0) {
-        favorites.splice(existingIndex, 1);
-    } else {
-        favorites.push(key);
-    }
-    saveFavoriteSongs(favorites);
-    return favorites.includes(key);
-}
 
 function escapeHtml(value) {
     return String(value || '').replace(/[&<>"]/g, char => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[char]));
+}
+
+function getSongCoverSrc(songData) {
+    const songName = songData[0];
+    const fileName = songData[3] || `${songName}.jpg`;
+    return `img/cover_art/${encodeURIComponent(fileName)}`;
 }
 
 function getSongSortLevel(item) {
@@ -56,31 +26,53 @@ function getSongSortLevel(item) {
 }
 
 function sortSongResults(results, sortMode) {
-    if (sortMode !== 'level-desc') return results;
+    if (sortMode === 'default') return results;
+
     return results
         .map((item, index) => ({ ...item, originalIndex: index }))
         .sort((a, b) => {
-            const levelDiff = getSongSortLevel(b) - getSongSortLevel(a);
+            if (sortMode === 'title-ja') {
+                const titleA = a.data[0] || '';
+                const titleB = b.data[0] || '';
+                const titleDiff = titleA.localeCompare(titleB, 'ja');
+                return titleDiff !== 0 ? titleDiff : a.originalIndex - b.originalIndex;
+            }
+
+            const levelA = getSongSortLevel(a);
+            const levelB = getSongSortLevel(b);
+            const levelDiff = sortMode === 'level-asc'
+                ? levelA - levelB
+                : levelB - levelA;
             return levelDiff !== 0 ? levelDiff : a.originalIndex - b.originalIndex;
         })
         .map(({ originalIndex, ...item }) => item);
 }
 
-function updateSortVisibility() {
+function isLevelFilterActive() {
     const diffSelect = document.getElementById('difficulty-select');
     const minInput = document.getElementById('level-min');
     const maxInput = document.getElementById('level-max');
-    const sortContainer = document.querySelector('.sort-container');
-    const sortSelect = document.getElementById('sort-select');
-    if (!sortContainer) return;
 
-    const isLevelFilterEnabled =
+    return (
         (diffSelect && diffSelect.value !== 'none') ||
         (minInput && minInput.value !== '') ||
-        (maxInput && maxInput.value !== '');
+        (maxInput && maxInput.value !== '')
+    );
+}
 
-    sortContainer.hidden = !isLevelFilterEnabled;
-    if (!isLevelFilterEnabled && sortSelect) {
+function updateSortOptions() {
+    const sortSelect = document.getElementById('sort-select');
+    if (!sortSelect) return;
+
+    const levelOptions = sortSelect.querySelectorAll('option[value="level-desc"], option[value="level-asc"]');
+    const showLevelSort = isLevelFilterActive();
+
+    levelOptions.forEach(option => {
+        option.hidden = !showLevelSort;
+        option.disabled = !showLevelSort;
+    });
+
+    if (!showLevelSort && (sortSelect.value === 'level-desc' || sortSelect.value === 'level-asc')) {
         sortSelect.value = 'default';
     }
 }
@@ -99,7 +91,7 @@ function updateDisplay() {
     const selectedDiff = diffSelect ? diffSelect.value : 'none'; 
     const minLevel = minInput && minInput.value !== "" ? parseInt(minInput.value, 10) : null;
     const maxLevel = maxInput && maxInput.value !== "" ? parseInt(maxInput.value, 10) : null;
-    updateSortVisibility();
+    updateSortOptions();
     const sortMode = sortSelect ? sortSelect.value : 'default';
 
     let results = [];
@@ -114,8 +106,6 @@ function updateDisplay() {
                 totalFumenCount++;
             }
         });
-
-        if (showFavoritesOnly && !isFavoriteSong(songData[0])) continue;
 
         const songName = (songData[0] || "").toLowerCase();
         const memberName = (songData[1] || "").toLowerCase();
@@ -212,6 +202,7 @@ function displaySongs(page) {
 
     slicedSongs.forEach(item => {
         const songName = item.data[0];
+        const coverSrc = getSongCoverSrc(item.data);
         const levels = item.data[2] || {};
         const displayDiff = item.displayDiff;
 
@@ -229,16 +220,12 @@ function displaySongs(page) {
             badgeHtml = `<div class="difficulty-badge badge-${displayDiff}">${currentLevelValue}</div>`;
         }
 
-        const isFavorite = isFavoriteSong(songName);
         card.innerHTML = `
             <div class="card-link-wrapper">
                 ${badgeHtml}
-                <button type="button" class="favorite-song-btn${isFavorite ? ' is-favorite' : ''}" data-song-name="${escapeHtml(songName)}" aria-label="お気に入り">\u2605</button>
-                <a href="\u53ce\u9332\u697d\u66f2\u4e00\u89a7/${encodeURIComponent(songName)}.html">
-                    <img src="img/cover_art/${songName}.jpg" alt="${songName}" loading="lazy">
-                </a>
+                <img src="${coverSrc}" alt="${escapeHtml(songName)}" loading="lazy">
             </div>
-            <p>${songName}</p>
+            <p>${escapeHtml(songName)}</p>
         `;
         container.appendChild(card);
     });
@@ -268,44 +255,6 @@ function setupSongSuggestions() {
         .join('');
 }
 
-function getUniqueFilteredSongData() {
-    const seen = new Set();
-    const source = filteredSongs.length ? filteredSongs.map(item => item.data) : songList;
-    return source.filter(song => {
-        const key = getSongKey(song[0]);
-        if (seen.has(key)) return false;
-        seen.add(key);
-        return true;
-    });
-}
-
-function showRandomSong() {
-    const resultEl = document.getElementById('random-song-result');
-    if (!resultEl) return;
-    const candidates = getUniqueFilteredSongData();
-    if (!candidates.length) {
-        resultEl.hidden = false;
-        resultEl.innerHTML = '条件に合う楽曲がありません。';
-        return;
-    }
-    const song = candidates[Math.floor(Math.random() * candidates.length)];
-    const songName = song[0];
-    const levels = song[2] || {};
-    const levelText = ['easy', 'normal', 'hard', 'expert']
-        .map(diff => levels[diff] !== undefined ? `${diff.toUpperCase()} ${levels[diff]}` : '')
-        .filter(Boolean)
-        .join(' / ');
-    resultEl.hidden = false;
-    resultEl.innerHTML = `
-        <a class="random-song-card" href="\u53ce\u9332\u697d\u66f2\u4e00\u89a7/${encodeURIComponent(songName)}.html">
-            <img src="img/cover_art/${songName}.jpg" alt="${escapeHtml(songName)}" loading="lazy">
-            <span class="random-song-text">
-                <strong>\u30e9\u30f3\u30c0\u30e01\u66f2\uff1a${escapeHtml(songName)}</strong>
-                <small>${escapeHtml(levelText)}</small>
-            </span>
-        </a>`;
-}
-
 document.addEventListener('DOMContentLoaded', () => {
     const searchInput = document.getElementById('search-input');
     const diffSelect = document.getElementById('difficulty-select');
@@ -314,39 +263,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const sortSelect = document.getElementById('sort-select');
     const prevBtn = document.getElementById('prev-btn');
     const nextBtn = document.getElementById('next-btn');
-    const randomSongBtn = document.getElementById('random-song-btn');
-    const favoriteFilterBtn = document.getElementById('favorite-filter-btn');
-    const songListContainer = document.getElementById('song-list-container');
 
     setupSongSuggestions();
-
-    if (randomSongBtn) {
-        randomSongBtn.addEventListener('click', showRandomSong);
-    }
-
-    if (favoriteFilterBtn) {
-        favoriteFilterBtn.addEventListener('click', () => {
-            showFavoritesOnly = !showFavoritesOnly;
-            favoriteFilterBtn.classList.toggle('is-active', showFavoritesOnly);
-            currentPage = 1;
-            updateDisplay();
-        });
-    }
-
-    if (songListContainer) {
-        songListContainer.addEventListener('click', event => {
-            const favoriteButton = event.target.closest('.favorite-song-btn');
-            if (!favoriteButton) return;
-            event.preventDefault();
-            event.stopPropagation();
-            const songName = favoriteButton.dataset.songName;
-            const isFavorite = toggleFavoriteSong(songName);
-            favoriteButton.classList.toggle('is-favorite', isFavorite);
-            if (showFavoritesOnly && !isFavorite) {
-                updateDisplay();
-            }
-        });
-    }
 
     if (minInput && sessionStorage.getItem('level-min-value')) {
         minInput.value = sessionStorage.getItem('level-min-value');

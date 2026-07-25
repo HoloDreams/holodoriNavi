@@ -113,8 +113,12 @@
     </div>
 
     <div id="card-filter-panel" class="card-filter-panel" aria-hidden="true">
-      <div id="skill-filter-container" class="skill-filter-container"></div>
-
+      <div class="type-filter-container" aria-label="タイプで絞り込み">
+        <button type="button" class="type-filter-btn active" data-type="all">すべて</button>
+        <button type="button" class="type-filter-btn type-cute" data-type="cute">❤ キュート</button>
+        <button type="button" class="type-filter-btn type-pure" data-type="pure">🍃 ピュア</button>
+        <button type="button" class="type-filter-btn type-happy" data-type="happy">☀ ハッピー</button>
+      </div>
       <div class="sort-container">
         <label for="sort-select">並び替え：</label>
         <select id="sort-select">

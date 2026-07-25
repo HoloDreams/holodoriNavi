@@ -125,16 +125,13 @@
       <div class="sort-container">
         <label for="sort-select" class="filter-label">並び順：</label>
         <select id="sort-select">
-          <option value="default" selected>デフォルト</option>
-          <option value="level-desc">レベル順</option>
+          <option value="default" selected>配信順</option>
+          <option value="level-desc">レベル高い順</option>
+          <option value="level-asc">レベル低い順</option>
+          <option value="title-ja">50音順</option>
         </select>
       </div>
 
-      <div class="song-quick-actions">
-        <button type="button" id="random-song-btn" class="song-action-btn">ランダム1曲</button>
-        <button type="button" id="favorite-filter-btn" class="song-action-btn">お気に入りのみ</button>
-      </div>
-      <div id="random-song-result" class="random-song-result" hidden></div>
   </div>
 
     <p id="page-info" style="text-align: center;">

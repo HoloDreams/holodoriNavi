@@ -7,13 +7,15 @@
   color: #3f3f3f;
   text-align: center;
   font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif;
-  font-size: 13px;
+  font-size: 13px !important;
   font-weight: 700;
-  line-height: 1.8;
+  line-height: 1.8 !important;
 }
 
 .site-rights-footer p {
   margin: 0;
+  font-size: inherit !important;
+  line-height: inherit !important;
 }
 
 .site-rights-footer a {
@@ -27,6 +29,6 @@
   .site-rights-footer {
     margin: 40px 0 0;
     padding: 18px 14px;
-    font-size: 12px;
+    font-size: 12px !important;
   }
 }

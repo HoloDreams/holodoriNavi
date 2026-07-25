@@ -171,6 +171,21 @@ h3 {
   color: #3f3f3f;
 }
 
+.page-note {
+  width: min(920px, calc(100% - 32px));
+  margin: 42px auto 0;
+  color: #3f3f3f;
+  font-size: 13px !important;
+  font-weight: 700;
+  line-height: 1.8 !important;
+  text-align: center;
+}
+
+.page-note a {
+  color: #008fd3;
+  font-weight: 900;
+}
+
 .title-explanation {
   font-size: 60px;
   font-weight: 900;
@@ -336,13 +351,15 @@ p{
 }
 
 .fade-in-up {
-  opacity: 0;
-  transform: translateX(-64px);
-  transition: opacity 1.7s ease, transform 1.7s cubic-bezier(0.16, 1, 0.3, 1);
+  opacity: 1;
+  transform: none;
+  transition: none;
+  will-change: auto;
 }
 .fade-in-up.is-show {
   opacity: 1;
-  transform: translateX(0);
+  transform: none;
+  will-change: auto;
 }
 
 
@@ -361,6 +378,8 @@ p{
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   box-sizing: border-box;
+  content-visibility: auto;
+  contain-intrinsic-size: 520px;
 }
 
 h1::after,
@@ -830,6 +849,32 @@ html {
   .rhythm-play-image-box,
   .tap-effect-image-box {
     padding: 8px !important;
+  }
+}
+
+@media (max-width: 1024px), (hover: none), (pointer: coarse) {
+  .fade-in-up {
+    transform: translateX(-18px);
+    transition-duration: 0.55s;
+  }
+
+  .operation-block,
+  .content-card,
+  .comment-box,
+  .rhythm-option-toggle,
+  .tap-effect-image-box {
+    box-shadow: 0 6px 16px rgba(0, 148, 216, 0.10) !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fade-in-up,
+  .fade-in-up.is-show {
+    opacity: 1;
+    transform: none;
+    transition: none;
   }
 }
 
