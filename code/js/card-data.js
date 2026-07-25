@@ -9,7 +9,7 @@ const cardData = [
     { type: "happy", leader: "", connect: { range: "", cells: { yellow: [], green: [] }, effect: "" }, costume: "", special: "8秒間スコアサポート効果70%／GOOD以上がPERFECTになる", active: "17秒毎に低確率で6秒間スコアが55%UP", passive: "ハッピータイプ2人以上で、ハッピータイプ3人のテクニックが14%UP" }
   ],
   [ 5, "高性能なVサイン ロボ子さん", "4_ロボ子さん1.webp", "ver1.0.0, ホロライブ0期生, ロボ子さん", 
-    { type: "happy", leader: "", connect: { range: "5マス効果", cells: { yellow: [], green: [] }, effect: "範囲内のホロメンボード効果を190%UP" }, costume: "ハッピータイプ2人以上で全員のパフォーマンスが130%UP", special: "10秒間スコアサポート効果145%／ライフ1000以上でスキル発動率が55%UP", active: "18秒毎に高確率で8秒間スコアが90%UP", passive: "ハッピータイプ2人のスコアサポート効果11%" }
+    { type: "happy", leader: "", connect: { range: "5マス効果", cells: { yellow: [17], green: [2, 6, 7, 8, 12] }, effect: "範囲内のホロメンボード効果を190%UP" }, costume: "ハッピータイプ2人以上で全員のパフォーマンスが130%UP", special: "10秒間スコアサポート効果145%／ライフ1000以上でスキル発動率が55%UP", active: "18秒毎に高確率で8秒間スコアが90%UP", passive: "ハッピータイプ2人のスコアサポート効果11%" }
   ],
   [ 4, "ゆるふわウインクLIVE ロボ子さん", "5_ロボ子さん2.webp", "ver1.0.0, ホロライブ0期生, ロボ子さん", 
     { type: "cute", leader: "", connect: { range: "4マス効果", cells: { yellow: [], green: [] }, effect: "範囲内のホロメンボード効果を165%UP" }, costume: "全員の全パラメータが35%UP", special: "12秒間スコアサポート効果85%／40コンボ以上でライフが400回復", active: "24秒毎に高確率で10秒間スコアが35%UP／キュートタイプ2人以上でスコアが70%UP", passive: "キュートタイプ2人以上で、キュートタイプ2人のテクニックが32%UP" }
@@ -18,7 +18,7 @@ const cardData = [
     { type: "pure", leader: "", connect: { range: "", cells: { yellow: [], green: [] }, effect: "" }, costume: "", special: "12秒間スコアサポート効果55%", active: "20秒毎に中確率で10秒間スコアが35%UP", passive: "ピュアタイプ2人のセンスが20%UP" }
   ],
   [ 5, "サクラBloom さくらみこ", "7_さくらみこ1.webp", "ver1.0.0, ホロライブ0期生, さくらみこ", 
-    { type: "happy", leader: "", connect: { range: "5マス効果", cells: { yellow: [], green: [] }, effect: "範囲内のホロメンボード効果を190%UP" }, costume: "全員のセンスが120%UP", special: "10秒間スコアサポート効果145%／スキル発動率が50%UP", active: "15秒毎に中確率で6秒間スコアが55%UP／40コンボ以上でスコアが110%UP", passive: "ハッピータイプ2人のスコアサポート効果11%" }
+    { type: "happy", leader: "", connect: { range: "5マス効果", cells: { yellow: [17], green: [2, 6, 7, 8, 12] }, effect: "範囲内のホロメンボード効果を190%UP" }, costume: "全員のセンスが120%UP", special: "10秒間スコアサポート効果145%／スキル発動率が50%UP", active: "15秒毎に中確率で6秒間スコアが55%UP／40コンボ以上でスコアが110%UP", passive: "ハッピータイプ2人のスコアサポート効果11%" }
   ],
   [ 4, "両手広げるCheerful show さくらみこ", "8_さくらみこ2.webp", "ver1.0.0, ホロライブ0期生, さくらみこ", 
     { type: "pure", leader: "", connect: { range: "4マス効果", cells: { yellow: [], green: [] }, effect: "範囲内のホロメンボード効果を165%UP" }, costume: "全員のテクニックが100%UP", special: "12秒間スコアサポート効果85%／ピュアタイプ2人以上でライフが400回復", active: "23秒毎に中確率で10秒間スコアが35%UP／ライフ600以上でスコアが70%UP", passive: "ピュアタイプ2人のテクニックが30%UP" }
@@ -27,7 +27,7 @@ const cardData = [
     { type: "cute", leader: "", connect: { range: "", cells: { yellow: [], green: [] }, effect: "" }, costume: "", special: "8秒間スコアサポート効果70%／GOOD以上がPERFECTになる", active: "30秒毎に中確率で13秒間スコアが40%UP", passive: "キュートタイプ2人以上で、キュートタイプ3人のパフォーマンスが14%UP" }
   ],
   [ 5, "咲き誇る一途な花 AZKi", "10_AZKi1.webp", "ver1.0.0, ホロライブ0期生, AZKi", 
-    { type: "pure", leader: "", connect: { range: "8マス効果", cells: { yellow: [], green: [] }, effect: "範囲内のホロメンボード効果を135%UP" }, costume: "全員のセンスが120%UP", special: "10秒間スコアサポート効果145%／スキル発動率が50%UP", active: "20秒毎に高確率で7秒間スコアが60%UP／ライフ600以上でスコアが120%UP", passive: "0期生2人のセンスが43%UP" }
+    { type: "pure", leader: "", connect: { range: "8マス効果", cells: { yellow: [12], green: [2, 6, 7, 10, 11, 16, 17, 22] }, effect: "範囲内のホロメンボード効果を135%UP" }, costume: "全員のセンスが120%UP", special: "10秒間スコアサポート効果145%／スキル発動率が50%UP", active: "20秒毎に高確率で7秒間スコアが60%UP／ライフ600以上でスコアが120%UP", passive: "0期生2人のセンスが43%UP" }
   ],
   [ 4, "やわらかな旋律に乗せて AZKi", "11_AZKi2.webp", "ver1.0.0, ホロライブ0期生, AZKi", 
     { type: "cute", leader: "", connect: { range: "3マス効果", cells: { yellow: [], green: [] }, effect: "範囲内のホロメンボード効果を215%UP" }, costume: "0期生が2人以上で全員の全パラメータが40%UP", special: "9秒間スコアサポート効果125%", active: "16秒毎に中確率で5秒間スコアが95%UP", passive: "0期生が2人以上で0期生2人のパフォーマンスが34%UP" }
@@ -36,7 +36,7 @@ const cardData = [
     { type: "happy", leader: "", connect: { range: "", cells: { yellow: [], green: [] }, effect: "" }, costume: "", special: "9秒間スコアサポート効果75%", active: "17秒毎に低確率で6秒間スコアが55%UP", passive: "ハッピータイプ2人以上で自身の全パラメータが16%UP" }
   ],
   [ 5, "心奪うComet Tune 星街すいせい", "13_星街すいせい1.webp", "ver1.0.0, ホロライブ0期生, 星街すいせい", 
-    { type: "pure", leader: "", connect: { range: "5マス効果", cells: { yellow: [], green: [] }, effect: "範囲内のホロメンボード効果を190%UP" }, costume: "全員のテクニックが120%UP", special: "10秒間スコアサポート効果145%／スキル発動率が50%UP", active: "29秒毎に高確率で10秒間スコアが60%UP／ライフ600以上でスコアが120%UP", passive: "ピュアタイプ2人のテクニックが41%UP" }
+    { type: "pure", leader: "", connect: { range: "5マス効果", cells: { yellow: [17], green: [2, 6, 7, 8, 12] }, effect: "範囲内のホロメンボード効果を190%UP" }, costume: "全員のテクニックが120%UP", special: "10秒間スコアサポート効果145%／スキル発動率が50%UP", active: "29秒毎に高確率で10秒間スコアが60%UP／ライフ600以上でスコアが120%UP", passive: "ピュアタイプ2人のテクニックが41%UP" }
   ],
   [ 4, "フロア沸かす目映い存在 星街すいせい", "14_星街すいせい2.webp", "ver1.0.0, ホロライブ0期生, 星街すいせい", 
     { type: "happy", leader: "", connect: { range: "3マス効果", cells: { yellow: [], green: [] }, effect: "範囲内のホロメンボード効果を215%UP" }, costume: "全員の全パラメータが35%UP", special: "9秒間スコアサポート効果110%／ライフ600以上でGOOD以上がPERFECTになる", active: "31秒毎に高確率で10秒間スコアが45%UP／ハッピータイプ2人以上でスコアが90%UP", passive: "ハッピータイプ2人以上で、ハッピータイプ2人のセンスが32%UP" }
@@ -45,7 +45,7 @@ const cardData = [
     { type: "cute", leader: "", connect: { range: "", cells: { yellow: [], green: [] }, effect: "" }, costume: "", special: "8秒間スコアサポート効果85%", active: "23秒毎に低確率で7秒間スコアが65%UP", passive: "キュートタイプ2人のパフォーマンスが20%UP" }
   ],
   [ 5, "艶帯びたハーフエルフ アキ・ローゼンタール", "16_アキ・ローゼンタール1.webp", "ver1.0.0, ホロライブ1期生, アキ・ローゼンタール", 
-    { type: "cute", leader: "", connect: { range: "3マス効果", cells: { yellow: [], green: [] }, effect: "範囲内のホロメンボード効果を270%UP" }, costume: "全員のセンスが120%UP", special: "10秒間スコアサポート効果145%／スキル発動率が50%UP", active: "21秒毎に中確率で8秒間スコアが55%UP／ライフ600以上でスコアが115%UP", passive: "1期生2人のセンスが43%UP" }
+    { type: "cute", leader: "", connect: { range: "3マス効果", cells: { yellow: [7], green: [12, 17, 22] }, effect: "範囲内のホロメンボード効果を270%UP" }, costume: "全員のセンスが120%UP", special: "10秒間スコアサポート効果145%／スキル発動率が50%UP", active: "21秒毎に中確率で8秒間スコアが55%UP／ライフ600以上でスコアが115%UP", passive: "1期生2人のセンスが43%UP" }
   ],
   [ 4, "歌うcuriousハーフエルフ アキ・ローゼンタール", "17_アキ・ローゼンタール2.webp", "ver1.0.0, ホロライブ1期生, アキ・ローゼンタール", 
     { type: "happy", leader: "", connect: { range: "3マス効果", cells: { yellow: [], green: [] }, effect: "範囲内のホロメンボード効果を215%UP" }, costume: "全員の全パラメータが35%UP", special: "9秒間スコアサポート効果125%", active: "23秒毎に中確率で10秒間スコアが35%UP／ハッピータイプ2人以上でスコアが70%UP", passive: "ハッピータイプ2人以上で自身の全パラメータが24%UP" }
@@ -54,7 +54,7 @@ const cardData = [
     { type: "pure", leader: "", connect: { range: "", cells: { yellow: [], green: [] }, effect: "" }, costume: "", special: "9秒間スコアサポート効果75%", active: "20秒毎に中確率で7秒間スコアが50%UP", passive: "ピュアタイプ2人以上で、ピュアタイプ3人のパフォーマンスが14%UP" }
   ],
   [ 5, "let's freestyle おやつタイム 赤井はあと", "19_赤井はあと1.webp", "ver1.0.0, ホロライブ1期生, 赤井はあと", 
-    { type: "pure", leader: "", connect: { range: "3マス効果", cells: { yellow: [], green: [] }, effect: "範囲内のホロメンボード効果を270%UP" }, costume: "全員のテクニックが120%UP", special: "12秒間スコアサポート効果135%", active: "19秒毎に中確率で7秒間スコアが60%UP／40コンボ以上でスコアが120%UP", passive: "ピュアタイプ2人のスコアサポート効果11%" }
+    { type: "pure", leader: "", connect: { range: "3マス効果", cells: { yellow: [7], green: [12, 17, 22] }, effect: "範囲内のホロメンボード効果を270%UP" }, costume: "全員のテクニックが120%UP", special: "12秒間スコアサポート効果135%", active: "19秒毎に中確率で7秒間スコアが60%UP／40コンボ以上でスコアが120%UP", passive: "ピュアタイプ2人のスコアサポート効果11%" }
   ],
   [ 4, "ハートくすぐる奔放ライブ 赤井はあと", "20_赤井はあと2.webp", "ver1.0.0, ホロライブ1期生, 赤井はあと", 
     { type: "cute", leader: "", connect: { range: "4マス効果", cells: { yellow: [], green: [] }, effect: "範囲内のホロメンボード効果を165%UP" }, costume: "1期生が2人以上で全員の全パラメータが40%UP", special: "14秒間スコアサポート効果80%", active: "24秒毎に中確率で10秒間スコアが70%UP", passive: "1期生が2人以上で自身の全パラメータが25%UP" }
@@ -63,7 +63,7 @@ const cardData = [
     { type: "happy", leader: "", connect: { range: "", cells: { yellow: [], green: [] }, effect: "" }, costume: "", special: "10秒間スコアサポート効果55%／ライフが400回復", active: "27秒毎に低確率で12秒間スコアが45%UP", passive: "ハッピータイプ2人以上で、ハッピータイプ3人のセンスが14%UP" }
   ],
   [ 5, "ハジける快活チアリーダー 夏色まつり", "22_夏色まつり1.webp", "ver1.0.0, ホロライブ1期生, 夏色まつり", 
-    { type: "happy", leader: "", connect: { range: "4マス効果", cells: { yellow: [], green: [] }, effect: "範囲内のホロメンボード効果を200%UP" }, costume: "全員のパフォーマンスが120%UP", special: "11秒間スコアサポート効果145%", active: "23秒毎に高確率で8秒間スコアが60%UP／ライフ600以上でスコアが120%UP", passive: "1期生2人のパフォーマンスが43%UP" }
+    { type: "happy", leader: "", connect: { range: "4マス効果", cells: { yellow: [12], green: [2, 7, 17, 22] }, effect: "範囲内のホロメンボード効果を200%UP" }, costume: "全員のパフォーマンスが120%UP", special: "11秒間スコアサポート効果145%", active: "23秒毎に高確率で8秒間スコアが60%UP／ライフ600以上でスコアが120%UP", passive: "1期生2人のパフォーマンスが43%UP" }
   ],
   [ 4, "あざとさ全開キュンキュンライブ 夏色まつり", "23_夏色まつり2.webp", "ver1.0.0, ホロライブ1期生, 夏色まつり", 
     { type: "pure", leader: "", connect: { range: "3マス効果", cells: { yellow: [], green: [] }, effect: "範囲内のホロメンボード効果を210%UP" }, costume: "全員の全パラメータが35%UP", special: "13秒間スコアサポート効果85%", active: "24秒毎に高確率で10秒間スコアが35%UP／ピュアタイプ2人以上でスコアが70%UP", passive: "ピュアタイプ3人以上でピュアタイプ3人のスコアサポート効果6%" }
@@ -72,7 +72,7 @@ const cardData = [
     { type: "cute", leader: "", connect: { range: "", cells: { yellow: [], green: [] }, effect: "" }, costume: "", special: "10秒間スコアサポート効果55%／ライフが400回復", active: "30秒毎に中確率で13秒間スコアが40%UP", passive: "キュートタイプ2人以上で、キュートタイプ3人のテクニックが14%UP" }
   ],
   [ 5, "狐のお宮でこんこんこん 白上フブキ", "25_白上フブキ1.webp", "ver1.0.0, ホロライブ1期生, 白上フブキ", 
-    { type: "pure", leader: "", connect: { range: "4マス効果", cells: { yellow: [], green: [] }, effect: "範囲内のホロメンボード効果を200%UP" }, costume: "1期生が2人以上で全員の全パラメータが50%UP", special: "14秒間スコアサポート効果115%", active: "30秒毎に高確率で11秒間スコアが110%UP", passive: "1期生が2人以上で1期生2人のパフォーマンスが45%UP" }
+    { type: "pure", leader: "", connect: { range: "4マス効果", cells: { yellow: [12], green: [2, 7, 17, 22] }, effect: "範囲内のホロメンボード効果を200%UP" }, costume: "1期生が2人以上で全員の全パラメータが50%UP", special: "14秒間スコアサポート効果115%", active: "30秒毎に高確率で11秒間スコアが110%UP", passive: "1期生が2人以上で1期生2人のパフォーマンスが45%UP" }
   ],
   [ 4, "ギアあげるFOXパフォーマンス 白上フブキ", "26_白上フブキ2.webp", "ver1.0.0, ホロライブ1期生, 白上フブキ", 
     { type: "cute", leader: "", connect: { range: "3マス効果", cells: { yellow: [], green: [] }, effect: "範囲内のホロメンボード効果を200%UP" }, costume: "全員のテクニックが100%UP", special: "9秒間スコアサポート効果110%／キュートタイプ2人以上でGOOD以上がPERFECTになる", active: "23秒毎に中確率で10秒間スコアが35%UP／40コンボ以上でスコアが70%UP", passive: "キュートタイプ2人以上で、キュートタイプ2人のテクニックが32%UP" }
@@ -81,7 +81,7 @@ const cardData = [
     { type: "happy", leader: "", connect: { range: "", cells: { yellow: [], green: [] }, effect: "" }, costume: "", special: "8秒間スコアサポート効果70%／GOOD以上がPERFECTになる", active: "30秒毎に中確率で13秒間スコアが40%UP", passive: "ハッピータイプ2人以上で自身の全パラメータが16%UP" }
   ],
   [ 5, "隠世でのほほん、気ままな提灯 百鬼あやめ", "28_百鬼あやめ1.webp", "ver1.0.0, ホロライブ2期生, 百鬼あやめ", 
-    { type: "pure", leader: "", connect: { range: "4マス効果", cells: { yellow: [], green: [] }, effect: "範囲内のホロメンボード効果を200%UP" }, costume: "全員のスコアサポート効果60%", special: "10秒間スコアサポート効果160%", active: "29秒毎に高確率で10秒間スコアが60%UP／ピュアタイプ2人以上でスコアが120%UP", passive: "ピュアタイプ2人のパフォーマンスが41%UP" }
+    { type: "pure", leader: "", connect: { range: "4マス効果", cells: { yellow: [12], green: [2, 7, 13, 14] }, effect: "範囲内のホロメンボード効果を200%UP" }, costume: "全員のスコアサポート効果60%", special: "10秒間スコアサポート効果160%", active: "29秒毎に高確率で10秒間スコアが60%UP／ピュアタイプ2人以上でスコアが120%UP", passive: "ピュアタイプ2人のパフォーマンスが41%UP" }
   ],
   [ 4, "鬼娘のほわっとアンコール 百鬼あやめ", "29_百鬼あやめ2.webp", "ver1.0.0, ホロライブ2期生, 百鬼あやめ", 
     { type: "cute", leader: "", connect: { range: "3マス効果", cells: { yellow: [], green: [] }, effect: "範囲内のホロメンボード効果を200%UP" }, costume: "2期生が2人以上で全員の全パラメータが40%UP", special: "8秒間スコアサポート効果140%", active: "29秒毎に高確率で9秒間スコアが90%UP", passive: "2期生が2人以上で自身の全パラメータが25%UP" }
@@ -90,7 +90,7 @@ const cardData = [
     { type: "happy", leader: "", connect: { range: "", cells: { yellow: [], green: [] }, effect: "" }, costume: "", special: "9秒間スコアサポート効果75%", active: "17秒毎に低確率で6秒間スコアが55%UP", passive: "ハッピータイプ2人のセンスが20%UP" }
   ],
   [ 5, "悪魔な魅惑に手玉にとられて 癒月ちょこ", "31_癒月ちょこ1.webp", "ver1.0.0, ホロライブ2期生, 癒月ちょこ", 
-    { type: "happy", leader: "", connect: { range: "6マス効果", cells: { yellow: [], green: [] }, effect: "範囲内のホロメンボード効果を160%UP" }, costume: "ハッピータイプ2人以上で全員の全パラメータが30%UP/ハッピータイプ2人以上で全員のスコアサポート効果25%", special: "10秒間スコアサポート効果160%", active: "20秒毎に中確率で7秒間スコアが120%UP", passive: "ハッピータイプ2人のスコアサポート効果11%" }
+    { type: "happy", leader: "", connect: { range: "6マス効果", cells: { yellow: [12], green: [6, 7, 11, 13, 16, 17] }, effect: "範囲内のホロメンボード効果を160%UP" }, costume: "ハッピータイプ2人以上で全員の全パラメータが30%UP/ハッピータイプ2人以上で全員のスコアサポート効果25%", special: "10秒間スコアサポート効果160%", active: "20秒毎に中確率で7秒間スコアが120%UP", passive: "ハッピータイプ2人のスコアサポート効果11%" }
   ],
   [ 4, "保健医さん魅惑のライブ 癒月ちょこ", "32_癒月ちょこ2.webp", "ver1.0.0, ホロライブ2期生, 癒月ちょこ", 
     { type: "pure", leader: "", connect: { range: "4マス効果", cells: { yellow: [], green: [] }, effect: "範囲内のホロメンボード効果を165%UP" }, costume: "全員のテクニックが100%UP", special: "9秒間スコアサポート効果125%", active: "28秒毎に高確率で10秒間スコアが40%UP／40コンボ以上でスコアが80%UP", passive: "ピュアタイプ2人のテクニックが30%UP" }
@@ -99,7 +99,7 @@ const cardData = [
     { type: "cute", leader: "", connect: { range: "", cells: { yellow: [], green: [] }, effect: "" }, costume: "", special: "9秒間スコアサポート効果75%", active: "30秒毎に中確率で13秒間スコアが40%UP", passive: "キュートタイプ2人以上で自身の全パラメータが16%UP" }
   ],
   [ 5, "クワッとじゃれ合うアヒルの午後 大空スバル", "34_大空スバル1.webp", "ver1.0.0, ホロライブ2期生, 大空スバル", 
-    { type: "cute", leader: "", connect: { range: "6マス効果", cells: { yellow: [], green: [] }, effect: "範囲内のホロメンボード効果を160%UP" }, costume: "2期生が2人以上で全員の全パラメータが50%UP", special: "12秒間スコアサポート効果120%／スキル発動率が40%UP", active: "34秒毎に高確率で12秒間スコアが115%UP", passive: "2期生が2人以上で2期生2人のパフォーマンスが45%UP" }
+    { type: "cute", leader: "", connect: { range: "6マス効果", cells: { yellow: [12], green: [6, 7, 11, 13, 16, 17] }, effect: "範囲内のホロメンボード効果を160%UP" }, costume: "2期生が2人以上で全員の全パラメータが50%UP", special: "12秒間スコアサポート効果120%／スキル発動率が40%UP", active: "34秒毎に高確率で12秒間スコアが115%UP", passive: "2期生が2人以上で2期生2人のパフォーマンスが45%UP" }
   ],
   [ 4, "応照らすActive Live 大空スバル", "35_大空スバル2.webp", "ver1.0.0, ホロライブ2期生, 大空スバル", 
     { type: "happy", leader: "", connect: { range: "3マス効果", cells: { yellow: [], green: [] }, effect: "範囲内のホロメンボード効果を210%UP" }, costume: "全員のセンスが100%UP", special: "9秒間スコアサポート効果125%", active: "34秒毎に高確率で11秒間スコアが45%UP／ハッピータイプ2人以上でスコアが90%UP", passive: "ハッピータイプ2人のセンスが30%UP" }
@@ -108,7 +108,7 @@ const cardData = [
     { type: "pure", leader: "", connect: { range: "", cells: { yellow: [], green: [] }, effect: "" }, costume: "", special: "9秒間スコアサポート効果60%／GOOD以上がPERFECTになる", active: "30秒毎に中確率で13秒間スコアが40%UP", passive: "ピュアタイプ2人以上で、ピュアタイプ3人のテクニックが14%UP" }
   ],
   [ 5, "ホッととろけるnightscape 大神ミオ", "37_大神ミオ1.webp", "ver1.0.0, ホロライブゲーマーズ, 大神ミオ", 
-    { type: "cute", leader: "", connect: { range: "5マス効果", cells: { yellow: [], green: [] }, effect: "範囲内のホロメンボード効果を190%UP" }, costume: "ゲーマーズが2人以上で全員の全パラメータが50%UP", special: "14秒間スコアサポート効果115%", active: "27秒毎に高確率で9秒間スコアが120%UP", passive: "ゲーマーズが2人以上でゲーマーズ2人のスコアサポート効果12%" }
+    { type: "cute", leader: "", connect: { range: "5マス効果", cells: { yellow: [17], green: [2, 6, 7, 8, 12] }, effect: "範囲内のホロメンボード効果を190%UP" }, costume: "ゲーマーズが2人以上で全員の全パラメータが50%UP", special: "14秒間スコアサポート効果115%", active: "27秒毎に高確率で9秒間スコアが120%UP", passive: "ゲーマーズが2人以上でゲーマーズ2人のスコアサポート効果12%" }
   ],
   [ 4, "光射す狼の歌声 大神ミオ", "38_大神ミオ2.webp", "ver1.0.0, ホロライブゲーマーズ, 大神ミオ", 
     { type: "happy", leader: "", connect: { range: "4マス効果", cells: { yellow: [], green: [] }, effect: "範囲内のホロメンボード効果を165%UP" }, costume: "全員のパフォーマンスが100%UP", special: "10秒間スコアサポート効果100%／ハッピータイプ2人以上でライフが400回復", active: "32秒毎に高確率で11秒間スコアが40%UP／40コンボ以上でスコアが85%UP", passive: "ハッピータイプ2人のパフォーマンスが30%UP" }
@@ -117,7 +117,7 @@ const cardData = [
     { type: "pure", leader: "", connect: { range: "", cells: { yellow: [], green: [] }, effect: "" }, costume: "", special: "8秒間スコアサポート効果70%／ライフが400回復", active: "17秒毎に低確率で6秒間スコアが55%UP", passive: "ピュアタイプ2人以上で、ピュアタイプ3人のテクニックが14%UP" }
   ],
   [ 5, "宴の果てに、ナイショの戯れ 猫又おかゆ", "40_猫又おかゆ1.webp", "ver1.0.0, ホロライブゲーマーズ, 猫又おかゆ", 
-    { type: "cute", leader: "", connect: { range: "4マス効果", cells: { yellow: [], green: [] }, effect: "範囲内のホロメンボード効果を200%UP" }, costume: "全員のテクニックが120%UP", special: "10秒間スコアサポート効果160%", active: "25秒毎に中確率で10秒間スコアが55%UP／ライフ600以上でスコアが110%UP", passive: "キュートタイプ2人のテクニックが41%UP" }
+    { type: "cute", leader: "", connect: { range: "4マス効果", cells: { yellow: [12], green: [2, 7, 17, 22] }, effect: "範囲内のホロメンボード効果を200%UP" }, costume: "全員のテクニックが120%UP", special: "10秒間スコアサポート効果160%", active: "25秒毎に中確率で10秒間スコアが55%UP／ライフ600以上でスコアが110%UP", passive: "キュートタイプ2人のテクニックが41%UP" }
   ],
   [ 4, "夢中にさせるいたずらCATライブ 猫又おかゆ", "41_猫又おかゆ2.webp", "ver1.0.0, ホロライブゲーマーズ, 猫又おかゆ", 
     { type: "pure", leader: "", connect: { range: "4マス効果", cells: { yellow: [], green: [] }, effect: "範囲内のホロメンボード効果を165%UP" }, costume: "全員のパフォーマンスが100%UP", special: "9秒間スコアサポート効果110%／40コンボ以上でGOOD以上がPERFECTになる", active: "25秒毎に中確率で10秒間スコアが40%UP／ゲーマーズが2人以上でスコアが80%UP", passive: "ゲーマーズが2人以上でゲーマーズ2人のパフォーマンスが34%UP" }
@@ -126,7 +126,7 @@ const cardData = [
     { type: "happy", leader: "", connect: { range: "", cells: { yellow: [], green: [] }, effect: "" }, costume: "", special: "7秒間スコアサポート効果80%／GOOD以上がPERFECTになる", active: "22秒毎に中確率で7秒間スコアが55%UP", passive: "ハッピータイプ2人のセンスが20%UP" }
   ],
   [ 5, "Go! Go! Laughing Skater 戌神ころね", "43_戌神ころね1.webp", "ver1.0.0, ホロライブゲーマーズ, 戌神ころね", 
-    { type: "happy", leader: "", connect: { range: "5マス効果", cells: { yellow: [], green: [] }, effect: "範囲内のホロメンボード効果を190%UP" }, costume: "ハッピータイプ2人以上で全員のセンスが130%UP", special: "10秒間スコアサポート効果145%／100コンボ以上でスキル発動率が55%UP", active: "17秒毎に中確率で6秒間スコアが120%UP", passive: "ハッピータイプ2人のスコアサポート効果11%" }
+    { type: "happy", leader: "", connect: { range: "5マス効果", cells: { yellow: [13], green: [6, 10, 11, 12, 16] }, effect: "範囲内のホロメンボード効果を190%UP" }, costume: "ハッピータイプ2人以上で全員のセンスが130%UP", special: "10秒間スコアサポート効果145%／100コンボ以上でスキル発動率が55%UP", active: "17秒毎に中確率で6秒間スコアが120%UP", passive: "ハッピータイプ2人のスコアサポート効果11%" }
   ],
   [ 4, "farout dogパンチライン 戌神ころね", "44_戌神ころね2.webp", "ver1.0.0, ホロライブゲーマーズ, 戌神ころね", 
     { type: "cute", leader: "", connect: { range: "3マス効果", cells: { yellow: [], green: [] }, effect: "範囲内のホロメンボード効果を210%UP" }, costume: "ゲーマーズが2人以上で全員の全パラメータが40%UP", special: "8秒間スコアサポート効果140%", active: "18秒毎に中確率で7秒間スコアが75%UP", passive: "ゲーマーズが2人以上で自身の全パラメータが25%UP" }
@@ -135,7 +135,7 @@ const cardData = [
     { type: "pure", leader: "", connect: { range: "", cells: { yellow: [], green: [] }, effect: "" }, costume: "", special: "7秒間スコアサポート効果80%／GOOD以上がPERFECTになる", active: "26秒毎に低確率で10秒間スコアが50%UP", passive: "ピュアタイプ2人以上で自身の全パラメータが16%UP" }
   ],
   [ 5, "愛嬌たっぷりラビットフィールド 兎田ぺこら", "46_兎田ぺこら1.webp", "ver1.0.0, ホロライブ3期生, 兎田ぺこら", 
-    { type: "cute", leader: "", connect: { range: "6マス効果", cells: { yellow: [], green: [] }, effect: "範囲内のホロメンボード効果を160%UP" }, costume: "キュートタイプ2人以上で全員の全パラメータが30%UP/キュートタイプ2人以上で全員のスコアサポート効果25%", special: "14秒間スコアサポート効果115%", active: "30秒毎に中確率で12秒間スコアが105%UP", passive: "キュートタイプ2人以上で自身の全パラメータが32%UP" }
+    { type: "cute", leader: "", connect: { range: "6マス効果", cells: { yellow: [12], green: [7, 8, 11, 13, 17, 18] }, effect: "範囲内のホロメンボード効果を160%UP" }, costume: "キュートタイプ2人以上で全員の全パラメータが30%UP/キュートタイプ2人以上で全員のスコアサポート効果25%", special: "14秒間スコアサポート効果115%", active: "30秒毎に中確率で12秒間スコアが105%UP", passive: "キュートタイプ2人以上で自身の全パラメータが32%UP" }
   ],
   [ 4, "cheekyホッピンバニー 兎田ぺこら", "47_兎田ぺこら2.webp", "ver1.0.0, ホロライブ3期生, 兎田ぺこら", 
     { type: "happy", leader: "", connect: { range: "4マス効果", cells: { yellow: [], green: [] }, effect: "範囲内のホロメンボード効果を165%UP" }, costume: "全員のセンスが100%UP", special: "10秒間スコアサポート効果100%／ハッピータイプ2人以上でライフが400回復", active: "25秒毎に中確率で10秒間スコアが40%UP／ライフ600以上でスコアが75%UP", passive: "ハッピータイプ3人以上でハッピータイプ3人のスコアサポート効果6%" }
@@ -144,7 +144,7 @@ const cardData = [
     { type: "pure", leader: "", connect: { range: "", cells: { yellow: [], green: [] }, effect: "" }, costume: "", special: "8秒間スコアサポート効果70%／ライフが400回復", active: "22秒毎に低確率で8秒間スコアが55%UP", passive: "ピュアタイプ2人以上で、ピュアタイプ3人のパフォーマンスが14%UP" }
   ],
   [ 5, "ハーフエルフの風渡るゴンドラ 不知火フレア", "49_不知火フレア1.webp", "ver1.0.0, ホロライブ3期生, 不知火フレア", 
-    { type: "pure", leader: "", connect: { range: "6マス効果", cells: { yellow: [], green: [] }, effect: "範囲内のホロメンボード効果を160%UP" }, costume: "全員のパフォーマンスが120%UP", special: "10秒間スコアサポート効果145%／スキル発動率が50%UP", active: "26秒毎に高確率で9秒間スコアが60%UP／40コンボ以上でスコアが120%UP", passive: "3期生2人のパフォーマンスが43%UP" }
+    { type: "pure", leader: "", connect: { range: "6マス効果", cells: { yellow: [12], green: [7, 8, 11, 13, 17, 18] }, effect: "範囲内のホロメンボード効果を160%UP" }, costume: "全員のパフォーマンスが120%UP", special: "10秒間スコアサポート効果145%／スキル発動率が50%UP", active: "26秒毎に高確率で9秒間スコアが60%UP／40コンボ以上でスコアが120%UP", passive: "3期生2人のパフォーマンスが43%UP" }
   ],
   [ 4, "ダンスから伝わる気遣い 不知火フレア", "50_不知火フレア2.webp", "ver1.0.0, ホロライブ3期生, 不知火フレア", 
     { type: "cute", leader: "", connect: { range: "3マス効果", cells: { yellow: [], green: [] }, effect: "範囲内のホロメンボード効果を215%UP" }, costume: "キュートタイプ2人以上で全員の全パラメータが20%UP／キュートタイプ2人以上で全員のスコアサポート効果25%", special: "9秒間スコアサポート効果125%", active: "20秒毎に中確率で7秒間スコアが85%UP", passive: "キュートタイプ2人以上でキュートタイプ2人のセンスが32%UP" }
@@ -153,7 +153,7 @@ const cardData = [
     { type: "happy", leader: "", connect: { range: "", cells: { yellow: [], green: [] }, effect: "" }, costume: "", special: "9秒間スコアサポート効果75%", active: "33秒毎に中確率で13秒間スコアが45%UP", passive: "ハッピータイプ2人のテクニックが20%UP" }
   ],
   [ 5, "風薫るおっとり騎士 白銀ノエル", "52_白銀ノエル1.webp", "ver1.0.0, ホロライブ3期生, 白銀ノエル", 
-    { type: "happy", leader: "", connect: { range: "12マス効果", cells: { yellow: [], green: [] }, effect: "範囲内のホロメンボード効果を105%UP" }, costume: "全員のスコアサポート効果60%", special: "10秒間スコアサポート効果160%", active: "19秒毎に中確率で7秒間スコアが60%UP／ハッピータイプ2人以上でスコアが120%UP", passive: "ハッピータイプ2人以上で自身の全パラメータが32%UP" }
+    { type: "happy", leader: "", connect: { range: "12マス効果", cells: { yellow: [12], green: [2, 6, 7, 8, 10, 11, 13, 14, 16, 17, 18, 22] }, effect: "範囲内のホロメンボード効果を105%UP" }, costume: "全員のスコアサポート効果60%", special: "10秒間スコアサポート効果160%", active: "19秒毎に中確率で7秒間スコアが60%UP／ハッピータイプ2人以上でスコアが120%UP", passive: "ハッピータイプ2人以上で自身の全パラメータが32%UP" }
   ],
   [ 4, "歌う脳筋ゴリ押しナイト 白銀ノエル", "53_白銀ノエル2.webp", "ver1.0.0, ホロライブ3期生, 白銀ノエル", 
     { type: "pure", leader: "", connect: { range: "3マス効果", cells: { yellow: [], green: [] }, effect: "範囲内のホロメンボード効果を215%UP" }, costume: "3期生が2人以上で全員の全パラメータが40%UP", special: "9秒間スコアサポート効果125%", active: "29秒毎に中確率で12秒間スコアが70%UP", passive: "3期生が2人以上で3期生2人のテクニックが34%UP" }
@@ -162,7 +162,7 @@ const cardData = [
     { type: "cute", leader: "", connect: { range: "", cells: { yellow: [], green: [] }, effect: "" }, costume: "", special: "9秒間スコアサポート効果60%／GOOD以上がPERFECTになる", active: "17秒毎に低確率で6秒間スコアが55%UP", passive: "キュートタイプ2人以上で自身の全パラメータが16%UP" }
   ],
   [ 5, "妖艶あふれるマリンブルー 宝鐘マリン", "55_宝鐘マリン1.webp", "ver1.0.0, ホロライブ3期生, 宝鐘マリン", 
-    { type: "happy", leader: "", connect: { range: "5マス効果", cells: { yellow: [], green: [] }, effect: "範囲内のホロメンボード効果を190%UP" }, costume: "3期生が2人以上で全員の全パラメータが50%UP", special: "12秒間スコアサポート効果120%／スキル発動率が40%UP", active: "23秒毎に高確率で8秒間スコアが115%UP", passive: "3期生が2人以上で3期生2人のスコアサポート効果12%" }
+    { type: "happy", leader: "", connect: { range: "5マス効果", cells: { yellow: [11], green: [8, 12, 13, 14, 18] }, effect: "範囲内のホロメンボード効果を190%UP" }, costume: "3期生が2人以上で全員の全パラメータが50%UP", special: "12秒間スコアサポート効果120%／スキル発動率が40%UP", active: "23秒毎に高確率で8秒間スコアが115%UP", passive: "3期生が2人以上で3期生2人のスコアサポート効果12%" }
   ],
   [ 4, "♡とらえる海賊のテリトリー 宝鐘マリン", "56_宝鐘マリン2.webp", "ver1.0.0, ホロライブ3期生, 宝鐘マリン", 
     { type: "cute", leader: "", connect: { range: "4マス効果", cells: { yellow: [], green: [] }, effect: "範囲内のホロメンボード効果を165%UP" }, costume: "全員のセンスが100%UP", special: "8秒間スコアサポート効果140%", active: "25秒毎に高確率で8秒間スコアが45%UP／キュートタイプ2人以上でスコアが90%UP", passive: "キュートタイプ2人のセンスが30%UP" }
@@ -171,7 +171,7 @@ const cardData = [
     { type: "pure", leader: "", connect: { range: "", cells: { yellow: [], green: [] }, effect: "" }, costume: "", special: "11秒間スコアサポート効果60%", active: "25秒毎に低確率で7秒間スコアが70%UP", passive: "ピュアタイプ2人以上で自身の全パラメータが16%UP" }
   ],
   [ 5, "Woolly Smile Festival 角巻わため", "58_角巻わため1.webp", "ver1.0.0, ホロライブ4期生, 角巻わため", 
-    { type: "cute", leader: "", connect: { range: "4マス効果", cells: { yellow: [], green: [] }, effect: "範囲内のホロメンボード効果を200%UP" }, costume: "全員の全パラメータが45%UP", special: "11秒間スコアサポート効果145%", active: "15秒毎に中確率で6秒間スコアが55%UP／キュートタイプ2人以上でスコアが110%UP", passive: "キュートタイプ2人のスコアサポート効果11%" }
+    { type: "cute", leader: "", connect: { range: "4マス効果", cells: { yellow: [12], green: [2, 7, 13, 14] }, effect: "範囲内のホロメンボード効果を200%UP" }, costume: "全員の全パラメータが45%UP", special: "11秒間スコアサポート効果145%", active: "15秒毎に中確率で6秒間スコアが55%UP／キュートタイプ2人以上でスコアが110%UP", passive: "キュートタイプ2人のスコアサポート効果11%" }
   ],
   [ 4, "広がるhealing sound 角巻わため", "59_角巻わため2.webp", "ver1.0.0, ホロライブ4期生, 角巻わため", 
     { type: "happy", leader: "", connect: { range: "3マス効果", cells: { yellow: [], green: [] }, effect: "範囲内のホロメンボード効果を200%UP" }, costume: "全員のテクニックが100%UP", special: "10秒間スコアサポート効果100%／ハッピータイプ2人以上でライフが400回復", active: "35秒毎に高確率で12秒間スコアが40%UP／40コンボ以上でスコアが85%UP", passive: "ハッピータイプ2人のテクニックが30%UP" }
@@ -180,7 +180,7 @@ const cardData = [
     { type: "pure", leader: "", connect: { range: "", cells: { yellow: [], green: [] }, effect: "" }, costume: "", special: "8秒間スコアサポート効果70%／ライフが400回復", active: "17秒毎に低確率で6秒間スコアが55%UP", passive: "ピュアタイプ2人以上で自身の全パラメータが16%UP" }
   ],
   [ 5, "ガチで終わらんチルい夜遊び 常闇トワ", "61_常闇トワ1.webp", "ver1.0.0, ホロライブ4期生, 常闇トワ", 
-    { type: "pure", leader: "", connect: { range: "6マス効果", cells: { yellow: [], green: [] }, effect: "範囲内のホロメンボード効果を160%UP" }, costume: "4期生が2人以上で全員の全パラメータが50%UP", special: "10秒間スコアサポート効果145%／スキル発動率が50%UP", active: "19秒毎に高確率で8秒間スコアが95%UP", passive: "4期生が2人以上で4期生2人のセンスが45%UP" }
+    { type: "pure", leader: "", connect: { range: "6マス効果", cells: { yellow: [12], green: [6, 7, 11, 13, 16, 17] }, effect: "範囲内のホロメンボード効果を160%UP" }, costume: "4期生が2人以上で全員の全パラメータが50%UP", special: "10秒間スコアサポート効果145%／スキル発動率が50%UP", active: "19秒毎に高確率で8秒間スコアが95%UP", passive: "4期生が2人以上で4期生2人のセンスが45%UP" }
   ],
   [ 4, "余裕ぶっこくナイトライブ 常闇トワ", "62_常闇トワ2.webp", "ver1.0.0, ホロライブ4期生, 常闇トワ", 
     { type: "happy", leader: "", connect: { range: "4マス効果", cells: { yellow: [], green: [] }, effect: "範囲内のホロメンボード効果を165%UP" }, costume: "全員のパフォーマンスが100%UP", special: "9秒間スコアサポート効果125%", active: "28秒毎に高確率で10秒間スコアが40%UP／40コンボ以上でスコアが80%UP", passive: "ハッピータイプ3人以上でハッピータイプ3人のスコアサポート効果6%" }
@@ -189,7 +189,7 @@ const cardData = [
     { type: "cute", leader: "", connect: { range: "", cells: { yellow: [], green: [] }, effect: "" }, costume: "", special: "8秒間スコアサポート効果70%／ライフが400回復", active: "28秒毎に中確率で7秒間スコアが70%UP", passive: "キュートタイプ2人以上で自身の全パラメータが16%UP" }
   ],
   [ 5, "姫に忠誠アフタヌーン 姫森ルーナ", "64_姫森ルーナ1.webp", "ver1.0.0, ホロライブ4期生, 姫森ルーナ", 
-    { type: "happy", leader: "", connect: { range: "3マス効果", cells: { yellow: [], green: [] }, effect: "範囲内のホロメンボード効果を270%UP" }, costume: "全員のテクニックが120%UP", special: "14秒間スコアサポート効果115%", active: "29秒毎に高確率で10秒間スコアが60%UP／40コンボ以上でスコアが120%UP", passive: "4期生2人のテクニックが43%UP" }
+    { type: "happy", leader: "", connect: { range: "3マス効果", cells: { yellow: [7], green: [12, 17, 22] }, effect: "範囲内のホロメンボード効果を270%UP" }, costume: "全員のテクニックが120%UP", special: "14秒間スコアサポート効果115%", active: "29秒毎に高確率で10秒間スコアが60%UP／40コンボ以上でスコアが120%UP", passive: "4期生2人のテクニックが43%UP" }
   ],
   [ 4, "ふんわりプリンセスステージ 姫森ルーナ", "65_姫森ルーナ2.webp", "ver1.0.0, ホロライブ4期生, 姫森ルーナ", 
     { type: "pure", leader: "", connect: { range: "3マス効果", cells: { yellow: [], green: [] }, effect: "範囲内のホロメンボード効果を200%UP" }, costume: "4期生が2人以上で全員の全パラメータが40%UP", special: "8秒間スコアサポート効果140%", active: "18秒毎に中確率で7秒間スコアが75%UP", passive: "4期生が2人以上で4期生2人のスコアサポート効果9%" }
@@ -198,7 +198,7 @@ const cardData = [
     { type: "cute", leader: "", connect: { range: "", cells: { yellow: [], green: [] }, effect: "" }, costume: "", special: "11秒間スコアサポート効果60%", active: "33秒毎に中確率で13秒間スコアが45%UP", passive: "キュートタイプ2人のセンスが20%UP" }
   ],
   [ 5, "いたずらたくらむ木漏れ日の森 アユンダ・リス", "67_アユンダ・リス1.webp", "ver1.0.0, hololive Indonesia 1期生, アユンダ・リス", 
-    { type: "happy", leader: "", connect: { range: "4マス効果", cells: { yellow: [], green: [] }, effect: "範囲内のホロメンボード効果を200%UP" }, costume: "ハッピータイプ2人以上で全員のテクニックが130%UP", special: "12秒間スコアサポート効果120%／ライフ1000以上でスキル発動率が45%UP", active: "34秒毎に高確率で15秒間スコアが90%UP", passive: "ハッピータイプ2人のスコアサポート効果11%" }
+    { type: "happy", leader: "", connect: { range: "4マス効果", cells: { yellow: [12], green: [2, 7, 10, 11] }, effect: "範囲内のホロメンボード効果を200%UP" }, costume: "ハッピータイプ2人以上で全員のテクニックが130%UP", special: "12秒間スコアサポート効果120%／ライフ1000以上でスキル発動率が45%UP", active: "34秒毎に高確率で15秒間スコアが90%UP", passive: "ハッピータイプ2人のスコアサポート効果11%" }
   ],
   [ 4, "まんまるしっぽのキュートライブ アユンダ・リス", "68_アユンダ・リス2.webp", "ver1.0.0, hololive Indonesia 1期生, アユンダ・リス", 
     { type: "pure", leader: "", connect: { range: "3マス効果", cells: { yellow: [], green: [] }, effect: "範囲内のホロメンボード効果を215%UP" }, costume: "全員の全パラメータが35%UP", special: "9秒間スコアサポート効果110%／ピュアタイプ2人以上でGOOD以上がPERFECTになる", active: "23秒毎に中確率で10秒間スコアが35%UP／ライフ600以上でスコアが70%UP", passive: "ピュアタイプ3人以上でピュアタイプ3人のスコアサポート効果6%" }
@@ -207,7 +207,7 @@ const cardData = [
     { type: "cute", leader: "", connect: { range: "", cells: { yellow: [], green: [] }, effect: "" }, costume: "", special: "7秒間スコアサポート効果80%／GOOD以上がPERFECTになる", active: "17秒毎に低確率で6秒間スコアが55%UP", passive: "キュートタイプ2人以上で、キュートタイプ3人のパフォーマンスが14%UP" }
   ],
   [ 5, "Lunar Songstress ムーナ・ホシノヴァ", "70_ムーナ・ホシノヴァ1.webp", "ver1.0.0, hololive Indonesia 1期生, ムーナ・ホシノヴァ", 
-    { type: "cute", leader: "", connect: { range: "12マス効果", cells: { yellow: [], green: [] }, effect: "範囲内のホロメンボード効果を105%UP" }, costume: "ID1期生が2人以上で全員の全パラメータが50%UP", special: "12秒間スコアサポート効果120%／スキル発動率が40%UP", active: "30秒毎に高確率で11秒間スコアが110%UP", passive: "ID1期生が2人以上でID1期生2人のセンスが45%UP" }
+    { type: "cute", leader: "", connect: { range: "12マス効果", cells: { yellow: [12], green: [2, 6, 7, 8, 10, 11, 13, 14, 16, 17, 18, 22] }, effect: "範囲内のホロメンボード効果を105%UP" }, costume: "ID1期生が2人以上で全員の全パラメータが50%UP", special: "12秒間スコアサポート効果120%／スキル発動率が40%UP", active: "30秒毎に高確率で11秒間スコアが110%UP", passive: "ID1期生が2人以上でID1期生2人のセンスが45%UP" }
   ],
   [ 4, "月のヒカリに溶けこむ歌声 ムーナ・ホシノヴァ", "71_ムーナ・ホシノヴァ2.webp", "ver1.0.0, hololive Indonesia 1期生, ムーナ・ホシノヴァ", 
     { type: "happy", leader: "", connect: { range: "3マス効果", cells: { yellow: [], green: [] }, effect: "範囲内のホロメンボード効果を215%UP" }, costume: "全員のパフォーマンスが100%UP", special: "9秒間スコアサポート効果125%", active: "25秒毎に高確率で8秒間スコアが45%UP／ライフ600以上でスコアが90%UP", passive: "ハッピータイプ2人のパフォーマンスが30%UP" }
@@ -216,7 +216,7 @@ const cardData = [
     { type: "pure", leader: "", connect: { range: "", cells: { yellow: [], green: [] }, effect: "" }, costume: "", special: "11秒間スコアサポート効果60%", active: "28秒毎に中確率で10秒間スコアが50%UP", passive: "ピュアタイプ2人以上で自身の全パラメータが16%UP" }
   ],
   [ 5, "陽光射すCosmos Palette アイラニ・イオフィフティーン", "73_アイラニ・イオフィフティーン1.webp", "ver1.0.0, hololive Indonesia 1期生, アイラニ・イオフィフティーン", 
-    { type: "pure", leader: "", connect: { range: "4マス効果", cells: { yellow: [], green: [] }, effect: "範囲内のホロメンボード効果を200%UP" }, costume: "ピュアタイプ2人以上で全員のテクニックが130%UP", special: "10秒間スコアサポート効果145%／100コンボ以上でスキル発動率が55%UP", active: "17秒毎に中確率で6秒間スコアが120%UP", passive: "ピュアタイプ2人のテクニックが41%UP" }
+    { type: "pure", leader: "", connect: { range: "4マス効果", cells: { yellow: [12], green: [2, 7, 10, 11] }, effect: "範囲内のホロメンボード効果を200%UP" }, costume: "ピュアタイプ2人以上で全員のテクニックが130%UP", special: "10秒間スコアサポート効果145%／100コンボ以上でスキル発動率が55%UP", active: "17秒毎に中確率で6秒間スコアが120%UP", passive: "ピュアタイプ2人のテクニックが41%UP" }
   ],
   [ 4, "麗らかなStage View アイラニ・イオフィフティーン", "74_アイラニ・イオフィフティーン2.webp", "ver1.0.0, hololive Indonesia 1期生, アイラニ・イオフィフティーン", 
     { type: "happy", leader: "", connect: { range: "4マス効果", cells: { yellow: [], green: [] }, effect: "範囲内のホロメンボード効果を165%UP" }, costume: "ID1期生が2人以上で全員の全パラメータが40%UP", special: "14秒間スコアサポート効果80%", active: "22秒毎に中確率で8秒間スコアが80%UP", passive: "ID1期生が2人以上でID1期生2人のスコアサポート効果9%" }
@@ -225,7 +225,7 @@ const cardData = [
     { type: "cute", leader: "", connect: { range: "", cells: { yellow: [], green: [] }, effect: "" }, costume: "", special: "7秒間スコアサポート効果80%／GOOD以上がPERFECTになる", active: "25秒毎に低確率で7秒間スコアが70%UP", passive: "キュートタイプ2人以上で、キュートタイプ3人のセンスが14%UP" }
   ],
   [ 5, "さびしがり屋な雪夜の令嬢 雪花ラミィ", "76_雪花ラミィ1.webp", "ver1.0.0, ホロライブ5期生, 雪花ラミィ", 
-    { type: "pure", leader: "", connect: { range: "3マス効果", cells: { yellow: [], green: [] }, effect: "範囲内のホロメンボード効果を260%UP" }, costume: "5期生が2人以上で全員の全パラメータが50%UP", special: "12秒間スコアサポート効果120%／スキル発動率が40%UP", active: "23秒毎に高確率で8秒間スコアが115%UP", passive: "5期生が2人以上で自身の全パラメータが33%UP" }
+    { type: "pure", leader: "", connect: { range: "3マス効果", cells: { yellow: [11], green: [12, 13, 14] }, effect: "範囲内のホロメンボード効果を260%UP" }, costume: "5期生が2人以上で全員の全パラメータが50%UP", special: "12秒間スコアサポート効果120%／スキル発動率が40%UP", active: "23秒毎に高確率で8秒間スコアが115%UP", passive: "5期生が2人以上で自身の全パラメータが33%UP" }
   ],
   [ 4, "照らすsnow mood！ 雪花ラミィ", "77_雪花ラミィ2.webp", "ver1.0.0, ホロライブ5期生, 雪花ラミィ", 
     { type: "happy", leader: "", connect: { range: "4マス効果", cells: { yellow: [], green: [] }, effect: "範囲内のホロメンボード効果を165%UP" }, costume: "全員のテクニックが100%UP", special: "9秒間スコアサポート効果125%", active: "23秒毎に高確率で9秒間スコアが35%UP／ライフ600以上でスコアが75%UP", passive: "ハッピータイプ2人のテクニックが30%UP" }
@@ -234,7 +234,7 @@ const cardData = [
     { type: "cute", leader: "", connect: { range: "", cells: { yellow: [], green: [] }, effect: "" }, costume: "", special: "9秒間スコアサポート効果75%", active: "28秒毎に中確率で7秒間スコアが70%UP", passive: "キュートタイプ2人以上で自身の全パラメータが16%UP" }
   ],
   [ 5, "一緒に歌お！イノセントリズム 桃鈴ねね", "79_桃鈴ねね1.webp", "ver1.0.0, ホロライブ5期生, 桃鈴ねね", 
-    { type: "cute", leader: "", connect: { range: "8マス効果", cells: { yellow: [], green: [] }, effect: "範囲内のホロメンボード効果を135%UP" }, costume: "全員のパフォーマンスが120%UP", special: "11秒間スコアサポート効果145%", active: "26秒毎に高確率で9秒間スコアが60%UP／ライフ600以上でスコアが120%UP", passive: "キュートタイプ2人のスコアサポート効果11%" }
+    { type: "cute", leader: "", connect: { range: "8マス効果", cells: { yellow: [12], green: [2, 7, 8, 13, 14, 17, 18, 22] }, effect: "範囲内のホロメンボード効果を135%UP" }, costume: "全員のパフォーマンスが120%UP", special: "11秒間スコアサポート効果145%", active: "26秒毎に高確率で9秒間スコアが60%UP／ライフ600以上でスコアが120%UP", passive: "キュートタイプ2人のスコアサポート効果11%" }
   ],
   [ 4, "get excitedジャンプ！ 桃鈴ねね", "80_桃鈴ねね2.webp", "ver1.0.0, ホロライブ5期生, 桃鈴ねね", 
     { type: "happy", leader: "", connect: { range: "4マス効果", cells: { yellow: [], green: [] }, effect: "範囲内のホロメンボード効果を165%UP" }, costume: "5期生が2人以上で全員の全パラメータが40%UP", special: "9秒間スコアサポート効果125%", active: "27秒毎に高確率で9秒間スコアが85%UP", passive: "5期生が2人以上で自身の全パラメータが25%UP" }
@@ -243,7 +243,7 @@ const cardData = [
     { type: "pure", leader: "", connect: { range: "", cells: { yellow: [], green: [] }, effect: "" }, costume: "", special: "8秒間スコアサポート効果70%／GOOD以上がPERFECTになる", active: "17秒毎に低確率で6秒間スコアが55%UP", passive: "ピュアタイプ2人のテクニックが20%UP" }
   ],
   [ 5, "目を奪う神エイム！lion's hunt 獅白ぼたん", "82_獅白ぼたん1.webp", "ver1.0.0, ホロライブ5期生, 獅白ぼたん", 
-    { type: "happy", leader: "", connect: { range: "3マス効果", cells: { yellow: [], green: [] }, effect: "範囲内のホロメンボード効果を250%UP" }, costume: "全員の全パラメータが45%UP", special: "10秒間スコアサポート効果160%", active: "27秒毎に高確率で9秒間スコアが60%UP／ハッピータイプ2人以上でスコアが125%UP", passive: "ハッピータイプ2人以上でハッピータイプ2人のパフォーマンスが43%UP" }
+    { type: "happy", leader: "", connect: { range: "3マス効果", cells: { yellow: [13], green: [10, 11, 12] }, effect: "範囲内のホロメンボード効果を250%UP" }, costume: "全員の全パラメータが45%UP", special: "10秒間スコアサポート効果160%", active: "27秒毎に高確率で9秒間スコアが60%UP／ハッピータイプ2人以上でスコアが125%UP", passive: "ハッピータイプ2人以上でハッピータイプ2人のパフォーマンスが43%UP" }
   ],
   [ 4, "魅せるLaughing Lion 獅白ぼたん", "83_獅白ぼたん2.webp", "ver1.0.0, ホロライブ5期生, 獅白ぼたん", 
     { type: "pure", leader: "", connect: { range: "3マス効果", cells: { yellow: [], green: [] }, effect: "範囲内のホロメンボード効果を200%UP" }, costume: "全員のテクニックが100%UP", special: "8秒間スコアサポート効果140%", active: "30秒毎に中確率で11秒間スコアが40%UP／ライフ600以上でスコアが85%UP", passive: "5期生が2人以上で5期生2人のテクニックが34%UP" }
@@ -252,7 +252,7 @@ const cardData = [
     { type: "cute", leader: "", connect: { range: "", cells: { yellow: [], green: [] }, effect: "" }, costume: "", special: "7秒間スコアサポート効果80%／GOOD以上がPERFECTになる", active: "25秒毎に低確率で9秒間スコアが55%UP", passive: "キュートタイプ2人以上で、キュートタイプ3人のセンスが14%UP" }
   ],
   [ 5, "変幻自在！ポルカサーカス開演！ 尾丸ポルカ", "85_尾丸ポルカ1.webp", "ver1.0.0, ホロライブ5期生, 尾丸ポルカ", 
-    { type: "happy", leader: "", connect: { range: "6マス効果", cells: { yellow: [], green: [] }, effect: "範囲内のホロメンボード効果を160%UP" }, costume: "全員の全パラメータが45%UP", special: "10秒間スコアサポート効果145%／スキル発動率が50%UP", active: "21秒毎に中確率で8秒間スコアが55%UP／ハッピータイプ2人以上でスコアが115%UP", passive: "ハッピータイプ2人のスコアサポート効果11%" }
+    { type: "happy", leader: "", connect: { range: "6マス効果", cells: { yellow: [12], green: [7, 8, 11, 13, 17, 18] }, effect: "範囲内のホロメンボード効果を160%UP" }, costume: "全員の全パラメータが45%UP", special: "10秒間スコアサポート効果145%／スキル発動率が50%UP", active: "21秒毎に中確率で8秒間スコアが55%UP／ハッピータイプ2人以上でスコアが115%UP", passive: "ハッピータイプ2人のスコアサポート効果11%" }
   ],
   [ 4, "パーティーハード全開LIVE 尾丸ポルカ", "86_尾丸ポルカ2.webp", "ver1.0.0, ホロライブ5期生, 尾丸ポルカ", 
     { type: "cute", leader: "", connect: { range: "3マス効果", cells: { yellow: [], green: [] }, effect: "範囲内のホロメンボード効果を200%UP" }, costume: "全員のパフォーマンスが100%UP", special: "9秒間スコアサポート効果125%", active: "26秒毎に高確率で10秒間スコアが40%UP／40コンボ以上でスコアが75%UP", passive: "キュートタイプ3人以上でキュートタイプ3人のスコアサポート効果6%" }
@@ -261,7 +261,7 @@ const cardData = [
     { type: "pure", leader: "", connect: { range: "", cells: { yellow: [], green: [] }, effect: "" }, costume: "", special: "9秒間スコアサポート効果75%", active: "17秒毎に中確率で6秒間スコアが50%UP", passive: "ピュアタイプ2人のテクニックが20%UP" }
   ],
   [ 5, "作戦開始！見せろ総帥の手腕 ラプラス・ダークネス", "88_ラプラス・ダークネス1.webp", "ver1.0.0, 秘密結社holoX, ラプラス・ダークネス", 
-    { type: "happy", leader: "", connect: { range: "4マス効果", cells: { yellow: [], green: [] }, effect: "範囲内のホロメンボード効果を200%UP" }, costume: "holoXが2人以上で全員の全パラメータが50%UP", special: "12秒間スコアサポート効果135%", active: "18秒毎に中確率で6秒間スコアが125%UP", passive: "holoXが2人以上で自身の全パラメータが33%UP" }
+    { type: "happy", leader: "", connect: { range: "4マス効果", cells: { yellow: [12], green: [2, 7, 13, 14] }, effect: "範囲内のホロメンボード効果を200%UP" }, costume: "holoXが2人以上で全員の全パラメータが50%UP", special: "12秒間スコアサポート効果135%", active: "18秒毎に中確率で6秒間スコアが125%UP", passive: "holoXが2人以上で自身の全パラメータが33%UP" }
   ],
   [ 4, "今宵のライブ、吾輩が主役 ラプラス・ダークネス", "89_ラプラス・ダークネス2.webp", "ver1.0.0, 秘密結社holoX, ラプラス・ダークネス", 
     { type: "pure", leader: "", connect: { range: "4マス効果", cells: { yellow: [], green: [] }, effect: "範囲内のホロメンボード効果を165%UP" }, costume: "全員のパフォーマンスが100%UP", special: "8秒間スコアサポート効果140%", active: "32秒毎に高確率で11秒間スコアが40%UP／40コンボ以上でスコアが85%UP", passive: "ピュアタイプ2人のパフォーマンスが30%UP" }
@@ -270,7 +270,7 @@ const cardData = [
     { type: "cute", leader: "", connect: { range: "", cells: { yellow: [], green: [] }, effect: "" }, costume: "", special: "9秒間スコアサポート効果75%", active: "22秒毎に低確率で8秒間スコアが55%UP", passive: "キュートタイプ2人以上で自身の全パラメータが16%UP" }
   ],
   [ 5, "組織支える超敏腕幹部 鷹嶺ルイ", "91_鷹嶺ルイ1.webp", "ver1.0.0, 秘密結社holoX, 鷹嶺ルイ", 
-    { type: "cute", leader: "", connect: { range: "8マス効果", cells: { yellow: [], green: [] }, effect: "範囲内のホロメンボード効果を135%UP" }, costume: "全員の全パラメータが45%UP", special: "14秒間スコアサポート効果115%", active: "21秒毎に中確率で8秒間スコアが55%UP／キュートタイプ2人以上でスコアが115%UP", passive: "キュートタイプ2人以上で自身の全パラメータが32%UP" }
+    { type: "cute", leader: "", connect: { range: "8マス効果", cells: { yellow: [12], green: [2, 6, 7, 10, 11, 16, 17, 22] }, effect: "範囲内のホロメンボード効果を135%UP" }, costume: "全員の全パラメータが45%UP", special: "14秒間スコアサポート効果115%", active: "21秒毎に中確率で8秒間スコアが55%UP／キュートタイプ2人以上でスコアが115%UP", passive: "キュートタイプ2人以上で自身の全パラメータが32%UP" }
   ],
   [ 4, "どこでも信頼！切れ者LIVE 鷹嶺ルイ", "92_鷹嶺ルイ2.webp", "ver1.0.0, 秘密結社holoX, 鷹嶺ルイ", 
     { type: "happy", leader: "", connect: { range: "4マス効果", cells: { yellow: [], green: [] }, effect: "範囲内のホロメンボード効果を165%UP" }, costume: "全員のスコアサポート効果50%", special: "9秒間スコアサポート効果125%", active: "25秒毎に中確率で8秒間スコアが50%UP／40コンボ以上でスコアが95%UP", passive: "holoXが2人以上でholoX2人のパフォーマンスが34%UP" }
@@ -279,7 +279,7 @@ const cardData = [
     { type: "pure", leader: "", connect: { range: "", cells: { yellow: [], green: [] }, effect: "" }, costume: "", special: "9秒間スコアサポート効果75%", active: "28秒毎に中確率で7秒間スコアが70%UP", passive: "ピュアタイプ2人以上で自身の全パラメータが16%UP" }
   ],
   [ 5, "助手くんの心を鷲掴みライブ！ 博衣こより", "94_博衣こより1.webp", "ver1.0.0, 秘密結社holoX, 博衣こより", 
-    { type: "pure", leader: "", connect: { range: "8マス効果", cells: { yellow: [], green: [] }, effect: "範囲内のホロメンボード効果を135%UP" }, costume: "ピュアタイプ2人以上で全員の全パラメータが30%UP/ピュアタイプ2人以上で全員のスコアサポート効果25%", special: "10秒間スコアサポート効果145%／ライフ1000以上でスキル発動率が55%UP", active: "23秒毎に高確率で8秒間スコアが115%UP", passive: "ピュアタイプ2人以上でピュアタイプ2人のセンスが43%UP" }
+    { type: "pure", leader: "", connect: { range: "8マス効果", cells: { yellow: [12], green: [2, 6, 7, 10, 11, 16, 17, 22] }, effect: "範囲内のホロメンボード効果を135%UP" }, costume: "ピュアタイプ2人以上で全員の全パラメータが30%UP/ピュアタイプ2人以上で全員のスコアサポート効果25%", special: "10秒間スコアサポート効果145%／ライフ1000以上でスキル発動率が55%UP", active: "23秒毎に高確率で8秒間スコアが115%UP", passive: "ピュアタイプ2人以上でピュアタイプ2人のセンスが43%UP" }
   ],
   [ 4, "舞台に響くcute howl 博衣こより", "95_博衣こより2.webp", "ver1.0.0, 秘密結社holoX, 博衣こより", 
     { type: "cute", leader: "", connect: { range: "3マス効果", cells: { yellow: [], green: [] }, effect: "範囲内のホロメンボード効果を215%UP" }, costume: "全員のパフォーマンスが100%UP", special: "9秒間スコアサポート効果110%／キュートタイプ2人以上でGOOD以上がPERFECTになる", active: "22秒毎に中確率で9秒間スコアが35%UP／40コンボ以上でスコアが75%UP", passive: "キュートタイプ2人のパフォーマンスが30%UP" }
@@ -288,7 +288,7 @@ const cardData = [
     { type: "happy", leader: "", connect: { range: "", cells: { yellow: [], green: [] }, effect: "" }, costume: "", special: "8秒間スコアサポート効果70%／GOOD以上がPERFECTになる", active: "33秒毎に中確率で13秒間スコアが45%UP", passive: "ハッピータイプ2人以上で、ハッピータイプ3人のテクニックが14%UP" }
   ],
   [ 5, "ちくりんジャキン！と一刀両断 風真いろは", "97_風真いろは1.webp", "ver1.0.0, 秘密結社holoX, 風真いろは", 
-    { type: "cute", leader: "", connect: { range: "3マス効果", cells: { yellow: [], green: [] }, effect: "範囲内のホロメンボード効果を260%UP" }, costume: "キュートタイプ2人以上で全員のテクニックが130%UP", special: "10秒間スコアサポート効果145%／ライフ1000以上でスキル発動率が55%UP", active: "30秒毎に高確率で11秒間スコアが110%UP", passive: "キュートタイプ2人のスコアサポート効果11%" }
+    { type: "cute", leader: "", connect: { range: "3マス効果", cells: { yellow: [11], green: [12, 13, 14] }, effect: "範囲内のホロメンボード効果を260%UP" }, costume: "キュートタイプ2人以上で全員のテクニックが130%UP", special: "10秒間スコアサポート効果145%／ライフ1000以上でスキル発動率が55%UP", active: "30秒毎に高確率で11秒間スコアが110%UP", passive: "キュートタイプ2人のスコアサポート効果11%" }
   ],
   [ 4, "ステージで放つ！修行の成果 風真いろは", "98_風真いろは2.webp", "ver1.0.0, 秘密結社holoX, 風真いろは", 
     { type: "pure", leader: "", connect: { range: "4マス効果", cells: { yellow: [], green: [] }, effect: "範囲内のホロメンボード効果を165%UP" }, costume: "holoXが2人以上で全員の全パラメータが40%UP", special: "9秒間スコアサポート効果125%", active: "29秒毎に高確率で9秒間スコアが90%UP", passive: "holoXが2人以上で自身の全パラメータが25%UP" }
@@ -297,7 +297,7 @@ const cardData = [
     { type: "happy", leader: "", connect: { range: "", cells: { yellow: [], green: [] }, effect: "" }, costume: "", special: "9秒間スコアサポート効果75%", active: "17秒毎に低確率で6秒間スコアが55%UP", passive: "ハッピータイプ2人以上で自身の全パラメータが16%UP" }
   ],
   [ 5, "Reaper's death flow 森カリオペ", "100_森カリオペ1.webp", "ver1.0.0, hololive English -Myth-, 森カリオペ", 
-    { type: "pure", leader: "", connect: { range: "5マス効果", cells: { yellow: [], green: [] }, effect: "範囲内のホロメンボード効果を190%UP" }, costume: "Mythが2人以上で全員の全パラメータが50%UP", special: "12秒間スコアサポート効果120%／スキル発動率が40%UP", active: "33秒毎に高確率で11秒間スコアが120%UP", passive: "Mythが2人以上でMyth2人のスコアサポート効果12%" }
+    { type: "pure", leader: "", connect: { range: "5マス効果", cells: { yellow: [17], green: [2, 6, 7, 8, 12] }, effect: "範囲内のホロメンボード効果を190%UP" }, costume: "Mythが2人以上で全員の全パラメータが50%UP", special: "12秒間スコアサポート効果120%／スキル発動率が40%UP", active: "33秒毎に高確率で11秒間スコアが120%UP", passive: "Mythが2人以上でMyth2人のスコアサポート効果12%" }
   ],
   [ 4, "レペゼン冥土！here we go 森カリオペ", "101_森カリオペ2.webp", "ver1.0.0, hololive English -Myth-, 森カリオペ", 
     { type: "cute", leader: "", connect: { range: "3マス効果", cells: { yellow: [], green: [] }, effect: "範囲内のホロメンボード効果を210%UP" }, costume: "全員のセンスが100%UP", special: "9秒間スコアサポート効果125%", active: "26秒毎に高確率で10秒間スコアが40%UP／40コンボ以上でスコアが75%UP", passive: "キュートタイプ2人のセンスが30%UP" }
@@ -306,7 +306,7 @@ const cardData = [
     { type: "happy", leader: "", connect: { range: "", cells: { yellow: [], green: [] }, effect: "" }, costume: "", special: "10秒間スコアサポート効果55%／ライフが400回復", active: "17秒毎に低確率で6秒間スコアが55%UP", passive: "ハッピータイプ2人以上で、ハッピータイプ3人のテクニックが14%UP" }
   ],
   [ 5, "Lovely Phoenixダイナー 小鳥遊キアラ", "103_小鳥遊キアラ1.webp", "ver1.0.0, hololive English -Myth-, 小鳥遊キアラ", 
-    { type: "cute", leader: "", connect: { range: "5マス効果", cells: { yellow: [], green: [] }, effect: "範囲内のホロメンボード効果を190%UP" }, costume: "キュートタイプ2人以上で全員のパフォーマンスが130%UP", special: "10秒間スコアサポート効果145%／100コンボ以上でスキル発動率が55%UP", active: "23秒毎に高確率で8秒間スコアが115%UP", passive: "キュートタイプ2人のスコアサポート効果11%" }
+    { type: "cute", leader: "", connect: { range: "5マス効果", cells: { yellow: [17], green: [2, 6, 7, 8, 12] }, effect: "範囲内のホロメンボード効果を190%UP" }, costume: "キュートタイプ2人以上で全員のパフォーマンスが130%UP", special: "10秒間スコアサポート効果145%／100コンボ以上でスキル発動率が55%UP", active: "23秒毎に高確率で8秒間スコアが115%UP", passive: "キュートタイプ2人のスコアサポート効果11%" }
   ],
   [ 4, "ようこそハピネスステージへ 小鳥遊キアラ", "104_小鳥遊キアラ2.webp", "ver1.0.0, hololive English -Myth-, 小鳥遊キアラ", 
     { type: "happy", leader: "", connect: { range: "3マス効果", cells: { yellow: [], green: [] }, effect: "範囲内のホロメンボード効果を200%UP" }, costume: "Mythが2人以上で全員の全パラメータが40%UP", special: "14秒間スコアサポート効果80%", active: "27秒毎に高確率で10秒間スコアが75%UP", passive: "Mythが2人以上でMyth2人のセンスが34%UP" }
@@ -315,7 +315,7 @@ const cardData = [
     { type: "pure", leader: "", connect: { range: "", cells: { yellow: [], green: [] }, effect: "" }, costume: "", special: "10秒間スコアサポート効果55%／ライフが400回復", active: "25秒毎に低確率で9秒間スコアが55%UP", passive: "ピュアタイプ2人以上で自身の全パラメータが16%UP" }
   ],
   [ 5, "ぽかぽかチャージなひととき 一伊那尔栖", "106_一伊那尓栖1.webp", "ver1.0.0, hololive English -Myth-, 一伊那尓栖", 
-    { type: "pure", leader: "", connect: { range: "5マス効果", cells: { yellow: [], green: [] }, effect: "範囲内のホロメンボード効果を190%UP" }, costume: "全員のスコアサポート効果60%", special: "14秒間スコアサポート効果115%", active: "32秒毎に高確率で14秒間スコアが45%UP／ピュアタイプ2人以上でスコアが95%UP", passive: "ピュアタイプ2人以上で自身の全パラメータが32%UP" }
+    { type: "pure", leader: "", connect: { range: "5マス効果", cells: { yellow: [11], green: [8, 12, 13, 14, 18] }, effect: "範囲内のホロメンボード効果を190%UP" }, costume: "全員のスコアサポート効果60%", special: "14秒間スコアサポート効果115%", active: "32秒毎に高確率で14秒間スコアが45%UP／ピュアタイプ2人以上でスコアが95%UP", passive: "ピュアタイプ2人以上で自身の全パラメータが32%UP" }
   ],
   [ 4, "舞台を飾る和やか笑顔 一伊那尔栖", "107_一伊那尓栖2.webp", "ver1.0.0, hololive English -Myth-, 一伊那尓栖", 
     { type: "cute", leader: "", connect: { range: "4マス効果", cells: { yellow: [], green: [] }, effect: "範囲内のホロメンボード効果を165%UP" }, costume: "全員のセンスが100%UP", special: "9秒間スコアサポート効果110%／キュートタイプ2人以上でGOOD以上がPERFECTになる", active: "23秒毎に中確率で10秒間スコアが35%UP／ライフ600以上でスコアが70%UP", passive: "キュートタイプ3人以上でキュートタイプ3人のスコアサポート効果6%" }
@@ -324,7 +324,7 @@ const cardData = [
     { type: "happy", leader: "", connect: { range: "", cells: { yellow: [], green: [] }, effect: "" }, costume: "", special: "8秒間スコアサポート効果70%／GOOD以上がPERFECTになる", active: "33秒毎に中確率で13秒間スコアが45%UP", passive: "ハッピータイプ2人以上で、ハッピータイプ3人のパフォーマンスが14%UP" }
   ],
   [ 5, "Z nonstop talker クレイジー・オリー", "109_クレイジー・オリー1.webp", "ver1.0.0, hololive Indonesia 2期生, クレイジー・オリー", 
-    { type: "pure", leader: "", connect: { range: "5マス効果", cells: { yellow: [], green: [] }, effect: "範囲内のホロメンボード効果を190%UP" }, costume: "全員の全パラメータが45%UP", special: "12秒間スコアサポート効果135%", active: "25秒毎に中確率で10秒間スコアが55%UP／ピュアタイプ2人以上でスコアが110%UP", passive: "ピュアタイプ2人のスコアサポート効果11%" }
+    { type: "pure", leader: "", connect: { range: "5マス効果", cells: { yellow: [13], green: [6, 10, 11, 12, 16] }, effect: "範囲内のホロメンボード効果を190%UP" }, costume: "全員の全パラメータが45%UP", special: "12秒間スコアサポート効果135%", active: "25秒毎に中確率で10秒間スコアが55%UP／ピュアタイプ2人以上でスコアが110%UP", passive: "ピュアタイプ2人のスコアサポート効果11%" }
   ],
   [ 4, "Deadly Encore クレイジー・オリー", "110_クレイジー・オリー2.webp", "ver1.0.0, hololive Indonesia 2期生, クレイジー・オリー", 
     { type: "cute", leader: "", connect: { range: "4マス効果", cells: { yellow: [], green: [] }, effect: "範囲内のホロメンボード効果を165%UP" }, costume: "全員のパフォーマンスが100%UP", special: "9秒間スコアサポート効果125%", active: "25秒毎に中確率で10秒間スコアが40%UP／ライフ600以上でスコアが75%UP", passive: "キュートタイプ2人のパフォーマンスが30%UP" }
@@ -333,7 +333,7 @@ const cardData = [
     { type: "happy", leader: "", connect: { range: "", cells: { yellow: [], green: [] }, effect: "" }, costume: "", special: "9秒間スコアサポート効果75%", active: "25秒毎に低確率で7秒間スコアが70%UP", passive: "ハッピータイプ2人以上で、ハッピータイプ3人のセンスが14%UP" }
   ],
   [ 5, "ソファに沈んでまったりゲーム アーニャ・メルフィッサ", "112_アーニャ・メルフィッサ1.webp", "ver1.0.0, hololive Indonesia 2期生, アーニャ・メルフィッサ", 
-    { type: "cute", leader: "", connect: { range: "5マス効果", cells: { yellow: [], green: [] }, effect: "範囲内のホロメンボード効果を190%UP" }, costume: "ID2期生が2人以上で全員の全パラメータが50%UP", special: "14秒間スコアサポート効果115%", active: "24秒毎に中確率で10秒間スコアが100%UP", passive: "ID2期生が2人以上で自身の全パラメータが33%UP" }
+    { type: "cute", leader: "", connect: { range: "5マス効果", cells: { yellow: [13], green: [6, 10, 11, 12, 16] }, effect: "範囲内のホロメンボード効果を190%UP" }, costume: "ID2期生が2人以上で全員の全パラメータが50%UP", special: "14秒間スコアサポート効果115%", active: "24秒毎に中確率で10秒間スコアが100%UP", passive: "ID2期生が2人以上で自身の全パラメータが33%UP" }
   ],
   [ 4, "Little Back気ままなステージ アーニャ・メルフィッサ", "113_アーニャ・メルフィッサ2.webp", "ver1.0.0, hololive Indonesia 2期生, アーニャ・メルフィッサ", 
     { type: "happy", leader: "", connect: { range: "3マス効果", cells: { yellow: [], green: [] }, effect: "範囲内のホロメンボード効果を200%UP" }, costume: "全員のテクニックが100%UP", special: "9秒間スコアサポート効果110%／ハッピータイプ2人以上でGOOD以上がPERFECTになる", active: "30秒毎に高確率で11秒間スコアが40%UP／ライフ600以上でスコアが80%UP", passive: "ハッピータイプ3人以上でハッピータイプ3人のスコアサポート効果6%" }
@@ -342,7 +342,7 @@ const cardData = [
     { type: "pure", leader: "", connect: { range: "", cells: { yellow: [], green: [] }, effect: "" }, costume: "", special: "11秒間スコアサポート効果60%", active: "17秒毎に低確率で6秒間スコアが55%UP", passive: "ピュアタイプ2人のパフォーマンスが20%UP" }
   ],
   [ 5, "おすまし孔雀と嗜む一杯 パヴォリア・レイネ", "115_パヴォリア・レイネ1.webp", "ver1.0.0, hololive Indonesia 2期生, パヴォリア・レイネ", 
-    { type: "happy", leader: "", connect: { range: "8マス効果", cells: { yellow: [], green: [] }, effect: "範囲内のホロメンボード効果を135%UP" }, costume: "全員のスコアサポート効果60%", special: "10秒間スコアサポート効果160%", active: "29秒毎に高確率で10秒間スコアが60%UP／ハッピータイプ2人以上でスコアが120%UP", passive: "ハッピータイプ2人のテクニックが41%UP" }
+    { type: "happy", leader: "", connect: { range: "8マス効果", cells: { yellow: [12], green: [2, 7, 8, 13, 14, 17, 18, 22] }, effect: "範囲内のホロメンボード効果を135%UP" }, costume: "全員のスコアサポート効果60%", special: "10秒間スコアサポート効果160%", active: "29秒毎に高確率で10秒間スコアが60%UP／ハッピータイプ2人以上でスコアが120%UP", passive: "ハッピータイプ2人のテクニックが41%UP" }
   ],
   [ 4, "祝福のラグジュアリーナイト パヴォリア・レイネ", "116_パヴォリア・レイネ2.webp", "ver1.0.0, hololive Indonesia 2期生, パヴォリア・レイネ", 
     { type: "pure", leader: "", connect: { range: "3マス効果", cells: { yellow: [], green: [] }, effect: "範囲内のホロメンボード効果を200%UP" }, costume: "ID2期生が2人以上で全員の全パラメータが40%UP", special: "9秒間スコアサポート効果125%", active: "28秒毎に高確率で11秒間スコアが70%UP", passive: "ID2期生が2人以上でID2期生2人のセンスが34%UP" }
@@ -351,7 +351,7 @@ const cardData = [
     { type: "cute", leader: "", connect: { range: "", cells: { yellow: [], green: [] }, effect: "" }, costume: "", special: "8秒間スコアサポート効果70%／ライフが400回復", active: "30秒毎に中確率で13秒間スコアが40%UP", passive: "キュートタイプ2人以上で、キュートタイプ3人のパフォーマンスが14%UP" }
   ],
   [ 5, "nephilim sonority IRyS", "118_IRyS1.webp", "ver1.0.0, hololive English -Promise-, IRyS", 
-    { type: "happy", leader: "", connect: { range: "3マス効果", cells: { yellow: [], green: [] }, effect: "範囲内のホロメンボード効果を250%UP" }, costume: "Promiseが2人以上で全員の全パラメータが50%UP", special: "10秒間スコアサポート効果145%／ライフ1000以上でスキル発動率が55%UP", active: "25秒毎に中確率で11秒間スコアが95%UP", passive: "Promise2人のテクニックが43%UP" }
+    { type: "happy", leader: "", connect: { range: "3マス効果", cells: { yellow: [13], green: [10, 11, 12] }, effect: "範囲内のホロメンボード効果を250%UP" }, costume: "Promiseが2人以上で全員の全パラメータが50%UP", special: "10秒間スコアサポート効果145%／ライフ1000以上でスキル発動率が55%UP", active: "25秒毎に中確率で11秒間スコアが95%UP", passive: "Promise2人のテクニックが43%UP" }
   ],
   [ 4, "響き渡るホープフルボイス IRyS", "119_IRyS2.webp", "ver1.0.0, hololive English -Promise-, IRyS", 
     { type: "pure", leader: "", connect: { range: "4マス効果", cells: { yellow: [], green: [] }, effect: "範囲内のホロメンボード効果を165%UP" }, costume: "全員のパフォーマンスが100%UP", special: "9秒間スコアサポート効果110%／ピュアタイプ2人以上でGOOD以上がPERFECTになる", active: "31秒毎に高確率で10秒間スコアが45%UP／ライフ600以上でスコアが90%UP", passive: "ピュアタイプ2人のパフォーマンスが30%UP" }
@@ -360,7 +360,7 @@ const cardData = [
     { type: "cute", leader: "", connect: { range: "", cells: { yellow: [], green: [] }, effect: "" }, costume: "", special: "11秒間スコアサポート効果60%", active: "25秒毎に中確率で11秒間スコアが40%UP", passive: "キュートタイプ2人以上で自身の全パラメータが16%UP" }
   ],
   [ 5, "典獄ささやくClock Tower オーロ・クロニー", "121_オーロ・クロニー1.webp", "ver1.0.0, hololive English -Promise-, オーロ・クロニー", 
-    { type: "cute", leader: "", connect: { range: "4マス効果", cells: { yellow: [], green: [] }, effect: "範囲内のホロメンボード効果を200%UP" }, costume: "全員のスコアサポート効果60%", special: "14秒間スコアサポート効果115%", active: "33秒毎に高確率で12秒間スコアが55%UP／キュートタイプ2人以上でスコアが115%UP", passive: "キュートタイプ2人のセンスが41%UP" }
+    { type: "cute", leader: "", connect: { range: "4マス効果", cells: { yellow: [12], green: [2, 7, 10, 11] }, effect: "範囲内のホロメンボード効果を200%UP" }, costume: "全員のスコアサポート効果60%", special: "14秒間スコアサポート効果115%", active: "33秒毎に高確率で12秒間スコアが55%UP／キュートタイプ2人以上でスコアが115%UP", passive: "キュートタイプ2人のセンスが41%UP" }
   ],
   [ 4, "刻を忘れるパフォーマンス オーロ・クロニー", "122_オーロ・クロニー2.webp", "ver1.0.0, hololive English -Promise-, オーロ・クロニー", 
     { type: "happy", leader: "", connect: { range: "3マス効果", cells: { yellow: [], green: [] }, effect: "範囲内のホロメンボード効果を210%UP" }, costume: "Promiseが2人以上で全員の全パラメータが40%UP", special: "9秒間スコアサポート効果125%", active: "30秒毎に高確率で10秒間スコアが85%UP", passive: "Promise2人のテクニックが32%UP" }
@@ -369,7 +369,7 @@ const cardData = [
     { type: "pure", leader: "", connect: { range: "", cells: { yellow: [], green: [] }, effect: "" }, costume: "", special: "7秒間スコアサポート効果80%／GOOD以上がPERFECTになる", active: "33秒毎に中確率で13秒間スコアが45%UP", passive: "ピュアタイプ2人のパフォーマンスが20%UP" }
   ],
   [ 5, "Chaotic Powerful Rat ハコス・ベールズ", "124_ハコス・ベールズ1.webp", "ver1.0.0, hololive English -Promise-, ハコス・ベールズ", 
-    { type: "pure", leader: "", connect: { range: "3マス効果", cells: { yellow: [], green: [] }, effect: "範囲内のホロメンボード効果を250%UP" }, costume: "ピュアタイプ2人以上で全員のパフォーマンスが130%UP", special: "12秒間スコアサポート効果135%", active: "25秒毎に高確率で11秒間スコアが90%UP", passive: "ピュアタイプ2人のスコアサポート効果11%" }
+    { type: "pure", leader: "", connect: { range: "3マス効果", cells: { yellow: [13], green: [10, 11, 12] }, effect: "範囲内のホロメンボード効果を250%UP" }, costume: "ピュアタイプ2人以上で全員のパフォーマンスが130%UP", special: "12秒間スコアサポート効果135%", active: "25秒毎に高確率で11秒間スコアが90%UP", passive: "ピュアタイプ2人のスコアサポート効果11%" }
   ],
   [ 4, "Let's dance more！ ハコス・ベールズ", "125_ハコス・ベールズ2.webp", "ver1.0.0, hololive English -Promise-, ハコス・ベールズ", 
     { type: "happy", leader: "", connect: { range: "4マス効果", cells: { yellow: [], green: [] }, effect: "範囲内のホロメンボード効果を165%UP" }, costume: "全員のセンスが100%UP", special: "14秒間スコアサポート効果80%", active: "22秒毎に中確率で7秒間スコアが50%UP／ライフ600以上でスコアが95%UP", passive: "ハッピータイプ2人のセンスが30%UP" }
@@ -378,7 +378,7 @@ const cardData = [
     { type: "cute", leader: "", connect: { range: "", cells: { yellow: [], green: [] }, effect: "" }, costume: "", special: "8秒間スコアサポート効果70%／ライフが400回復", active: "17秒毎に低確率で6秒間スコアが55%UP", passive: "キュートタイプ2人以上で、キュートタイプ3人のテクニックが14%UP" }
   ],
   [ 5, "陽だまりとネコと構成員 ベスティア・ゼータ", "127_ベスティア・ゼータ1.webp", "ver1.0.0, hololive Indonesia 3期生, ベスティア・ゼータ", 
-    { type: "happy", leader: "", connect: { range: "5マス効果", cells: { yellow: [], green: [] }, effect: "範囲内のホロメンボード効果を190%UP" }, costume: "ID3期生が2人以上で全員の全パラメータが50%UP", special: "14秒間スコアサポート効果115%", active: "25秒毎に高確率で11秒間スコアが90%UP", passive: "ID3期生が2人以上で自身の全パラメータが33%UP" }
+    { type: "happy", leader: "", connect: { range: "5マス効果", cells: { yellow: [11], green: [8, 12, 13, 14, 18] }, effect: "範囲内のホロメンボード効果を190%UP" }, costume: "ID3期生が2人以上で全員の全パラメータが50%UP", special: "14秒間スコアサポート効果115%", active: "25秒毎に高確率で11秒間スコアが90%UP", passive: "ID3期生が2人以上で自身の全パラメータが33%UP" }
   ],
   [ 4, "childlikeるんるんライブ ベスティア・ゼータ", "128_ベスティア・ゼータ2.webp", "ver1.0.0, hololive Indonesia 3期生, ベスティア・ゼータ", 
     { type: "cute", leader: "", connect: { range: "4マス効果", cells: { yellow: [], green: [] }, effect: "範囲内のホロメンボード効果を165%UP" }, costume: "全員のセンスが100%UP", special: "14秒間スコアサポート効果80%", active: "34秒毎に高確率で14秒間スコアが35%UP／40コンボ以上でスコアが70%UP", passive: "キュートタイプ2人のセンスが30%UP" }
@@ -387,7 +387,7 @@ const cardData = [
     { type: "pure", leader: "", connect: { range: "", cells: { yellow: [], green: [] }, effect: "" }, costume: "", special: "11秒間スコアサポート効果60%", active: "30秒毎に中確率で13秒間スコアが40%UP", passive: "ピュアタイプ2人以上で、ピュアタイプ3人のテクニックが14%UP" }
   ],
   [ 5, "こころ強さは鍛冶場で研ぐ カエラ・コヴァルスキア", "130_カエラ・コヴァルスキア1.webp", "ver1.0.0, hololive Indonesia 3期生, カエラ・コヴァルスキア", 
-    { type: "cute", leader: "", connect: { range: "5マス効果", cells: { yellow: [], green: [] }, effect: "範囲内のホロメンボード効果を190%UP" }, costume: "全員のスコアサポート効果60%", special: "12秒間スコアサポート効果135%", active: "19秒毎に中確率で7秒間スコアが60%UP／キュートタイプ2人以上でスコアが120%UP", passive: "キュートタイプ2人のテクニックが41%UP" }
+    { type: "cute", leader: "", connect: { range: "5マス効果", cells: { yellow: [13], green: [6, 10, 11, 12, 16] }, effect: "範囲内のホロメンボード効果を190%UP" }, costume: "全員のスコアサポート効果60%", special: "12秒間スコアサポート効果135%", active: "19秒毎に中確率で7秒間スコアが60%UP／キュートタイプ2人以上でスコアが120%UP", passive: "キュートタイプ2人のテクニックが41%UP" }
   ],
   [ 4, "鍛冶場に匹敵！激アツライブ カエラ・コヴァルスキア", "131_カエラ・コヴァルスキア2.webp", "ver1.0.0, hololive Indonesia 3期生, カエラ・コヴァルスキア", 
     { type: "pure", leader: "", connect: { range: "3マス効果", cells: { yellow: [], green: [] }, effect: "範囲内のホロメンボード効果を210%UP" }, costume: "ID3期生が2人以上で全員の全パラメータが40%UP", special: "14秒間スコアサポート効果80%", active: "23秒毎に中確率で8秒間スコアが85%UP", passive: "ID3期生が2人以上でID3期生2人のセンスが34%UP" }
@@ -396,7 +396,7 @@ const cardData = [
     { type: "happy", leader: "", connect: { range: "", cells: { yellow: [], green: [] }, effect: "" }, costume: "", special: "10秒間スコアサポート効果55%／ライフが400回復", active: "33秒毎に中確率で13秒間スコアが45%UP", passive: "ハッピータイプ2人以上で、ハッピータイプ3人のパフォーマンスが14%UP" }
   ],
   [ 5, "あめ上がりの雨喜雨喜シャーマン こぼ・かなえる", "133_こぼ・かなえる1.webp", "ver1.0.0, hololive Indonesia 3期生, こぼ・かなえる", 
-    { type: "pure", leader: "", connect: { range: "8マス効果", cells: { yellow: [], green: [] }, effect: "範囲内のホロメンボード効果を135%UP" }, costume: "全員の全パラメータが45%UP", special: "12秒間スコアサポート効果135%", active: "15秒毎に中確率で6秒間スコアが55%UP／ピュアタイプ2人以上でスコアが110%UP", passive: "ピュアタイプ2人以上で自身の全パラメータが32%UP" }
+    { type: "pure", leader: "", connect: { range: "8マス効果", cells: { yellow: [12], green: [2, 7, 8, 13, 14, 17, 18, 22] }, effect: "範囲内のホロメンボード効果を135%UP" }, costume: "全員の全パラメータが45%UP", special: "12秒間スコアサポート効果135%", active: "15秒毎に中確率で6秒間スコアが55%UP／ピュアタイプ2人以上でスコアが110%UP", passive: "ピュアタイプ2人以上で自身の全パラメータが32%UP" }
   ],
   [ 4, "ドタバタフルスロットルステージ こぼ・かなえる", "134_こぼ・かなえる2.webp", "ver1.0.0, hololive Indonesia 3期生, こぼ・かなえる", 
     { type: "happy", leader: "", connect: { range: "3マス効果", cells: { yellow: [], green: [] }, effect: "範囲内のホロメンボード効果を210%UP" }, costume: "全員のテクニックが100%UP", special: "8秒間スコアサポート効果140%", active: "23秒毎に中確率で10秒間スコアが35%UP／40コンボ以上でスコアが70%UP", passive: "ハッピータイプ2人のテクニックが30%UP" }
@@ -405,7 +405,7 @@ const cardData = [
     { type: "cute", leader: "", connect: { range: "", cells: { yellow: [], green: [] }, effect: "" }, costume: "", special: "11秒間スコアサポート効果60%", active: "17秒毎に低確率で6秒間スコアが55%UP", passive: "キュートタイプ2人以上で、キュートタイプ3人のセンスが14%UP" }
   ],
   [ 5, "書庫ではぐくむ探求心 シオリ・ノヴェラ", "136_シオリ・ノヴェラ1.webp", "ver1.0.0, hololive English -Advent-, シオリ・ノヴェラ", 
-    { type: "happy", leader: "", connect: { range: "3マス効果", cells: { yellow: [], green: [] }, effect: "範囲内のホロメンボード効果を260%UP" }, costume: "全員のパフォーマンスが120%UP", special: "10秒間スコアサポート効果145%／スキル発動率が50%UP", active: "32秒毎に高確率で11秒間スコアが60%UP／40コンボ以上でスコアが120%UP", passive: "Advent2人のパフォーマンスが43%UP" }
+    { type: "happy", leader: "", connect: { range: "3マス効果", cells: { yellow: [11], green: [12, 13, 14] }, effect: "範囲内のホロメンボード効果を260%UP" }, costume: "全員のパフォーマンスが120%UP", special: "10秒間スコアサポート効果145%／スキル発動率が50%UP", active: "32秒毎に高確率で11秒間スコアが60%UP／40コンボ以上でスコアが120%UP", passive: "Advent2人のパフォーマンスが43%UP" }
   ],
   [ 4, "ステージでもKeep it real シオリ・ノヴェラ", "137_シオリ・ノヴェラ2.webp", "ver1.0.0, hololive English -Advent-, シオリ・ノヴェラ", 
     { type: "cute", leader: "", connect: { range: "4マス効果", cells: { yellow: [], green: [] }, effect: "範囲内のホロメンボード効果を165%UP" }, costume: "Adventが2人以上で全員の全パラメータが40%UP", special: "8秒間スコアサポート効果140%", active: "29秒毎に高確率で10秒間スコアが80%UP", passive: "Adventが2人以上でAdvent2人のスコアサポート効果9%" }
@@ -414,7 +414,7 @@ const cardData = [
     { type: "pure", leader: "", connect: { range: "", cells: { yellow: [], green: [] }, effect: "" }, costume: "", special: "10秒間スコアサポート効果55%／ライフが400回復", active: "17秒毎に低確率で6秒間スコアが55%UP", passive: "ピュアタイプ2人以上で、ピュアタイプ3人のセンスが14%UP" }
   ],
   [ 5, "キラッキラCrystal place 古石ビジュー", "139_古石ビジュー1.webp", "ver1.0.0, hololive English -Advent-, 古石ビジュー", 
-    { type: "pure", leader: "", connect: { range: "5マス効果", cells: { yellow: [], green: [] }, effect: "範囲内のホロメンボード効果を190%UP" }, costume: "全員のセンスが120%UP", special: "10秒間スコアサポート効果145%／スキル発動率が50%UP", active: "27秒毎に中確率で9秒間スコアが65%UP／40コンボ以上でスコアが130%UP", passive: "ピュアタイプ2人のスコアサポート効果11%" }
+    { type: "pure", leader: "", connect: { range: "5マス効果", cells: { yellow: [13], green: [6, 10, 11, 12, 16] }, effect: "範囲内のホロメンボード効果を190%UP" }, costume: "全員のセンスが120%UP", special: "10秒間スコアサポート効果145%／スキル発動率が50%UP", active: "27秒毎に中確率で9秒間スコアが65%UP／40コンボ以上でスコアが130%UP", passive: "ピュアタイプ2人のスコアサポート効果11%" }
   ],
   [ 4, "キラリと見せる無垢な素顔 古石ビジュー", "140_古石ビジュー2.webp", "ver1.0.0, hololive English -Advent-, 古石ビジュー", 
     { type: "happy", leader: "", connect: { range: "3マス効果", cells: { yellow: [], green: [] }, effect: "範囲内のホロメンボード効果を200%UP" }, costume: "ハッピータイプ2人以上で全員の全パラメータが20%UP／ハッピータイプ2人以上で全員のスコアサポート効果25%", special: "14秒間スコアサポート効果80%", active: "17秒毎に中確率で6秒間スコアが85%UP", passive: "ハッピータイプ2人以上でハッピータイプ2人のパフォーマンスが32%UP" }
@@ -423,7 +423,7 @@ const cardData = [
     { type: "cute", leader: "", connect: { range: "", cells: { yellow: [], green: [] }, effect: "" }, costume: "", special: "8秒間スコアサポート効果70%／ライフが400回復", active: "15秒毎に低確率で6秒間スコアが50%UP", passive: "キュートタイプ2人以上で、キュートタイプ3人のテクニックが14%UP" }
   ],
   [ 5, "歌に揺らめくノクターン ネリッサ・レイヴンクロフト", "142_ネリッサ・レイヴンクロフト1.webp", "ver1.0.0, hololive English -Advent-, ネリッサ・レイヴンクロフト", 
-    { type: "pure", leader: "", connect: { range: "12マス効果", cells: { yellow: [], green: [] }, effect: "範囲内のホロメンボード効果を105%UP" }, costume: "Adventが2人以上で全員の全パラメータが50%UP", special: "12秒間スコアサポート効果135%", active: "15秒毎に中確率で7秒間スコアが90%UP", passive: "Adventが2人以上で自身の全パラメータが33%UP" }
+    { type: "pure", leader: "", connect: { range: "12マス効果", cells: { yellow: [12], green: [2, 6, 7, 8, 10, 11, 13, 14, 16, 17, 18, 22] }, effect: "範囲内のホロメンボード効果を105%UP" }, costume: "Adventが2人以上で全員の全パラメータが50%UP", special: "12秒間スコアサポート効果135%", active: "15秒毎に中確率で7秒間スコアが90%UP", passive: "Adventが2人以上で自身の全パラメータが33%UP" }
   ],
   [ 4, "美声届ける夕闇ステージ ネリッサ・レイヴンクロフト", "143_ネリッサ・レイヴンクロフト2.webp", "ver1.0.0, hololive English -Advent-, ネリッサ・レイヴンクロフト", 
     { type: "cute", leader: "", connect: { range: "3マス効果", cells: { yellow: [], green: [] }, effect: "範囲内のホロメンボード効果を200%UP" }, costume: "全員のセンスが100%UP", special: "10秒間スコアサポート効果100%／ライフ600以上でライフが400回復", active: "28秒毎に高確率で9秒間スコアが45%UP／ライフ600以上でスコアが90%UP", passive: "Adventが2人以上でAdvent2人のセンスが34%UP" }
@@ -432,7 +432,7 @@ const cardData = [
     { type: "happy", leader: "", connect: { range: "", cells: { yellow: [], green: [] }, effect: "" }, costume: "", special: "9秒間スコアサポート効果75%", active: "28秒毎に中確率で9秒間スコアが55%UP", passive: "ハッピータイプ2人以上で自身の全パラメータが16%UP" }
   ],
   [ 5, "ぽわぽわドーナツパーティー♪ フワワ・アビスガード", "145_フワワ・アビスガード1.webp", "ver1.0.0, hololive English -Advent-, フワワ・アビスガード", 
-    { type: "cute", leader: "", connect: { range: "5マス効果", cells: { yellow: [], green: [] }, effect: "範囲内のホロメンボード効果を190%UP" }, costume: "全員のテクニックが120%UP", special: "10秒間スコアサポート効果145%／スキル発動率が50%UP", active: "20秒毎に中確率で8秒間スコアが55%UP／40コンボ以上でスコアが110%UP", passive: "キュートタイプ2人のテクニックが41%UP" }
+    { type: "cute", leader: "", connect: { range: "5マス効果", cells: { yellow: [11], green: [8, 12, 13, 14, 18] }, effect: "範囲内のホロメンボード効果を190%UP" }, costume: "全員のテクニックが120%UP", special: "10秒間スコアサポート効果145%／スキル発動率が50%UP", active: "20秒毎に中確率で8秒間スコアが55%UP／40コンボ以上でスコアが110%UP", passive: "キュートタイプ2人のテクニックが41%UP" }
   ],
   [ 4, "ホッと安らぐフワフワライブ フワワ・アビスガード", "146_フワワ・アビスガード2.webp", "ver1.0.0, hololive English -Advent-, フワワ・アビスガード", 
     { type: "pure", leader: "", connect: { range: "4マス効果", cells: { yellow: [], green: [] }, effect: "範囲内のホロメンボード効果を165%UP" }, costume: "全員のスコアサポート効果50%", special: "8秒間スコアサポート効果140%", active: "30秒毎に高確率で11秒間スコアが40%UP／ピュアタイプ2人以上でスコアが80%UP", passive: "ピュアタイプ2人のパフォーマンスが30%UP" }
@@ -441,7 +441,7 @@ const cardData = [
     { type: "happy", leader: "", connect: { range: "", cells: { yellow: [], green: [] }, effect: "" }, costume: "", special: "8秒間スコアサポート効果70%／ライフが400回復", active: "25秒毎に中確率で8秒間スコアが55%UP", passive: "ハッピータイプ2人以上で自身の全パラメータが16%UP" }
   ],
   [ 5, "のほほんドーナツパーティー♪ モココ・アビスガード", "148_モココ・アビスガード1.webp", "ver1.0.0, hololive English -Advent-, モココ・アビスガード", 
-    { type: "cute", leader: "", connect: { range: "6マス効果", cells: { yellow: [], green: [] }, effect: "範囲内のホロメンボード効果を160%UP" }, costume: "キュートタイプ2人以上で全員のセンスが130%UP", special: "11秒間スコアサポート効果130%／100コンボ以上でスキル発動率が50%UP", active: "25秒毎に高確率で8秒間スコアが125%UP", passive: "キュートタイプ2人のスコアサポート効果11%" }
+    { type: "cute", leader: "", connect: { range: "6マス効果", cells: { yellow: [12], green: [6, 7, 11, 13, 16, 17] }, effect: "範囲内のホロメンボード効果を160%UP" }, costume: "キュートタイプ2人以上で全員のセンスが130%UP", special: "11秒間スコアサポート効果130%／100コンボ以上でスキル発動率が50%UP", active: "25秒毎に高確率で8秒間スコアが125%UP", passive: "キュートタイプ2人のスコアサポート効果11%" }
   ],
   [ 4, "パッと笑顔にモコモコライブ モココ・アビスガード", "149_モココ・アビスガード2.webp", "ver1.0.0, hololive English -Advent-, モココ・アビスガード", 
     { type: "pure", leader: "", connect: { range: "4マス効果", cells: { yellow: [], green: [] }, effect: "範囲内のホロメンボード効果を165%UP" }, costume: "全員の全パラメータが35%UP", special: "10秒間スコアサポート効果100%／40コンボ以上でライフが400回復", active: "25秒毎に高確率で8秒間スコアが45%UP／ピュアタイプ2人以上でスコアが90%UP", passive: "ピュアタイプ2人以上で自身の全パラメータが24%UP" }
@@ -450,7 +450,7 @@ const cardData = [
     { type: "happy", leader: "", connect: { range: "", cells: { yellow: [], green: [] }, effect: "" }, costume: "", special: "9秒間スコアサポート効果75%", active: "30秒毎に中確率で13秒間スコアが40%UP", passive: "ハッピータイプ2人以上で、ハッピータイプ3人のパフォーマンスが14%UP" }
   ],
   [ 5, "パレードで笑顔をお届け 音乃瀬奏", "151_音乃瀬奏1.webp", "ver1.0.0, ReGLOSS, 音乃瀬奏", 
-    { type: "pure", leader: "", connect: { range: "5マス効果", cells: { yellow: [], green: [] }, effect: "範囲内のホロメンボード効果を190%UP" }, costume: "ピュアタイプ2人以上で全員のセンスが130%UP", special: "10秒間スコアサポート効果145%／100コンボ以上でスキル発動率が55%UP", active: "27秒毎に高確率で12秒間スコアが90%UP", passive: "ReGLOSS2人のセンスが43%UP" }
+    { type: "pure", leader: "", connect: { range: "5マス効果", cells: { yellow: [11], green: [8, 12, 13, 14, 18] }, effect: "範囲内のホロメンボード効果を190%UP" }, costume: "ピュアタイプ2人以上で全員のセンスが130%UP", special: "10秒間スコアサポート効果145%／100コンボ以上でスキル発動率が55%UP", active: "27秒毎に高確率で12秒間スコアが90%UP", passive: "ReGLOSS2人のセンスが43%UP" }
   ],
   [ 4, "届け！とびっきりハーモニー 音乃瀬奏", "152_音乃瀬奏2.webp", "ver1.0.0, ReGLOSS, 音乃瀬奏", 
     { type: "cute", leader: "", connect: { range: "3マス効果", cells: { yellow: [], green: [] }, effect: "範囲内のホロメンボード効果を210%UP" }, costume: "ReGLOSSが2人以上で全員の全パラメータが40%UP", special: "9秒間スコアサポート効果125%", active: "25秒毎に中確率で10秒間スコアが75%UP", passive: "ReGLOSSが2人以上でReGLOSS2人のテクニックが34%UP" }
@@ -459,7 +459,7 @@ const cardData = [
     { type: "happy", leader: "", connect: { range: "", cells: { yellow: [], green: [] }, effect: "" }, costume: "", special: "9秒間スコアサポート効果75%", active: "15秒毎に低確率で6秒間スコアが50%UP", passive: "ハッピータイプ2人以上で自身の全パラメータが16%UP" }
   ],
   [ 5, "深夜にひと息、CEOの限界飯 一条莉々華", "154_一条莉々華1.webp", "ver1.0.0, ReGLOSS, 一条莉々華", 
-    { type: "happy", leader: "", connect: { range: "5マス効果", cells: { yellow: [], green: [] }, effect: "範囲内のホロメンボード効果を190%UP" }, costume: "ReGLOSSが2人以上で全員の全パラメータが50%UP", special: "12秒間スコアサポート効果135%", active: "30秒毎に高確率で11秒間スコアが110%UP", passive: "ReGLOSSが2人以上でReGLOSS2人のパフォーマンスが45%UP" }
+    { type: "happy", leader: "", connect: { range: "5マス効果", cells: { yellow: [13], green: [6, 10, 11, 12, 16] }, effect: "範囲内のホロメンボード効果を190%UP" }, costume: "ReGLOSSが2人以上で全員の全パラメータが50%UP", special: "12秒間スコアサポート効果135%", active: "30秒毎に高確率で11秒間スコアが110%UP", passive: "ReGLOSSが2人以上でReGLOSS2人のパフォーマンスが45%UP" }
   ],
   [ 4, "ずっきゅんばっきゅんLIVE♡ 一条莉々華", "155_一条莉々華2.webp", "ver1.0.0, ReGLOSS, 一条莉々華", 
     { type: "cute", leader: "", connect: { range: "4マス効果", cells: { yellow: [], green: [] }, effect: "範囲内のホロメンボード効果を165%UP" }, costume: "全員のスコアサポート効果50%", special: "8秒間スコアサポート効果140%", active: "30秒毎に高確率で11秒間スコアが40%UP／キュートタイプ2人以上でスコアが80%UP", passive: "キュートタイプ2人のテクニックが30%UP" }
@@ -468,7 +468,7 @@ const cardData = [
     { type: "pure", leader: "", connect: { range: "", cells: { yellow: [], green: [] }, effect: "" }, costume: "", special: "11秒間スコアサポート効果60%", active: "28秒毎に中確率で9秒間スコアが55%UP", passive: "ピュアタイプ2人以上で自身の全パラメータが16%UP" }
   ],
   [ 5, "叡智を灯し、アートに導く 儒烏風亭らでん", "157_儒烏風亭らでん1.webp", "ver1.0.0, ReGLOSS, 儒烏風亭らでん", 
-    { type: "happy", leader: "", connect: { range: "8マス効果", cells: { yellow: [], green: [] }, effect: "範囲内のホロメンボード効果を135%UP" }, costume: "全員のセンスが120%UP", special: "10秒間スコアサポート効果145%／スキル発動率が50%UP", active: "22秒毎に高確率で8秒間スコアが55%UP／ライフ600以上でスコアが115%UP", passive: "ReGLOSS2人のセンスが43%UP" }
+    { type: "happy", leader: "", connect: { range: "8マス効果", cells: { yellow: [12], green: [2, 6, 7, 10, 11, 16, 17, 22] }, effect: "範囲内のホロメンボード効果を135%UP" }, costume: "全員のセンスが120%UP", special: "10秒間スコアサポート効果145%／スキル発動率が50%UP", active: "22秒毎に高確率で8秒間スコアが55%UP／ライフ600以上でスコアが115%UP", passive: "ReGLOSS2人のセンスが43%UP" }
   ],
   [ 4, "cultural performer 儒烏風亭らでん", "158_儒烏風亭らでん2.webp", "ver1.0.0, ReGLOSS, 儒烏風亭らでん", 
     { type: "pure", leader: "", connect: { range: "3マス効果", cells: { yellow: [], green: [] }, effect: "範囲内のホロメンボード効果を210%UP" }, costume: "ピュアタイプ2人以上で全員の全パラメータが20%UP／ピュアタイプ2人以上で全員のスコアサポート効果25%", special: "14秒間スコアサポート効果80%", active: "16秒毎に中確率で5秒間スコアが95%UP", passive: "ピュアタイプ2人以上で自身の全パラメータが24%UP" }
@@ -477,7 +477,7 @@ const cardData = [
     { type: "cute", leader: "", connect: { range: "", cells: { yellow: [], green: [] }, effect: "" }, costume: "", special: "8秒間スコアサポート効果70%／ライフが400回復", active: "25秒毎に中確率で8秒間スコアが55%UP", passive: "キュートタイプ2人のテクニックが20%UP" }
   ],
   [ 5, "ガーリー番長のお裾分け 轟はじめ", "160_轟はじめ1.webp", "ver1.0.0, ReGLOSS, 轟はじめ", 
-    { type: "cute", leader: "", connect: { range: "5マス効果", cells: { yellow: [], green: [] }, effect: "範囲内のホロメンボード効果を190%UP" }, costume: "全員のパフォーマンスが120%UP", special: "10秒間スコアサポート効果145%／スキル発動率が50%UP", active: "26秒毎に高確率で9秒間スコアが60%UP／40コンボ以上でスコアが120%UP", passive: "キュートタイプ2人のパフォーマンスが41%UP" }
+    { type: "cute", leader: "", connect: { range: "5マス効果", cells: { yellow: [11], green: [8, 12, 13, 14, 18] }, effect: "範囲内のホロメンボード効果を190%UP" }, costume: "全員のパフォーマンスが120%UP", special: "10秒間スコアサポート効果145%／スキル発動率が50%UP", active: "26秒毎に高確率で9秒間スコアが60%UP／40コンボ以上でスコアが120%UP", passive: "キュートタイプ2人のパフォーマンスが41%UP" }
   ],
   [ 4, "番長の番長たる所以 轟はじめ", "161_轟はじめ2.webp", "ver1.0.0, ReGLOSS, 轟はじめ", 
     { type: "pure", leader: "", connect: { range: "3マス効果", cells: { yellow: [], green: [] }, effect: "範囲内のホロメンボード効果を215%UP" }, costume: "全員のテクニックが100%UP", special: "9秒間スコアサポート効果125%", active: "27秒毎に高確率で11秒間スコアが35%UP／ライフ600以上でスコアが70%UP", passive: "ピュアタイプ3人以上でピュアタイプ3人のスコアサポート効果6%" }
