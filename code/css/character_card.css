@@ -1397,3 +1397,19 @@ main #sort-select {
   color: #4f6f7d;
   font-weight: 800;
 }
+
+/* Remove glow from card detail rarity stars and connect board */
+#modal-rarity .star-group,
+#modal-rarity .star-group[class*="rarity-"] {
+  text-shadow: none !important;
+  filter: none !important;
+}
+
+.connect-grid,
+.connect-cell,
+.connect-cell.is-yellow,
+.connect-cell.is-green,
+.connect-cell.is-center {
+  box-shadow: none !important;
+  filter: none !important;
+}
