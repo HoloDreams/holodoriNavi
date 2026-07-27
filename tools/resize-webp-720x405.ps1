@@ -53,7 +53,7 @@ try {
     }
 
     $confirm = [System.Windows.Forms.MessageBox]::Show(
-        "画像を 720x405 の webp に変換します。`n元画像はバックアップしてから上書きします。`n`n続行しますか？",
+        "画像を 720x405 の webp に変換します。`nバックアップは作成せず、選択した画像を置き換えます。`n`n続行しますか？",
         "確認",
         [System.Windows.Forms.MessageBoxButtons]::YesNo,
         [System.Windows.Forms.MessageBoxIcon]::Warning
@@ -63,7 +63,6 @@ try {
     $py = @"
 import datetime
 import os
-import shutil
 import sys
 import traceback
 from pathlib import Path
@@ -80,8 +79,6 @@ try:
     if mode == 'folder':
         if custom_target is None or not custom_target.exists() or not custom_target.is_dir():
             raise SystemExit('対象フォルダが見つかりません。')
-        backup_root = custom_target.parent / (custom_target.name + '_webp720_backup_' + datetime.datetime.now().strftime('%Y%m%d_%H%M%S'))
-        base_root = custom_target.parent
         files = [p for p in custom_target.rglob('*') if p.is_file() and p.suffix.lower() in exts]
     elif mode == 'files':
         if custom_target is None or not custom_target.exists() or not custom_target.is_file():
@@ -94,8 +91,6 @@ try:
             common = Path(os.path.commonpath([str(p.parent) for p in files]))
         else:
             common = custom_target.parent
-        backup_root = common.parent / (common.name + '_webp720_backup_' + datetime.datetime.now().strftime('%Y%m%d_%H%M%S'))
-        base_root = common
     else:
         raise SystemExit('不明な処理モードです: ' + mode)
 
@@ -103,20 +98,11 @@ try:
     if not files:
         raise SystemExit('対象画像が見つかりませんでした。')
 
-    backup_root.mkdir(parents=True, exist_ok=True)
     processed = 0
     created = []
 
     for p in files:
         print('処理: ' + str(p))
-        try:
-            rel = p.relative_to(base_root)
-        except ValueError:
-            rel = Path(p.name)
-        backup_dest = backup_root / rel
-        backup_dest.parent.mkdir(parents=True, exist_ok=True)
-        shutil.copy2(p, backup_dest)
-
         out_path = p.with_suffix('.webp')
         with Image.open(p) as img:
             img = ImageOps.exif_transpose(img).convert('RGBA')
@@ -133,7 +119,6 @@ try:
     print('処理画像数: ' + str(processed))
     print('サイズ: 720x405')
     print('形式: webp')
-    print('バックアップ: ' + str(backup_root))
 except Exception:
     traceback.print_exc()
     raise
@@ -153,3 +138,4 @@ except Exception:
     $msg | Set-Content -LiteralPath $logPath -Encoding UTF8
     Show-Error "処理に失敗しました。`n`n$msg`n`n詳細ログ:`n$logPath"
 }
+
