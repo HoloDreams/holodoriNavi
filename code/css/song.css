@@ -1,4 +1,4 @@
-body {
+﻿body {
   margin: 0;
   background-color: #fff; 
   background-image: url('../img/background.png'); 
@@ -461,3 +461,29 @@ h1::after,
 }
 
 
+
+.song-detail-link {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+
+.song-card--has-detail {
+  cursor: pointer;
+}
+
+.song-card--no-detail {
+  cursor: default;
+}
+
+.song-card--no-detail:hover .card-link-wrapper {
+  transform: none;
+}
+
+.song-card--no-detail:hover img {
+  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+}
+
+.song-card--no-detail:hover p {
+  color: #333;
+}

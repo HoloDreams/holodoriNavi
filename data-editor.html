@@ -231,6 +231,14 @@
             border-radius: 50%;
             font-weight: bold;
         }
+
+        .song-name-head { min-width: 180px; }
+        .song-members-head { min-width: 220px; }
+        .song-jacket-head { min-width: 180px; }
+        .song-link-head { min-width: 260px; }
+        .song-description-head { min-width: 320px; }
+        .song-video-head { min-width: 260px; }
+        .song-description { min-height: 120px; }
         .skill-detail-head {
             min-width: 520px;
         }
@@ -319,19 +327,30 @@ setupFallbackFileInput();
 function updateTableHeader() {
     const thead = document.getElementById("tableHead");
     if (currentMode === "song") {
-        // 【変更】指定された並び順で楽曲用のヘッダーを構築
         thead.innerHTML = `
             <tr>
-                <th style="width: 25%;">曲名</th>
-                <th style="width: 45%;">歌唱メンバー (カンマ区切り)</th>
-                <th style="width: 6%;">expert</th>
-                <th style="width: 6%;">hard</th>
-                <th style="width: 6%;">normal</th>
-                <th style="width: 6%;">easy</th>
-                <th style="width: 6%;">操作</th>
+                <th class="song-name-head">??</th>
+                <th class="song-members-head">??????</th>
+                <th class="song-jacket-head">?????</th>
+                <th>expert</th>
+                <th>hard</th>
+                <th>normal</th>
+                <th>easy</th>
+                <th>EX combo</th>
+                <th>HD combo</th>
+                <th>NM combo</th>
+                <th>ES combo</th>
+                <th>BPM</th>
+                <th class="song-link-head">?????</th>
+                <th class="song-description-head">??</th>
+                <th class="song-video-head">EX??</th>
+                <th class="song-video-head">HD??</th>
+                <th class="song-video-head">NM??</th>
+                <th class="song-video-head">ES??</th>
+                <th style="width: 6%;">??</th>
             </tr>
         `;
-        document.getElementById("currentMode").innerText = "モード: 楽曲リスト編集 (songList)";
+        document.getElementById("currentMode").innerText = "???: ??????? (songList)";
     } else if (currentMode === "item") {
         thead.innerHTML = `
             <tr>
@@ -403,21 +422,54 @@ function addRowToDOM(data) {
             }
         });
     } else if (currentMode === "song") {
-        // 【変更】songList用データ（曲名, メンバー, 各難易度オブジェクト）を展開
         const songName = data ? data[0] || "" : "";
         const members = data ? data[1] || "" : "";
         const levels = data ? data[2] || { expert: 0, hard: 0, normal: 0, easy: 0 } : { expert: 0, hard: 0, normal: 0, easy: 0 };
+        const jacket = data ? data[3] || (songName ? songName + ".jpg" : "") : "";
+        const detail = data ? data[4] || {} : {};
+        const combos = detail.combos || {};
+        const videos = detail.videos || {};
 
-        // ご指定の「曲名、メンバー、expert、hard、normal、easy」順に入力欄を追加
         tr.innerHTML = `
-            <td><input type="text" class="song-name" value="${songName}" placeholder="曲名"></td>
-            <td><input type="text" class="song-members" value="${members}" placeholder="ときのそら, ロボ子さん..."></td>
-            <td><input type="number" class="lv-expert" value="${levels.expert || 0}" min="1" max="50"></td>
-            <td><input type="number" class="lv-hard" value="${levels.hard || 0}" min="1" max="50"></td>
-            <td><input type="number" class="lv-normal" value="${levels.normal || 0}" min="1" max="50"></td>
-            <td><input type="number" class="lv-easy" value="${levels.easy || 0}" min="1" max="50"></td>
+            <td><input type="text" class="song-name" value="${escapeAttr(songName)}" placeholder="??"></td>
+            <td><input type="text" class="song-members" value="${escapeAttr(members)}" placeholder="?????, ?????..."></td>
+            <td class="filename-cell song-filename-cell"><input type="text" class="song-jacket" value="${escapeAttr(jacket)}" placeholder="???????"></td>
+            <td><input type="number" class="lv-expert" value="${levels.expert || 0}" min="0" max="50"></td>
+            <td><input type="number" class="lv-hard" value="${levels.hard || 0}" min="0" max="50"></td>
+            <td><input type="number" class="lv-normal" value="${levels.normal || 0}" min="0" max="50"></td>
+            <td><input type="number" class="lv-easy" value="${levels.easy || 0}" min="0" max="50"></td>
+            <td><input type="text" class="combo-expert" value="${escapeAttr(combos.expert || '')}" placeholder="? ?????"></td>
+            <td><input type="text" class="combo-hard" value="${escapeAttr(combos.hard || '')}" placeholder="? ?????"></td>
+            <td><input type="text" class="combo-normal" value="${escapeAttr(combos.normal || '')}" placeholder="? ?????"></td>
+            <td><input type="text" class="combo-easy" value="${escapeAttr(combos.easy || '')}" placeholder="? ?????"></td>
+            <td><input type="text" class="song-bpm" value="${escapeAttr(detail.bpm || '')}" placeholder="BPM"></td>
+            <td><input type="text" class="song-link" value="${escapeAttr(detail.link || '')}" placeholder="YouTube / ?????"></td>
+            <td><textarea class="song-description" placeholder="?????????????">${escapeText(detail.description || '')}</textarea></td>
+            <td><input type="text" class="video-expert" value="${escapeAttr(videos.expert || '')}" placeholder="YouTube????URL"></td>
+            <td><input type="text" class="video-hard" value="${escapeAttr(videos.hard || '')}" placeholder="YouTube????URL"></td>
+            <td><input type="text" class="video-normal" value="${escapeAttr(videos.normal || '')}" placeholder="YouTube????URL"></td>
+            <td><input type="text" class="video-easy" value="${escapeAttr(videos.easy || '')}" placeholder="YouTube????URL"></td>
             <td><button style="padding: 2px 8px; margin: 0; font-size: 11px;" onclick="deleteRow(this)">DEL</button></td>
         `;
+
+        const fileCell = tr.querySelector(".song-filename-cell");
+        const fileInput = tr.querySelector(".song-jacket");
+        const nameInput = tr.querySelector(".song-name");
+        fileCell.addEventListener("dragover", (e) => { e.preventDefault(); e.stopPropagation(); fileCell.classList.add("dragover"); });
+        fileCell.addEventListener("dragleave", (e) => { e.preventDefault(); e.stopPropagation(); fileCell.classList.remove("dragover"); });
+        fileCell.addEventListener("drop", (e) => {
+            e.preventDefault(); e.stopPropagation(); fileCell.classList.remove("dragover");
+            const files = e.dataTransfer.files;
+            if (files.length > 0) {
+                const rawFileName = files[0].name;
+                if (rawFileName.endsWith('.js')) return;
+                fileInput.value = rawFileName;
+                if (!nameInput.value.trim()) {
+                    const baseName = rawFileName.substring(0, rawFileName.lastIndexOf('.')) || rawFileName;
+                    nameInput.value = baseName;
+                }
+            }
+        });
     } else {
         const safeData = data || [5, "", "", "", {leader:"", connect:{range:"", cells:[], effect:""}, costume:"", special:"", active:"", passive:""}];
         const isOldCardFormat = safeData.length >= 6 && typeof safeData[3] === "number";
@@ -782,17 +834,34 @@ function generateJSString() {
         result += "\nconst itemImageBasePath = 'img/item img/';\n";
         return result;
     } else if (currentMode === "song") {
-        // 【変更】難易度オブジェクトを含む形で songList ファイルを出力
         let result = "const songList = [\n";
         rows.forEach((row, index) => {
             const songName = row.querySelector(".song-name").value;
             const members = row.querySelector(".song-members").value;
+            const jacket = row.querySelector(".song-jacket").value || (songName ? songName + ".jpg" : "");
             const expert = parseInt(row.querySelector(".lv-expert").value) || 0;
             const hard = parseInt(row.querySelector(".lv-hard").value) || 0;
             const normal = parseInt(row.querySelector(".lv-normal").value) || 0;
             const easy = parseInt(row.querySelector(".lv-easy").value) || 0;
+            const detail = {
+                bpm: row.querySelector(".song-bpm").value,
+                link: row.querySelector(".song-link").value,
+                description: row.querySelector(".song-description").value,
+                combos: {
+                    easy: row.querySelector(".combo-easy").value,
+                    normal: row.querySelector(".combo-normal").value,
+                    hard: row.querySelector(".combo-hard").value,
+                    expert: row.querySelector(".combo-expert").value
+                },
+                videos: {
+                    easy: row.querySelector(".video-easy").value,
+                    normal: row.querySelector(".video-normal").value,
+                    hard: row.querySelector(".video-hard").value,
+                    expert: row.querySelector(".video-expert").value
+                }
+            };
 
-            result += `  ["${songName}", "${members}", { easy: ${easy}, normal: ${normal}, hard: ${hard}, expert: ${expert} }]`;
+            result += `  [${jsString(songName)}, ${jsString(members)}, { easy: ${easy}, normal: ${normal}, hard: ${hard}, expert: ${expert} }, ${jsString(jacket)}, { bpm: ${jsString(detail.bpm)}, link: ${jsString(detail.link)}, description: ${jsString(detail.description)}, combos: { easy: ${jsString(detail.combos.easy)}, normal: ${jsString(detail.combos.normal)}, hard: ${jsString(detail.combos.hard)}, expert: ${jsString(detail.combos.expert)} }, videos: { easy: ${jsString(detail.videos.easy)}, normal: ${jsString(detail.videos.normal)}, hard: ${jsString(detail.videos.hard)}, expert: ${jsString(detail.videos.expert)} } }]`;
             if (index < rows.length - 1) result += ",\n";
             else result += "\n";
         });

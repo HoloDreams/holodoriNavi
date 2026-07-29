@@ -1,4 +1,4 @@
-const itemsPerPage = 30;
+﻿const itemsPerPage = 30;
 let currentPage = 1;
 let filteredSongs = [];
 
@@ -6,6 +6,9 @@ function escapeHtml(value) {
     return String(value || '').replace(/[&<>"]/g, char => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[char]));
 }
 
+function getSongDetailHref(songName) {
+    return `music_detail.html?song=${encodeURIComponent(songName)}`;
+}
 function getSongCoverSrc(songData) {
     const songName = songData[0];
     const fileName = songData[3] || `${songName}.jpg`;
@@ -220,13 +223,17 @@ function displaySongs(page) {
             badgeHtml = `<div class="difficulty-badge badge-${displayDiff}">${currentLevelValue}</div>`;
         }
 
-        card.innerHTML = `
+        const detailHref = getSongDetailHref(songName);
+        const imageHtml = `
             <div class="card-link-wrapper">
                 ${badgeHtml}
                 <img src="${coverSrc}" alt="${escapeHtml(songName)}" loading="lazy">
             </div>
             <p>${escapeHtml(songName)}</p>
         `;
+
+        card.classList.add('song-card--has-detail');
+        card.innerHTML = `<a class="song-detail-link" href="${detailHref}">${imageHtml}</a>`;
         container.appendChild(card);
     });
 
@@ -329,3 +336,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     updateDisplay();
 });
+
+
+
+
