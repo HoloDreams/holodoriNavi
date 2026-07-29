@@ -24,8 +24,14 @@ function getCoverSrc(song) {
   return `img/cover_art/${encodeURIComponent(fileName)}`;
 }
 
-function toEmbedUrl(value) {
+function extractIframeSrc(value) {
   const raw = String(value || "").trim();
+  const match = raw.match(/<iframe[^>]+src=["']([^"']+)["']/i);
+  return match ? match[1] : raw;
+}
+
+function toEmbedUrl(value) {
+  const raw = extractIframeSrc(value);
   if (!raw) return "";
   if (raw.includes("/embed/")) return raw;
   const watchMatch = raw.match(/[?&]v=([^&]+)/);
@@ -113,7 +119,7 @@ function renderSongDetail() {
     jacket.alt = title;
   }
 
-  renderTitle(title, detail.link || "");
+  renderTitle(title, extractIframeSrc(detail.link || ""));
   const bpm = document.getElementById("songBpm");
   if (bpm) bpm.textContent = detail.bpm || "?";
   renderStats(song);

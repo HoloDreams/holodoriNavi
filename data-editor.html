@@ -128,6 +128,9 @@
         #dataTable {
             min-width: 2380px;
         }
+        body.song-editor-mode #dataTable {
+            min-width: 3660px;
+        }
         th {
             white-space: nowrap;
             vertical-align: middle;
@@ -232,13 +235,22 @@
             font-weight: bold;
         }
 
-        .song-name-head { min-width: 180px; }
-        .song-members-head { min-width: 220px; }
-        .song-jacket-head { min-width: 180px; }
-        .song-link-head { min-width: 260px; }
-        .song-description-head { min-width: 320px; }
-        .song-video-head { min-width: 260px; }
-        .song-description { min-height: 120px; }
+        .song-name-head { min-width: 200px; }
+        .song-members-head { min-width: 240px; }
+        .song-jacket-head { min-width: 210px; }
+        .song-level-head { min-width: 78px; }
+        .song-combo-head { min-width: 116px; }
+        .song-bpm-head { min-width: 120px; }
+                <th class="song-link-head">\u697d\u66f2\u57cb\u3081\u8fbc\u307f\u30ea\u30f3\u30af</th>
+        .song-description-head { min-width: 360px; }
+        .song-video-head { min-width: 320px; }
+        .song-description { min-height: 130px; }
+        .song-bpm { min-width: 96px; }
+        .song-link,
+        .video-easy,
+        .video-normal,
+        .video-hard,
+        .video-expert { min-width: 290px; }
         .skill-detail-head {
             min-width: 520px;
         }
@@ -299,6 +311,7 @@
     <div id="currentMode" class="mode-badge">モード: 未選択 (ファイルを読み込んでください)</div>
     <div class="actions">
         <button type="button" onclick="selectJSFile()">file</button>
+        <button type="button" onclick="registerJSFolder()">JS&#x30d5;&#x30a9;&#x30eb;&#x30c0;&#x767b;&#x9332;</button>
         <input id="fallbackFileInput" type="file" accept=".js" style="display:none">
         <button onclick="addRow()">+ ADD ROW</button>
         <button id="saveBtn" onclick="saveJSFile()" disabled>save</button>
@@ -325,32 +338,33 @@ setupFallbackFileInput();
 };
 
 function updateTableHeader() {
+    document.body.classList.toggle("song-editor-mode", currentMode === "song");
     const thead = document.getElementById("tableHead");
     if (currentMode === "song") {
         thead.innerHTML = `
             <tr>
-                <th class="song-name-head">??</th>
-                <th class="song-members-head">??????</th>
-                <th class="song-jacket-head">?????</th>
-                <th>expert</th>
-                <th>hard</th>
-                <th>normal</th>
-                <th>easy</th>
-                <th>EX combo</th>
-                <th>HD combo</th>
-                <th>NM combo</th>
-                <th>ES combo</th>
-                <th>BPM</th>
-                <th class="song-link-head">?????</th>
-                <th class="song-description-head">??</th>
-                <th class="song-video-head">EX??</th>
-                <th class="song-video-head">HD??</th>
-                <th class="song-video-head">NM??</th>
-                <th class="song-video-head">ES??</th>
-                <th style="width: 6%;">??</th>
+                <th class="song-name-head">曲名</th>
+                <th class="song-members-head">歌唱メンバー</th>
+                <th class="song-jacket-head">ジャケット</th>
+                <th class="song-level-head">EASY</th>
+                <th class="song-level-head">NORMAL</th>
+                <th class="song-level-head">HARD</th>
+                <th class="song-level-head">EXPERT</th>
+                <th class="song-combo-head">EASY combo</th>
+                <th class="song-combo-head">NORMAL combo</th>
+                <th class="song-combo-head">HARD combo</th>
+                <th class="song-combo-head">EXPERT combo</th>
+                <th class="song-bpm-head">BPM</th>
+                <th class="song-link-head">\u697d\u66f2\u57cb\u3081\u8fbc\u307f\u30ea\u30f3\u30af</th>
+                <th class="song-description-head">説明</th>
+                <th class="song-video-head">EASY 譜面動画</th>
+                <th class="song-video-head">NORMAL 譜面動画</th>
+                <th class="song-video-head">HARD 譜面動画</th>
+                <th class="song-video-head">EXPERT 譜面動画</th>
+                <th style="width: 6%;">操作</th>
             </tr>
         `;
-        document.getElementById("currentMode").innerText = "???: ??????? (songList)";
+        document.getElementById("currentMode").innerText = "モード: 楽曲一覧編集 (songList)";
     } else if (currentMode === "item") {
         thead.innerHTML = `
             <tr>
@@ -431,24 +445,24 @@ function addRowToDOM(data) {
         const videos = detail.videos || {};
 
         tr.innerHTML = `
-            <td><input type="text" class="song-name" value="${escapeAttr(songName)}" placeholder="??"></td>
-            <td><input type="text" class="song-members" value="${escapeAttr(members)}" placeholder="?????, ?????..."></td>
-            <td class="filename-cell song-filename-cell"><input type="text" class="song-jacket" value="${escapeAttr(jacket)}" placeholder="???????"></td>
-            <td><input type="number" class="lv-expert" value="${levels.expert || 0}" min="0" max="50"></td>
-            <td><input type="number" class="lv-hard" value="${levels.hard || 0}" min="0" max="50"></td>
-            <td><input type="number" class="lv-normal" value="${levels.normal || 0}" min="0" max="50"></td>
+            <td><input type="text" class="song-name" value="${escapeAttr(songName)}" placeholder="曲名"></td>
+            <td><input type="text" class="song-members" value="${escapeAttr(members)}" placeholder="ときのそら, AZKi..."></td>
+            <td class="filename-cell song-filename-cell"><input type="text" class="song-jacket" value="${escapeAttr(jacket)}" placeholder="画像ファイル名"></td>
             <td><input type="number" class="lv-easy" value="${levels.easy || 0}" min="0" max="50"></td>
-            <td><input type="text" class="combo-expert" value="${escapeAttr(combos.expert || '')}" placeholder="? ?????"></td>
-            <td><input type="text" class="combo-hard" value="${escapeAttr(combos.hard || '')}" placeholder="? ?????"></td>
-            <td><input type="text" class="combo-normal" value="${escapeAttr(combos.normal || '')}" placeholder="? ?????"></td>
-            <td><input type="text" class="combo-easy" value="${escapeAttr(combos.easy || '')}" placeholder="? ?????"></td>
-            <td><input type="text" class="song-bpm" value="${escapeAttr(detail.bpm || '')}" placeholder="BPM"></td>
-            <td><input type="text" class="song-link" value="${escapeAttr(detail.link || '')}" placeholder="YouTube / ?????"></td>
-            <td><textarea class="song-description" placeholder="?????????????">${escapeText(detail.description || '')}</textarea></td>
-            <td><input type="text" class="video-expert" value="${escapeAttr(videos.expert || '')}" placeholder="YouTube????URL"></td>
-            <td><input type="text" class="video-hard" value="${escapeAttr(videos.hard || '')}" placeholder="YouTube????URL"></td>
-            <td><input type="text" class="video-normal" value="${escapeAttr(videos.normal || '')}" placeholder="YouTube????URL"></td>
-            <td><input type="text" class="video-easy" value="${escapeAttr(videos.easy || '')}" placeholder="YouTube????URL"></td>
+            <td><input type="number" class="lv-normal" value="${levels.normal || 0}" min="0" max="50"></td>
+            <td><input type="number" class="lv-hard" value="${levels.hard || 0}" min="0" max="50"></td>
+            <td><input type="number" class="lv-expert" value="${levels.expert || 0}" min="0" max="50"></td>
+            <td><input type="text" class="combo-easy" value="${escapeAttr(combos.easy || '')}" placeholder="例: 136"></td>
+            <td><input type="text" class="combo-normal" value="${escapeAttr(combos.normal || '')}" placeholder="例: 398"></td>
+            <td><input type="text" class="combo-hard" value="${escapeAttr(combos.hard || '')}" placeholder="例: 608"></td>
+            <td><input type="text" class="combo-expert" value="${escapeAttr(combos.expert || '')}" placeholder="例: 816"></td>
+            <td><input type="text" class="song-bpm" value="${escapeAttr(detail.bpm || '')}" placeholder="例: 163"></td>
+            <td><input type="text" class="song-link" value="${escapeAttr(detail.link || '')}" placeholder="YouTube\u306e\u57cb\u3081\u8fbc\u307f\u30ea\u30f3\u30af\u307e\u305f\u306fiframe"></td>
+            <td><textarea class="song-description" placeholder="譜面について、解禁条件、補足など">${escapeText(detail.description || '')}</textarea></td>
+            <td><input type="text" class="video-easy" value="${escapeAttr(videos.easy || '')}" placeholder="EASY\u306e\u57cb\u3081\u8fbc\u307f\u30ea\u30f3\u30af\u307e\u305f\u306fiframe"></td>
+            <td><input type="text" class="video-normal" value="${escapeAttr(videos.normal || '')}" placeholder="NORMAL\u306e\u57cb\u3081\u8fbc\u307f\u30ea\u30f3\u30af\u307e\u305f\u306fiframe"></td>
+            <td><input type="text" class="video-hard" value="${escapeAttr(videos.hard || '')}" placeholder="HARD\u306e\u57cb\u3081\u8fbc\u307f\u30ea\u30f3\u30af\u307e\u305f\u306fiframe"></td>
+            <td><input type="text" class="video-expert" value="${escapeAttr(videos.expert || '')}" placeholder="EXPERT\u306e\u57cb\u3081\u8fbc\u307f\u30ea\u30f3\u30af\u307e\u305f\u306fiframe"></td>
             <td><button style="padding: 2px 8px; margin: 0; font-size: 11px;" onclick="deleteRow(this)">DEL</button></td>
         `;
 
@@ -705,13 +719,81 @@ function deleteRow(button) {
     }
 }
 
+
+const JS_FOLDER_DB_NAME = "holodori-data-editor";
+const JS_FOLDER_STORE_NAME = "handles";
+const JS_FOLDER_HANDLE_KEY = "js-folder";
+
+function openJSFolderDB() {
+    return new Promise((resolve, reject) => {
+        const request = indexedDB.open(JS_FOLDER_DB_NAME, 1);
+        request.onupgradeneeded = () => {
+            request.result.createObjectStore(JS_FOLDER_STORE_NAME);
+        };
+        request.onsuccess = () => resolve(request.result);
+        request.onerror = () => reject(request.error);
+    });
+}
+
+async function saveStoredJSFolderHandle(handle) {
+    const db = await openJSFolderDB();
+    return new Promise((resolve, reject) => {
+        const tx = db.transaction(JS_FOLDER_STORE_NAME, "readwrite");
+        tx.objectStore(JS_FOLDER_STORE_NAME).put(handle, JS_FOLDER_HANDLE_KEY);
+        tx.oncomplete = () => resolve();
+        tx.onerror = () => reject(tx.error);
+    });
+}
+
+async function getStoredJSFolderHandle() {
+    if (!window.indexedDB) return null;
+    try {
+        const db = await openJSFolderDB();
+        const handle = await new Promise((resolve, reject) => {
+            const tx = db.transaction(JS_FOLDER_STORE_NAME, "readonly");
+            const request = tx.objectStore(JS_FOLDER_STORE_NAME).get(JS_FOLDER_HANDLE_KEY);
+            request.onsuccess = () => resolve(request.result || null);
+            request.onerror = () => reject(request.error);
+        });
+        if (!handle) return null;
+        if (handle.queryPermission) {
+            let permission = await handle.queryPermission({ mode: "readwrite" });
+            if (permission !== "granted" && handle.requestPermission) {
+                permission = await handle.requestPermission({ mode: "readwrite" });
+            }
+            if (permission !== "granted") return null;
+        }
+        return handle;
+    } catch (err) {
+        return null;
+    }
+}
+
+async function registerJSFolder() {
+    if (!window.showDirectoryPicker) {
+        alert("\u3053\u306e\u30d6\u30e9\u30a6\u30b6\u3067\u306f\u30d5\u30a9\u30eb\u30c0\u767b\u9332\u306b\u5bfe\u5fdc\u3057\u3066\u3044\u307e\u305b\u3093\u3002Chrome\u307e\u305f\u306fEdge\u3067\u958b\u3044\u3066\u304f\u3060\u3055\u3044\u3002");
+        return;
+    }
+    try {
+        const handle = await window.showDirectoryPicker({ id: "holodori-js-folder", mode: "readwrite" });
+        await saveStoredJSFolderHandle(handle);
+        alert("JS\u30d5\u30a9\u30eb\u30c0\u3092\u767b\u9332\u3057\u307e\u3057\u305f\u3002\u6b21\u56de\u304b\u3089file\u30dc\u30bf\u30f3\u3067\u3053\u306e\u30d5\u30a9\u30eb\u30c0\u3092\u958b\u304d\u3084\u3059\u304f\u306a\u308a\u307e\u3059\u3002");
+    } catch (err) {
+        if (err.name !== "AbortError") alert("\u004a\u0053\u30d5\u30a9\u30eb\u30c0\u306e\u767b\u9332\u306b\u5931\u6557\u3057\u307e\u3057\u305f\u3002\u3082\u3046\u4e00\u5ea6\u8a66\u3057\u3066\u304f\u3060\u3055\u3044\u3002");
+    }
+}
+
 async function selectJSFile() {
     if (window.showOpenFilePicker) {
         try {
-            const [handle] = await window.showOpenFilePicker({
+            const pickerOptions = {
+                id: 'holodori-data-editor-js',
                 types: [{ description: 'JavaScript Files', accept: { 'application/javascript': ['.js'], 'text/javascript': ['.js'], 'text/plain': ['.js'] } }],
                 multiple: false
-            });
+            };
+            const jsFolderHandle = await getStoredJSFolderHandle();
+            if (jsFolderHandle) pickerOptions.startIn = jsFolderHandle;
+            const [handle] = await window.showOpenFilePicker(pickerOptions);
             fileHandle = handle;
             const file = await fileHandle.getFile();
             fallbackFileName = file.name;
