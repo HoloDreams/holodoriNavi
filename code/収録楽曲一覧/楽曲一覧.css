@@ -1,4 +1,4 @@
-body {
+﻿body {
   margin: 0;
   background-color: #fff; 
   background-image: url('../img/background.png'); 
@@ -93,6 +93,7 @@ body::-webkit-scrollbar {
   transform: translateX(-3px);
 }
 
+.display-title,
 .display-title a,
 .bpm-label,
 .bpm-value,
@@ -132,6 +133,7 @@ body::-webkit-scrollbar {
 }
 
 .display-title {
+  color: #ffffff;
   font-size: 60px;
   font-weight: bold;
   margin: 0;
@@ -140,6 +142,8 @@ body::-webkit-scrollbar {
 }
 
 .display-title a {
+  color: inherit;
+  text-shadow: inherit;
   text-decoration: none;
   transition: color 0.3s;
 }
@@ -311,7 +315,8 @@ body::-webkit-scrollbar {
 }
 
 @media (max-width: 480px) {
-  .display-title { font-size: 26px; }
+  .display-title {
+  color: #ffffff; font-size: 26px; }
   .section-title { font-size: 28px; }
 }
 /* Keep: boxed text sections and small heading underline */
@@ -356,3 +361,4 @@ h1::after,
   border-radius: 999px;
   background: #46d4ff;
 }
+
