@@ -6,40 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>収録楽曲情報</title>
 
-  <style>
-    body {
-      background-image: url('img/background.png') !important;
-      background-repeat: no-repeat !important;
-      background-position: center center !important;
-      background-size: cover !important;
-      background-attachment: fixed !important;
-    }
-
-    .navbar {
-      background-color: rgba(248, 248, 248, 0.342) !important;
-      backdrop-filter: blur(10px) !important;
-      -webkit-backdrop-filter: blur(10px) !important;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
-
-    /* フェードインアニメーション用CSS */
-    .fade-in-up {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-    }
-
-    .fade-in-up.is-show {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  </style>
-
   <script src="https://unpkg.com/@studio-freight/lenis@1.0.33/dist/lenis.min.js"></script>
 
-  <link rel="stylesheet" href="css/song.css">
+  <link rel="stylesheet" href="css/base.css">
   <link rel="icon" href="img/favicon.ico">
   <link rel="stylesheet" href="css/loading.css">
   <link rel="stylesheet" href="css/common_menu.css">
@@ -53,6 +22,7 @@
     gtag('config', 'G-J2HKLB9SM4');
   </script>
   <link rel="stylesheet" href="css/site_notice.css">
+  <link rel="stylesheet" href="css/song.css">
   <meta property="og:title" content="holodoriNavi">
   <meta property="og:description" content="ホロライブドリームスを更に知るならここ！">
   <meta property="og:image" content="https://holodreams.github.io/holodoriNavi/code/img/view.png">
@@ -106,7 +76,7 @@
 
     <div class="filter-wrapper">
       <div class="search-container">
-        <input type="text" id="search-input" list="song-suggestions" placeholder="曲名またはホロメンの名前で検索">
+        <input type="text" id="search-input" class="search-input" list="song-suggestions" placeholder="曲名またはホロメンの名前で検索">
         <datalist id="song-suggestions"></datalist>
       </div>
 
@@ -138,7 +108,7 @@
 
     </div>
 
-    <p id="page-info" style="text-align: center;">
+    <p id="page-info">
       全 <span id="total-count">0</span> 曲中、<span id="hit-count">0</span> 曲を表示
     </p>
 
@@ -156,38 +126,48 @@
 
   <script>
     // 1. Lenis (スムーススクロール) の設定
-    const lenis = new Lenis({
-      duration: 1.2,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      direction: 'vertical',
-      gestureDirection: 'vertical',
-      smooth: true,
-      mouseMultiplier: 1,
-      smoothTouch: false,
-      touchMultiplier: 2,
-      infinite: false,
-    });
-    window.lenis = lenis;
+    if (window.Lenis) {
+      const lenis = new Lenis({
+        duration: 1.2,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        direction: 'vertical',
+        gestureDirection: 'vertical',
+        smooth: true,
+        mouseMultiplier: 1,
+        smoothTouch: false,
+        touchMultiplier: 2,
+        infinite: false,
+      });
+      window.lenis = lenis;
 
-    function raf(time) {
-      lenis.raf(time);
+      function raf(time) {
+        lenis.raf(time);
+        requestAnimationFrame(raf);
+      }
       requestAnimationFrame(raf);
     }
-    requestAnimationFrame(raf);
 
     // 2. IntersectionObserver (フェードイン) の設定
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-show');
-        }
-      });
-    }, {
-      rootMargin: '0px 0px -10% 0px'
-    });
-
-    // 監視対象を指定
-    document.querySelectorAll('.fade-in-up').forEach(el => observer.observe(el));
+    function revealAnimatedContent() {
+      const targets = document.querySelectorAll('.fade-in-up');
+      if (!targets.length) return;
+      if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-show');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, {
+          rootMargin: '0px 0px -33% 0px'
+        });
+        targets.forEach(el => observer.observe(el));
+      } else {
+        targets.forEach(el => el.classList.add('is-show'));
+      }
+    }
+    document.addEventListener('DOMContentLoaded', revealAnimatedContent);
   </script>
   <script src="js/loading.js"></script>
   <script src="js/common_menu.js"></script>

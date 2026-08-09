@@ -10,7 +10,7 @@ window.pageContent = {
         { text: 'の3種類のノーツが存在します。', className: 'double-space' },
         '判定は',
         { html: '<span class="emphasis-section">「<span class="perfect">PERFECT</span>」「GREAT」「GOOD」「BAD」「MISS」</span>' },
-        { text: 'の5種類です。', className: 'double-space2' }
+        { text: 'の5種類です。', className: 'double-space' }
       ]
     },
     {
@@ -37,7 +37,7 @@ window.pageContent = {
         { type: 'image', src: 'rhythm_img/flick.png', alt: 'フリックノーツ' },
         { html: 'ノーツがレーンに重なった時に任意の方向に指を擦ることで「<span class="perfect">PERFECT</span>」を取れます。' },
         '連続で降ってきた場合は、1回1回指を離す必要はなく、画面をなぞり続けることで連続で取ることができます。',
-        { text: '黄色のフリックノーツが流れてくることがありますが、取り方は変わりません。', className: 'double-space2' }
+        { text: '黄色のフリックノーツが流れてくることがありますが、取り方は変わりません。', className: 'double-space' }
       ]
     },
     {

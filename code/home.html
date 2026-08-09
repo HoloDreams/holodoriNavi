@@ -5,40 +5,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ホロドリナビ</title>
-  <link rel="stylesheet" href="css/home.css">
+  <link rel="stylesheet" href="css/base.css">
   <link rel="icon" href="img/favicon.ico">
 
   <script src="https://unpkg.com/@studio-freight/lenis@1.0.33/dist/lenis.min.js"></script>
 
-  <style>
-    body {
-      background-image: url('img/background.png') !important;
-      background-repeat: no-repeat !important;
-      background-position: center center !important;
-      background-size: cover !important;
-      background-attachment: fixed !important;
-    }
-
-    .navbar {
-      background-color: rgba(248, 248, 248, 0.342) !important;
-      backdrop-filter: blur(10px) !important;
-      -webkit-backdrop-filter: blur(10px) !important;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
-
-    .fade-in-up {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-    }
-
-    .fade-in-up.is-show {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  </style>
   <link rel="stylesheet" href="css/loading.css">
   <link rel="stylesheet" href="css/common_menu.css">
   <!-- Google tag (gtag.js) -->
@@ -51,6 +22,7 @@
     gtag('config', 'G-J2HKLB9SM4');
   </script>
   <link rel="stylesheet" href="css/site_notice.css">
+  <link rel="stylesheet" href="css/home.css">
   <meta property="og:title" content="holodoriNavi">
   <meta property="og:description" content="ホロライブドリームスを更に知るならここ！">
   <meta property="og:image" content="https://holodreams.github.io/holodoriNavi/code/img/view.png">
@@ -174,13 +146,14 @@
   </main>
 
   <script src="news_img/instagram-news.js"></script>
+  <script src="https://unpkg.com/@studio-freight/lenis@1.0.33/dist/lenis.min.js"></script>
+
   <script>
-    // Lenis が読み込める環境ではスムーススクロールを有効化する
     if (window.Lenis) {
       const lenis = new Lenis({
-        duration: 1.2,
+        duration: 1.2, // スクロール時間：1.2秒
         easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-        smooth: true,
+        smooth: true, // スムーススクロール有効
       });
       function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
       requestAnimationFrame(raf);

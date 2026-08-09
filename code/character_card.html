@@ -7,37 +7,9 @@
   
   <script src="https://unpkg.com/@studio-freight/lenis@1.0.33/dist/lenis.min.js"></script>
 
-  <link rel="stylesheet" href="css/character_card.css">
+  <link rel="stylesheet" href="css/base.css">
   <link rel="icon" href="img/favicon.ico">
   
-  <style>
-    body {
-      background-image: url('img/background.png') !important;
-      background-repeat: no-repeat !important;
-      background-position: center center !important;
-      background-size: cover !important;
-      background-attachment: fixed !important;
-    }
-    .navbar {
-      background-color: rgba(248, 248, 248, 0.342) !important;
-      backdrop-filter: blur(10px) !important;
-      -webkit-backdrop-filter: blur(10px) !important;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
-
-    /* フェードインアニメーション用CSS */
-    .fade-in-up {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-    }
-    .fade-in-up.is-show {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  </style>
   <link rel="stylesheet" href="css/loading.css">
   <link rel="stylesheet" href="css/common_menu.css">
   <!-- Google tag (gtag.js) -->
@@ -49,6 +21,7 @@
 
     gtag('config', 'G-J2HKLB9SM4');
   </script>  <link rel="stylesheet" href="css/site_notice.css">
+  <link rel="stylesheet" href="css/character_card.css">
   <meta property="og:title" content="holodoriNavi">
   <meta property="og:description" content="ホロライブドリームスを更に知るならここ！">
   <meta property="og:image" content="https://holodreams.github.io/holodoriNavi/code/img/view.png">
@@ -103,7 +76,7 @@
 
     <div class="card-search-toolbar">
       <div class="search-container">
-        <input type="text" id="search-input" placeholder="カード名またはホロメンの名前で検索">
+        <input type="text" id="search-input" class="search-input" placeholder="カード名またはホロメンの名前で検索">
       </div>
       <button type="button" id="filter-toggle" class="filter-toggle" aria-expanded="false" aria-controls="card-filter-panel">
         <span class="filter-toggle-icon" aria-hidden="true"></span>
@@ -129,7 +102,7 @@
         </select>
       </div>
     </div>
-<p id="page-info" style="text-align: center;">
+<p id="page-info">
       全 <span id="total-count">0</span> 枚中、<span id="hit-count">0</span> 枚を表示
     </p>
 
@@ -157,30 +130,41 @@
   <script src="js/card-main.js"></script>
 
   <script>
-    const lenis = new Lenis({
-      duration: 1.2,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      smooth: true,
-    });
+    if (window.Lenis) {
+      const lenis = new Lenis({
+        duration: 1.2,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        smooth: true,
+      });
 
-    function raf(time) {
-      lenis.raf(time);
+      function raf(time) {
+        lenis.raf(time);
+        requestAnimationFrame(raf);
+      }
       requestAnimationFrame(raf);
     }
-    requestAnimationFrame(raf);
 
     // 2. IntersectionObserver (フェードイン) の設定
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-show');
-        }
-      });
-    }, {
-      rootMargin: '0px 0px -10% 0px'
-    });
-
-    document.querySelectorAll('.fade-in-up').forEach(el => observer.observe(el));
+    function revealAnimatedContent() {
+      const targets = document.querySelectorAll('.fade-in-up');
+      if (!targets.length) return;
+      if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-show');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, {
+          rootMargin: '0px 0px -33% 0px'
+        });
+        targets.forEach(el => observer.observe(el));
+      } else {
+        targets.forEach(el => el.classList.add('is-show'));
+      }
+    }
+    document.addEventListener('DOMContentLoaded', revealAnimatedContent);
 
   </script>
   <script src="js/loading.js"></script>
