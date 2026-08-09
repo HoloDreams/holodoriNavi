@@ -36,7 +36,7 @@ body::before {
   background-image: url('../img/background.png');
   background-repeat: no-repeat;
   background-position: center center;
-  background-size: 1920px 1080px;
+  background-size: max(1920px, 100vw, calc(100vh * 16 / 9));
 }
 
 /* --- 2. スクロールバー非表示 --- */
@@ -116,6 +116,15 @@ body::-webkit-scrollbar {
   padding: 0;
 }
 
+.navbar .nav-links::before {
+  content: "公式：";
+  flex: 0 0 auto;
+  color: #007ab8;
+  font-size: 17px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
 .navbar .nav-links li {
   margin: 0;
   padding: 0;
@@ -143,6 +152,27 @@ body::-webkit-scrollbar {
 .navbar .nav-links a:hover {
   background-color: #0094d8;
   transform: scale(1.05);
+}
+
+.navbar .nav-links a.sns-link {
+  background-color: transparent;
+  padding: 0;
+  border-radius: 0;
+  min-height: 0;
+}
+
+.navbar .nav-links a.sns-link:hover {
+  background-color: transparent;
+}
+
+.navbar .nav-links a.sns-link img {
+  display: block;
+  height: 32px;
+  width: auto;
+}
+
+.navbar .nav-links a.sns-link img[src*="yt.png"] {
+  height: 48px;
 }
 
 /* --- 4. 戻るボタン（固定配置） --- */

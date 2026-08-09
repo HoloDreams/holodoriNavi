@@ -451,6 +451,11 @@ h3::before, h3::after {
     min-width: unset;
     font-size: 14px;
   }
+  .nav-links a.sns-link {
+    width: auto !important;
+    max-width: none !important;
+    min-width: unset;
+  }
   h1 { font-size: 32px; }
   ha { font-size: 24px; }
   h2 { font-size: 16px; margin-top: 25px; padding: 0 20px; }

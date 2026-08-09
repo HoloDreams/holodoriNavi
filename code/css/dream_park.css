@@ -51,6 +51,11 @@ h3 {
     min-width: unset;
     font-size: 14px;
   }
+  .nav-links a.sns-link {
+    width: auto !important;
+    max-width: none !important;
+    min-width: unset;
+  }
   
   .main-title {
     font-size: 32px;
