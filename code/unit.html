@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,10 +8,33 @@
   <link rel="stylesheet" href="css/unit.css">
   <link rel="icon" href="img/favicon.ico">
   <style>
-    body { background-image: url('img/background.png') !important; background-repeat: no-repeat !important; background-position: center center !important; background-size: cover !important; background-attachment: fixed !important; }
-    .navbar { background-color: rgba(248, 248, 248, 0.342) !important; backdrop-filter: blur(10px) !important; -webkit-backdrop-filter: blur(10px) !important; position: sticky; top: 0; z-index: 100; }
-    .fade-in-up { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease, transform 0.8s ease; }
-    .fade-in-up.is-show { opacity: 1; transform: translateY(0); }
+    body {
+      background-image: url('img/background.png') !important;
+      background-repeat: no-repeat !important;
+      background-position: center center !important;
+      background-size: cover !important;
+      background-attachment: fixed !important;
+    }
+
+    .navbar {
+      background-color: rgba(248, 248, 248, 0.342) !important;
+      backdrop-filter: blur(10px) !important;
+      -webkit-backdrop-filter: blur(10px) !important;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .fade-in-up {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .fade-in-up.is-show {
+      opacity: 1;
+      transform: translateY(0);
+    }
   </style>
   <link rel="stylesheet" href="css/loading.css">
   <link rel="stylesheet" href="css/common_menu.css">
@@ -18,11 +42,12 @@
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-J2HKLB9SM4"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
 
     gtag('config', 'G-J2HKLB9SM4');
-  </script>  <link rel="stylesheet" href="css/site_notice.css">
+  </script>
+  <link rel="stylesheet" href="css/site_notice.css">
   <meta property="og:title" content="holodoriNavi">
   <meta property="og:description" content="ホロライブドリームスを更に知るならここ！">
   <meta property="og:image" content="https://holodreams.github.io/holodoriNavi/code/img/view.png">
@@ -33,6 +58,7 @@
   <meta name="twitter:description" content="ホロライブドリームスを更に知るならここ！">
   <meta name="twitter:image" content="https://holodreams.github.io/holodoriNavi/code/img/view.png">
 </head>
+
 <body id="page-top">
   <div class="holodori-loading-screen" role="status" aria-live="polite">
     <div class="holodori-loading-inner">
@@ -88,14 +114,14 @@
 
     <p class="double-space unit-heading" id="member-training"><span class="title-explanation">メンバー育成</span></p>
     <div class="operation-block fade-in-up">
-    <div class="unit-image-box unit-image-placeholder">画像をここに追加予定</div>
+      <div class="unit-image-box unit-image-placeholder">画像をここに追加予定</div>
       <p>メンバー育成では、レベルUP、特訓、開花、ホロメンボードなどで強化できます。</p>
       <p>育成したメンバーをユニットに編成することで、ライブや各コンテンツを進めやすくなります。</p>
     </div>
 
     <p class="double-space unit-heading" id="costume-card"><span class="title-explanation">カード・衣装</span></p>
     <div class="operation-block fade-in-up">
-    <div class="unit-image-box unit-image-placeholder">画像をここに追加予定</div>
+      <div class="unit-image-box unit-image-placeholder">画像をここに追加予定</div>
       <p>★5カードにはパーク用衣装が付属し、操作時の着替えに使えるものがあります。</p>
       <p>カードごとの性能や衣装を確認しながら、自分の遊び方に合ったユニットを組みましょう。</p>
     </div>
@@ -124,13 +150,9 @@
     document.addEventListener('DOMContentLoaded', revealAnimatedContent);
   </script>
   <script src="js/loading.js"></script>
-  <script src="js/common_menu.js"></script>  <script src="js/site_notice.js"></script>
+  <script src="js/common_menu.js"></script>
+  <script src="js/site_notice.js"></script>
 
 </body>
+
 </html>
-
-
-
-
-
-
