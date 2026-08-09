@@ -78,6 +78,13 @@ body::-webkit-scrollbar {
   margin: 0;
 }
 
+.navbar .logo a {
+  display: block;
+  flex: 0 0 auto;
+  text-decoration: none;
+  color: inherit;
+}
+
 .navbar .logo img {
   display: block;
   flex: 0 0 auto;
