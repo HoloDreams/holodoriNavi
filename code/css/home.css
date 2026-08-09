@@ -1017,8 +1017,8 @@ main {
 .download-section.fade-in-up,
 .blue-strip.fade-in-up {
   opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  transform: translateX(-30px);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
 }
 
 .site-overview-section.fade-in-up.is-show,
@@ -1026,7 +1026,7 @@ main {
 .download-section.fade-in-up.is-show,
 .blue-strip.fade-in-up.is-show {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateX(0);
 }
 
 @media (max-width: 640px) {
@@ -1044,7 +1044,7 @@ main {
   .home-links-section.fade-in-up,
   .download-section.fade-in-up,
   .blue-strip.fade-in-up {
-    transform: translateY(30px);
+    transform: translateX(-30px);
   }
 }
 /* home overview centered text */
@@ -1119,13 +1119,13 @@ main {
 
 .home-links-after-news.fade-in-up {
   opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  transform: translateX(-30px);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
 }
 
 .home-links-after-news.fade-in-up.is-show {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateX(0);
 }
 
 @media (max-width: 640px) {
@@ -1227,8 +1227,8 @@ main {
 .blue-strip.fade-in-up,
 .home-links-after-news.fade-in-up {
   opacity: 0 !important;
-  transform: translateY(30px) !important;
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out !important;
+  transform: translateX(-30px) !important;
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out !important;
 }
 
 .home-intro-section.fade-in-up.is-show,
@@ -1237,7 +1237,7 @@ main {
 .blue-strip.fade-in-up.is-show,
 .home-links-after-news.fade-in-up.is-show {
   opacity: 1 !important;
-  transform: translateY(0) !important;
+  transform: translateX(0) !important;
 }
 
 @media (max-width: 640px) {
@@ -1246,7 +1246,7 @@ main {
   .download-section.fade-in-up,
   .blue-strip.fade-in-up,
   .home-links-after-news.fade-in-up {
-    transform: translateY(30px) !important;
+    transform: translateX(-30px) !important;
   }
 
   .home-intro-section.fade-in-up.is-show,
@@ -1254,7 +1254,7 @@ main {
   .download-section.fade-in-up.is-show,
   .blue-strip.fade-in-up.is-show,
   .home-links-after-news.fade-in-up.is-show {
-    transform: translateY(0) !important;
+    transform: translateX(0) !important;
   }
 }
 /* home random scroll decorations */

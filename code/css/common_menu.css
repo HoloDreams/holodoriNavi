@@ -2,7 +2,7 @@
    navbar / body / モバイルタイポグラフィは base.css へ移動済み */
 .holodori-menu-button {
   position: fixed;
-  top: 34px;
+  top: 15px;
   right: 34px;
   left: auto;
   z-index: 900;
