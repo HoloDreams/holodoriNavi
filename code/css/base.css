@@ -16,7 +16,8 @@ body {
   margin: 0;
   min-height: 100%;
   overflow-x: hidden;
-  background: #fff url('../img/background.png') center center / cover no-repeat fixed;
+  padding-top: 82px;
+  background-color: #fff;
   color: #222;
   font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif;
 }
@@ -35,11 +36,12 @@ body::before {
   background-image: url('../img/background.png');
   background-repeat: no-repeat;
   background-position: center center;
-  background-size: cover;
+  background-size: 1920px 1080px;
 }
 
 /* --- 2. スクロールバー非表示 --- */
-html, body {
+html,
+body {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
@@ -51,13 +53,15 @@ body::-webkit-scrollbar {
 
 /* --- 3. ナビゲーションバー（統一値） --- */
 .navbar {
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
   z-index: 100;
   display: flex;
   align-items: center;
   gap: 28px;
-  padding: 10px 5%;
+  padding: 12px 5%;
   background-color: rgba(248, 248, 248, 0.342);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
@@ -84,6 +88,7 @@ body::-webkit-scrollbar {
 }
 
 .navbar .site-title {
+  font-family: "Hiragino Maru Gothic ProN", "Yu Gothic", sans-serif;
   display: block;
   flex: 0 1 auto;
   min-width: 0;
@@ -477,6 +482,10 @@ h1::after,
 
 /* --- 19. モバイル共通 --- */
 @media (max-width: 760px) {
+  body {
+    padding-top: 72px;
+  }
+
   .navbar {
     flex-direction: row;
     min-height: 72px;
