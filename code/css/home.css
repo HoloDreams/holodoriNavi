@@ -1,81 +1,4 @@
-﻿body {
-  margin: 0;
-  background-color: #fff; 
-  background-image: url('../img/background.png'); 
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-  background-attachment: scroll; 
-  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif;
-  overflow-x: hidden;
-}
-
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 30px 5%;
-  background-color: #f8f8f8;
-  box-sizing: border-box;
-}
-
-.logo {
-  display: flex;
-  align-items: center;
-  gap: 32px;
-}
-
-.logo img {
-  width: 250px;
-  height: auto;
-  display: block;
-}
-
-.site-title {
-  font-family: "Hiragino Maru Gothic ProN", "Yu Gothic", sans-serif;
-  font-size: 40px;
-  font-weight: 500;
-  background: linear-gradient(-45deg, #46d4ff, #0094d8);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  display: inline-block;
-  line-height: 1.1;
-}
-
-.nav-links {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  gap: 8px;
-}
-
-.nav-links a {
-  display: inline-block;
-  border: 0;
-  padding: 0;
-  cursor: pointer;
-  background-color: #46d4ff; 
-  color: rgb(255, 255, 255);
-  padding: 10px 20px;
-  border-radius: 8px;
-  font-size: 16px;
-  font-weight: bold;
-  transition: all 0.3s ease;
-  text-align: center;
-  min-width: 180px;
-}
-
-.nav-links a:hover {
-  transform: scale(1.05);
-  background-color: #0094d8;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-}
-
-h1 {
+﻿h1 {
   text-align: center;
   margin-top: 20px;
   font-size: 48px;
@@ -203,40 +126,6 @@ h3::before, h3::after {
   color: #fff;
   text-align: center;
   border-top: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-html, body {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
-
-html::-webkit-scrollbar,
-body::-webkit-scrollbar {
-  display: none !important;
-}
-
-.navbar {
-  padding: 10px 5% !important;
-}
-
-.logo img {
-  width: 140px !important;
-}
-
-.site-title {
-  font-size: 22px !important;
-}
-
-.nav-links {
-  flex-direction: row !important;
-  gap: 10px !important;
-}
-
-.nav-links a {
-  padding: 6px 12px !important;
-  font-size: 13px !important;
-  min-width: auto !important;
-  border-radius: 6px !important;
 }
 
 .blue-strip {
@@ -520,7 +409,7 @@ body::-webkit-scrollbar {
 }
 
 .next-btn {
-  right: 00px;
+  right: 0px;
 }
 
 .full-width-box2 {
@@ -561,6 +450,11 @@ body::-webkit-scrollbar {
     max-width: none !important;
     min-width: unset;
     font-size: 14px;
+  }
+  .nav-links a.sns-link {
+    width: auto !important;
+    max-width: none !important;
+    min-width: unset;
   }
   h1 { font-size: 32px; }
   ha { font-size: 24px; }
@@ -617,34 +511,10 @@ body::-webkit-scrollbar {
   }
 }
 
-/* Keep: boxed text sections and small heading underline */
 .operation-block,
 .content-card,
 .comment-box {
-  max-width: 980px;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 34px;
-  background: rgba(255, 255, 255, 0.62);
-  border: 1px solid rgba(70, 212, 255, 0.28);
-  border-radius: 18px;
-  box-shadow: 0 12px 30px rgba(0, 148, 216, 0.12);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  box-sizing: border-box;
   scroll-snap-align: center;
-}
-
-h1::after,
-.main-title::after,
-.section-title::after {
-  content: "";
-  display: block;
-  width: 64px;
-  height: 4px;
-  margin: 12px auto 0;
-  border-radius: 999px;
-  background: #46d4ff;
 }
 
 
@@ -1147,8 +1017,8 @@ main {
 .download-section.fade-in-up,
 .blue-strip.fade-in-up {
   opacity: 0;
-  transform: translateX(-56px);
-  transition: opacity 0.9s ease, transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateX(-30px);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
 }
 
 .site-overview-section.fade-in-up.is-show,
@@ -1174,7 +1044,7 @@ main {
   .home-links-section.fade-in-up,
   .download-section.fade-in-up,
   .blue-strip.fade-in-up {
-    transform: translateX(-28px);
+    transform: translateX(-30px);
   }
 }
 /* home overview centered text */
@@ -1249,8 +1119,8 @@ main {
 
 .home-links-after-news.fade-in-up {
   opacity: 0;
-  transform: translateX(-56px);
-  transition: opacity 0.9s ease, transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateX(-30px);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
 }
 
 .home-links-after-news.fade-in-up.is-show {
@@ -1357,8 +1227,8 @@ main {
 .blue-strip.fade-in-up,
 .home-links-after-news.fade-in-up {
   opacity: 0 !important;
-  transform: translateX(-64px) !important;
-  transition: opacity 1.7s ease, transform 1.7s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  transform: translateX(-30px) !important;
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out !important;
 }
 
 .home-intro-section.fade-in-up.is-show,
@@ -1376,7 +1246,7 @@ main {
   .download-section.fade-in-up,
   .blue-strip.fade-in-up,
   .home-links-after-news.fade-in-up {
-    transform: translateX(-32px) !important;
+    transform: translateX(-30px) !important;
   }
 
   .home-intro-section.fade-in-up.is-show,
@@ -1734,8 +1604,8 @@ body.holodori-loaded .home-eyebrow {
 .home-random-actions { display: flex; gap: 12px; flex-wrap: wrap; justify-content: flex-end; }
 .home-random-control, .home-random-link { display: inline-flex; align-items: center; justify-content: center; min-height: 50px; padding: 0 20px; border: 0; border-radius: 999px; background: linear-gradient(135deg, #46d4ff, #0094d8); color: #fff; font-size: 16px; font-weight: 900; text-decoration: none; cursor: pointer; box-shadow: 0 10px 22px rgba(0,148,216,0.2); }
 .home-random-control { background: #fff; color: #008fd3; }
-.home-update-section.fade-in-up, .home-random-section.fade-in-up { opacity: 0 !important; transform: translateX(-64px) !important; transition: opacity 1.7s ease, transform 1.7s cubic-bezier(0.16, 1, 0.3, 1) !important; }
-.home-update-section.fade-in-up.is-show, .home-random-section.fade-in-up.is-show { opacity: 1 !important; transform: translateX(0) !important; }
+.home-update-section.fade-in-up, .home-random-section.fade-in-up { opacity: 0 !important; transform: translateY(30px) !important; transition: opacity 0.8s ease-out, transform 0.8s ease-out !important; }
+.home-update-section.fade-in-up.is-show, .home-random-section.fade-in-up.is-show { opacity: 1 !important; transform: translateY(0) !important; }
 @media (max-width: 820px) {
   .home-update-list, .home-random-card { grid-template-columns: 1fr; }
   .home-random-actions { justify-content: flex-start; }

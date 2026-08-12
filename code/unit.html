@@ -1,28 +1,25 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ユニット</title>
-  <link rel="stylesheet" href="css/unit.css">
+  <link rel="stylesheet" href="css/base.css">
   <link rel="icon" href="img/favicon.ico">
-  <style>
-    body { background-image: url('img/background.png') !important; background-repeat: no-repeat !important; background-position: center center !important; background-size: cover !important; background-attachment: fixed !important; }
-    .navbar { background-color: rgba(248, 248, 248, 0.342) !important; backdrop-filter: blur(10px) !important; -webkit-backdrop-filter: blur(10px) !important; position: sticky; top: 0; z-index: 100; }
-    .fade-in-up { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease, transform 0.8s ease; }
-    .fade-in-up.is-show { opacity: 1; transform: translateY(0); }
-  </style>
   <link rel="stylesheet" href="css/loading.css">
   <link rel="stylesheet" href="css/common_menu.css">
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-J2HKLB9SM4"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
 
     gtag('config', 'G-J2HKLB9SM4');
-  </script>  <link rel="stylesheet" href="css/site_notice.css">
+  </script>
+  <link rel="stylesheet" href="css/site_notice.css">
+  <link rel="stylesheet" href="css/unit.css">
   <meta property="og:title" content="holodoriNavi">
   <meta property="og:description" content="ホロライブドリームスを更に知るならここ！">
   <meta property="og:image" content="https://holodreams.github.io/holodoriNavi/code/img/view.png">
@@ -33,6 +30,7 @@
   <meta name="twitter:description" content="ホロライブドリームスを更に知るならここ！">
   <meta name="twitter:image" content="https://holodreams.github.io/holodoriNavi/code/img/view.png">
 </head>
+
 <body id="page-top">
   <div class="holodori-loading-screen" role="status" aria-live="polite">
     <div class="holodori-loading-inner">
@@ -57,19 +55,19 @@
   <a href="#page-top" class="page-top-button" aria-label="一番上へ戻る">⇧</a>
 
   <nav class="navbar">
-    <div class="logo"><img src="img/ロゴ.png" alt="logo"><span class="site-title">ホロドリナビ<br>ユニット説明</span></div>
+    <div class="logo"><a href="home.html"><img src="img/ロゴ.png" alt="logo"></a><span class="site-title">ホロドリナビ<br>ユニット説明</span></div>
     <ul class="nav-links">
-      <li><a href="https://opening.hololive-dreams.com/" target="_blank">公式サイトはこちら</a></li>
-      <li><a href="https://x.com/hololive_dreams" target="_blank">公式Xはこちら</a></li>
-      <li><a href="https://www.youtube.com/@hololivedreams" target="_blank">公式YouTubeはこちら</a></li>
+      <li><a href="https://opening.hololive-dreams.com/" target="_blank">公式サイト</a></li>
+      <li><a href="https://x.com/hololive_dreams" target="_blank" class="sns-link"><img src="sns_img/x.png" alt="公式X"></a></li>
+      <li><a href="https://www.youtube.com/@hololivedreams" target="_blank" class="sns-link"><img src="sns_img/yt.png" alt="公式YouTube"></a></li>
     </ul>
   </nav>
 
   <main class="operation-main" id="content-root">
-    <h1 class="unit-main-title">ユニット</h1>
+    <h1 class="page-title">ユニット</h1>
     <p class="unit-intro-text">ホロメンを編成して、ライブやドリームパークを進めるための基本情報をまとめます。</p>
 
-    <nav class="unit-toc fade-in-up" aria-label="ページ内目次">
+    <nav class="page-toc fade-in-up" aria-label="ページ内目次">
       <p class="toc-title">目次</p>
       <div class="toc-links">
         <a href="#unit-formation">ユニット編成</a>
@@ -80,7 +78,7 @@
 
     <p class="double-space unit-heading" id="unit-formation"><span class="title-explanation">ユニット編成</span></p>
     <div class="operation-block fade-in-up">
-      <p class="unit-image-box"><img src="unit/初回ガチャ.png" alt="初回ガチャ" class="unit-image"></p>
+      <p class="image-box"><img src="unit/初回ガチャ.png" alt="初回ガチャ" class="content-image"></p>
       <p>ゲーム開始時には、選んだ推しホロメンの★5メンバーを入手できる初回ガチャがあります。</p>
       <p>ユニットはリーダー1人とメンバー4人の合計5人で編成します。</p>
       <p>総合スコアは、リーダー衣装、メンバーのパラメータ、スキルの組み合わせに関係します。</p>
@@ -88,14 +86,14 @@
 
     <p class="double-space unit-heading" id="member-training"><span class="title-explanation">メンバー育成</span></p>
     <div class="operation-block fade-in-up">
-    <div class="unit-image-box unit-image-placeholder">画像をここに追加予定</div>
+      <div class="image-box unit-image-placeholder">画像をここに追加予定</div>
       <p>メンバー育成では、レベルUP、特訓、開花、ホロメンボードなどで強化できます。</p>
       <p>育成したメンバーをユニットに編成することで、ライブや各コンテンツを進めやすくなります。</p>
     </div>
 
     <p class="double-space unit-heading" id="costume-card"><span class="title-explanation">カード・衣装</span></p>
     <div class="operation-block fade-in-up">
-    <div class="unit-image-box unit-image-placeholder">画像をここに追加予定</div>
+      <div class="image-box unit-image-placeholder">画像をここに追加予定</div>
       <p>★5カードにはパーク用衣装が付属し、操作時の着替えに使えるものがあります。</p>
       <p>カードごとの性能や衣装を確認しながら、自分の遊び方に合ったユニットを組みましょう。</p>
     </div>
@@ -114,23 +112,18 @@
       if ('IntersectionObserver' in window) {
         const observer = new IntersectionObserver((entries) => {
           entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('is-show'); observer.unobserve(entry.target); } });
-        }, { rootMargin: '0px 0px -10% 0px' });
+        }, { rootMargin: '0px 0px -33% 0px' });
         targets.forEach(el => observer.observe(el));
       } else {
         targets.forEach(el => el.classList.add('is-show'));
       }
-      window.setTimeout(() => targets.forEach(el => el.classList.add('is-show')), 1200);
     }
     document.addEventListener('DOMContentLoaded', revealAnimatedContent);
   </script>
   <script src="js/loading.js"></script>
-  <script src="js/common_menu.js"></script>  <script src="js/site_notice.js"></script>
+  <script src="js/common_menu.js"></script>
+  <script src="js/site_notice.js"></script>
 
 </body>
+
 </html>
-
-
-
-
-
-

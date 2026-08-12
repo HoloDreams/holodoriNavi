@@ -11,7 +11,7 @@ window.renderInfoPage = function renderInfoPage(pageContent) {
   const paragraphHtml = (paragraph) => {
     if (typeof paragraph === 'string') return `<p>${paragraph}</p>`;
     if (paragraph.type === 'image') {
-      return `<p><img src="${escapeHtml(paragraph.src)}" alt="${escapeHtml(paragraph.alt || '')}" class="notes_img"></p>`;
+      return `<p><img src="${escapeHtml(paragraph.src)}" alt="${escapeHtml(paragraph.alt || '')}" class="content-image"></p>`;
     }
     const className = paragraph.className ? ` class="${escapeHtml(paragraph.className)}"` : '';
     return `<p${className}>${paragraph.html || escapeHtml(paragraph.text || '')}</p>`;
@@ -29,9 +29,12 @@ window.renderInfoPage = function renderInfoPage(pageContent) {
   if ('IntersectionObserver' in window) {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
-        if (entry.isIntersecting) entry.target.classList.add('is-show');
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-show');
+          observer.unobserve(entry.target);
+        }
       });
-    }, { rootMargin: '0px 0px -10% 0px' });
+    }, { rootMargin: '0px 0px -33% 0px' });
     document.querySelectorAll('.fade-in-up').forEach(el => observer.observe(el));
   } else {
     document.querySelectorAll('.fade-in-up').forEach(el => el.classList.add('is-show'));

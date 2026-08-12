@@ -1,4 +1,11 @@
-﻿body {
+﻿:root {
+  --color-easy: #81c784;
+  --color-normal: #ffcc80;
+  --color-hard: #ff8a80;
+  --color-expert: #b388ff;
+}
+
+body {
   margin: 0;
   background-color: #fff; 
   background-image: url('../img/background.png'); 
@@ -235,10 +242,10 @@ body::-webkit-scrollbar {
   border: none;
 }
 
-.expert-video { border: 8px solid #b388ff; }
-.hard-video   { border: 8px solid #ff8a80; }
-.normal-video { border: 8px solid #ffcc80; }
-.easy-video   { border: 8px solid #81c784; }
+.expert-video { border: 8px solid var(--color-expert); }
+.hard-video   { border: 8px solid var(--color-hard); }
+.normal-video { border: 8px solid var(--color-normal); }
+.easy-video   { border: 8px solid var(--color-easy); }
 
 .comment-box {
   font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif;

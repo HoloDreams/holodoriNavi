@@ -1,17 +1,16 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ja">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>リズムゲーム</title>
-  <link rel="stylesheet" href="css/rhyth_game.css">
+  <link rel="stylesheet" href="css/base.css">
   <link rel="icon" href="img/favicon.ico">
   <style>
-    body { background: transparent !important; }
-    .navbar { background-color: rgba(248, 248, 248, 0.342) !important; backdrop-filter: blur(10px) !important; -webkit-backdrop-filter: blur(10px) !important; position: sticky; top: 0; z-index: 100; }
-    .fade-in-up { opacity: 0; transform: translateX(-64px); transition: opacity 1.7s ease, transform 1.7s cubic-bezier(0.16, 1, 0.3, 1); }
-    .fade-in-up.is-show { opacity: 1; transform: translateX(0); }
-    .notes_img { max-width: min(520px, 90vw); height: auto; }
+    body {
+      background: transparent !important;
+    }
   </style>
   <link rel="stylesheet" href="css/loading.css">
   <link rel="stylesheet" href="css/common_menu.css">
@@ -19,11 +18,13 @@
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-J2HKLB9SM4"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
 
     gtag('config', 'G-J2HKLB9SM4');
-  </script>  <link rel="stylesheet" href="css/site_notice.css">
+  </script>
+  <link rel="stylesheet" href="css/site_notice.css">
+  <link rel="stylesheet" href="css/rhyth_game.css">
   <meta property="og:title" content="holodoriNavi">
   <meta property="og:description" content="ホロライブドリームスを更に知るならここ！">
   <meta property="og:image" content="https://holodreams.github.io/holodoriNavi/code/img/view.png">
@@ -34,6 +35,7 @@
   <meta name="twitter:description" content="ホロライブドリームスを更に知るならここ！">
   <meta name="twitter:image" content="https://holodreams.github.io/holodoriNavi/code/img/view.png">
 </head>
+
 <body id="page-top">
   <div class="holodori-loading-screen" role="status" aria-live="polite">
     <div class="holodori-loading-inner">
@@ -57,22 +59,22 @@
   <a href="home.html" class="back-btn"><img src="img/back.png" alt="戻る"></a>
   <a href="#page-top" class="page-top-button" aria-label="一番上へ戻る">⇧</a>
   <nav class="navbar">
-    <div class="logo"><img src="img/ロゴ.png" alt="logo"><span class="site-title">ホロドリナビ<br>リズムゲーム説明</span></div>
+    <div class="logo"><a href="home.html"><img src="img/ロゴ.png" alt="logo"></a><span class="site-title">ホロドリナビ<br>リズムゲーム説明</span></div>
     <ul class="nav-links">
-      <li><a href="https://opening.hololive-dreams.com/" target="_blank">公式サイトはこちら</a></li>
-      <li><a href="https://x.com/hololive_dreams" target="_blank">公式Xはこちら</a></li>
-      <li><a href="https://www.youtube.com/@hololivedreams" target="_blank">公式YouTubeはこちら</a></li>
+      <li><a href="https://opening.hololive-dreams.com/" target="_blank">公式サイト</a></li>
+      <li><a href="https://x.com/hololive_dreams" target="_blank" class="sns-link"><img src="sns_img/x.png" alt="公式X"></a></li>
+      <li><a href="https://www.youtube.com/@hololivedreams" target="_blank" class="sns-link"><img src="sns_img/yt.png" alt="公式YouTube"></a></li>
     </ul>
   </nav>
   <main class="operation-main" id="content-root">
-<h1 style="font-size: 50px">リズムゲーム</h1>
+    <h1 class="page-title">リズムゲーム</h1>
 
 
-<p>初期収録楽曲は150曲以上あり、オリジナル楽曲や歌ってみたでおなじみのカバー曲を楽しめます。</p>
-<p>好きな楽曲のMVやライブ映像を見ながら、リズムゲームをプレイできます。</p>
+    <p>初期収録楽曲は150曲以上あり、オリジナル楽曲や歌ってみたでおなじみのカバー曲を楽しめます。</p>
+    <p>好きな楽曲のMVやライブ映像を見ながら、リズムゲームをプレイできます。</p>
 
     <p>ホロライブドリームスのリズムゲームでは、タップノーツ、ロングノーツ、フリックノーツの3種類のノーツが存在します。</p>
-<p>判定は、PERFECT、GREAT、GOOD、BAD、MISSの5種類です。</p>
+    <p>判定は、PERFECT、GREAT、GOOD、BAD、MISSの5種類です。</p>
 
     <nav class="page-toc fade-in-up" aria-label="ページ内目次">
       <p class="toc-title">目次</p>
@@ -108,385 +110,584 @@
     </nav>
 
 
-  <p class="double-space fade-in-up" id="rhythm-play-section"><span class="title-explanation">リズムゲームの遊び方</span></p>
+    <p class="double-space fade-in-up" id="rhythm-play-section"><span class="title-explanation">リズムゲームの遊び方</span></p>
 
-  <div class="operation-block fade-in-up rhythm-play-section">
-    <p class="dream-park-image-box"><img loading="lazy" decoding="async" src="rhythm_img/Play画面.png" alt="リズムゲームのプレイ画面" class="dream-park-image"></p>
-    <p>リズムゲーム画面は6列のラインに合わせてノーツを操作する形式です。</p>
-    <p>ノーツ速度や判定タイミングを調整できるため、自分の遊びやすい設定にできます。</p>
-    <p>編成したホロメン同士のセリフや掛け合いも楽しめます。</p>
-    <p></p>
+    <div class="operation-block fade-in-up rhythm-play-section">
+      <p class="image-box"><img loading="lazy" decoding="async" src="rhythm_img/Play画面.png"
+          alt="リズムゲームのプレイ画面" class="content-image"></p>
+      <p>リズムゲーム画面は6列のラインに合わせてノーツを操作する形式です。</p>
+      <p>ノーツ速度や判定タイミングを調整できるため、自分の遊びやすい設定にできます。</p>
+      <p>編成したホロメン同士のセリフや掛け合いも楽しめます。</p>
+      <p></p>
 
-    <p class="dream-park-image-box"><img loading="lazy" decoding="async" src="rhythm_img/難易度.png" alt="難易度" class="dream-park-image"></p>
-    <p>ホロドリでは、各楽曲にEASY、NORMAL、HARD、EXPERTの4種類の難易度が登場します。</p>
-    <p>自分に合った難易度で楽しみましょう。</p>
-  </div>
-  <div class="notes">
-    <p class="double-space fade-in-up" id="notes-section"><span class="title-explanation">ノーツの種類</span></p>
-
-    <div class="operation-block fade-in-up">
-      <p><span class="color-blue note-label">タップノーツ</span></p>
-      <p><img loading="lazy" decoding="async" src="rhythm_img/tap.png" alt="タップノーツ" class="notes_img"></p>
-      <p>ノーツが流れてきたときに、タイミングよくタップすることで</p>
-      <p>PERFECTを取れます。</p>
-      <p>黄色・灰色のタップノーツが流れてくることがありますが、</p>
-      <p>取り方は変わりません。</p>
+      <p class="image-box"><img loading="lazy" decoding="async" src="rhythm_img/難易度.png" alt="難易度"
+          class="content-image"></p>
+      <p>ホロドリでは、各楽曲にEASY、NORMAL、HARD、EXPERTの4種類の難易度が登場します。</p>
+      <p>自分に合った難易度で楽しみましょう。</p>
     </div>
+    <div class="notes">
+      <p class="double-space fade-in-up" id="notes-section"><span class="title-explanation">ノーツの種類</span></p>
 
-    <div class="operation-block fade-in-up">
-      <p><span class="color-green note-label">ロングノーツ</span></p>
-      <p><img loading="lazy" decoding="async" src="rhythm_img/long.png" alt="ロングノーツ" class="notes_img"></p>
-      <p>ノーツがレーンに重なっている間、長押しすることでPERFECTが取れます。</p>
-      <p>ロングノーツは最後にタイミングよく離す必要はありません。</p>
-      <p>最後がフリックノーツになっていることがあります。</p>
-    </div>
-
-    <div class="operation-block fade-in-up">
-      <p><span class="color-red note-label">フリックノーツ</span></p>
-      <p><img loading="lazy" decoding="async" src="rhythm_img/flick.png" alt="フリックノーツ" class="notes_img"></p>
-      <p>ノーツがレーンに重なった時に任意の方向に指を擦ることで</p>
-      <p>PERFECTを取れます。</p>
-      <p>連続で降ってきた場合は、1回1回指を離す必要はなく、画面をなぞり続けることで連続で取ることができます。</p>
-      <p>黄色のフリックノーツが流れてくることがありますが、取り方は変わりません。</p>
-    </div>
-
-    <div class="operation-block fade-in-up">
-      <p><span class="color-yellow note-label">アクセントノーツ</span></p>
-      <p><img loading="lazy" decoding="async" src="rhythm_img/accent.png" alt="アクセントノーツ" class="notes_img"></p>
-      <p>黄色のノーツを指します。</p>
-      <p>取り方はタップノーツ、ロングノーツ、フリックノーツと変わりません。</p>
-      <p>判定が少し広いという特徴があります。</p>
-    </div>
-  </div>
-  
-  <p class="double-space2 fade-in-up" id="judge-width-section"><span class="title-explanation">各判定幅</span></p>
-
-  <div class="judgement">
-    <div class="operation-block fade-in-up judge-width-section">
-      <div class="score-table-wrap">
-        <table class="score-table score-judge-width-table">
-          <caption>判定幅</caption>
-          <thead>
-            <tr>
-              <th>ノーマル</th>
-              <th>通常</th>
-              <th>アクセント</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr><td>PERFECT</td><td>±50ms</td><td>±?</td></tr>
-            <tr><td>GREAT</td><td>±66.67ms</td><td>±?</td></tr>
-            <tr><td>GOOD</td><td>±133.33ms</td><td>±?</td></tr>
-            <tr><td>BAD</td><td>±150ms</td><td>±?</td></tr>
-            <tr><td>MISS</td><td>-158.33ms~</td><td>±?</td></tr>
-          </tbody>
-          <thead>
-            <tr>
-              <th>フリック</th>
-              <th>通常</th>
-              <th>アクセント</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr><td>PERFECT</td><td>±?</td><td>±?</td></tr>
-            <tr><td>GREAT</td><td>±?</td><td>±?</td></tr>
-            <tr><td>GOOD</td><td>±?</td><td>±?</td></tr>
-            <tr><td>BAD</td><td>±?</td><td>±?</td></tr>
-            <tr><td>MISS</td><td>±?</td><td>±?</td></tr>
-          </tbody>
-          <thead>
-            <tr>
-              <th>ロングノーツ</th>
-              <th>通常</th>
-              <th>アクセント</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr><td>PERFECT</td><td>±?</td><td>±?</td></tr>
-            <tr><td>GREAT</td><td>±?</td><td>±?</td></tr>
-            <tr><td>GOOD</td><td>±?</td><td>±?</td></tr>
-            <tr><td>BAD</td><td>±?</td><td>±?</td></tr>
-            <tr><td>MISS</td><td>±?</td><td>±?</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </div>
-
-  <p class="double-space2 fade-in-up" id="voice-section"><span class="title-explanation">ボイス</span></p>
-
-  <div class="operation-block fade-in-up voice-section">
-    <p class="dream-park-image-box"><img loading="lazy" decoding="async" src="rhythm_img/掛け合い.png" alt="ボイス" class="dream-park-image"></p>
-    <p>リズムゲーム中は、リーダーホロメンと各サポートメンバーとの掛け合いが楽しめます。</p>
-    <p>お気に入りのホロメンを編成して、さまざまな会話演出を楽しみましょう。</p>
-  </div>
-
-  <p class="double-space2 fade-in-up" id="clear-reward-section"><span class="title-explanation">クリア報酬</span></p>
-
-  <div class="operation-block fade-in-up clear-reward-section">
-    <h2 class="clear-reward-heading">楽曲時間ボーナス</h2>
-    <p class="dream-park-image-box"><img loading="lazy" decoding="async" src="rhythm_img/楽曲時間ボーナス.png" alt="楽曲時間ボーナス" class="dream-park-image"></p>
-    <p>楽曲の長さによって、リズムゲームの報酬にボーナスがつきます。</p>
-    <p>画像例では、プレイ時間が長い楽曲ほど報酬ボーナスが高くなっています。</p>
-    <p>2つの例から見ると、89秒(1分29秒)程度を基準(±0%)として、1秒伸びるごとに約0.85%ずつボーナスが加算されると考えられます。</p>
-    <p>推定式は「(楽曲の秒数 - 89) × 0.85」を四捨五入した値です。</p>
-    <p>※この計算は公開画像からの推定です。実際のゲーム内仕様と異なる可能性があります。</p>
-
-    <h2 class="clear-reward-heading">ライブブースト</h2>
-    <p>ライブブーストを使用すると、リズムゲームの報酬がアップします。</p>
-    <p>ライブブーストが0でも、リズムゲームは何度でも遊べます。</p>
-    <div class="score-table-wrap">
-      <table class="score-table score-rank-table">
-        <caption>ライブブースト倍率</caption>
-        <thead>
-          <tr>
-            <th>個数</th>
-            <th>倍率</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td>1個</td><td>×n倍</td></tr>
-          <tr><td>2個</td><td>×n倍</td></tr>
-          <tr><td>3個</td><td>×n倍</td></tr>
-          <tr><td>4個</td><td>×n倍</td></tr>
-          <tr><td>5個</td><td>×n倍</td></tr>
-          <tr><td>6個</td><td>×n倍</td></tr>
-          <tr><td>7個</td><td>×n倍</td></tr>
-          <tr><td>8個</td><td>×n倍</td></tr>
-          <tr><td>9個</td><td>×n倍</td></tr>
-          <tr><td>10個</td><td>×n倍</td></tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-
-  <p class="double-space2 fade-in-up" id="score-section"><span class="title-explanation">スコア関連</span></p>
-
-  <div class="judgement">
-    <div class="operation-block fade-in-up score-section">
-      <p class="score-lead">スコアは100コンボごとに1%ずつ加算され、<br>小数点以下は四捨五入され、上限は+10%です。※760は例です</p>
-      <div class="score-table-wrap">
-        <table class="score-table">
-          <caption>通常ノーツのコンボ別スコア例</caption>
-          <thead>
-            <tr>
-              <th>コンボ数</th>
-              <th>倍率</th>
-              <th>スコア</th>
-              <th>計算式</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr><td>1～99</td><td>100%</td><td>760</td><td>760 × 1.00</td></tr>
-            <tr><td>100～199</td><td>101%</td><td>768</td><td>760 × 1.01</td></tr>
-            <tr><td>200～299</td><td>102%</td><td>775</td><td>760 × 1.02</td></tr>
-            <tr><td>300～399</td><td>103%</td><td>783</td><td>760 × 1.03</td></tr>
-            <tr><td>400～499</td><td>104%</td><td>790</td><td>760 × 1.04</td></tr>
-            <tr><td>500～599</td><td>105%</td><td>798</td><td>760 × 1.05</td></tr>
-            <tr><td>600～699</td><td>106%</td><td>806</td><td>760 × 1.06</td></tr>
-          </tbody>
-        </table>
+      <div class="operation-block fade-in-up">
+        <p><span class="color-blue note-label">タップノーツ</span></p>
+        <p><img loading="lazy" decoding="async" src="rhythm_img/tap.png" alt="タップノーツ" class="content-image"></p>
+        <p>ノーツが流れてきたときに、タイミングよくタップすることで</p>
+        <p>PERFECTを取れます。</p>
+        <p>黄色・灰色のタップノーツが流れてくることがありますが、</p>
+        <p>取り方は変わりません。</p>
       </div>
 
-      <div class="score-table-wrap">
-        <table class="score-table">
-          <caption>ノーツ別の計算</caption>
-          <thead>
-            <tr>
-              <th>種類</th>
-              <th>計算方法</th>
-              <th>例</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr><td>通常ノーツ</td><td>基礎スコア × コンボ倍率</td><td>760 × 1.00 = 760</td></tr>
-            <tr><td>フリックノーツ</td><td>その時点のスコア × 1.05</td><td>760 × 1.00 × 1.05 = 798</td></tr>
-            <tr><td>ロング中</td><td>その時点のスコア ÷ 10</td><td>760 × 1.00 ÷ 10 = 76</td></tr>
-          </tbody>
-        </table>
+      <div class="operation-block fade-in-up">
+        <p><span class="color-green note-label">ロングノーツ</span></p>
+        <p><img loading="lazy" decoding="async" src="rhythm_img/long.png" alt="ロングノーツ" class="content-image"></p>
+        <p>ノーツがレーンに重なっている間、長押しすることでPERFECTが取れます。</p>
+        <p>ロングノーツは最後にタイミングよく離す必要はありません。</p>
+        <p>最後がフリックノーツになっていることがあります。</p>
       </div>
 
-      <div class="score-table-wrap">
-        <table class="score-table">
-          <caption>判定ごとのスコア反映率とライフ減少値</caption>
-          <thead>
-            <tr>
-              <th>判定</th>
-              <th>スコア反映率</th>
-              <th>ライフ減少値</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr><td>PERFECT</td><td>100%</td><td>0</td></tr>
-            <tr><td>GREAT</td><td>80%</td><td>0</td></tr>
-            <tr><td>GOOD</td><td>50%</td><td>0</td></tr>
-            <tr><td>BAD</td><td>0%</td><td>50</td></tr>
-            <tr><td>MISS</td><td>0%</td><td>100</td></tr>
-          </tbody>
-        </table>
+      <div class="operation-block fade-in-up">
+        <p><span class="color-red note-label">フリックノーツ</span></p>
+        <p><img loading="lazy" decoding="async" src="rhythm_img/flick.png" alt="フリックノーツ" class="content-image"></p>
+        <p>ノーツがレーンに重なった時に任意の方向に指を擦ることで</p>
+        <p>PERFECTを取れます。</p>
+        <p>連続で降ってきた場合は、1回1回指を離す必要はなく、画面をなぞり続けることで連続で取ることができます。</p>
+        <p>黄色のフリックノーツが流れてくることがありますが、取り方は変わりません。</p>
       </div>
+
+      <div class="operation-block fade-in-up">
+        <p><span class="color-yellow note-label">アクセントノーツ</span></p>
+        <p><img loading="lazy" decoding="async" src="rhythm_img/accent.png" alt="アクセントノーツ" class="content-image"></p>
+        <p>黄色のノーツを指します。</p>
+        <p>取り方はタップノーツ、ロングノーツ、フリックノーツと変わりません。</p>
+        <p>判定が少し広いという特徴があります。</p>
+      </div>
+    </div>
+
+    <p class="double-space fade-in-up" id="judge-width-section"><span class="title-explanation">各判定幅</span></p>
+
+    <div class="judgement">
+      <div class="operation-block fade-in-up judge-width-section">
+        <div class="score-table-wrap">
+          <table class="score-table score-judge-width-table">
+            <caption>判定幅</caption>
+            <thead>
+              <tr>
+                <th>ノーマル</th>
+                <th>通常</th>
+                <th>アクセント</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>PERFECT</td>
+                <td>±50ms</td>
+                <td>±?</td>
+              </tr>
+              <tr>
+                <td>GREAT</td>
+                <td>±66.67ms</td>
+                <td>±?</td>
+              </tr>
+              <tr>
+                <td>GOOD</td>
+                <td>±133.33ms</td>
+                <td>±?</td>
+              </tr>
+              <tr>
+                <td>BAD</td>
+                <td>±150ms</td>
+                <td>±?</td>
+              </tr>
+              <tr>
+                <td>MISS</td>
+                <td>-158.33ms~</td>
+                <td>±?</td>
+              </tr>
+            </tbody>
+            <thead>
+              <tr>
+                <th>フリック</th>
+                <th>通常</th>
+                <th>アクセント</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>PERFECT</td>
+                <td>±?</td>
+                <td>±?</td>
+              </tr>
+              <tr>
+                <td>GREAT</td>
+                <td>±?</td>
+                <td>±?</td>
+              </tr>
+              <tr>
+                <td>GOOD</td>
+                <td>±?</td>
+                <td>±?</td>
+              </tr>
+              <tr>
+                <td>BAD</td>
+                <td>±?</td>
+                <td>±?</td>
+              </tr>
+              <tr>
+                <td>MISS</td>
+                <td>±?</td>
+                <td>±?</td>
+              </tr>
+            </tbody>
+            <thead>
+              <tr>
+                <th>ロングノーツ</th>
+                <th>通常</th>
+                <th>アクセント</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>PERFECT</td>
+                <td>±?</td>
+                <td>±?</td>
+              </tr>
+              <tr>
+                <td>GREAT</td>
+                <td>±?</td>
+                <td>±?</td>
+              </tr>
+              <tr>
+                <td>GOOD</td>
+                <td>±?</td>
+                <td>±?</td>
+              </tr>
+              <tr>
+                <td>BAD</td>
+                <td>±?</td>
+                <td>±?</td>
+              </tr>
+              <tr>
+                <td>MISS</td>
+                <td>±?</td>
+                <td>±?</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <p class="double-space fade-in-up" id="voice-section"><span class="title-explanation">ボイス</span></p>
+
+    <div class="operation-block fade-in-up voice-section">
+      <p class="image-box"><img loading="lazy" decoding="async" src="rhythm_img/掛け合い.png" alt="ボイス"
+          class="content-image"></p>
+      <p>リズムゲーム中は、リーダーホロメンと各サポートメンバーとの掛け合いが楽しめます。</p>
+      <p>お気に入りのホロメンを編成して、さまざまな会話演出を楽しみましょう。</p>
+    </div>
+
+    <p class="double-space fade-in-up" id="clear-reward-section"><span class="title-explanation">クリア報酬</span></p>
+
+    <div class="operation-block fade-in-up clear-reward-section">
+      <h2 class="clear-reward-heading">楽曲時間ボーナス</h2>
+      <p class="image-box"><img loading="lazy" decoding="async" src="rhythm_img/楽曲時間ボーナス.png" alt="楽曲時間ボーナス"
+          class="content-image"></p>
+      <p>楽曲の長さによって、リズムゲームの報酬にボーナスがつきます。</p>
+      <p>画像例では、プレイ時間が長い楽曲ほど報酬ボーナスが高くなっています。</p>
+      <p>2つの例から見ると、89秒(1分29秒)程度を基準(±0%)として、1秒伸びるごとに約0.85%ずつボーナスが加算されると考えられます。</p>
+      <p>推定式は「(楽曲の秒数 - 89) × 0.85」を四捨五入した値です。</p>
+      <p>※この計算は公開画像からの推定です。実際のゲーム内仕様と異なる可能性があります。</p>
+
+      <h2 class="clear-reward-heading">ライブブースト</h2>
+      <p>ライブブーストを使用すると、リズムゲームの報酬がアップします。</p>
+      <p>ライブブーストが0でも、リズムゲームは何度でも遊べます。</p>
       <div class="score-table-wrap">
         <table class="score-table score-rank-table">
-          <caption>ランク</caption>
+          <caption>ライブブースト倍率</caption>
           <thead>
             <tr>
-              <th>ランク</th>
-              <th>必要スコア</th>
+              <th>個数</th>
+              <th>倍率</th>
             </tr>
           </thead>
           <tbody>
-            <tr><td>D</td><td>0～</td></tr>
-            <tr><td>C</td><td>150,000～</td></tr>
-            <tr><td>B</td><td>300,000～</td></tr>
-            <tr><td>A</td><td>600,000～</td></tr>
-            <tr><td>S</td><td>1,000,000～</td></tr>
+            <tr>
+              <td>1個</td>
+              <td>×n倍</td>
+            </tr>
+            <tr>
+              <td>2個</td>
+              <td>×n倍</td>
+            </tr>
+            <tr>
+              <td>3個</td>
+              <td>×n倍</td>
+            </tr>
+            <tr>
+              <td>4個</td>
+              <td>×n倍</td>
+            </tr>
+            <tr>
+              <td>5個</td>
+              <td>×n倍</td>
+            </tr>
+            <tr>
+              <td>6個</td>
+              <td>×n倍</td>
+            </tr>
+            <tr>
+              <td>7個</td>
+              <td>×n倍</td>
+            </tr>
+            <tr>
+              <td>8個</td>
+              <td>×n倍</td>
+            </tr>
+            <tr>
+              <td>9個</td>
+              <td>×n倍</td>
+            </tr>
+            <tr>
+              <td>10個</td>
+              <td>×n倍</td>
+            </tr>
           </tbody>
         </table>
       </div>
     </div>
-  </div>
 
-  <p class="double-space2 fade-in-up" id="create-score-section"><span class="title-explanation">クリエイト譜面</span></p>
+    <p class="double-space fade-in-up" id="score-section"><span class="title-explanation">スコア関連</span></p>
 
-  <div class="operation-block fade-in-up create-score-section">
-    <p class="dream-park-image-box"><img loading="lazy" decoding="async" src="rhythm_img/クリエイト譜面1.jpg" alt="クリエイト譜面" class="dream-park-image"></p>
-    <p>オリジナル譜面を作ったり、ほかのユーザーが作成した譜面で遊ぶこともできます。</p>
-    <p>CREATE難易度ではユーザー作成譜面の共有にも対応しています。</p>
-    <p>公式譜面だけでなく、他のプレイヤーが作った譜面を引用して新しい譜面を制作できます。</p>
-    <p>作った譜面はすぐに公開できるため、プレイヤー同士で協力しながら譜面づくりを楽しめます。</p>
-
-    <h2 class="clear-reward-heading">装飾ノーツ</h2>
-    <div class="tap-effect-grid">
-      <p class="tap-effect-image-box"><img loading="lazy" decoding="async" src="rhythm_img/クリエイト譜面2.png" alt="装飾ノーツ1" class="tap-effect-image"></p>
-      <p class="tap-effect-image-box"><img loading="lazy" decoding="async" src="rhythm_img/クリエイト譜面3.png" alt="装飾ノーツ2" class="tap-effect-image"></p>
-    </div>
-    <p>クリエイト譜面では、譜面を彩るための装飾専用ノーツを配置できます。</p>
-    <p>装飾ノーツは色を自由に変更でき、タップしてもコンボは増えません。</p>
-    <p>タップしなくてもコンボは切れず、ライフも減らないため、見た目づくりに集中できます。</p>
-
-    <h2 class="clear-reward-heading">おジャマノーツ</h2>
-    <div class="tap-effect-grid">
-      <p class="tap-effect-image-box"><img loading="lazy" decoding="async" src="rhythm_img/クリエイト譜面4.png" alt="おジャマノーツ1" class="tap-effect-image"></p>
-      <p class="tap-effect-image-box"><img loading="lazy" decoding="async" src="rhythm_img/クリエイト譜面5.png" alt="おジャマノーツ2" class="tap-effect-image"></p>
-    </div>
-    <p>クリエイト譜面では、触るとライフが減り、コンボも切れてしまうおジャマノーツを配置できます。</p>
-    <p>おジャマノーツが流れてきたら、タップせずにしっかり避けましょう。</p>
-    <p>※おジャマノーツは、公式譜面への登場予定はありません。</p>
-
-    <h2 class="clear-reward-heading">ノーツスピード変化</h2>
-    <div class="tap-effect-grid">
-      <p class="tap-effect-image-box"><img loading="lazy" decoding="async" src="rhythm_img/クリエイト譜面6.png" alt="ノーツスピード変化1" class="tap-effect-image"></p>
-      <p class="tap-effect-image-box"><img loading="lazy" decoding="async" src="rhythm_img/クリエイト譜面7.png" alt="ノーツスピード変化2" class="tap-effect-image"></p>
-    </div>
-    <p>クリエイト譜面では、譜面の途中でノーツスピードを変更できます。</p>
-    <p>楽曲中にノーツが遅くなったり速くなったり、時には止まるような演出も作れます。</p>
-    <p>演出を工夫して、自分だけのリズムゲーム体験を作ってみましょう。</p>
-  </div>
-
-  <p class="double-space2 fade-in-up" id="rhythm-options-section"><span class="title-explanation">各種設定</span></p>
-
-  <div class="operation-block fade-in-up rhythm-options-section">
-    <details class="rhythm-option-toggle">
-      <summary>プレイカスタム</summary>
-      <div class="rhythm-option-toggle-content">
-        <h2>コンボ表示</h2>
-        <p class="dream-park-image-box"><img loading="lazy" decoding="async" src="rhythm_img/コンボ表示.png" alt="コンボ表示" class="dream-park-image"></p>
-        <p>リズムゲーム中のコンボ表示デザインから、ALL PERFECTやFULL COMBOの継続状況を確認できます。</p>
-        <p>プレイ中の達成状況を見分けたいときに役立ちます。</p>
-
-        <h2>レーン設定</h2>
-        <div class="tap-effect-grid">
-          <p class="tap-effect-image-box"><img loading="lazy" decoding="async" src="rhythm_img/レーン設定2.png" alt="レーン設定2" class="tap-effect-image"></p>
-          <p class="tap-effect-image-box"><img loading="lazy" decoding="async" src="rhythm_img/レーン設定1.png" alt="レーン設定1" class="tap-effect-image"></p>
+    <div class="judgement">
+      <div class="operation-block fade-in-up score-section">
+        <p class="score-lead">スコアは100コンボごとに1%ずつ加算され、<br>小数点以下は四捨五入され、上限は+10%です。※760は例です</p>
+        <div class="score-table-wrap">
+          <table class="score-table">
+            <caption>通常ノーツのコンボ別スコア例</caption>
+            <thead>
+              <tr>
+                <th>コンボ数</th>
+                <th>倍率</th>
+                <th>スコア</th>
+                <th>計算式</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1～99</td>
+                <td>100%</td>
+                <td>760</td>
+                <td>760 × 1.00</td>
+              </tr>
+              <tr>
+                <td>100～199</td>
+                <td>101%</td>
+                <td>768</td>
+                <td>760 × 1.01</td>
+              </tr>
+              <tr>
+                <td>200～299</td>
+                <td>102%</td>
+                <td>775</td>
+                <td>760 × 1.02</td>
+              </tr>
+              <tr>
+                <td>300～399</td>
+                <td>103%</td>
+                <td>783</td>
+                <td>760 × 1.03</td>
+              </tr>
+              <tr>
+                <td>400～499</td>
+                <td>104%</td>
+                <td>790</td>
+                <td>760 × 1.04</td>
+              </tr>
+              <tr>
+                <td>500～599</td>
+                <td>105%</td>
+                <td>798</td>
+                <td>760 × 1.05</td>
+              </tr>
+              <tr>
+                <td>600～699</td>
+                <td>106%</td>
+                <td>806</td>
+                <td>760 × 1.06</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
-        <p>オプションの「レーン設定」から、判定ライン位置を上下に調整できます。</p>
-        <p>画面下のバーが気になる場合や、フリック操作で誤操作しやすい場合に役立ちます。</p>
 
-        <h2>レーンカット</h2>
-        <p class="dream-park-image-box"><img loading="lazy" decoding="async" src="rhythm_img/レーンカット.png" alt="レーンカット" class="dream-park-image"></p>
-        <p>レーンの上部や下部をカットして、ノーツが表示される範囲を調整できます。</p>
-        <p>判定ライン位置も上下に動かせるので、見やすい位置に合わせてプレイできます。</p>
-
-        <h2>ノーツスピード</h2>
-        <p class="dream-park-image-box"><img loading="lazy" decoding="async" src="rhythm_img/ノーツスピード.png" alt="ノーツスピード" class="dream-park-image"></p>
-        <p>ノーツスピードは1.00〜12.00の範囲で変更できます。</p>
-        <p>値を大きくするほどノーツが速く流れます。</p>
-        <p>音ゲーに慣れてきたら、スピードを上げて視認性を調整してみましょう。</p>
-
-        <h2>ミラー譜面</h2>
-        <p>ミラー譜面をONにすると、流れてくるノーツが左右逆になります。</p>
-      </div>
-    </details>
-
-    <details class="rhythm-option-toggle">
-      <summary>スキンカスタム</summary>
-      <div class="rhythm-option-toggle-content">
-        <p>レーンやコンボ、判定などのUIは、メンバーシップに加入することでさまざまな種類のスキンを購入し、各項目でカスタムできます。(一部無料)</p>
-
-        <h2>ノーツカスタム</h2>
-        <p class="dream-park-image-box"><img loading="lazy" decoding="async" src="rhythm_img/ノーツカスタム.png" alt="ノーツカスタム" class="dream-park-image"></p>
-        <p>オプションから、ノーツのデザイン、タップ音、タップ時のエフェクトを変更できます。</p>
-        <p>タップ音は初期設定を含めて4種類から選べるので、好みの音でプレイできます。</p>
-
-        <h2>タップエフェクト</h2>
-        <div class="tap-effect-grid">
-          <p class="tap-effect-image-box"><img loading="lazy" decoding="async" src="rhythm_img/effect1.png" alt="タップエフェクト1" class="tap-effect-image"></p>
-          <p class="tap-effect-image-box"><img loading="lazy" decoding="async" src="rhythm_img/effect2.png" alt="タップエフェクト2" class="tap-effect-image"></p>
-          <p class="tap-effect-image-box"><img loading="lazy" decoding="async" src="rhythm_img/effect3.png" alt="タップエフェクト3" class="tap-effect-image"></p>
-          <p class="tap-effect-image-box"><img loading="lazy" decoding="async" src="rhythm_img/effect4.png" alt="タップエフェクト4" class="tap-effect-image"></p>
+        <div class="score-table-wrap">
+          <table class="score-table">
+            <caption>ノーツ別の計算</caption>
+            <thead>
+              <tr>
+                <th>種類</th>
+                <th>計算方法</th>
+                <th>例</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>通常ノーツ</td>
+                <td>基礎スコア × コンボ倍率</td>
+                <td>760 × 1.00 = 760</td>
+              </tr>
+              <tr>
+                <td>フリックノーツ</td>
+                <td>その時点のスコア × 1.05</td>
+                <td>760 × 1.00 × 1.05 = 798</td>
+              </tr>
+              <tr>
+                <td>ロング中</td>
+                <td>その時点のスコア ÷ 10</td>
+                <td>760 × 1.00 ÷ 10 = 76</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
-        <p>タップ時のエフェクトもオプションから変更できます。</p>
-        <p>複数のスキンが用意されているので、好みの見た目でリズムゲームを楽しめます。</p>
 
-        <h2>背景設定</h2>
-        <p class="dream-park-image-box"><img loading="lazy" decoding="async" src="rhythm_img/背景設定.png" alt="背景設定" class="dream-park-image"></p>
-        <p>楽曲ごとにさまざまな映像を背景にしてリズムゲームを遊べます。</p>
-        <p>集中したいときは、背景やレーンを暗くしたり、通常背景に変更したりできます。</p>
-        <p>自分に合った見やすい設定でプレイしましょう。</p>
+        <div class="score-table-wrap">
+          <table class="score-table">
+            <caption>判定ごとのスコア反映率とライフ減少値</caption>
+            <thead>
+              <tr>
+                <th>判定</th>
+                <th>スコア反映率</th>
+                <th>ライフ減少値</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>PERFECT</td>
+                <td>100%</td>
+                <td>0</td>
+              </tr>
+              <tr>
+                <td>GREAT</td>
+                <td>80%</td>
+                <td>0</td>
+              </tr>
+              <tr>
+                <td>GOOD</td>
+                <td>50%</td>
+                <td>0</td>
+              </tr>
+              <tr>
+                <td>BAD</td>
+                <td>0%</td>
+                <td>50</td>
+              </tr>
+              <tr>
+                <td>MISS</td>
+                <td>0%</td>
+                <td>100</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="score-table-wrap">
+          <table class="score-table score-rank-table">
+            <caption>ランク</caption>
+            <thead>
+              <tr>
+                <th>ランク</th>
+                <th>必要スコア</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>D</td>
+                <td>0～</td>
+              </tr>
+              <tr>
+                <td>C</td>
+                <td>150,000～</td>
+              </tr>
+              <tr>
+                <td>B</td>
+                <td>300,000～</td>
+              </tr>
+              <tr>
+                <td>A</td>
+                <td>600,000～</td>
+              </tr>
+              <tr>
+                <td>S</td>
+                <td>1,000,000～</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
-    </details>
+    </div>
 
-    <details class="rhythm-option-toggle">
-      <summary>ガイド表示</summary>
-      <div class="rhythm-option-toggle-content">
-        <h2>プレイ補正</h2>
-        <p class="dream-park-image-box"><img loading="lazy" decoding="async" src="rhythm_img/同時押しライン.jpg" alt="同時押しライン" class="dream-park-image"></p>
-        <p>オプションの「ガイド表示」から、同じタイミングで押すノーツに同時押しラインを表示できます。</p>
-        <p>小節線も表示できるので、リズムや拍の確認に活用できます。</p>
-        <p>SLOW・FAST表示、キービーム、判定枠上のスキル効果表示も、それぞれオンオフできます。</p>
+    <p class="double-space fade-in-up" id="create-score-section"><span class="title-explanation">クリエイト譜面</span></p>
 
-        <h2>リズムサポート</h2>
-        <p class="dream-park-image-box"><img loading="lazy" decoding="async" src="rhythm_img/リズムサポート.png" alt="リズムサポート" class="dream-park-image"></p>
-        <p>リズムサポートをONにすると、裏拍などのタイミングで通常ノーツの色が灰色に変化します。</p>
-        <p>リズムのズレを見分けやすくしたいときに役立ちます。</p>
+    <div class="operation-block fade-in-up create-score-section">
+      <p class="image-box"><img loading="lazy" decoding="async" src="rhythm_img/クリエイト譜面1.jpg" alt="クリエイト譜面"
+          class="content-image"></p>
+      <p>オリジナル譜面を作ったり、ほかのユーザーが作成した譜面で遊ぶこともできます。</p>
+      <p>CREATE難易度ではユーザー作成譜面の共有にも対応しています。</p>
+      <p>公式譜面だけでなく、他のプレイヤーが作った譜面を引用して新しい譜面を制作できます。</p>
+      <p>作った譜面はすぐに公開できるため、プレイヤー同士で協力しながら譜面づくりを楽しめます。</p>
+
+      <h2 class="clear-reward-heading">装飾ノーツ</h2>
+      <div class="tap-effect-grid">
+        <p class="tap-effect-image-box"><img loading="lazy" decoding="async" src="rhythm_img/クリエイト譜面2.png" alt="装飾ノーツ1"
+            class="tap-effect-image"></p>
+        <p class="tap-effect-image-box"><img loading="lazy" decoding="async" src="rhythm_img/クリエイト譜面3.png" alt="装飾ノーツ2"
+            class="tap-effect-image"></p>
       </div>
-    </details>
+      <p>クリエイト譜面では、譜面を彩るための装飾専用ノーツを配置できます。</p>
+      <p>装飾ノーツは色を自由に変更でき、タップしてもコンボは増えません。</p>
+      <p>タップしなくてもコンボは切れず、ライフも減らないため、見た目づくりに集中できます。</p>
 
-    <details class="rhythm-option-toggle">
-      <summary>その他</summary>
-      <div class="rhythm-option-toggle-content">
-        <h2>プリセット</h2>
-        <p class="dream-park-image-box"><img loading="lazy" decoding="async" src="rhythm_img/プリセット.png" alt="プリセット" class="dream-park-image"></p>
-        <p>オプションには3つのプリセットがあり、設定をまとめて切り替えられます。</p>
-        <p>無線イヤホン使用時やホロメンスキンを変えたい時など、シーンに合わせて使い分けできます。</p>
-
-        <h2>音量設定</h2>
-        <p>楽曲、ボイス、SEの音量を個別に変更できます。</p>
-
-        <h2>FEVER演出</h2>
-        <p>FEVER演出は、通常、軽量、無しから選択できます。</p>
-
-        <h2>タップ時の振動</h2>
-        <p>タップ時の振動は、強、中、弱、なしから選択できます。</p>
-
-        <h2>画面設定</h2>
-        <p>滑らかさは120FPS、60FPSから選択できます。</p>
-        <p>画面固定、FPS同期もそれぞれオンオフできます。</p>
+      <h2 class="clear-reward-heading">おジャマノーツ</h2>
+      <div class="tap-effect-grid">
+        <p class="tap-effect-image-box"><img loading="lazy" decoding="async" src="rhythm_img/クリエイト譜面4.png"
+            alt="おジャマノーツ1" class="tap-effect-image"></p>
+        <p class="tap-effect-image-box"><img loading="lazy" decoding="async" src="rhythm_img/クリエイト譜面5.png"
+            alt="おジャマノーツ2" class="tap-effect-image"></p>
       </div>
-    </details>
-  </div>
+      <p>クリエイト譜面では、触るとライフが減り、コンボも切れてしまうおジャマノーツを配置できます。</p>
+      <p>おジャマノーツが流れてきたら、タップせずにしっかり避けましょう。</p>
+      <p>※おジャマノーツは、公式譜面への登場予定はありません。</p>
 
-  <p class="page-note">当ページのノーツ説明は許可をいただき、一部 <a href="https://seesaawiki.jp/hololivedreams/d/%cd%d1%b8%ec%bd%b8#long_notes" target="_blank">hololive Dreams非公式攻略wiki</a> を参考にしています。</p>
+      <h2 class="clear-reward-heading">ノーツスピード変化</h2>
+      <div class="tap-effect-grid">
+        <p class="tap-effect-image-box"><img loading="lazy" decoding="async" src="rhythm_img/クリエイト譜面6.png"
+            alt="ノーツスピード変化1" class="tap-effect-image"></p>
+        <p class="tap-effect-image-box"><img loading="lazy" decoding="async" src="rhythm_img/クリエイト譜面7.png"
+            alt="ノーツスピード変化2" class="tap-effect-image"></p>
+      </div>
+      <p>クリエイト譜面では、譜面の途中でノーツスピードを変更できます。</p>
+      <p>楽曲中にノーツが遅くなったり速くなったり、時には止まるような演出も作れます。</p>
+      <p>演出を工夫して、自分だけのリズムゲーム体験を作ってみましょう。</p>
+    </div>
+
+    <p class="double-space fade-in-up" id="rhythm-options-section"><span class="title-explanation">各種設定</span></p>
+
+    <div class="operation-block fade-in-up rhythm-options-section">
+      <details class="rhythm-option-toggle">
+        <summary>プレイカスタム</summary>
+        <div class="rhythm-option-toggle-content">
+          <h2>コンボ表示</h2>
+          <p class="image-box"><img loading="lazy" decoding="async" src="rhythm_img/コンボ表示.png" alt="コンボ表示"
+              class="content-image"></p>
+          <p>リズムゲーム中のコンボ表示デザインから、ALL PERFECTやFULL COMBOの継続状況を確認できます。</p>
+          <p>プレイ中の達成状況を見分けたいときに役立ちます。</p>
+
+          <h2>レーン設定</h2>
+          <div class="tap-effect-grid">
+            <p class="tap-effect-image-box"><img loading="lazy" decoding="async" src="rhythm_img/レーン設定2.png"
+                alt="レーン設定2" class="tap-effect-image"></p>
+            <p class="tap-effect-image-box"><img loading="lazy" decoding="async" src="rhythm_img/レーン設定1.png"
+                alt="レーン設定1" class="tap-effect-image"></p>
+          </div>
+          <p>オプションの「レーン設定」から、判定ライン位置を上下に調整できます。</p>
+          <p>画面下のバーが気になる場合や、フリック操作で誤操作しやすい場合に役立ちます。</p>
+
+          <h2>レーンカット</h2>
+          <p class="image-box"><img loading="lazy" decoding="async" src="rhythm_img/レーンカット.png" alt="レーンカット"
+              class="content-image"></p>
+          <p>レーンの上部や下部をカットして、ノーツが表示される範囲を調整できます。</p>
+          <p>判定ライン位置も上下に動かせるので、見やすい位置に合わせてプレイできます。</p>
+
+          <h2>ノーツスピード</h2>
+          <p class="image-box"><img loading="lazy" decoding="async" src="rhythm_img/ノーツスピード.png"
+              alt="ノーツスピード" class="content-image"></p>
+          <p>ノーツスピードは1.00〜12.00の範囲で変更できます。</p>
+          <p>値を大きくするほどノーツが速く流れます。</p>
+          <p>音ゲーに慣れてきたら、スピードを上げて視認性を調整してみましょう。</p>
+
+          <h2>ミラー譜面</h2>
+          <p>ミラー譜面をONにすると、流れてくるノーツが左右逆になります。</p>
+        </div>
+      </details>
+
+      <details class="rhythm-option-toggle">
+        <summary>スキンカスタム</summary>
+        <div class="rhythm-option-toggle-content">
+          <p>レーンやコンボ、判定などのUIは、メンバーシップに加入することでさまざまな種類のスキンを購入し、各項目でカスタムできます。(一部無料)</p>
+
+          <h2>ノーツカスタム</h2>
+          <p class="image-box"><img loading="lazy" decoding="async" src="rhythm_img/ノーツカスタム.png"
+              alt="ノーツカスタム" class="content-image"></p>
+          <p>オプションから、ノーツのデザイン、タップ音、タップ時のエフェクトを変更できます。</p>
+          <p>タップ音は初期設定を含めて4種類から選べるので、好みの音でプレイできます。</p>
+
+          <h2>タップエフェクト</h2>
+          <div class="tap-effect-grid">
+            <p class="tap-effect-image-box"><img loading="lazy" decoding="async" src="rhythm_img/effect1.png"
+                alt="タップエフェクト1" class="tap-effect-image"></p>
+            <p class="tap-effect-image-box"><img loading="lazy" decoding="async" src="rhythm_img/effect2.png"
+                alt="タップエフェクト2" class="tap-effect-image"></p>
+            <p class="tap-effect-image-box"><img loading="lazy" decoding="async" src="rhythm_img/effect3.png"
+                alt="タップエフェクト3" class="tap-effect-image"></p>
+            <p class="tap-effect-image-box"><img loading="lazy" decoding="async" src="rhythm_img/effect4.png"
+                alt="タップエフェクト4" class="tap-effect-image"></p>
+          </div>
+          <p>タップ時のエフェクトもオプションから変更できます。</p>
+          <p>複数のスキンが用意されているので、好みの見た目でリズムゲームを楽しめます。</p>
+
+          <h2>背景設定</h2>
+          <p class="image-box"><img loading="lazy" decoding="async" src="rhythm_img/背景設定.png" alt="背景設定"
+              class="content-image"></p>
+          <p>楽曲ごとにさまざまな映像を背景にしてリズムゲームを遊べます。</p>
+          <p>集中したいときは、背景やレーンを暗くしたり、通常背景に変更したりできます。</p>
+          <p>自分に合った見やすい設定でプレイしましょう。</p>
+        </div>
+      </details>
+
+      <details class="rhythm-option-toggle">
+        <summary>ガイド表示</summary>
+        <div class="rhythm-option-toggle-content">
+          <h2>プレイ補正</h2>
+          <p class="image-box"><img loading="lazy" decoding="async" src="rhythm_img/同時押しライン.jpg"
+              alt="同時押しライン" class="content-image"></p>
+          <p>オプションの「ガイド表示」から、同じタイミングで押すノーツに同時押しラインを表示できます。</p>
+          <p>小節線も表示できるので、リズムや拍の確認に活用できます。</p>
+          <p>SLOW・FAST表示、キービーム、判定枠上のスキル効果表示も、それぞれオンオフできます。</p>
+
+          <h2>リズムサポート</h2>
+          <p class="image-box"><img loading="lazy" decoding="async" src="rhythm_img/リズムサポート.png"
+              alt="リズムサポート" class="content-image"></p>
+          <p>リズムサポートをONにすると、裏拍などのタイミングで通常ノーツの色が灰色に変化します。</p>
+          <p>リズムのズレを見分けやすくしたいときに役立ちます。</p>
+        </div>
+      </details>
+
+      <details class="rhythm-option-toggle">
+        <summary>その他</summary>
+        <div class="rhythm-option-toggle-content">
+          <h2>プリセット</h2>
+          <p class="image-box"><img loading="lazy" decoding="async" src="rhythm_img/プリセット.png" alt="プリセット"
+              class="content-image"></p>
+          <p>オプションには3つのプリセットがあり、設定をまとめて切り替えられます。</p>
+          <p>無線イヤホン使用時やホロメンスキンを変えたい時など、シーンに合わせて使い分けできます。</p>
+
+          <h2>音量設定</h2>
+          <p>楽曲、ボイス、SEの音量を個別に変更できます。</p>
+
+          <h2>FEVER演出</h2>
+          <p>FEVER演出は、通常、軽量、無しから選択できます。</p>
+
+          <h2>タップ時の振動</h2>
+          <p>タップ時の振動は、強、中、弱、なしから選択できます。</p>
+
+          <h2>画面設定</h2>
+          <p>滑らかさは120FPS、60FPSから選択できます。</p>
+          <p>画面固定、FPS同期もそれぞれオンオフできます。</p>
+        </div>
+      </details>
+    </div>
+
+    <p class="page-note">当ページのノーツ説明は許可をいただき、一部 <a
+        href="https://seesaawiki.jp/hololivedreams/d/%cd%d1%b8%ec%bd%b8#long_notes" target="_blank">hololive
+        Dreams非公式攻略wiki</a> を参考にしています。</p>
   </main>
   <script src="https://unpkg.com/@studio-freight/lenis@1.0.33/dist/lenis.min.js"></script>
   <script>
@@ -560,29 +761,13 @@
       } else {
         targets.forEach(el => el.classList.add('is-show'));
       }
-      window.setTimeout(() => targets.forEach(el => el.classList.add('is-show')), 1200);
     }
     document.addEventListener('DOMContentLoaded', revealAnimatedContent);
   </script>
   <script src="js/loading.js"></script>
-  <script src="js/common_menu.js"></script>  <script src="js/site_notice.js"></script>
+  <script src="js/common_menu.js"></script>
+  <script src="js/site_notice.js"></script>
 
 </body>
+
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
