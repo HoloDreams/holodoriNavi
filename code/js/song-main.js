@@ -18,35 +18,6 @@ function getSongCoverSrc(songData) {
 function parseSongReleaseDate(value) {
     if (!value) return 0;
     const text = String(value).trim();
-    const jp = text.match(/(\d{4})年\s*(\d{1,2})月\s*(\d{1,2})日/);
-    const slash = text.match(/(\d{4})[\/-](\d{1,2})[\/-](\d{1,2})/);
-    const match = jp || slash;
-    if (!match) return 0;
-    return new Date(Number(match[1]), Number(match[2]) - 1, Number(match[3])).getTime();
-}
-
-function getSongReleaseDateValue(item) {
-    const extra = item && item.data ? item.data[4] : null;
-    return parseSongReleaseDate(extra && extra.releaseDate);
-}
-
-function getSongSortLevel(item) {
-    const levels = item.data[2] || {};
-    if (item.displayDiff && item.displayDiff !== 'none') {
-        return Number(levels[item.displayDiff] || 0);
-    }
-    return Math.max(
-        Number(levels.easy || 0),
-        Number(levels.normal || 0),
-        Number(levels.hard || 0),
-        Number(levels.expert || 0)
-    );
-}
-
-
-function parseSongReleaseDate(value) {
-    if (!value) return 0;
-    const text = String(value).trim();
     const jpMatch = text.match(/(\d{4})年\s*(\d{1,2})月\s*(\d{1,2})日/);
     if (jpMatch) {
         return new Date(Number(jpMatch[1]), Number(jpMatch[2]) - 1, Number(jpMatch[3])).getTime();
@@ -63,6 +34,27 @@ function getSongReleaseDateValue(item) {
     const extra = item.data && item.data[4] ? item.data[4] : {};
     return parseSongReleaseDate(extra.releaseDate || extra.date || '');
 }
+
+function getSongSortLevel(item) {
+    const levels = item.data[2] || {};
+    if (item.displayDiff && item.displayDiff !== 'none') {
+        return Number(levels[item.displayDiff] || 0);
+    }
+    return Math.max(
+        Number(levels.easy || 0),
+        Number(levels.normal || 0),
+        Number(levels.hard || 0),
+        Number(levels.expert || 0)
+    );
+}
+
+function getSongSortBpm(item) {
+    const extra = item.data && item.data[4] ? item.data[4] : {};
+    const rawBpm = extra.bpm || item.data[5] || '';
+    const numbers = String(rawBpm).match(/\d+(?:\.\d+)?/g);
+    if (!numbers || numbers.length === 0) return 0;
+    return Math.max(...numbers.map(Number));
+}
 function sortSongResults(results, sortMode) {
     if (sortMode === 'default') return results;
 
@@ -73,14 +65,22 @@ function sortSongResults(results, sortMode) {
 
             if (sortMode === 'release-desc') {
                 const dateDiff = getSongReleaseDateValue(b) - getSongReleaseDateValue(a);
-return dateDiff !== 0 ? dateDiff : fallback;
+                return dateDiff !== 0 ? dateDiff : fallback;
+            }
+            if (sortMode === 'bpm-desc' || sortMode === 'bpm-asc') {
+                const bpmA = getSongSortBpm(a);
+                const bpmB = getSongSortBpm(b);
+                const bpmDiff = sortMode === 'bpm-asc'
+                    ? bpmA - bpmB
+                    : bpmB - bpmA;
+                return bpmDiff !== 0 ? bpmDiff : fallback;
             }
 
             if (sortMode === 'title-ja') {
                 const titleA = a.data[0] || '';
                 const titleB = b.data[0] || '';
                 const titleDiff = titleA.localeCompare(titleB, 'ja');
-return titleDiff !== 0 ? titleDiff : fallback;
+                return titleDiff !== 0 ? titleDiff : fallback;
             }
 
             const levelA = getSongSortLevel(a);
@@ -88,7 +88,7 @@ return titleDiff !== 0 ? titleDiff : fallback;
             const levelDiff = sortMode === 'level-asc'
                 ? levelA - levelB
                 : levelB - levelA;
-return levelDiff !== 0 ? levelDiff : fallback;
+            return levelDiff !== 0 ? levelDiff : fallback;
         })
         .map(({ originalIndex, ...item }) => item);
 }
@@ -381,6 +381,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     updateDisplay();
 });
+
+
 
 
 
