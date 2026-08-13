@@ -473,6 +473,7 @@ h1::after,
 
 .toc-group:first-of-type {
   margin-top: 0;
+  border-top: 0;
 }
 
 .toc-group-title {
