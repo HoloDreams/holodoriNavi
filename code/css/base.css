@@ -419,6 +419,7 @@ h1::after,
   font-size: 16px;
   color: #666;
   margin-bottom: 20px;
+  text-align: center;
 }
 
 #total-count,
