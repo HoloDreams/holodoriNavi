@@ -52,7 +52,7 @@ function getSongSortBpm(item) {
     const extra = item.data && item.data[4] ? item.data[4] : {};
     const rawBpm = extra.bpm || item.data[5] || '';
     const numbers = String(rawBpm).match(/\d+(?:\.\d+)?/g);
-    if (!numbers || numbers.length === 0) return 0;
+    if (!numbers || numbers.length === 0) return null;
     return Math.max(...numbers.map(Number));
 }
 function sortSongResults(results, sortMode) {
@@ -67,9 +67,14 @@ function sortSongResults(results, sortMode) {
                 const dateDiff = getSongReleaseDateValue(b) - getSongReleaseDateValue(a);
                 return dateDiff !== 0 ? dateDiff : fallback;
             }
-            if (sortMode === 'bpm-desc' || sortMode === 'bpm-asc') {
+            if (sortMode && sortMode.startsWith('bpm-')) {
                 const bpmA = getSongSortBpm(a);
                 const bpmB = getSongSortBpm(b);
+                const hasBpmA = bpmA !== null;
+                const hasBpmB = bpmB !== null;
+                if (!hasBpmA && !hasBpmB) return fallback;
+                if (!hasBpmA) return 1;
+                if (!hasBpmB) return -1;
                 const bpmDiff = sortMode === 'bpm-asc'
                     ? bpmA - bpmB
                     : bpmB - bpmA;
@@ -261,11 +266,22 @@ function displaySongs(page) {
         } else {
             card.className = 'song-card';
         }
-        
+
+        const sortSelect = document.getElementById('sort-select');
+        const currentSortMode = sortSelect ? sortSelect.value : 'default';
+        const showBpmBadge = currentSortMode === 'bpm-desc' || currentSortMode === 'bpm-asc';
+        const extra = item.data[4] || {};
+        const bpmText = extra.bpm ? escapeHtml(extra.bpm) : "";
         let badgeHtml = "";
+
+        if (showBpmBadge && bpmText) {
+            card.classList.add('song-card--bpm-sort');
+            badgeHtml += `<div class="bpm-badge">${bpmText}</div>`;
+        }
+
         if (displayDiff !== 'none') {
             const currentLevelValue = levels[displayDiff] || "";
-            badgeHtml = `<div class="difficulty-badge badge-${displayDiff}">${currentLevelValue}</div>`;
+            badgeHtml += `<div class="difficulty-badge badge-${displayDiff}">${currentLevelValue}</div>`;
         }
 
         const detailHref = getSongDetailHref(songName);
@@ -381,6 +397,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     updateDisplay();
 });
+
+
+
 
 
 
