@@ -15,6 +15,22 @@ function getSongCoverSrc(songData) {
     return `img/cover_art/${encodeURIComponent(fileName)}`;
 }
 
+function parseSongReleaseDate(value) {
+    const text = String(value || '');
+    const jp = text.match(/(\d{4})年\s*(\d{1,2})月\s*(\d{1,2})日/);
+    if (jp) {
+        return new Date(Number(jp[1]), Number(jp[2]) - 1, Number(jp[3])).getTime();
+    }
+    const iso = text.match(/(\d{4})[-/](\d{1,2})[-/](\d{1,2})/);
+    if (iso) {
+        return new Date(Number(iso[1]), Number(iso[2]) - 1, Number(iso[3])).getTime();
+    }
+    return 0;
+}
+
+function getSongReleaseDateValue(item) {
+    return parseSongReleaseDate(item.data && item.data[4] && item.data[4].releaseDate);
+}
 function getSongSortLevel(item) {
     const levels = item.data[2] || {};
     if (item.displayDiff && item.displayDiff !== 'none') {
@@ -34,11 +50,17 @@ function sortSongResults(results, sortMode) {
     return results
         .map((item, index) => ({ ...item, originalIndex: index }))
         .sort((a, b) => {
+            if (sortMode === 'release-desc') {
+                const dateDiff = getSongReleaseDateValue(b) - getSongReleaseDateValue(a);
+                if (dateDiff !== 0) return dateDiff;
+                return (a.sourceIndex ?? a.originalIndex) - (b.sourceIndex ?? b.originalIndex);
+            }
+
             if (sortMode === 'title-ja') {
                 const titleA = a.data[0] || '';
                 const titleB = b.data[0] || '';
                 const titleDiff = titleA.localeCompare(titleB, 'ja');
-                return titleDiff !== 0 ? titleDiff : a.originalIndex - b.originalIndex;
+                return titleDiff !== 0 ? titleDiff : (a.sourceIndex ?? a.originalIndex) - (b.sourceIndex ?? b.originalIndex);
             }
 
             const levelA = getSongSortLevel(a);
@@ -46,7 +68,7 @@ function sortSongResults(results, sortMode) {
             const levelDiff = sortMode === 'level-asc'
                 ? levelA - levelB
                 : levelB - levelA;
-            return levelDiff !== 0 ? levelDiff : a.originalIndex - b.originalIndex;
+            return levelDiff !== 0 ? levelDiff : (a.sourceIndex ?? a.originalIndex) - (b.sourceIndex ?? b.originalIndex);
         })
         .map(({ originalIndex, ...item }) => item);
 }
@@ -100,7 +122,7 @@ function updateDisplay() {
     let results = [];
     let totalFumenCount = 0;
 
-    for (let i = songList.length - 1; i >= 0; i--) {
+    for (let i = 0; i < songList.length; i++) {
         const songData = songList[i];
         const levels = songData[2] || {};
 
@@ -120,6 +142,7 @@ function updateDisplay() {
         if (selectedDiff === 'none' && minLevel === null && maxLevel === null) {
             results.push({
                 data: songData,
+                sourceIndex: i,
                 displayDiff: 'none' 
             });
             continue;
@@ -133,6 +156,7 @@ function updateDisplay() {
                 
                 results.push({
                     data: songData,
+                    sourceIndex: i,
                     displayDiff: selectedDiff
                 });
             }
@@ -148,6 +172,7 @@ function updateDisplay() {
 
                 results.push({
                     data: songData,
+                    sourceIndex: i,
                     displayDiff: diff
                 });
             }
@@ -336,6 +361,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     updateDisplay();
 });
+
 
 
 

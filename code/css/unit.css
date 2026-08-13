@@ -32,7 +32,11 @@
     padding: 24px 16px;
   }
 
+<<<<<<< HEAD
   .unit-image-placeholder {
+=======
+  .image-box {
+>>>>>>> fc42297 (いろいろ)
     min-height: 190px;
   }
 }

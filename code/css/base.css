@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 /* ===================================================
+=======
+﻿/* ===================================================
+>>>>>>> fc42297 (いろいろ)
    base.css - 全ページ共通スタイル
    bodyリセット / 背景 / スクロールバー非表示 / navbar / back-btn / page-top-button
    fade-in-up / operation-block / 見出し下線 / title-explanation / double-space
@@ -324,6 +328,7 @@ h1::after,
 }
 
 /* --- 13. 画像を囲むボックス --- */
+<<<<<<< HEAD
 :root {
   --content-image-width: 1000px;
 }
@@ -332,6 +337,12 @@ h1::after,
   display: inline-block;
   width: auto;
   min-height: 0;
+=======
+.image-box {
+  display: inline-block;
+  width: min(900px, 92vw);
+  min-height: 300px;
+>>>>>>> fc42297 (いろいろ)
   margin: 24px auto 40px;
   padding: 40px;
   background: rgba(255, 255, 255, 0.45);
@@ -346,10 +357,16 @@ h1::after,
 /* --- 14. 本文画像 --- */
 .content-image {
   display: block;
+<<<<<<< HEAD
   width: min(var(--content-image-width), 90vw);
   max-width: 100%;
   height: auto;
   margin: 16px auto 32px;
+=======
+  max-width: min(520px, 90vw);
+  height: auto;
+  margin: 16px auto 28px;
+>>>>>>> fc42297 (いろいろ)
 }
 
 .image-box .content-image {
@@ -421,10 +438,20 @@ h1::after,
 }
 
 #page-info {
+<<<<<<< HEAD
   font-size: 16px;
   color: #666;
   margin-bottom: 20px;
   text-align: center;
+=======
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  text-align: center;
+  font-size: 16px;
+  color: #666;
+  margin: 0 auto 20px;
+>>>>>>> fc42297 (いろいろ)
 }
 
 #total-count,
@@ -473,7 +500,10 @@ h1::after,
 
 .toc-group:first-of-type {
   margin-top: 0;
+<<<<<<< HEAD
   border-top: 0;
+=======
+>>>>>>> fc42297 (いろいろ)
 }
 
 .toc-group-title {
@@ -702,4 +732,8 @@ h1::after,
   .section-title {
     font-size: 20px !important;
   }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> fc42297 (いろいろ)
