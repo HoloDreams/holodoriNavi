@@ -1,0 +1,513 @@
+﻿
+let fileHandle = null;
+let currentMode = "card";
+let isFileLoaded = false;
+
+
+window.onload = function() {
+    setupWindowDragAndDrop();
+};
+
+function updateTableHeader() {
+    const thead = document.getElementById("tableHead");
+    if (currentMode === "song") {
+        // 【変更】指定された並び順で楽曲用のヘッダーを構築
+        thead.innerHTML = `
+            <tr>
+                <th style="width: 25%;">曲名</th>
+                <th style="width: 45%;">歌唱メンバー (カンマ区切り)</th>
+                <th style="width: 6%;">expert</th>
+                <th style="width: 6%;">hard</th>
+                <th style="width: 6%;">normal</th>
+                <th style="width: 6%;">easy</th>
+                <th style="width: 6%;">操作</th>
+            </tr>
+        `;
+        document.getElementById("currentMode").innerText = "モード: 楽曲リスト編集 (songList)";
+    } else if (currentMode === "item") {
+        thead.innerHTML = `
+            <tr>
+                <th style="width: 18%;">アイテム名</th>
+                <th style="width: 18%;">画像ファイル名 (Drop可)</th>
+                <th style="width: 38%;">説明</th>
+                <th style="width: 20%;">入手場所 (カンマ区切り)</th>
+                <th style="width: 6%;">操作</th>
+            </tr>
+        `;
+        document.getElementById("currentMode").innerText = "モード: アイテム一覧編集 (itemList)";
+    } else {
+        thead.innerHTML = `
+            <tr>
+                <th style="width: 4%;">レア度</th>
+                <th style="width: 7%;">タイプ</th>
+                <th style="width: 11%;">名前</th>
+                <th style="width: 12%;">ファイル名 (Drop可)</th>
+                <th style="width: 8%;">バージョン</th>
+                <th style="width: 9%;">所属</th>
+                <th style="width: 14%;">検索ワード (カンマ区切り)</th>
+                <th>connect範囲</th>
+                <th>connect位置</th>
+                <th>connect効果</th>
+                <th>衣装スキル</th>
+                <th class="skill-detail-head">スキル詳細</th>
+                <th style="width: 4%;">操作</th>
+            </tr>
+        `;
+        document.getElementById("currentMode").innerText = "モード: カードデータ編集 (cardData)";
+    }
+}
+
+function addRowToDOM(data) {
+    const tbody = document.getElementById("tableBody");
+    const tr = document.createElement("tr");
+
+    if (currentMode === "item") {
+        const safeData = data || { name: "", image: "", description: "", get: "" };
+        const getValue = Array.isArray(safeData.get) ? safeData.get.join("、") : (safeData.get || "");
+
+        tr.innerHTML = `
+            <td><input type="text" class="item-name" value="${escapeAttr(safeData.name || '')}" placeholder="アイテム名"></td>
+            <td class="filename-cell item-filename-cell">
+                <input type="text" class="item-image" value="${escapeAttr(safeData.image || '')}" placeholder="画像ファイル名だけ">
+            </td>
+            <td><textarea class="item-description" placeholder="説明">${escapeText(safeData.description || '')}</textarea></td>
+            <td><input type="text" class="item-get" value="${escapeAttr(getValue)}" placeholder="ホロメンクエスト、ログインボーナス"></td>
+            <td><button style="padding: 2px 8px; margin: 0; font-size: 11px;" onclick="deleteRow(this)">DEL</button></td>
+        `;
+
+        const fileCell = tr.querySelector(".item-filename-cell");
+        const fileInput = tr.querySelector(".item-image");
+        const nameInput = tr.querySelector(".item-name");
+
+        fileCell.addEventListener("dragover", (e) => { e.preventDefault(); e.stopPropagation(); fileCell.classList.add("dragover"); });
+        fileCell.addEventListener("dragleave", (e) => { e.preventDefault(); e.stopPropagation(); fileCell.classList.remove("dragover"); });
+        fileCell.addEventListener("drop", (e) => {
+            e.preventDefault(); e.stopPropagation(); fileCell.classList.remove("dragover");
+            const files = e.dataTransfer.files;
+            if (files.length > 0) {
+                const rawFileName = files[0].name;
+                if (rawFileName.endsWith('.js')) return;
+                fileInput.value = rawFileName;
+                if (!nameInput.value.trim()) {
+                    const baseName = rawFileName.substring(0, rawFileName.lastIndexOf('.')) || rawFileName;
+                    nameInput.value = baseName;
+                }
+            }
+        });
+    } else if (currentMode === "song") {
+        // 【変更】songList用データ（曲名, メンバー, 各難易度オブジェクト）を展開
+        const songName = data ? data[0] || "" : "";
+        const members = data ? data[1] || "" : "";
+        const levels = data ? data[2] || { expert: 0, hard: 0, normal: 0, easy: 0 } : { expert: 0, hard: 0, normal: 0, easy: 0 };
+
+        // ご指定の「曲名、メンバー、expert、hard、normal、easy」順に入力欄を追加
+        tr.innerHTML = `
+            <td><input type="text" class="song-name" value="${songName}" placeholder="曲名"></td>
+            <td><input type="text" class="song-members" value="${members}" placeholder="ときのそら, ロボ子さん..."></td>
+            <td><input type="number" class="lv-expert" value="${levels.expert || 0}" min="1" max="50"></td>
+            <td><input type="number" class="lv-hard" value="${levels.hard || 0}" min="1" max="50"></td>
+            <td><input type="number" class="lv-normal" value="${levels.normal || 0}" min="1" max="50"></td>
+            <td><input type="number" class="lv-easy" value="${levels.easy || 0}" min="1" max="50"></td>
+            <td><button style="padding: 2px 8px; margin: 0; font-size: 11px;" onclick="deleteRow(this)">DEL</button></td>
+        `;
+    } else {
+        const safeData = data || [5, "", "", "", {leader:"", connect:{range:"", cells:[], effect:""}, costume:"", special:"", active:"", passive:""}];
+        const isOldCardFormat = safeData.length >= 6 && typeof safeData[3] === "number";
+        const tagString = isOldCardFormat ? (safeData[4] || "") : (safeData[3] || "");
+        const tags = tagString.split(",").map(t => t.trim());
+        
+        const versionVal = tags[0] || "";
+        const groupVal = tags[1] || "";
+        const searchVal = tags.slice(2).join(", ") || "";
+        const skills = (isOldCardFormat ? safeData[5] : safeData[4]) || { leader: "", connect: { range: "", cells: [], effect: "" }, costume: "", special: "", active: "", passive: "" };
+        const connect = normalizeEditorConnect(skills.connect);
+        const typeVal = normalizeCardType(skills.type || "");
+
+        tr.innerHTML = `
+            <td><input type="number" class="rarity" value="${safeData[0]}" min="1" max="5"></td>
+            <td><input type="text" class="name" value="${safeData[1]}" placeholder="Name"></td>
+            <td class="filename-cell">
+                <input type="text" class="filename" value="${safeData[2]}" placeholder="Drop file here">
+            </td>
+            <td><input type="text" class="version" value="${versionVal}" placeholder="ver1.0.0"></td>
+            <td><input type="text" class="group" value="${groupVal}" placeholder="所属"></td>
+            <td><input type="text" class="searchword" value="${searchVal}" placeholder="ワード1, ワード2"></td>
+            <td><input type="text" class="connect-range" value="${escapeAttr(connect.range)}" placeholder="3マス効果"></td>
+            <td class="connect-cell-editor">
+                <div class="connect-picker">${createEditorConnectGrid(connect.cells)}</div>
+                <input type="text" class="connect-cells" value="${escapeAttr(connect.cells)}" placeholder="0-24をカンマ区切り">
+            </td>
+            <td><textarea class="connect-effect" placeholder="範囲内のホロメンボード効果を250%UP">${escapeText(connect.effect)}</textarea></td>
+            <td><textarea class="costume" placeholder="衣装スキル">${escapeText(skills.costume || '')}</textarea></td>
+            <td class="skill-detail-editor skill-detail-editor-three">
+                <input type="hidden" class="leader" value="${escapeAttr(skills.leader || '')}">
+                <label>スペシャル<textarea class="special" placeholder="スペシャルスキル">${escapeText(skills.special || '')}</textarea></label>
+                <label>アクティブ<textarea class="active" placeholder="アクティブスキル">${escapeText(skills.active || '')}</textarea></label>
+                <label class="passive-skill-field">パッシブ<textarea class="passive" placeholder="パッシブスキル">${escapeText(skills.passive || '')}</textarea></label>
+            </td>
+            <td><button style="padding: 2px 8px; margin: 0; font-size: 11px;" onclick="deleteRow(this)">DEL</button></td>
+        `;
+        setupConnectPicker(tr);
+
+        const fileCell = tr.querySelector(".filename-cell");
+        const fileInput = fileCell.querySelector(".filename");
+        const nameInput = tr.querySelector(".name");
+
+        fileCell.addEventListener("dragover", (e) => { e.preventDefault(); e.stopPropagation(); fileCell.classList.add("dragover"); });
+        fileCell.addEventListener("dragleave", (e) => { e.preventDefault(); e.stopPropagation(); fileCell.classList.remove("dragover"); });
+        fileCell.addEventListener("drop", (e) => {
+            e.preventDefault(); e.stopPropagation(); fileCell.classList.remove("dragover");
+            const files = e.dataTransfer.files;
+            if (files.length > 0) {
+                const rawFileName = files[0].name;
+                if (rawFileName.endsWith('.js')) return;
+                fileInput.value = rawFileName;
+                if (!nameInput.value.trim()) {
+                    const baseName = rawFileName.substring(0, rawFileName.lastIndexOf('.')) || rawFileName;
+                    nameInput.value = baseName;
+                }
+            }
+        });
+    }
+    tbody.appendChild(tr);
+}
+
+function escapeAttr(value) {
+    return String(value ?? "")
+        .replace(/&/g, "&amp;")
+        .replace(/"/g, "&quot;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;");
+}
+
+function escapeText(value) {
+    return String(value ?? "")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;");
+}
+
+function normalizeEditorConnect(connect) {
+    if (connect && typeof connect === "object" && !Array.isArray(connect)) {
+        return {
+            range: connect.range || "",
+            cells: formatConnectCells(connect.cells),
+            effect: connect.effect || ""
+        };
+    }
+    return { range: "", cells: "", effect: connect || "" };
+}
+
+function normalizeCardType(value) {
+    const normalized = String(value || "").trim().toLowerCase();
+    if (["cute", "キュート", "キュートタイプ", "❤", "赤"].includes(normalized)) return "cute";
+    if (["pure", "ピュア", "ピュアタイプ", "🍃", "緑"].includes(normalized)) return "pure";
+    if (["happy", "ハッピー", "ハッピータイプ", "☀", "黄", "黄色"].includes(normalized)) return "happy";
+    return "";
+}
+
+function jsString(value) {
+    return JSON.stringify(String(value ?? ""));
+}
+
+function uniqueSortedCells(values) {
+    return Array.from(new Set((values || [])
+        .map(v => parseInt(v, 10))
+        .filter(v => Number.isInteger(v) && v >= 0 && v < 25)))
+        .sort((a, b) => a - b);
+}
+
+function parsePlainConnectCells(value) {
+    return uniqueSortedCells(String(value || "").split(/[\u3001,\s]+/));
+}
+
+function parseConnectCellMap(value) {
+    if (value && typeof value === "object" && !Array.isArray(value)) {
+        return {
+            yellow: uniqueSortedCells(value.yellow || value.y || []),
+            green: uniqueSortedCells(value.green || value.g || [])
+        };
+    }
+    if (Array.isArray(value)) {
+        return { yellow: uniqueSortedCells(value), green: [] };
+    }
+
+    const text = String(value || "").trim();
+    if (!text) return { yellow: [], green: [] };
+
+    const yellowMatch = text.match(/(?:yellow|y|\u9ec4)\s*[:\uff1a]\s*([^|/;]+)/i);
+    const greenMatch = text.match(/(?:green|g|\u7dd1)\s*[:\uff1a]\s*([^|/;]+)/i);
+    if (yellowMatch || greenMatch) {
+        return {
+            yellow: parsePlainConnectCells(yellowMatch ? yellowMatch[1] : ""),
+            green: parsePlainConnectCells(greenMatch ? greenMatch[1] : "")
+        };
+    }
+
+    return { yellow: parsePlainConnectCells(text), green: [] };
+}
+
+function formatConnectCells(value) {
+    const cellMap = parseConnectCellMap(value);
+    const parts = [];
+    if (cellMap.yellow.length) parts.push(`yellow: ${cellMap.yellow.join(", ")}`);
+    if (cellMap.green.length) parts.push(`green: ${cellMap.green.join(", ")}`);
+    return parts.join(" | ");
+}
+
+function createEditorConnectGrid(value) {
+    const cellMap = parseConnectCellMap(value);
+    const yellowCells = new Set(cellMap.yellow);
+    const greenCells = new Set(cellMap.green);
+    let html = "";
+    for (let i = 0; i < 25; i++) {
+        const classes = ["connect-picker-cell"];
+        if (yellowCells.has(i)) classes.push("is-yellow");
+        if (greenCells.has(i)) classes.push("is-green");
+        if (i === 12) classes.push("center");
+        html += `<button type="button" class="${classes.join(" ")}" data-cell="${i}" title="${i}">${i}</button>`;
+    }
+    return html;
+}
+
+function syncConnectPicker(row) {
+    const input = row.querySelector(".connect-cells");
+    const cellMap = parseConnectCellMap(input ? input.value : "");
+    const yellowCells = new Set(cellMap.yellow);
+    const greenCells = new Set(cellMap.green);
+    row.querySelectorAll(".connect-picker-cell").forEach(cell => {
+        const cellNumber = Number(cell.dataset.cell);
+        cell.classList.toggle("is-yellow", yellowCells.has(cellNumber));
+        cell.classList.toggle("is-green", greenCells.has(cellNumber));
+    });
+}
+
+function toggleConnectCell(row, cellNumber, color) {
+    const input = row.querySelector(".connect-cells");
+    if (!input) return;
+    const cellMap = parseConnectCellMap(input.value);
+    const yellowCells = new Set(cellMap.yellow);
+    const greenCells = new Set(cellMap.green);
+    const targetSet = color === "green" ? greenCells : yellowCells;
+    const otherSet = color === "green" ? yellowCells : greenCells;
+
+    if (targetSet.has(cellNumber)) {
+        targetSet.delete(cellNumber);
+    } else {
+        otherSet.delete(cellNumber);
+        targetSet.add(cellNumber);
+    }
+
+    input.value = formatConnectCells({
+        yellow: Array.from(yellowCells),
+        green: Array.from(greenCells)
+    });
+    syncConnectPicker(row);
+}
+
+function setupConnectPicker(row) {
+    const input = row.querySelector(".connect-cells");
+    const picker = row.querySelector(".connect-picker");
+    if (!input || !picker) return;
+
+    picker.addEventListener("click", (event) => {
+        const cell = event.target.closest(".connect-picker-cell");
+        if (!cell) return;
+        toggleConnectCell(row, Number(cell.dataset.cell), "yellow");
+    });
+
+    picker.addEventListener("contextmenu", (event) => {
+        const cell = event.target.closest(".connect-picker-cell");
+        if (!cell) return;
+        event.preventDefault();
+        toggleConnectCell(row, Number(cell.dataset.cell), "green");
+    });
+
+    input.addEventListener("input", () => syncConnectPicker(row));
+    syncConnectPicker(row);
+}
+
+function addRow() {
+    addRowToDOM(null);
+}
+
+function deleteRow(button) {
+    if(confirm("DELETE THIS ROW?")) {
+        button.closest("tr").remove();
+    }
+}
+
+async function selectJSFile() {
+    try {
+        const [handle] = await window.showOpenFilePicker({
+            types: [{ description: 'JavaScript Files', accept: { 'application/javascript': ['.js'] } }],
+            multiple: false
+        });
+        fileHandle = handle;
+        const file = await fileHandle.getFile();
+        const text = await file.text();
+        parseAndRenderJS(text);
+        updateStatus(file.name);
+    } catch (err) {
+        if (err.name !== 'AbortError') alert("エラー: " + err.message);
+    }
+}
+
+function setupWindowDragAndDrop() {
+    window.addEventListener("dragover", (e) => e.preventDefault());
+    window.addEventListener("drop", async (e) => {
+        e.preventDefault();
+        const items = e.dataTransfer.items;
+        if (items && items[0] && items[0].kind === 'file') {
+            const entry = await items[0].getAsFileSystemHandle();
+            if (entry && entry.kind === 'file' && entry.name.endsWith('.js')) {
+                fileHandle = entry;
+                const file = await fileHandle.getFile();
+                const text = await file.text();
+                parseAndRenderJS(text);
+                updateStatus(file.name);
+            }
+        }
+    });
+}
+
+function updateStatus(fileName) {
+    document.getElementById("fileStatus").innerText = `選択中: ${fileName}`;
+    document.getElementById("saveBtn").disabled = false;
+}
+
+function parseAndRenderJS(jsText) {
+    try {
+        isFileLoaded = true;
+        if (jsText.includes("itemList")) {
+            currentMode = "item";
+        } else if (jsText.includes("songList")) {
+            currentMode = "song";
+        } else {
+            currentMode = "card";
+        }
+        updateTableHeader();
+
+        const startIndex = jsText.indexOf('[');
+        const endIndex = jsText.lastIndexOf(']');
+        if (startIndex === -1 || endIndex === -1) {
+alert("有効な配列データが見つかりませんでした。");
+            return;
+        }
+        
+        const arrayDataText = jsText.substring(startIndex, endIndex + 1);
+        const parsedData = new Function(`return ${arrayDataText};`)();
+        
+        if (Array.isArray(parsedData)) {
+            const tbody = document.getElementById("tableBody");
+            tbody.innerHTML = "";
+            parsedData.forEach(data => {
+                if (currentMode === "item") {
+                    if (data && typeof data === "object" && !Array.isArray(data)) addRowToDOM(data);
+                } else if (Array.isArray(data)) {
+                    addRowToDOM(data);
+                }
+            });
+        } else {
+            alert("データの解析に失敗しました。");
+        }
+    } catch (err) {
+        alert("JSファイルの解析中にエラーが発生しました:\n" + err.message);
+    }
+}
+
+function generateJSString() {
+    const rows = document.querySelectorAll("#tableBody tr");
+    
+    if (currentMode === "item") {
+        let result = "const itemList = [\n";
+        rows.forEach((row, index) => {
+            const name = row.querySelector(".item-name").value;
+            const image = row.querySelector(".item-image").value;
+            const description = row.querySelector(".item-description").value;
+            const get = row.querySelector(".item-get").value;
+
+            result += "  {\n";
+            result += `    name: ${jsString(name)},\n`;
+            result += `    image: ${jsString(image)},\n`;
+            result += `    description: ${jsString(description)},\n`;
+            result += `    get: ${jsString(get)}\n`;
+            result += "  }";
+            if (index < rows.length - 1) result += ",\n";
+            else result += "\n";
+        });
+        result += "];\n";
+        result += "\nconst itemImageBasePath = 'img/item img/';\n";
+        return result;
+    } else if (currentMode === "song") {
+        // 【変更】難易度オブジェクトを含む形で songList ファイルを出力
+        let result = "const songList = [\n";
+        rows.forEach((row, index) => {
+            const songName = row.querySelector(".song-name").value;
+            const members = row.querySelector(".song-members").value;
+            const expert = parseInt(row.querySelector(".lv-expert").value) || 0;
+            const hard = parseInt(row.querySelector(".lv-hard").value) || 0;
+            const normal = parseInt(row.querySelector(".lv-normal").value) || 0;
+            const easy = parseInt(row.querySelector(".lv-easy").value) || 0;
+
+            result += `  ["${songName}", "${members}", { easy: ${easy}, normal: ${normal}, hard: ${hard}, expert: ${expert} }]`;
+            if (index < rows.length - 1) result += ",\n";
+            else result += "\n";
+        });
+        result += "];\n";
+        return result;
+    } else {
+        let result = "const cardData = [\n";
+        rows.forEach((row, index) => {
+            const rarity = parseInt(row.querySelector(".rarity").value) || 0;
+            const name = row.querySelector(".name").value;
+            const filename = row.querySelector(".filename").value;
+            const type = row.querySelector(".card-type") ? row.querySelector(".card-type").value : "";
+            const version = row.querySelector(".version").value.trim();
+            const group = row.querySelector(".group").value.trim();
+            const searchword = row.querySelector(".searchword").value.trim();
+            
+            let combinedTags = [];
+            if (version) combinedTags.push(version);
+            if (group) combinedTags.push(group);
+            if (searchword) combinedTags.push(searchword);
+            const searchWordStr = combinedTags.join(", ");
+
+            const connectRange = row.querySelector(".connect-range").value;
+            const connectCells = parseConnectCellMap(row.querySelector(".connect-cells").value);
+            const connectEffect = row.querySelector(".connect-effect").value;
+            const costume = row.querySelector(".costume").value;
+            const leader = row.querySelector(".leader").value;
+            const special = row.querySelector(".special").value;
+            const active = row.querySelector(".active").value;
+            const passive = row.querySelector(".passive").value;
+
+            result += `  [ ${rarity}, ${jsString(name)}, ${jsString(filename)}, ${jsString(searchWordStr)}, \n`;
+            result += `    { type: ${jsString(type)}, leader: ${jsString(leader)}, connect: { range: ${jsString(connectRange)}, cells: { yellow: [${connectCells.yellow.join(", ")}], green: [${connectCells.green.join(", ")}] }, effect: ${jsString(connectEffect)} }, costume: ${jsString(costume)}, special: ${jsString(special)}, active: ${jsString(active)}, passive: ${jsString(passive)} }\n`;
+            result += `  ]`;
+            
+            if (index < rows.length - 1) result += ",\n";
+            else result += "\n";
+        });
+        result += "];\n";
+        return result;
+    }
+}
+
+async function saveJSFile() {
+    if (!fileHandle) return;
+    try {
+        const jsContent = generateJSString();
+        const writable = await fileHandle.createWritable();
+        await writable.write(jsContent);
+        await writable.close();
+        alert("ファイルを直接上書き保存しました");
+    } catch (err) {
+        alert("保存中にエラーが発生しました:\n" + err.message);
+    }
+}
+
+document.addEventListener("contextmenu", (event) => event.preventDefault());
+
+updateTableHeader();
+

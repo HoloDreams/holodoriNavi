@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>楽曲情報HTML生成ツール</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="generator-shell">
+    <header class="tool-hero">
+      <p class="tool-kicker">Holodori Navi Tool</p>
+      <h1>楽曲情報HTML生成</h1>
+      <p>楽曲詳細ページ用のHTMLを生成します。必要な情報を入力して、保存ボタンからHTMLを書き出してください。</p>
+    </header>
+
+    <div class="generator-grid">
+      <section class="tool-panel input-pane" aria-label="入力エリア">
+        <div class="section-block">
+          <h2>基本情報</h2>
+          <div class="form-grid">
+            <label>曲名<input type="text" id="song_name" placeholder="例: Shiny Smily Story"></label>
+            <label>公式曲URL<input type="text" id="song_URL" placeholder="https://..."></label>
+            <label>BPM<input type="number" id="bpm" placeholder="例: 170"></label>
+            <label>画像ファイル名<input type="text" id="img_name" placeholder="cover_art内のファイル名"></label>
+          </div>
+
+          <label class="drop-label">ジャケット画像</label>
+          <div id="drop_zone" class="drop-zone" tabindex="0" role="button" aria-label="ジャケット画像を選択">
+            <div class="drop-zone-text">
+              <strong>画像を選択</strong>
+              <span>クリック、またはここへドロップ</span>
+            </div>
+            <img id="preview_img" src="#" alt="Preview">
+            <input type="file" id="file_input" accept="image/*">
+          </div>
+        </div>
+
+        <div class="section-block">
+          <h2>難易度情報</h2>
+          <div class="difficulty-grid">
+            <label>EX Lv<input type="text" id="ex_lv"></label>
+            <label>EX Combo<input type="text" id="ex_cb"></label>
+            <label>HD Lv<input type="text" id="hd_lv"></label>
+            <label>HD Combo<input type="text" id="hd_cb"></label>
+            <label>NM Lv<input type="text" id="nm_lv"></label>
+            <label>NM Combo<input type="text" id="nm_cb"></label>
+            <label>ES Lv<input type="text" id="es_lv"></label>
+            <label>ES Combo<input type="text" id="es_cb"></label>
+          </div>
+        </div>
+
+        <div class="section-block">
+          <h2>YouTube埋め込み</h2>
+          <div class="form-grid">
+            <label>Expert<input type="text" id="ex_vid" placeholder="<iframe..."></label>
+            <label>Hard<input type="text" id="hd_vid" placeholder="<iframe..."></label>
+            <label>Normal<input type="text" id="nm_vid" placeholder="<iframe..."></label>
+            <label>Easy<input type="text" id="es_vid" placeholder="<iframe..."></label>
+          </div>
+        </div>
+
+        <div class="section-block">
+          <h2>譜面について</h2>
+          <textarea id="song_comment" class="comment-input" placeholder="コメントを入力..."></textarea>
+        </div>
+      </section>
+
+      <section class="tool-panel output-pane" aria-label="生成結果">
+        <div class="output-head">
+          <div>
+            <h2>生成結果</h2>
+            <p>生成後、必要に応じて内容を確認して保存してください。</p>
+          </div>
+        </div>
+        <textarea id="result_code" readonly placeholder="ここに生成されたHTMLが表示されます。"></textarea>
+        <div class="button-group">
+          <button type="button" id="btn-generate">HTMLを生成</button>
+          <button type="button" id="btn-copy" class="button-secondary">コピー</button>
+          <button type="button" id="btn-download" class="button-accent">保存</button>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <script src="generator.js"></script>
+</body>
+</html>

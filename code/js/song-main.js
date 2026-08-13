@@ -16,20 +16,18 @@ function getSongCoverSrc(songData) {
 }
 
 function parseSongReleaseDate(value) {
-    const text = String(value || '');
+    if (!value) return 0;
+    const text = String(value).trim();
     const jp = text.match(/(\d{4})年\s*(\d{1,2})月\s*(\d{1,2})日/);
-    if (jp) {
-        return new Date(Number(jp[1]), Number(jp[2]) - 1, Number(jp[3])).getTime();
-    }
-    const iso = text.match(/(\d{4})[-/](\d{1,2})[-/](\d{1,2})/);
-    if (iso) {
-        return new Date(Number(iso[1]), Number(iso[2]) - 1, Number(iso[3])).getTime();
-    }
-    return 0;
+    const slash = text.match(/(\d{4})[\/-](\d{1,2})[\/-](\d{1,2})/);
+    const match = jp || slash;
+    if (!match) return 0;
+    return new Date(Number(match[1]), Number(match[2]) - 1, Number(match[3])).getTime();
 }
 
 function getSongReleaseDateValue(item) {
-    return parseSongReleaseDate(item.data && item.data[4] && item.data[4].releaseDate);
+    const extra = item && item.data ? item.data[4] : null;
+    return parseSongReleaseDate(extra && extra.releaseDate);
 }
 function getSongSortLevel(item) {
     const levels = item.data[2] || {};
@@ -50,17 +48,18 @@ function sortSongResults(results, sortMode) {
     return results
         .map((item, index) => ({ ...item, originalIndex: index }))
         .sort((a, b) => {
+            const fallback = (a.sourceIndex ?? a.originalIndex) - (b.sourceIndex ?? b.originalIndex);
+
             if (sortMode === 'release-desc') {
                 const dateDiff = getSongReleaseDateValue(b) - getSongReleaseDateValue(a);
-                if (dateDiff !== 0) return dateDiff;
-                return (a.sourceIndex ?? a.originalIndex) - (b.sourceIndex ?? b.originalIndex);
+                return dateDiff !== 0 ? dateDiff : fallback;
             }
 
             if (sortMode === 'title-ja') {
                 const titleA = a.data[0] || '';
                 const titleB = b.data[0] || '';
                 const titleDiff = titleA.localeCompare(titleB, 'ja');
-                return titleDiff !== 0 ? titleDiff : (a.sourceIndex ?? a.originalIndex) - (b.sourceIndex ?? b.originalIndex);
+                return titleDiff !== 0 ? titleDiff : fallback;
             }
 
             const levelA = getSongSortLevel(a);
@@ -68,7 +67,7 @@ function sortSongResults(results, sortMode) {
             const levelDiff = sortMode === 'level-asc'
                 ? levelA - levelB
                 : levelB - levelA;
-            return levelDiff !== 0 ? levelDiff : (a.sourceIndex ?? a.originalIndex) - (b.sourceIndex ?? b.originalIndex);
+            return levelDiff !== 0 ? levelDiff : fallback;
         })
         .map(({ originalIndex, ...item }) => item);
 }
@@ -142,8 +141,8 @@ function updateDisplay() {
         if (selectedDiff === 'none' && minLevel === null && maxLevel === null) {
             results.push({
                 data: songData,
-                sourceIndex: i,
-                displayDiff: 'none' 
+                displayDiff: 'none',
+                sourceIndex: i
             });
             continue;
         }
@@ -156,8 +155,8 @@ function updateDisplay() {
                 
                 results.push({
                     data: songData,
-                    sourceIndex: i,
-                    displayDiff: selectedDiff
+                    displayDiff: selectedDiff,
+                    sourceIndex: i
                 });
             }
             continue;
@@ -172,8 +171,8 @@ function updateDisplay() {
 
                 results.push({
                     data: songData,
-                    sourceIndex: i,
-                    displayDiff: diff
+                    displayDiff: diff,
+                    sourceIndex: i
                 });
             }
         });
@@ -361,6 +360,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     updateDisplay();
 });
+
 
 
 
