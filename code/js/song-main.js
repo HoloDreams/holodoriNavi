@@ -29,6 +29,7 @@ function getSongReleaseDateValue(item) {
     const extra = item && item.data ? item.data[4] : null;
     return parseSongReleaseDate(extra && extra.releaseDate);
 }
+
 function getSongSortLevel(item) {
     const levels = item.data[2] || {};
     if (item.displayDiff && item.displayDiff !== 'none') {
@@ -42,6 +43,26 @@ function getSongSortLevel(item) {
     );
 }
 
+
+function parseSongReleaseDate(value) {
+    if (!value) return 0;
+    const text = String(value).trim();
+    const jpMatch = text.match(/(\d{4})年\s*(\d{1,2})月\s*(\d{1,2})日/);
+    if (jpMatch) {
+        return new Date(Number(jpMatch[1]), Number(jpMatch[2]) - 1, Number(jpMatch[3])).getTime();
+    }
+    const slashMatch = text.match(/(\d{4})[\/-](\d{1,2})[\/-](\d{1,2})/);
+    if (slashMatch) {
+        return new Date(Number(slashMatch[1]), Number(slashMatch[2]) - 1, Number(slashMatch[3])).getTime();
+    }
+    const parsed = Date.parse(text);
+    return Number.isNaN(parsed) ? 0 : parsed;
+}
+
+function getSongReleaseDateValue(item) {
+    const extra = item.data && item.data[4] ? item.data[4] : {};
+    return parseSongReleaseDate(extra.releaseDate || extra.date || '');
+}
 function sortSongResults(results, sortMode) {
     if (sortMode === 'default') return results;
 
@@ -52,14 +73,14 @@ function sortSongResults(results, sortMode) {
 
             if (sortMode === 'release-desc') {
                 const dateDiff = getSongReleaseDateValue(b) - getSongReleaseDateValue(a);
-                return dateDiff !== 0 ? dateDiff : fallback;
+return dateDiff !== 0 ? dateDiff : fallback;
             }
 
             if (sortMode === 'title-ja') {
                 const titleA = a.data[0] || '';
                 const titleB = b.data[0] || '';
                 const titleDiff = titleA.localeCompare(titleB, 'ja');
-                return titleDiff !== 0 ? titleDiff : fallback;
+return titleDiff !== 0 ? titleDiff : fallback;
             }
 
             const levelA = getSongSortLevel(a);
@@ -67,7 +88,7 @@ function sortSongResults(results, sortMode) {
             const levelDiff = sortMode === 'level-asc'
                 ? levelA - levelB
                 : levelB - levelA;
-            return levelDiff !== 0 ? levelDiff : fallback;
+return levelDiff !== 0 ? levelDiff : fallback;
         })
         .map(({ originalIndex, ...item }) => item);
 }
@@ -142,7 +163,7 @@ function updateDisplay() {
             results.push({
                 data: songData,
                 displayDiff: 'none',
-                sourceIndex: i
+sourceIndex: i
             });
             continue;
         }
@@ -360,6 +381,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     updateDisplay();
 });
+
 
 
 
