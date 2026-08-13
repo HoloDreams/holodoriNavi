@@ -324,10 +324,14 @@ h1::after,
 }
 
 /* --- 13. 画像を囲むボックス --- */
+:root {
+  --content-image-width: 1000px;
+}
+
 .image-box {
   display: inline-block;
-  width: min(900px, 92vw);
-  min-height: 300px;
+  width: auto;
+  min-height: 0;
   margin: 24px auto 40px;
   padding: 40px;
   background: rgba(255, 255, 255, 0.45);
@@ -342,9 +346,10 @@ h1::after,
 /* --- 14. 本文画像 --- */
 .content-image {
   display: block;
-  max-width: min(520px, 90vw);
+  width: min(var(--content-image-width), 90vw);
+  max-width: 100%;
   height: auto;
-  margin: 16px auto 28px;
+  margin: 16px auto 32px;
 }
 
 .image-box .content-image {
@@ -419,6 +424,7 @@ h1::after,
   font-size: 16px;
   color: #666;
   margin-bottom: 20px;
+  text-align: center;
 }
 
 #total-count,
@@ -467,6 +473,7 @@ h1::after,
 
 .toc-group:first-of-type {
   margin-top: 0;
+  border-top: 0;
 }
 
 .toc-group-title {
