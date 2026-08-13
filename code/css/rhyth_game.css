@@ -69,6 +69,12 @@ h3 {
   margin-top: 32px;
   margin-bottom: 18px;
 }
+.notes_img {
+  display: block;
+  margin: 16px auto 28px;
+  max-width: min(520px, 90vw);
+  height: auto;
+}
 .title-explanation {
   margin-bottom: 56px;
 }
@@ -326,6 +332,7 @@ h3 {
   }
 
   .content-image,
+  .notes_img,
   .under-img,
   .tap-effect-image {
     display: block !important;

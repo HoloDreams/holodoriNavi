@@ -14,6 +14,7 @@
 .unit-image-placeholder {
   display: grid;
   place-items: center;
+  min-height: 300px;
   color: #0094d8;
   background: rgba(255, 255, 255, 0.55);
   border: 3px dashed rgba(0, 148, 216, 0.35);
@@ -31,7 +32,7 @@
     padding: 24px 16px;
   }
 
-  .image-box {
+  .unit-image-placeholder {
     min-height: 190px;
   }
 }
