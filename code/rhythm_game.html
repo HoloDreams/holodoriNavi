@@ -37,35 +37,7 @@
 </head>
 
 <body id="page-top">
-  <div class="holodori-loading-screen" role="status" aria-live="polite">
-    <div class="holodori-loading-inner">
-      <p class="holodori-loading-text" aria-label="Loading...">
-        <span style="--i: 0;">L</span>
-        <span style="--i: 1;">o</span>
-        <span style="--i: 2;">a</span>
-        <span style="--i: 3;">d</span>
-        <span style="--i: 4;">i</span>
-        <span style="--i: 5;">n</span>
-        <span style="--i: 6;">g</span>
-        <span style="--i: 7;">.</span>
-        <span style="--i: 8;">.</span>
-        <span style="--i: 9;">.</span>
-      </p>
-      <div class="holodori-loading-bar" aria-hidden="true">
-        <div class="holodori-loading-bar-fill"></div>
-      </div>
-    </div>
-  </div>
-  <a href="home.html" class="back-btn"><img src="img/back.png" alt="戻る"></a>
-  <a href="#page-top" class="page-top-button" aria-label="一番上へ戻る">⇧</a>
-  <nav class="navbar">
-    <div class="logo"><a href="home.html"><img src="img/ロゴ.png" alt="logo"></a><span class="site-title">ホロドリナビ<br>リズムゲーム説明</span></div>
-    <ul class="nav-links">
-      <li><a href="https://opening.hololive-dreams.com/" target="_blank">公式サイト</a></li>
-      <li><a href="https://x.com/hololive_dreams" target="_blank" class="sns-link"><img src="sns_img/x.png" alt="公式X"></a></li>
-      <li><a href="https://www.youtube.com/@hololivedreams" target="_blank" class="sns-link"><img src="sns_img/yt.png" alt="公式YouTube"></a></li>
-    </ul>
-  </nav>
+  <div id="site-header" data-subtitle="リズムゲーム説明"></div>
   <main class="operation-main" id="content-root">
     <h1 class="page-title">リズムゲーム</h1>
 
@@ -690,80 +662,6 @@
         Dreams非公式攻略wiki</a> を参考にしています。</p>
   </main>
   <script src="https://unpkg.com/@studio-freight/lenis@1.0.33/dist/lenis.min.js"></script>
-  <script>
-    const canUseSmoothScroll = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    function setupSmoothWheelFallback() {
-      if (!canUseSmoothScroll || window.matchMedia('(hover: none), (pointer: coarse)').matches) return;
-
-      let currentY = window.scrollY;
-      let targetY = window.scrollY;
-      let rafId = null;
-
-      function maxScrollY() {
-        return Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
-      }
-
-      function animateScroll() {
-        currentY += (targetY - currentY) * 0.16;
-        if (Math.abs(targetY - currentY) < 0.5) {
-          currentY = targetY;
-          window.scrollTo(0, currentY);
-          rafId = null;
-          return;
-        }
-        window.scrollTo(0, currentY);
-        rafId = requestAnimationFrame(animateScroll);
-      }
-
-      window.addEventListener('wheel', (event) => {
-        if (event.ctrlKey) return;
-        event.preventDefault();
-        targetY = Math.min(maxScrollY(), Math.max(0, targetY + event.deltaY));
-        if (rafId === null) {
-          currentY = window.scrollY;
-          rafId = requestAnimationFrame(animateScroll);
-        }
-      }, { passive: false });
-
-      window.addEventListener('scroll', () => {
-        if (rafId === null) {
-          currentY = window.scrollY;
-          targetY = window.scrollY;
-        }
-      }, { passive: true });
-    }
-
-    if (window.Lenis && canUseSmoothScroll) {
-      const lenis = new Lenis({
-        duration: 1.2,
-        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-        smoothWheel: true,
-        smoothTouch: true,
-        touchMultiplier: 1.2
-      });
-      function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
-      requestAnimationFrame(raf);
-    } else {
-      setupSmoothWheelFallback();
-    }
-    document.querySelectorAll('img').forEach((img, index) => {
-      img.decoding = 'async';
-      if (index > 3) img.loading = 'lazy';
-    });
-    function revealAnimatedContent() {
-      const targets = document.querySelectorAll('.fade-in-up');
-      if (!targets.length) return;
-      if ('IntersectionObserver' in window) {
-        const observer = new IntersectionObserver((entries) => {
-          entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('is-show'); observer.unobserve(entry.target); } });
-        }, { rootMargin: '0px 0px -33% 0px' });
-        targets.forEach(el => observer.observe(el));
-      } else {
-        targets.forEach(el => el.classList.add('is-show'));
-      }
-    }
-    document.addEventListener('DOMContentLoaded', revealAnimatedContent);
-  </script>
   <script src="js/loading.js"></script>
   <script src="js/common_menu.js"></script>
   <script src="js/site_notice.js"></script>
