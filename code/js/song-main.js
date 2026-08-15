@@ -55,6 +55,23 @@ function getSongSortBpm(item) {
     if (!numbers || numbers.length === 0) return null;
     return Math.max(...numbers.map(Number));
 }
+function parseSongComboValue(value) {
+    const numbers = String(value || '').match(/\d+/g);
+    if (!numbers || numbers.length === 0) return null;
+    return Number(numbers.join(''));
+}
+
+function getSongSortCombo(item) {
+    const extra = item.data && item.data[4] ? item.data[4] : {};
+    const combos = extra.combos || {};
+    if (item.displayDiff && item.displayDiff !== 'none') {
+        return parseSongComboValue(combos[item.displayDiff]);
+    }
+    const values = ['easy', 'normal', 'hard', 'expert']
+        .map(diff => parseSongComboValue(combos[diff]))
+        .filter(value => value !== null && Number.isFinite(value));
+    return values.length ? Math.max(...values) : null;
+}
 function sortSongResults(results, sortMode) {
     if (sortMode === 'default') return results;
 
@@ -81,6 +98,19 @@ function sortSongResults(results, sortMode) {
                 return bpmDiff !== 0 ? bpmDiff : fallback;
             }
 
+            if (sortMode && sortMode.startsWith('combo-')) {
+                const comboA = getSongSortCombo(a);
+                const comboB = getSongSortCombo(b);
+                const hasComboA = comboA !== null;
+                const hasComboB = comboB !== null;
+                if (!hasComboA && !hasComboB) return fallback;
+                if (!hasComboA) return 1;
+                if (!hasComboB) return -1;
+                const comboDiff = sortMode === 'combo-asc'
+                    ? comboA - comboB
+                    : comboB - comboA;
+                return comboDiff !== 0 ? comboDiff : fallback;
+            }
             if (sortMode === 'title-ja') {
                 const titleA = a.data[0] || '';
                 const titleB = b.data[0] || '';
@@ -270,8 +300,10 @@ function displaySongs(page) {
         const sortSelect = document.getElementById('sort-select');
         const currentSortMode = sortSelect ? sortSelect.value : 'default';
         const showBpmBadge = currentSortMode === 'bpm-desc' || currentSortMode === 'bpm-asc';
+        const showComboBadge = currentSortMode === 'combo-desc' || currentSortMode === 'combo-asc';
         const extra = item.data[4] || {};
         const bpmText = extra.bpm ? escapeHtml(extra.bpm) : "";
+        const comboValue = getSongSortCombo(item);
         let badgeHtml = "";
 
         if (showBpmBadge && bpmText) {
@@ -279,6 +311,10 @@ function displaySongs(page) {
             badgeHtml += `<div class="bpm-badge">${bpmText}</div>`;
         }
 
+        if (showComboBadge && comboValue !== null) {
+            card.classList.add('song-card--combo-sort');
+            badgeHtml += `<div class="combo-badge">${comboValue}</div>`;
+        }
         if (displayDiff !== 'none') {
             const currentLevelValue = levels[displayDiff] || "";
             badgeHtml += `<div class="difficulty-badge badge-${displayDiff}">${currentLevelValue}</div>`;
@@ -397,6 +433,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     updateDisplay();
 });
+
 
 
 
