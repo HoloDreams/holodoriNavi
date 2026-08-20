@@ -48,6 +48,25 @@ function getSongSortLevel(item) {
     );
 }
 
+function getSongChartConstantRaw(item) {
+    const extra = item.data && item.data[4] ? item.data[4] : {};
+    const raw = extra.chartConstant ?? extra.chartConst ?? extra.constant ?? '';
+    return raw == null ? '' : String(raw).trim();
+}
+
+function getSongChartConstant(item) {
+    const raw = getSongChartConstantRaw(item);
+    if (!raw) return null;
+    const numberText = raw.replace(/[，,]/g, '.').match(/\d+(?:\.\d+)?/);
+    if (!numberText) return null;
+    const value = Number(numberText[0]);
+    return Number.isFinite(value) ? value : null;
+}
+
+function hasSongChartConstantPlus(item) {
+    return getSongChartConstantRaw(item).includes('+');
+}
+
 function getSongSortBpm(item) {
     const extra = item.data && item.data[4] ? item.data[4] : {};
     const rawBpm = extra.bpm || item.data[5] || '';
@@ -96,6 +115,20 @@ function sortSongResults(results, sortMode) {
                     ? bpmA - bpmB
                     : bpmB - bpmA;
                 return bpmDiff !== 0 ? bpmDiff : fallback;
+            }
+
+            if (sortMode === 'constant-desc') {
+                const constantA = getSongChartConstant(a);
+                const constantB = getSongChartConstant(b);
+                const hasConstantA = constantA !== null;
+                const hasConstantB = constantB !== null;
+                if (!hasConstantA && !hasConstantB) return fallback;
+                if (!hasConstantA) return 1;
+                if (!hasConstantB) return -1;
+                const constantDiff = constantB - constantA;
+                if (constantDiff !== 0) return constantDiff;
+                const plusDiff = Number(hasSongChartConstantPlus(b)) - Number(hasSongChartConstantPlus(a));
+                return plusDiff !== 0 ? plusDiff : fallback;
             }
 
             if (sortMode && sortMode.startsWith('combo-')) {
@@ -193,6 +226,19 @@ function updateDisplay() {
         const textMatches = keywords.every(keyword => combinedText.includes(keyword));
 
         if (!textMatches) continue;
+
+        if (sortMode === 'constant-desc') {
+            const constantValue = getSongChartConstant({ data: songData });
+            if (constantValue !== null) {
+                results.push({
+                    data: songData,
+                    displayDiff: 'expert',
+                    showChartConstant: true,
+                    sourceIndex: i
+                });
+            }
+            continue;
+        }
 
         if (selectedDiff === 'none' && minLevel === null && maxLevel === null) {
             results.push({
@@ -301,6 +347,7 @@ function displaySongs(page) {
         const currentSortMode = sortSelect ? sortSelect.value : 'default';
         const showBpmBadge = currentSortMode === 'bpm-desc' || currentSortMode === 'bpm-asc';
         const showComboBadge = currentSortMode === 'combo-desc' || currentSortMode === 'combo-asc';
+        const showChartConstantBadge = item.showChartConstant || currentSortMode === 'constant-desc';
         const extra = item.data[4] || {};
         const bpmText = extra.bpm ? escapeHtml(extra.bpm) : "";
         const comboValue = getSongSortCombo(item);
@@ -315,7 +362,12 @@ function displaySongs(page) {
             card.classList.add('song-card--combo-sort');
             badgeHtml += `<div class="combo-badge">${comboValue}</div>`;
         }
-        if (displayDiff !== 'none') {
+        if (showChartConstantBadge) {
+            const chartConstantText = getSongChartConstantRaw(item);
+            if (chartConstantText) {
+                badgeHtml += `<div class="difficulty-badge badge-expert">${escapeHtml(chartConstantText)}</div>`;
+            }
+        } else if (displayDiff !== 'none') {
             const currentLevelValue = levels[displayDiff] || "";
             badgeHtml += `<div class="difficulty-badge badge-${displayDiff}">${currentLevelValue}</div>`;
         }
@@ -433,6 +485,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     updateDisplay();
 });
+
+
+
+
+
 
 
 
