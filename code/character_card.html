@@ -34,41 +34,7 @@
 </head>
 
 <body>
-  <div class="holodori-loading-screen" role="status" aria-live="polite">
-    <div class="holodori-loading-inner">
-      <p class="holodori-loading-text" aria-label="Loading...">
-        <span style="--i: 0;">L</span>
-        <span style="--i: 1;">o</span>
-        <span style="--i: 2;">a</span>
-        <span style="--i: 3;">d</span>
-        <span style="--i: 4;">i</span>
-        <span style="--i: 5;">n</span>
-        <span style="--i: 6;">g</span>
-        <span style="--i: 7;">.</span>
-        <span style="--i: 8;">.</span>
-        <span style="--i: 9;">.</span>
-      </p>
-      <div class="holodori-loading-bar" aria-hidden="true">
-        <div class="holodori-loading-bar-fill"></div>
-      </div>
-    </div>
-  </div>
-  <a href="home.html" class="back-btn">
-    <img src="img/back.png" alt="戻る">
-  </a>
-
-  <nav class="navbar">
-    <div class="logo">
-      <a href="home.html"><img src="img/ロゴ.png" alt="logo"></a>
-      <span class="site-title">ホロドリ非公式サイト<br>カード情報一覧</span>
-    </div>
-    
-    <ul class="nav-links">
-      <li><a href="https://opening.hololive-dreams.com/" target="_blank">公式サイト</a></li>
-      <li><a href="https://x.com/hololive_dreams" target="_blank" class="sns-link"><img src="sns_img/x.png" alt="公式X"></a></li>
-      <li><a href="https://www.youtube.com/@hololivedreams" target="_blank" class="sns-link"><img src="sns_img/yt.png" alt="公式YouTube"></a></li>
-    </ul>
-  </nav>
+  <div id="site-header" data-subtitle="カード情報一覧"></div>
 
   <main class="fade-in-up">
     <h1>キャラクターカード一覧</h1>
@@ -129,47 +95,9 @@
   <script src="js/card-data.js"></script>
   <script src="js/card-main.js"></script>
 
-  <script>
-    if (window.Lenis) {
-      const lenis = new Lenis({
-        duration: 1.2,
-        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-        smooth: true,
-      });
-
-      function raf(time) {
-        lenis.raf(time);
-        requestAnimationFrame(raf);
-      }
-      requestAnimationFrame(raf);
-    }
-
-    // 2. IntersectionObserver (フェードイン) の設定
-    function revealAnimatedContent() {
-      const targets = document.querySelectorAll('.fade-in-up');
-      if (!targets.length) return;
-      if ('IntersectionObserver' in window) {
-        const observer = new IntersectionObserver((entries) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add('is-show');
-              observer.unobserve(entry.target);
-            }
-          });
-        }, {
-          rootMargin: '0px 0px -33% 0px'
-        });
-        targets.forEach(el => observer.observe(el));
-      } else {
-        targets.forEach(el => el.classList.add('is-show'));
-      }
-    }
-    document.addEventListener('DOMContentLoaded', revealAnimatedContent);
-
-  </script>
   <script src="js/loading.js"></script>
-  <script src="js/common_menu.js"></script>  <script src="js/site_notice.js"></script>
-
+  <script src="js/common_menu.js"></script>
+  <script src="js/site_notice.js"></script>
 </body>
 </html>
 

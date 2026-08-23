@@ -1,7 +1,6 @@
-﻿(() => {
+(() => {
   const menuGroups = [
     {
-
       links: [
         { label: 'HOME', href: 'home.html' },
         { label: '更新履歴', href: 'update_history.html' },
@@ -31,6 +30,58 @@
     return decodeURIComponent(path.substring(path.lastIndexOf('/') + 1)) || 'home.html';
   }
 
+  // --- ヘッダー（navbar）の自動生成 ---
+  function buildHeader() {
+    const headerContainer = document.getElementById('site-header');
+    if (!headerContainer || headerContainer.querySelector('.navbar')) return;
+
+    const subtitle = headerContainer.dataset.subtitle || '';
+    const titleHtml = subtitle 
+      ? `ホロドリナビ<br>${subtitle}` 
+      : `非公式攻略サイト<br>ホロドリナビ`;
+
+    const nav = document.createElement('nav');
+    nav.className = 'navbar';
+    nav.innerHTML = `
+      <div class="logo">
+        <a href="home.html"><img src="img/ロゴ.png" alt="logo"></a>
+        <span class="site-title">${titleHtml}</span>
+      </div>
+      <ul class="nav-links">
+        <li><a href="https://opening.hololive-dreams.com/" target="_blank">公式サイト</a></li>
+        <li><a href="https://x.com/hololive_dreams" target="_blank" class="sns-link"><img src="sns_img/x.png" alt="公式X"></a></li>
+        <li><a href="https://www.youtube.com/@hololivedreams" target="_blank" class="sns-link"><img src="sns_img/yt.png" alt="公式YouTube"></a></li>
+      </ul>
+    `;
+    headerContainer.appendChild(nav);
+  }
+
+  // --- 共通ボタン（戻るボタン・ページトップボタン）の自動追加 ---
+  function buildCommonButtons() {
+    const current = currentFileName();
+
+    // 1. 戻るボタン（home.html 以外で追加）
+    if (current !== 'home.html' && !document.querySelector('.back-btn')) {
+      const backBtn = document.createElement('a');
+      backBtn.href = 'home.html';
+      backBtn.className = 'back-btn';
+      backBtn.setAttribute('aria-label', '戻る');
+      backBtn.innerHTML = '<img src="img/back.png" alt="戻る">';
+      document.body.prepend(backBtn);
+    }
+
+    // 2. ページトップボタン（全ページで追加）
+    if (!document.querySelector('.page-top-button')) {
+      const topBtn = document.createElement('a');
+      topBtn.href = '#page-top';
+      topBtn.className = 'page-top-button';
+      topBtn.setAttribute('aria-label', '一番上へ戻る');
+      topBtn.textContent = '⇧';
+      document.body.appendChild(topBtn);
+    }
+  }
+
+  // --- ドロワーメニューの自動構築 ---
   function closeMenu(button, panel, backdrop) {
     button.classList.remove('is-open');
     panel.classList.remove('is-open');
@@ -112,10 +163,51 @@
     document.body.appendChild(panel);
   }
 
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', buildMenu);
-  } else {
+  // --- アニメーション・スムーズスクロール初期化 ---
+  function initCommonEffects() {
+    // Lenis スムーズスクロール
+    if (window.Lenis) {
+      const lenis = new Lenis({
+        duration: 1.2,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        smooth: true
+      });
+      function raf(time) {
+        lenis.raf(time);
+        requestAnimationFrame(raf);
+      }
+      requestAnimationFrame(raf);
+    }
+
+    // fade-in-up IntersectionObserver 監視
+    const targets = document.querySelectorAll('.fade-in-up');
+    if (targets.length) {
+      if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-show');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { rootMargin: '0px 0px -33% 0px' });
+        targets.forEach(el => observer.observe(el));
+      } else {
+        targets.forEach(el => el.classList.add('is-show'));
+      }
+    }
+  }
+
+  function init() {
+    buildHeader();
+    buildCommonButtons();
     buildMenu();
+    initCommonEffects();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
   }
 })();
-
