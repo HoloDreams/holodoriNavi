@@ -5,8 +5,8 @@
 }
 
 .history-hero {
-  text-align: center;
   margin-bottom: 34px;
+  text-align: center;
 }
 
 .history-hero h1 {
@@ -28,10 +28,10 @@
 .history-list {
   display: grid;
   gap: 26px;
+  padding: 16px 0 22px;
   background: rgba(255, 255, 255, 0.72);
   border: 1px solid rgba(70, 212, 255, 0.26);
   border-radius: 8px;
-  padding: 16px 0 22px;
   backdrop-filter: blur(7px);
   -webkit-backdrop-filter: blur(7px);
 }
@@ -43,15 +43,23 @@
 
 .history-version-title {
   margin: 0 0 12px;
-  padding: 8px 28px;
+  padding: 4.5px 2px !important;
   background: #c9e8ff;
   border-top: 1px solid #80bde9;
   border-bottom: 1px solid #80bde9;
-  color: #111;
-  font-size: 18px;
-  font-weight: 900;
-  line-height: 1.2;
+  color: #008fd3;
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  line-height: 1.2 !important;
   text-align: left;
+}
+
+.history-entry {
+  margin: 0 0 22px;
+}
+
+.history-entry:last-child {
+  margin-bottom: 0;
 }
 
 .history-notice-label {
@@ -66,58 +74,8 @@
 
 .history-notice-label span {
   color: #88c7ee;
-  font-size: 22px;
+  font-size: 14px !important;
   line-height: 1;
-}
-
-.history-date {
-  margin: 0 28px 12px;
-  color: #222;
-  font-size: 15px;
-  font-weight: 500;
-}
-
-.history-change-list {
-  margin: 0 28px 0 50px;
-  padding: 0;
-  color: #222;
-  font-size: 15px;
-  line-height: 1.8;
-}
-
-.history-change-list li {
-  margin: 0 0 6px;
-  padding-left: 2px;
-}
-
-.history-page-name {
-  font-weight: 900;
-  color: #008fd3;
-}
-
-.history-empty {
-  margin: 0;
-  padding: 28px;
-  text-align: center;
-  color: #444;
-  font-size: 17px;
-  font-weight: 700;
-}
-
-@media (max-width: 760px) {
-  .history-main { padding-top: 40px; }
-  .history-version-title { padding-left: 18px; padding-right: 18px; }
-  .history-notice-label, .history-date { margin-left: 18px; margin-right: 18px; }
-  .history-change-list { margin-left: 38px; margin-right: 18px; }
-}
-
-/* update history entry text */
-.history-entry {
-  margin: 0 0 22px;
-}
-
-.history-entry:last-child {
-  margin-bottom: 0;
 }
 
 .history-summary {
@@ -127,3 +85,48 @@
   font-weight: 500;
   line-height: 1.9;
 }
+
+.history-page-name {
+  color: #008fd3;
+  font-weight: 900;
+}
+
+.history-empty {
+  margin: 0;
+  padding: 28px;
+  color: #444;
+  font-size: 17px;
+  font-weight: 700;
+  text-align: center;
+}
+
+@media (max-width: 760px) {
+  .history-main {
+    padding-top: 40px;
+  }
+
+  .history-version-title {
+  margin: 0 0 12px;
+  padding: 4.5px 2px !important;
+  background: #c9e8ff;
+  border-top: 1px solid #80bde9;
+  border-bottom: 1px solid #80bde9;
+  color: #008fd3;
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  line-height: 1.2 !important;
+  text-align: left;
+}
+
+  .history-notice-label {
+    margin-right: 18px;
+    margin-left: 18px;
+  }
+
+  .history-summary {
+    margin-right: 18px;
+    margin-left: 38px;
+  }
+}
+
+
