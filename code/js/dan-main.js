@@ -74,7 +74,13 @@
     const text = String(value || '').trim();
     return text ? escapeHtml(text) : '<span class="dan-empty">未設定</span>';
   }
-
+  function difficultyCell(value) {
+    const text = String(value || '').trim();
+    if (!text) return '<span class="dan-empty">&#26410;&#35373;&#23450;</span>';
+    const match = text.match(/^([A-Za-z]+)\s*([0-9]+(?:\.[0-9]+)?\+?)$/);
+    if (!match) return escapeHtml(text);
+    return `<span class="dan-difficulty"><span class="dan-difficulty-label">${escapeHtml(match[1].toUpperCase())}</span><span class="dan-difficulty-level">${escapeHtml(match[2])}</span></span>`;
+  }
   function normalizeDifficulty(value) {
     const text = String(value || '').trim();
     const lower = text.toLowerCase();
@@ -132,7 +138,7 @@
         <tr>
           <th scope="row">${escapeHtml(stage.order || label)}</th>
           <td>${songCell(stage.song)}</td>
-          <td>${valueCell(stage.difficulty)}</td>
+          <td>${difficultyCell(stage.difficulty)}</td>
           <td>${notesCell(stage)}</td>
         </tr>`;
     }).join('');
@@ -259,6 +265,9 @@
     init();
   }
 })();
+
+
+
 
 
 
