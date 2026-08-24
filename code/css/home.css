@@ -1,12 +1,13 @@
-﻿h1 {
+h1 {
   text-align: center;
-  margin-top: 20px;
-  font-size: 48px;
+  margin-top: 20px !important;
+  font-size: 48px !important;
   font-weight: 900;
   background: linear-gradient(45deg, #ffcb43, #ec6cb9);
   -webkit-background-clip: text;
   background-clip: text;
-  color: transparent;
+  color: transparent !important;
+  -webkit-text-fill-color: transparent !important;
   display: block; 
   padding: 0 10px;
 }
@@ -19,7 +20,8 @@ ha {
   background: linear-gradient(45deg, #46d4ff, #0094d8);
   -webkit-background-clip: text;
   background-clip: text;
-  color: transparent;
+  color: transparent !important;
+  -webkit-text-fill-color: transparent !important;
   display: block; 
 }
 
@@ -1615,3 +1617,59 @@ body.holodori-loaded .home-eyebrow {
 .download-section .download-container { width: 760px; }
 @media (max-width: 768px) { .download-section .download-container { width: 100%; } }
 
+
+/* original content ribbon */
+.home-guide-group-original-bg {
+  position: relative;
+  left: 50%;
+  width: 100vw;
+  margin: 0;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  padding: 60px 16px 62px;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.home-guide-group-original-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  width: 220vw;
+  background-image: url("../img/background3.png");
+  background-size: auto 100%;
+  background-repeat: repeat-x;
+  background-position: 0 center;
+  opacity: 0.5;
+  animation: homeDescriptionRibbon 24s linear infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.home-guide-group-original-bg > * {
+  position: relative;
+  z-index: 1;
+  max-width: 920px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.home-guide-group-strategy-bg + .home-guide-group-original-bg {
+  margin-top: 0 !important;
+}
+
+.home-links-after-news .home-guide-group-original-bg {
+  min-height: 360px;
+  box-sizing: border-box;
+}
+
+.home-links-after-news .home-guide-group-original-bg::before {
+  height: 100%;
+}
+
+@media (max-width: 640px) {
+  .home-guide-group-original-bg {
+    min-height: 300px;
+    padding: 48px 12px 50px;
+  }
+}

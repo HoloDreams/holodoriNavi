@@ -524,7 +524,52 @@ h1::after,
   font-weight: 900;
 }
 
-/* --- 19. モバイル共通 --- */
+/* --- 19. アイテム一覧準拠の文字統一 --- */
+:where(main) :where(h1, .page-title, .main-title) {
+  margin: 52px auto 16px;
+  padding: 0 10px;
+  color: #008fd3 !important;
+  font-size: clamp(36px, 5vw, 58px) !important;
+  font-weight: 900 !important;
+  line-height: 1.22 !important;
+  letter-spacing: 0 !important;
+  text-align: center !important;
+  text-shadow: none !important;
+  -webkit-text-stroke: 0 !important;
+  -webkit-text-fill-color: currentColor !important;
+}
+
+:where(main) :where(h2, h3, .section-title, .subsection-title, .content-title, .operation-title, .dan-rank-title, .toc-title, .title-explanation, .color-blue, .color-green, .color-red) {
+  color: #008fd3 !important;
+  font-size: clamp(28px, 4vw, 42px) !important;
+  font-weight: 900 !important;
+  line-height: 1.3 !important;
+  letter-spacing: 0 !important;
+  text-shadow: none !important;
+  -webkit-text-stroke: 0 !important;
+  -webkit-text-fill-color: currentColor !important;
+}
+
+:where(main) :where(p, li, dd, .item-intro, .page-description, .dan-intro-text, .unit-intro-text, .note-description, .item-page-info) {
+  color: #444 !important;
+  font-size: 18px !important;
+  font-weight: 700 !important;
+  line-height: 1.8 !important;
+  letter-spacing: 0 !important;
+  text-shadow: none !important;
+  -webkit-text-stroke: 0 !important;
+  -webkit-text-fill-color: currentColor !important;
+}
+
+:where(main) :where(.toc-links a, .toc-group-title) {
+  color: #5f666b;
+  font-weight: 900;
+  letter-spacing: 0;
+  text-shadow: none;
+  -webkit-text-stroke: 0;
+}
+
+/* --- 20. モバイル共通 --- */
 @media (max-width: 760px) {
   body {
     padding-top: 72px;

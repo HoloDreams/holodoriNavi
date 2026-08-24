@@ -1,4 +1,4 @@
-﻿(() => {
+(() => {
   const menuGroups = [
     {
 
@@ -15,13 +15,11 @@
         { label: 'リズムゲーム', href: 'rhythm_game.html' },
         { label: 'ユニット', href: 'unit.html' }
       ]
-    },
+    },,
     {
-      title: '攻略',
+      title: 'オリジナル',
       links: [
-        { label: '収録楽曲一覧', href: 'song.html' },
-        { label: 'キャラクターカード一覧', href: 'character_card.html' },
-        { label: 'アイテム一覧', href: 'item_search.html' }
+        { label: '非公式段位', href: 'dan.html' }
       ]
     }
   ];
@@ -118,4 +116,5 @@
     buildMenu();
   }
 })();
+
 
