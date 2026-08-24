@@ -543,8 +543,8 @@ window.danRankSets.push({
         }
       ],
       "conditions": {
-        "great": "",
-        "goodOrBelow": ""
+        "great": "25",
+        "goodOrBelow": "10"
       }
     }
   ]
