@@ -1,4 +1,4 @@
-﻿const itemsPerPage = 30;
+const itemsPerPage = 30;
 let currentPage = 1;
 let filteredSongs = [];
 
@@ -403,7 +403,6 @@ function setupSongSuggestions() {
     const values = new Set();
     songList.forEach(song => {
         if (song[0]) values.add(song[0]);
-        if (song[1]) values.add(song[1]);
     });
     suggestions.innerHTML = Array.from(values)
         .filter(Boolean)
