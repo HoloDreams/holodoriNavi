@@ -4,6 +4,7 @@ const cardData = [
     "ver1.0.0, ホロライブ0期生, ときのそら",
     {
       type: "cute",
+      leader: "",
       connect: {
         range: "3マス効果",
         cells: { yellow: [13], green: [10, 11, 12] },
@@ -20,6 +21,7 @@ const cardData = [
     "ver1.0.0, ホロライブ0期生, ときのそら",
     {
       type: "pure",
+      leader: "",
       connect: {
         range: "3マス効果",
         cells: { yellow: [], green: [] },
@@ -36,6 +38,7 @@ const cardData = [
     "ver1.0.0, ホロライブ0期生, ときのそら",
     {
       type: "happy",
+      leader: "",
       connect: {
         range: "",
         cells: { yellow: [], green: [] },
@@ -52,6 +55,7 @@ const cardData = [
     "ver1.0.0, ホロライブ0期生, ロボ子さん",
     {
       type: "happy",
+      leader: "",
       connect: {
         range: "5マス効果",
         cells: { yellow: [17], green: [2, 6, 7, 8, 12] },
@@ -68,6 +72,7 @@ const cardData = [
     "ver1.0.0, ホロライブ0期生, ロボ子さん",
     {
       type: "cute",
+      leader: "",
       connect: {
         range: "4マス効果",
         cells: { yellow: [], green: [] },
@@ -84,6 +89,7 @@ const cardData = [
     "ver1.0.0, ホロライブ0期生, ロボ子さん",
     {
       type: "pure",
+      leader: "",
       connect: {
         range: "",
         cells: { yellow: [], green: [] },
@@ -100,6 +106,7 @@ const cardData = [
     "ver1.0.0, ホロライブ0期生, さくらみこ",
     {
       type: "happy",
+      leader: "",
       connect: {
         range: "5マス効果",
         cells: { yellow: [17], green: [2, 6, 7, 8, 12] },
@@ -116,6 +123,7 @@ const cardData = [
     "ver1.0.0, ホロライブ0期生, さくらみこ",
     {
       type: "pure",
+      leader: "",
       connect: {
         range: "4マス効果",
         cells: { yellow: [], green: [] },
@@ -132,6 +140,7 @@ const cardData = [
     "ver1.0.0, ホロライブ0期生, さくらみこ",
     {
       type: "cute",
+      leader: "",
       connect: {
         range: "",
         cells: { yellow: [], green: [] },
@@ -148,6 +157,7 @@ const cardData = [
     "ver1.0.0, ホロライブ0期生, AZKi",
     {
       type: "pure",
+      leader: "",
       connect: {
         range: "8マス効果",
         cells: { yellow: [12], green: [2, 6, 7, 10, 11, 16, 17, 22] },
@@ -164,6 +174,7 @@ const cardData = [
     "ver1.0.0, ホロライブ0期生, AZKi",
     {
       type: "cute",
+      leader: "",
       connect: {
         range: "3マス効果",
         cells: { yellow: [], green: [] },
@@ -180,6 +191,7 @@ const cardData = [
     "ver1.0.0, ホロライブ0期生, AZKi",
     {
       type: "happy",
+      leader: "",
       connect: {
         range: "",
         cells: { yellow: [], green: [] },
@@ -196,6 +208,7 @@ const cardData = [
     "ver1.0.0, ホロライブ0期生, 星街すいせい",
     {
       type: "pure",
+      leader: "",
       connect: {
         range: "5マス効果",
         cells: { yellow: [17], green: [2, 6, 7, 8, 12] },
@@ -212,6 +225,7 @@ const cardData = [
     "ver1.0.0, ホロライブ0期生, 星街すいせい",
     {
       type: "happy",
+      leader: "",
       connect: {
         range: "3マス効果",
         cells: { yellow: [], green: [] },
@@ -228,6 +242,7 @@ const cardData = [
     "ver1.0.0, ホロライブ0期生, 星街すいせい",
     {
       type: "cute",
+      leader: "",
       connect: {
         range: "",
         cells: { yellow: [], green: [] },
@@ -244,6 +259,7 @@ const cardData = [
     "ver1.0.0, ホロライブ1期生, アキ・ローゼンタール",
     {
       type: "cute",
+      leader: "",
       connect: {
         range: "3マス効果",
         cells: { yellow: [7], green: [12, 17, 22] },
@@ -260,6 +276,7 @@ const cardData = [
     "ver1.0.0, ホロライブ1期生, アキ・ローゼンタール",
     {
       type: "happy",
+      leader: "",
       connect: {
         range: "3マス効果",
         cells: { yellow: [], green: [] },
@@ -276,6 +293,7 @@ const cardData = [
     "ver1.0.0, ホロライブ1期生, アキ・ローゼンタール",
     {
       type: "pure",
+      leader: "",
       connect: {
         range: "",
         cells: { yellow: [], green: [] },
@@ -292,6 +310,7 @@ const cardData = [
     "ver1.0.0, ホロライブ1期生, 赤井はあと",
     {
       type: "pure",
+      leader: "",
       connect: {
         range: "3マス効果",
         cells: { yellow: [7], green: [12, 17, 22] },
@@ -308,6 +327,7 @@ const cardData = [
     "ver1.0.0, ホロライブ1期生, 赤井はあと",
     {
       type: "cute",
+      leader: "",
       connect: {
         range: "4マス効果",
         cells: { yellow: [], green: [] },
@@ -324,6 +344,7 @@ const cardData = [
     "ver1.0.0, ホロライブ1期生, 赤井はあと",
     {
       type: "happy",
+      leader: "",
       connect: {
         range: "",
         cells: { yellow: [], green: [] },
@@ -340,6 +361,7 @@ const cardData = [
     "ver1.0.0, ホロライブ1期生, 夏色まつり",
     {
       type: "happy",
+      leader: "",
       connect: {
         range: "4マス効果",
         cells: { yellow: [12], green: [2, 7, 17, 22] },
@@ -356,6 +378,7 @@ const cardData = [
     "ver1.0.0, ホロライブ1期生, 夏色まつり",
     {
       type: "pure",
+      leader: "",
       connect: {
         range: "3マス効果",
         cells: { yellow: [], green: [] },
@@ -372,6 +395,7 @@ const cardData = [
     "ver1.0.0, ホロライブ1期生, 夏色まつり",
     {
       type: "cute",
+      leader: "",
       connect: {
         range: "",
         cells: { yellow: [], green: [] },
@@ -388,6 +412,7 @@ const cardData = [
     "ver1.0.0, ホロライブ1期生, 白上フブキ",
     {
       type: "pure",
+      leader: "",
       connect: {
         range: "4マス効果",
         cells: { yellow: [12], green: [2, 7, 17, 22] },
@@ -404,6 +429,7 @@ const cardData = [
     "ver1.0.0, ホロライブ1期生, 白上フブキ",
     {
       type: "cute",
+      leader: "",
       connect: {
         range: "3マス効果",
         cells: { yellow: [], green: [] },
@@ -420,6 +446,7 @@ const cardData = [
     "ver1.0.0, ホロライブ1期生, 白上フブキ",
     {
       type: "happy",
+      leader: "",
       connect: {
         range: "",
         cells: { yellow: [], green: [] },
@@ -436,6 +463,7 @@ const cardData = [
     "ver1.0.0, ホロライブ2期生, 百鬼あやめ",
     {
       type: "pure",
+      leader: "",
       connect: {
         range: "4マス効果",
         cells: { yellow: [12], green: [2, 7, 13, 14] },
@@ -452,6 +480,7 @@ const cardData = [
     "ver1.0.0, ホロライブ2期生, 百鬼あやめ",
     {
       type: "cute",
+      leader: "",
       connect: {
         range: "3マス効果",
         cells: { yellow: [], green: [] },
@@ -468,6 +497,7 @@ const cardData = [
     "ver1.0.0, ホロライブ2期生, 百鬼あやめ",
     {
       type: "happy",
+      leader: "",
       connect: {
         range: "",
         cells: { yellow: [], green: [] },
@@ -484,6 +514,7 @@ const cardData = [
     "ver1.0.0, ホロライブ2期生, 癒月ちょこ",
     {
       type: "happy",
+      leader: "",
       connect: {
         range: "6マス効果",
         cells: { yellow: [12], green: [6, 7, 11, 13, 16, 17] },
@@ -500,6 +531,7 @@ const cardData = [
     "ver1.0.0, ホロライブ2期生, 癒月ちょこ",
     {
       type: "pure",
+      leader: "",
       connect: {
         range: "4マス効果",
         cells: { yellow: [], green: [] },
@@ -516,6 +548,7 @@ const cardData = [
     "ver1.0.0, ホロライブ2期生, 癒月ちょこ",
     {
       type: "cute",
+      leader: "",
       connect: {
         range: "",
         cells: { yellow: [], green: [] },
@@ -532,6 +565,7 @@ const cardData = [
     "ver1.0.0, ホロライブ2期生, 大空スバル",
     {
       type: "cute",
+      leader: "",
       connect: {
         range: "6マス効果",
         cells: { yellow: [12], green: [6, 7, 11, 13, 16, 17] },
@@ -548,6 +582,7 @@ const cardData = [
     "ver1.0.0, ホロライブ2期生, 大空スバル",
     {
       type: "happy",
+      leader: "",
       connect: {
         range: "3マス効果",
         cells: { yellow: [], green: [] },
@@ -564,6 +599,7 @@ const cardData = [
     "ver1.0.0, ホロライブ2期生, 大空スバル",
     {
       type: "pure",
+      leader: "",
       connect: {
         range: "",
         cells: { yellow: [], green: [] },
@@ -580,6 +616,7 @@ const cardData = [
     "ver1.0.0, ホロライブゲーマーズ, 大神ミオ",
     {
       type: "cute",
+      leader: "",
       connect: {
         range: "5マス効果",
         cells: { yellow: [17], green: [2, 6, 7, 8, 12] },
@@ -596,6 +633,7 @@ const cardData = [
     "ver1.0.0, ホロライブゲーマーズ, 大神ミオ",
     {
       type: "happy",
+      leader: "",
       connect: {
         range: "4マス効果",
         cells: { yellow: [], green: [] },
@@ -612,6 +650,7 @@ const cardData = [
     "ver1.0.0, ホロライブゲーマーズ, 大神ミオ",
     {
       type: "pure",
+      leader: "",
       connect: {
         range: "",
         cells: { yellow: [], green: [] },
@@ -628,6 +667,7 @@ const cardData = [
     "ver1.0.0, ホロライブゲーマーズ, 猫又おかゆ",
     {
       type: "cute",
+      leader: "",
       connect: {
         range: "4マス効果",
         cells: { yellow: [12], green: [2, 7, 17, 22] },
@@ -644,6 +684,7 @@ const cardData = [
     "ver1.0.0, ホロライブゲーマーズ, 猫又おかゆ",
     {
       type: "pure",
+      leader: "",
       connect: {
         range: "4マス効果",
         cells: { yellow: [], green: [] },
@@ -660,6 +701,7 @@ const cardData = [
     "ver1.0.0, ホロライブゲーマーズ, 猫又おかゆ",
     {
       type: "happy",
+      leader: "",
       connect: {
         range: "",
         cells: { yellow: [], green: [] },
@@ -676,6 +718,7 @@ const cardData = [
     "ver1.0.0, ホロライブゲーマーズ, 戌神ころね",
     {
       type: "happy",
+      leader: "",
       connect: {
         range: "5マス効果",
         cells: { yellow: [13], green: [6, 10, 11, 12, 16] },
@@ -692,6 +735,7 @@ const cardData = [
     "ver1.0.0, ホロライブゲーマーズ, 戌神ころね",
     {
       type: "cute",
+      leader: "",
       connect: {
         range: "3マス効果",
         cells: { yellow: [], green: [] },
@@ -708,6 +752,7 @@ const cardData = [
     "ver1.0.0, ホロライブゲーマーズ, 戌神ころね",
     {
       type: "pure",
+      leader: "",
       connect: {
         range: "",
         cells: { yellow: [], green: [] },
@@ -724,6 +769,7 @@ const cardData = [
     "ver1.0.0, ホロライブ3期生, 兎田ぺこら",
     {
       type: "cute",
+      leader: "",
       connect: {
         range: "6マス効果",
         cells: { yellow: [12], green: [7, 8, 11, 13, 17, 18] },
@@ -740,6 +786,7 @@ const cardData = [
     "ver1.0.0, ホロライブ3期生, 兎田ぺこら",
     {
       type: "happy",
+      leader: "",
       connect: {
         range: "4マス効果",
         cells: { yellow: [], green: [] },
@@ -756,6 +803,7 @@ const cardData = [
     "ver1.0.0, ホロライブ3期生, 兎田ぺこら",
     {
       type: "pure",
+      leader: "",
       connect: {
         range: "",
         cells: { yellow: [], green: [] },
@@ -772,6 +820,7 @@ const cardData = [
     "ver1.0.0, ホロライブ3期生, 不知火フレア",
     {
       type: "pure",
+      leader: "",
       connect: {
         range: "6マス効果",
         cells: { yellow: [12], green: [7, 8, 11, 13, 17, 18] },
@@ -788,6 +837,7 @@ const cardData = [
     "ver1.0.0, ホロライブ3期生, 不知火フレア",
     {
       type: "cute",
+      leader: "",
       connect: {
         range: "3マス効果",
         cells: { yellow: [], green: [] },
@@ -804,6 +854,7 @@ const cardData = [
     "ver1.0.0, ホロライブ3期生, 不知火フレア",
     {
       type: "happy",
+      leader: "",
       connect: {
         range: "",
         cells: { yellow: [], green: [] },
@@ -820,6 +871,7 @@ const cardData = [
     "ver1.0.0, ホロライブ3期生, 白銀ノエル",
     {
       type: "happy",
+      leader: "",
       connect: {
         range: "12マス効果",
         cells: { yellow: [12], green: [2, 6, 7, 8, 10, 11, 13, 14, 16, 17, 18, 22] },
@@ -836,6 +888,7 @@ const cardData = [
     "ver1.0.0, ホロライブ3期生, 白銀ノエル",
     {
       type: "pure",
+      leader: "",
       connect: {
         range: "3マス効果",
         cells: { yellow: [], green: [] },
@@ -852,6 +905,7 @@ const cardData = [
     "ver1.0.0, ホロライブ3期生, 白銀ノエル",
     {
       type: "cute",
+      leader: "",
       connect: {
         range: "",
         cells: { yellow: [], green: [] },
@@ -868,6 +922,7 @@ const cardData = [
     "ver1.0.0, ホロライブ3期生, 宝鐘マリン",
     {
       type: "happy",
+      leader: "",
       connect: {
         range: "5マス効果",
         cells: { yellow: [11], green: [8, 12, 13, 14, 18] },
@@ -884,6 +939,7 @@ const cardData = [
     "ver1.0.0, ホロライブ3期生, 宝鐘マリン",
     {
       type: "cute",
+      leader: "",
       connect: {
         range: "4マス効果",
         cells: { yellow: [], green: [] },
@@ -900,6 +956,7 @@ const cardData = [
     "ver1.0.0, ホロライブ3期生, 宝鐘マリン",
     {
       type: "pure",
+      leader: "",
       connect: {
         range: "",
         cells: { yellow: [], green: [] },
@@ -916,6 +973,7 @@ const cardData = [
     "ver1.0.0, ホロライブ4期生, 角巻わため",
     {
       type: "cute",
+      leader: "",
       connect: {
         range: "4マス効果",
         cells: { yellow: [12], green: [2, 7, 13, 14] },
@@ -932,6 +990,7 @@ const cardData = [
     "ver1.0.0, ホロライブ4期生, 角巻わため",
     {
       type: "happy",
+      leader: "",
       connect: {
         range: "3マス効果",
         cells: { yellow: [], green: [] },
@@ -948,6 +1007,7 @@ const cardData = [
     "ver1.0.0, ホロライブ4期生, 角巻わため",
     {
       type: "pure",
+      leader: "",
       connect: {
         range: "",
         cells: { yellow: [], green: [] },
@@ -964,6 +1024,7 @@ const cardData = [
     "ver1.0.0, ホロライブ4期生, 常闇トワ",
     {
       type: "pure",
+      leader: "",
       connect: {
         range: "6マス効果",
         cells: { yellow: [12], green: [6, 7, 11, 13, 16, 17] },
@@ -980,6 +1041,7 @@ const cardData = [
     "ver1.0.0, ホロライブ4期生, 常闇トワ",
     {
       type: "happy",
+      leader: "",
       connect: {
         range: "4マス効果",
         cells: { yellow: [], green: [] },
@@ -996,6 +1058,7 @@ const cardData = [
     "ver1.0.0, ホロライブ4期生, 常闇トワ",
     {
       type: "cute",
+      leader: "",
       connect: {
         range: "",
         cells: { yellow: [], green: [] },
@@ -1012,6 +1075,7 @@ const cardData = [
     "ver1.0.0, ホロライブ4期生, 姫森ルーナ",
     {
       type: "happy",
+      leader: "",
       connect: {
         range: "3マス効果",
         cells: { yellow: [7], green: [12, 17, 22] },
@@ -1028,6 +1092,7 @@ const cardData = [
     "ver1.0.0, ホロライブ4期生, 姫森ルーナ",
     {
       type: "pure",
+      leader: "",
       connect: {
         range: "3マス効果",
         cells: { yellow: [], green: [] },
@@ -1044,6 +1109,7 @@ const cardData = [
     "ver1.0.0, ホロライブ4期生, 姫森ルーナ",
     {
       type: "cute",
+      leader: "",
       connect: {
         range: "",
         cells: { yellow: [], green: [] },
@@ -1060,6 +1126,7 @@ const cardData = [
     "ver1.0.0, hololive Indonesia 1期生, アユンダ・リス",
     {
       type: "happy",
+      leader: "",
       connect: {
         range: "4マス効果",
         cells: { yellow: [12], green: [2, 7, 10, 11] },
@@ -1076,6 +1143,7 @@ const cardData = [
     "ver1.0.0, hololive Indonesia 1期生, アユンダ・リス",
     {
       type: "pure",
+      leader: "",
       connect: {
         range: "3マス効果",
         cells: { yellow: [], green: [] },
@@ -1092,6 +1160,7 @@ const cardData = [
     "ver1.0.0, hololive Indonesia 1期生, アユンダ・リス",
     {
       type: "cute",
+      leader: "",
       connect: {
         range: "",
         cells: { yellow: [], green: [] },
@@ -1108,6 +1177,7 @@ const cardData = [
     "ver1.0.0, hololive Indonesia 1期生, ムーナ・ホシノヴァ",
     {
       type: "cute",
+      leader: "",
       connect: {
         range: "12マス効果",
         cells: { yellow: [12], green: [2, 6, 7, 8, 10, 11, 13, 14, 16, 17, 18, 22] },
@@ -1124,6 +1194,7 @@ const cardData = [
     "ver1.0.0, hololive Indonesia 1期生, ムーナ・ホシノヴァ",
     {
       type: "happy",
+      leader: "",
       connect: {
         range: "3マス効果",
         cells: { yellow: [], green: [] },
@@ -1140,6 +1211,7 @@ const cardData = [
     "ver1.0.0, hololive Indonesia 1期生, ムーナ・ホシノヴァ",
     {
       type: "pure",
+      leader: "",
       connect: {
         range: "",
         cells: { yellow: [], green: [] },
@@ -1156,6 +1228,7 @@ const cardData = [
     "ver1.0.0, hololive Indonesia 1期生, アイラニ・イオフィフティーン",
     {
       type: "pure",
+      leader: "",
       connect: {
         range: "4マス効果",
         cells: { yellow: [12], green: [2, 7, 10, 11] },
@@ -1172,6 +1245,7 @@ const cardData = [
     "ver1.0.0, hololive Indonesia 1期生, アイラニ・イオフィフティーン",
     {
       type: "happy",
+      leader: "",
       connect: {
         range: "4マス効果",
         cells: { yellow: [], green: [] },
@@ -1188,6 +1262,7 @@ const cardData = [
     "ver1.0.0, hololive Indonesia 1期生, アイラニ・イオフィフティーン",
     {
       type: "cute",
+      leader: "",
       connect: {
         range: "",
         cells: { yellow: [], green: [] },
@@ -1204,6 +1279,7 @@ const cardData = [
     "ver1.0.0, ホロライブ5期生, 雪花ラミィ",
     {
       type: "pure",
+      leader: "",
       connect: {
         range: "3マス効果",
         cells: { yellow: [11], green: [12, 13, 14] },
@@ -1220,6 +1296,7 @@ const cardData = [
     "ver1.0.0, ホロライブ5期生, 雪花ラミィ",
     {
       type: "happy",
+      leader: "",
       connect: {
         range: "4マス効果",
         cells: { yellow: [], green: [] },
@@ -1236,6 +1313,7 @@ const cardData = [
     "ver1.0.0, ホロライブ5期生, 雪花ラミィ",
     {
       type: "cute",
+      leader: "",
       connect: {
         range: "",
         cells: { yellow: [], green: [] },
@@ -1252,6 +1330,7 @@ const cardData = [
     "ver1.0.0, ホロライブ5期生, 桃鈴ねね",
     {
       type: "cute",
+      leader: "",
       connect: {
         range: "8マス効果",
         cells: { yellow: [12], green: [2, 7, 8, 13, 14, 17, 18, 22] },
@@ -1268,6 +1347,7 @@ const cardData = [
     "ver1.0.0, ホロライブ5期生, 桃鈴ねね",
     {
       type: "happy",
+      leader: "",
       connect: {
         range: "4マス効果",
         cells: { yellow: [], green: [] },
@@ -1284,6 +1364,7 @@ const cardData = [
     "ver1.0.0, ホロライブ5期生, 桃鈴ねね",
     {
       type: "pure",
+      leader: "",
       connect: {
         range: "",
         cells: { yellow: [], green: [] },
@@ -1300,6 +1381,7 @@ const cardData = [
     "ver1.0.0, ホロライブ5期生, 獅白ぼたん",
     {
       type: "happy",
+      leader: "",
       connect: {
         range: "3マス効果",
         cells: { yellow: [13], green: [10, 11, 12] },
@@ -1316,6 +1398,7 @@ const cardData = [
     "ver1.0.0, ホロライブ5期生, 獅白ぼたん",
     {
       type: "pure",
+      leader: "",
       connect: {
         range: "3マス効果",
         cells: { yellow: [], green: [] },
@@ -1332,6 +1415,7 @@ const cardData = [
     "ver1.0.0, ホロライブ5期生, 獅白ぼたん",
     {
       type: "cute",
+      leader: "",
       connect: {
         range: "",
         cells: { yellow: [], green: [] },
@@ -1348,6 +1432,7 @@ const cardData = [
     "ver1.0.0, ホロライブ5期生, 尾丸ポルカ",
     {
       type: "happy",
+      leader: "",
       connect: {
         range: "6マス効果",
         cells: { yellow: [12], green: [7, 8, 11, 13, 17, 18] },
@@ -1364,6 +1449,7 @@ const cardData = [
     "ver1.0.0, ホロライブ5期生, 尾丸ポルカ",
     {
       type: "cute",
+      leader: "",
       connect: {
         range: "3マス効果",
         cells: { yellow: [], green: [] },
@@ -1380,6 +1466,7 @@ const cardData = [
     "ver1.0.0, ホロライブ5期生, 尾丸ポルカ",
     {
       type: "pure",
+      leader: "",
       connect: {
         range: "",
         cells: { yellow: [], green: [] },
@@ -1396,6 +1483,7 @@ const cardData = [
     "ver1.0.0, 秘密結社holoX, ラプラス・ダークネス",
     {
       type: "happy",
+      leader: "",
       connect: {
         range: "4マス効果",
         cells: { yellow: [12], green: [2, 7, 13, 14] },
@@ -1412,6 +1500,7 @@ const cardData = [
     "ver1.0.0, 秘密結社holoX, ラプラス・ダークネス",
     {
       type: "pure",
+      leader: "",
       connect: {
         range: "4マス効果",
         cells: { yellow: [], green: [] },
@@ -1428,6 +1517,7 @@ const cardData = [
     "ver1.0.0, 秘密結社holoX, ラプラス・ダークネス",
     {
       type: "cute",
+      leader: "",
       connect: {
         range: "",
         cells: { yellow: [], green: [] },
@@ -1444,6 +1534,7 @@ const cardData = [
     "ver1.0.0, 秘密結社holoX, 鷹嶺ルイ",
     {
       type: "cute",
+      leader: "",
       connect: {
         range: "8マス効果",
         cells: { yellow: [12], green: [2, 6, 7, 10, 11, 16, 17, 22] },
@@ -1460,6 +1551,7 @@ const cardData = [
     "ver1.0.0, 秘密結社holoX, 鷹嶺ルイ",
     {
       type: "happy",
+      leader: "",
       connect: {
         range: "4マス効果",
         cells: { yellow: [], green: [] },
@@ -1476,6 +1568,7 @@ const cardData = [
     "ver1.0.0, 秘密結社holoX, 鷹嶺ルイ",
     {
       type: "pure",
+      leader: "",
       connect: {
         range: "",
         cells: { yellow: [], green: [] },
@@ -1492,6 +1585,7 @@ const cardData = [
     "ver1.0.0, 秘密結社holoX, 博衣こより",
     {
       type: "pure",
+      leader: "",
       connect: {
         range: "8マス効果",
         cells: { yellow: [12], green: [2, 6, 7, 10, 11, 16, 17, 22] },
@@ -1508,6 +1602,7 @@ const cardData = [
     "ver1.0.0, 秘密結社holoX, 博衣こより",
     {
       type: "cute",
+      leader: "",
       connect: {
         range: "3マス効果",
         cells: { yellow: [], green: [] },
@@ -1524,6 +1619,7 @@ const cardData = [
     "ver1.0.0, 秘密結社holoX, 博衣こより",
     {
       type: "happy",
+      leader: "",
       connect: {
         range: "",
         cells: { yellow: [], green: [] },
@@ -1540,6 +1636,7 @@ const cardData = [
     "ver1.0.0, 秘密結社holoX, 風真いろは",
     {
       type: "cute",
+      leader: "",
       connect: {
         range: "3マス効果",
         cells: { yellow: [11], green: [12, 13, 14] },
@@ -1556,6 +1653,7 @@ const cardData = [
     "ver1.0.0, 秘密結社holoX, 風真いろは",
     {
       type: "pure",
+      leader: "",
       connect: {
         range: "4マス効果",
         cells: { yellow: [], green: [] },
@@ -1572,6 +1670,7 @@ const cardData = [
     "ver1.0.0, 秘密結社holoX, 風真いろは",
     {
       type: "happy",
+      leader: "",
       connect: {
         range: "",
         cells: { yellow: [], green: [] },
@@ -1588,6 +1687,7 @@ const cardData = [
     "ver1.0.0, hololive English -Myth-, 森カリオペ",
     {
       type: "pure",
+      leader: "",
       connect: {
         range: "5マス効果",
         cells: { yellow: [17], green: [2, 6, 7, 8, 12] },
@@ -1604,6 +1704,7 @@ const cardData = [
     "ver1.0.0, hololive English -Myth-, 森カリオペ",
     {
       type: "cute",
+      leader: "",
       connect: {
         range: "3マス効果",
         cells: { yellow: [], green: [] },
@@ -1620,6 +1721,7 @@ const cardData = [
     "ver1.0.0, hololive English -Myth-, 森カリオペ",
     {
       type: "happy",
+      leader: "",
       connect: {
         range: "",
         cells: { yellow: [], green: [] },
@@ -1636,6 +1738,7 @@ const cardData = [
     "ver1.0.0, hololive English -Myth-, 小鳥遊キアラ",
     {
       type: "cute",
+      leader: "",
       connect: {
         range: "5マス効果",
         cells: { yellow: [17], green: [2, 6, 7, 8, 12] },
@@ -1652,6 +1755,7 @@ const cardData = [
     "ver1.0.0, hololive English -Myth-, 小鳥遊キアラ",
     {
       type: "happy",
+      leader: "",
       connect: {
         range: "3マス効果",
         cells: { yellow: [], green: [] },
@@ -1668,6 +1772,7 @@ const cardData = [
     "ver1.0.0, hololive English -Myth-, 小鳥遊キアラ",
     {
       type: "pure",
+      leader: "",
       connect: {
         range: "",
         cells: { yellow: [], green: [] },
@@ -1684,6 +1789,7 @@ const cardData = [
     "ver1.0.0, hololive English -Myth-, 一伊那尓栖",
     {
       type: "pure",
+      leader: "",
       connect: {
         range: "5マス効果",
         cells: { yellow: [11], green: [8, 12, 13, 14, 18] },
@@ -1700,6 +1806,7 @@ const cardData = [
     "ver1.0.0, hololive English -Myth-, 一伊那尓栖",
     {
       type: "cute",
+      leader: "",
       connect: {
         range: "4マス効果",
         cells: { yellow: [], green: [] },
@@ -1716,6 +1823,7 @@ const cardData = [
     "ver1.0.0, hololive English -Myth-, 一伊那尓栖",
     {
       type: "happy",
+      leader: "",
       connect: {
         range: "",
         cells: { yellow: [], green: [] },
@@ -1732,6 +1840,7 @@ const cardData = [
     "ver1.0.0, hololive Indonesia 2期生, クレイジー・オリー",
     {
       type: "pure",
+      leader: "",
       connect: {
         range: "5マス効果",
         cells: { yellow: [13], green: [6, 10, 11, 12, 16] },
@@ -1748,6 +1857,7 @@ const cardData = [
     "ver1.0.0, hololive Indonesia 2期生, クレイジー・オリー",
     {
       type: "cute",
+      leader: "",
       connect: {
         range: "4マス効果",
         cells: { yellow: [], green: [] },
@@ -1764,6 +1874,7 @@ const cardData = [
     "ver1.0.0, hololive Indonesia 2期生, クレイジー・オリー",
     {
       type: "happy",
+      leader: "",
       connect: {
         range: "",
         cells: { yellow: [], green: [] },
@@ -1780,6 +1891,7 @@ const cardData = [
     "ver1.0.0, hololive Indonesia 2期生, アーニャ・メルフィッサ",
     {
       type: "cute",
+      leader: "",
       connect: {
         range: "5マス効果",
         cells: { yellow: [13], green: [6, 10, 11, 12, 16] },
@@ -1796,6 +1908,7 @@ const cardData = [
     "ver1.0.0, hololive Indonesia 2期生, アーニャ・メルフィッサ",
     {
       type: "happy",
+      leader: "",
       connect: {
         range: "3マス効果",
         cells: { yellow: [], green: [] },
@@ -1812,6 +1925,7 @@ const cardData = [
     "ver1.0.0, hololive Indonesia 2期生, アーニャ・メルフィッサ",
     {
       type: "pure",
+      leader: "",
       connect: {
         range: "",
         cells: { yellow: [], green: [] },
@@ -1828,6 +1942,7 @@ const cardData = [
     "ver1.0.0, hololive Indonesia 2期生, パヴォリア・レイネ",
     {
       type: "happy",
+      leader: "",
       connect: {
         range: "8マス効果",
         cells: { yellow: [12], green: [2, 7, 8, 13, 14, 17, 18, 22] },
@@ -1844,6 +1959,7 @@ const cardData = [
     "ver1.0.0, hololive Indonesia 2期生, パヴォリア・レイネ",
     {
       type: "pure",
+      leader: "",
       connect: {
         range: "3マス効果",
         cells: { yellow: [], green: [] },
@@ -1860,6 +1976,7 @@ const cardData = [
     "ver1.0.0, hololive Indonesia 2期生, パヴォリア・レイネ",
     {
       type: "cute",
+      leader: "",
       connect: {
         range: "",
         cells: { yellow: [], green: [] },
@@ -1876,6 +1993,7 @@ const cardData = [
     "ver1.0.0, hololive English -Promise-, IRyS",
     {
       type: "happy",
+      leader: "",
       connect: {
         range: "3マス効果",
         cells: { yellow: [13], green: [10, 11, 12] },
@@ -1892,6 +2010,7 @@ const cardData = [
     "ver1.0.0, hololive English -Promise-, IRyS",
     {
       type: "pure",
+      leader: "",
       connect: {
         range: "4マス効果",
         cells: { yellow: [], green: [] },
@@ -1908,6 +2027,7 @@ const cardData = [
     "ver1.0.0, hololive English -Promise-, IRyS",
     {
       type: "cute",
+      leader: "",
       connect: {
         range: "",
         cells: { yellow: [], green: [] },
@@ -1924,6 +2044,7 @@ const cardData = [
     "ver1.0.0, hololive English -Promise-, オーロ・クロニー",
     {
       type: "cute",
+      leader: "",
       connect: {
         range: "4マス効果",
         cells: { yellow: [12], green: [2, 7, 10, 11] },
@@ -1940,6 +2061,7 @@ const cardData = [
     "ver1.0.0, hololive English -Promise-, オーロ・クロニー",
     {
       type: "happy",
+      leader: "",
       connect: {
         range: "3マス効果",
         cells: { yellow: [], green: [] },
@@ -1956,6 +2078,7 @@ const cardData = [
     "ver1.0.0, hololive English -Promise-, オーロ・クロニー",
     {
       type: "pure",
+      leader: "",
       connect: {
         range: "",
         cells: { yellow: [], green: [] },
@@ -1972,6 +2095,7 @@ const cardData = [
     "ver1.0.0, hololive English -Promise-, ハコス・ベールズ",
     {
       type: "pure",
+      leader: "",
       connect: {
         range: "3マス効果",
         cells: { yellow: [13], green: [10, 11, 12] },
@@ -1988,6 +2112,7 @@ const cardData = [
     "ver1.0.0, hololive English -Promise-, ハコス・ベールズ",
     {
       type: "happy",
+      leader: "",
       connect: {
         range: "4マス効果",
         cells: { yellow: [], green: [] },
@@ -2004,6 +2129,7 @@ const cardData = [
     "ver1.0.0, hololive English -Promise-, ハコス・ベールズ",
     {
       type: "cute",
+      leader: "",
       connect: {
         range: "",
         cells: { yellow: [], green: [] },
@@ -2020,6 +2146,7 @@ const cardData = [
     "ver1.0.0, hololive Indonesia 3期生, ベスティア・ゼータ",
     {
       type: "happy",
+      leader: "",
       connect: {
         range: "5マス効果",
         cells: { yellow: [11], green: [8, 12, 13, 14, 18] },
@@ -2036,6 +2163,7 @@ const cardData = [
     "ver1.0.0, hololive Indonesia 3期生, ベスティア・ゼータ",
     {
       type: "cute",
+      leader: "",
       connect: {
         range: "4マス効果",
         cells: { yellow: [], green: [] },
@@ -2052,6 +2180,7 @@ const cardData = [
     "ver1.0.0, hololive Indonesia 3期生, ベスティア・ゼータ",
     {
       type: "pure",
+      leader: "",
       connect: {
         range: "",
         cells: { yellow: [], green: [] },
@@ -2068,6 +2197,7 @@ const cardData = [
     "ver1.0.0, hololive Indonesia 3期生, カエラ・コヴァルスキア",
     {
       type: "cute",
+      leader: "",
       connect: {
         range: "5マス効果",
         cells: { yellow: [13], green: [6, 10, 11, 12, 16] },
@@ -2084,6 +2214,7 @@ const cardData = [
     "ver1.0.0, hololive Indonesia 3期生, カエラ・コヴァルスキア",
     {
       type: "pure",
+      leader: "",
       connect: {
         range: "3マス効果",
         cells: { yellow: [], green: [] },
@@ -2100,6 +2231,7 @@ const cardData = [
     "ver1.0.0, hololive Indonesia 3期生, カエラ・コヴァルスキア",
     {
       type: "happy",
+      leader: "",
       connect: {
         range: "",
         cells: { yellow: [], green: [] },
@@ -2116,6 +2248,7 @@ const cardData = [
     "ver1.0.0, hololive Indonesia 3期生, こぼ・かなえる",
     {
       type: "pure",
+      leader: "",
       connect: {
         range: "8マス効果",
         cells: { yellow: [12], green: [2, 7, 8, 13, 14, 17, 18, 22] },
@@ -2132,6 +2265,7 @@ const cardData = [
     "ver1.0.0, hololive Indonesia 3期生, こぼ・かなえる",
     {
       type: "happy",
+      leader: "",
       connect: {
         range: "3マス効果",
         cells: { yellow: [], green: [] },
@@ -2148,6 +2282,7 @@ const cardData = [
     "ver1.0.0, hololive Indonesia 3期生, こぼ・かなえる",
     {
       type: "cute",
+      leader: "",
       connect: {
         range: "",
         cells: { yellow: [], green: [] },
@@ -2164,6 +2299,7 @@ const cardData = [
     "ver1.0.0, hololive English -Advent-, シオリ・ノヴェラ",
     {
       type: "happy",
+      leader: "",
       connect: {
         range: "3マス効果",
         cells: { yellow: [11], green: [12, 13, 14] },
@@ -2180,6 +2316,7 @@ const cardData = [
     "ver1.0.0, hololive English -Advent-, シオリ・ノヴェラ",
     {
       type: "cute",
+      leader: "",
       connect: {
         range: "4マス効果",
         cells: { yellow: [], green: [] },
@@ -2196,6 +2333,7 @@ const cardData = [
     "ver1.0.0, hololive English -Advent-, シオリ・ノヴェラ",
     {
       type: "pure",
+      leader: "",
       connect: {
         range: "",
         cells: { yellow: [], green: [] },
@@ -2212,6 +2350,7 @@ const cardData = [
     "ver1.0.0, hololive English -Advent-, 古石ビジュー",
     {
       type: "pure",
+      leader: "",
       connect: {
         range: "5マス効果",
         cells: { yellow: [13], green: [6, 10, 11, 12, 16] },
@@ -2228,6 +2367,7 @@ const cardData = [
     "ver1.0.0, hololive English -Advent-, 古石ビジュー",
     {
       type: "happy",
+      leader: "",
       connect: {
         range: "3マス効果",
         cells: { yellow: [], green: [] },
@@ -2244,6 +2384,7 @@ const cardData = [
     "ver1.0.0, hololive English -Advent-, 古石ビジュー",
     {
       type: "cute",
+      leader: "",
       connect: {
         range: "",
         cells: { yellow: [], green: [] },
@@ -2260,6 +2401,7 @@ const cardData = [
     "ver1.0.0, hololive English -Advent-, ネリッサ・レイヴンクロフト",
     {
       type: "pure",
+      leader: "",
       connect: {
         range: "12マス効果",
         cells: { yellow: [12], green: [2, 6, 7, 8, 10, 11, 13, 14, 16, 17, 18, 22] },
@@ -2276,6 +2418,7 @@ const cardData = [
     "ver1.0.0, hololive English -Advent-, ネリッサ・レイヴンクロフト",
     {
       type: "cute",
+      leader: "",
       connect: {
         range: "3マス効果",
         cells: { yellow: [], green: [] },
@@ -2292,6 +2435,7 @@ const cardData = [
     "ver1.0.0, hololive English -Advent-, ネリッサ・レイヴンクロフト",
     {
       type: "happy",
+      leader: "",
       connect: {
         range: "",
         cells: { yellow: [], green: [] },
@@ -2308,6 +2452,7 @@ const cardData = [
     "ver1.0.0, hololive English -Advent-, フワワ・アビスガード",
     {
       type: "cute",
+      leader: "",
       connect: {
         range: "5マス効果",
         cells: { yellow: [11], green: [8, 12, 13, 14, 18] },
@@ -2324,6 +2469,7 @@ const cardData = [
     "ver1.0.0, hololive English -Advent-, フワワ・アビスガード",
     {
       type: "pure",
+      leader: "",
       connect: {
         range: "4マス効果",
         cells: { yellow: [], green: [] },
@@ -2340,6 +2486,7 @@ const cardData = [
     "ver1.0.0, hololive English -Advent-, フワワ・アビスガード",
     {
       type: "happy",
+      leader: "",
       connect: {
         range: "",
         cells: { yellow: [], green: [] },
@@ -2356,6 +2503,7 @@ const cardData = [
     "ver1.0.0, hololive English -Advent-, モココ・アビスガード",
     {
       type: "cute",
+      leader: "",
       connect: {
         range: "6マス効果",
         cells: { yellow: [12], green: [6, 7, 11, 13, 16, 17] },
@@ -2372,6 +2520,7 @@ const cardData = [
     "ver1.0.0, hololive English -Advent-, モココ・アビスガード",
     {
       type: "pure",
+      leader: "",
       connect: {
         range: "4マス効果",
         cells: { yellow: [], green: [] },
@@ -2388,6 +2537,7 @@ const cardData = [
     "ver1.0.0, hololive English -Advent-, モココ・アビスガード",
     {
       type: "happy",
+      leader: "",
       connect: {
         range: "",
         cells: { yellow: [], green: [] },
@@ -2404,6 +2554,7 @@ const cardData = [
     "ver1.0.0, ReGLOSS, 音乃瀬奏",
     {
       type: "pure",
+      leader: "",
       connect: {
         range: "5マス効果",
         cells: { yellow: [11], green: [8, 12, 13, 14, 18] },
@@ -2420,6 +2571,7 @@ const cardData = [
     "ver1.0.0, ReGLOSS, 音乃瀬奏",
     {
       type: "cute",
+      leader: "",
       connect: {
         range: "3マス効果",
         cells: { yellow: [], green: [] },
@@ -2436,6 +2588,7 @@ const cardData = [
     "ver1.0.0, ReGLOSS, 音乃瀬奏",
     {
       type: "happy",
+      leader: "",
       connect: {
         range: "",
         cells: { yellow: [], green: [] },
@@ -2452,6 +2605,7 @@ const cardData = [
     "ver1.0.0, ReGLOSS, 一条莉々華",
     {
       type: "happy",
+      leader: "",
       connect: {
         range: "5マス効果",
         cells: { yellow: [13], green: [6, 10, 11, 12, 16] },
@@ -2468,6 +2622,7 @@ const cardData = [
     "ver1.0.0, ReGLOSS, 一条莉々華",
     {
       type: "cute",
+      leader: "",
       connect: {
         range: "4マス効果",
         cells: { yellow: [], green: [] },
@@ -2484,6 +2639,7 @@ const cardData = [
     "ver1.0.0, ReGLOSS, 一条莉々華",
     {
       type: "pure",
+      leader: "",
       connect: {
         range: "",
         cells: { yellow: [], green: [] },
@@ -2500,6 +2656,7 @@ const cardData = [
     "ver1.0.0, ReGLOSS, 儒烏風亭らでん",
     {
       type: "happy",
+      leader: "",
       connect: {
         range: "8マス効果",
         cells: { yellow: [12], green: [2, 6, 7, 10, 11, 16, 17, 22] },
@@ -2516,6 +2673,7 @@ const cardData = [
     "ver1.0.0, ReGLOSS, 儒烏風亭らでん",
     {
       type: "pure",
+      leader: "",
       connect: {
         range: "3マス効果",
         cells: { yellow: [], green: [] },
@@ -2532,6 +2690,7 @@ const cardData = [
     "ver1.0.0, ReGLOSS, 儒烏風亭らでん",
     {
       type: "cute",
+      leader: "",
       connect: {
         range: "",
         cells: { yellow: [], green: [] },
@@ -2548,6 +2707,7 @@ const cardData = [
     "ver1.0.0, ReGLOSS, 轟はじめ",
     {
       type: "cute",
+      leader: "",
       connect: {
         range: "5マス効果",
         cells: { yellow: [11], green: [8, 12, 13, 14, 18] },
@@ -2564,6 +2724,7 @@ const cardData = [
     "ver1.0.0, ReGLOSS, 轟はじめ",
     {
       type: "pure",
+      leader: "",
       connect: {
         range: "3マス効果",
         cells: { yellow: [], green: [] },
@@ -2580,6 +2741,7 @@ const cardData = [
     "ver1.0.0, ReGLOSS, 轟はじめ",
     {
       type: "happy",
+      leader: "",
       connect: {
         range: "",
         cells: { yellow: [], green: [] },
@@ -2596,6 +2758,7 @@ const cardData = [
     "ver.1.0.0, 2期生, 大空スバル",
     {
       type: "pure",
+      leader: "",
       connect: {
         range: "4マス効果",
         cells: { yellow: [12], green: [2, 7, 17, 22] },
@@ -2612,6 +2775,7 @@ const cardData = [
     "ver.1.0.0, 3期生, 不知火フレア",
     {
       type: "happy",
+      leader: "",
       connect: {
         range: "6マス効果",
         cells: { yellow: [12], green: [6, 7, 11, 13, 16, 17] },
@@ -2628,6 +2792,7 @@ const cardData = [
     "ver.1.0.0, 3期生, 白銀ノエル",
     {
       type: "cute",
+      leader: "",
       connect: {
         range: "8マス効果",
         cells: { yellow: [12], green: [2, 6, 7, 10, 11, 16, 17, 22] },
@@ -2644,6 +2809,7 @@ const cardData = [
     "ver.1.0.0, 4期生, 角巻わため",
     {
       type: "happy",
+      leader: "",
       connect: {
         range: "5マス効果",
         cells: { yellow: [7], green: [12, 16, 17, 18, 22] },
@@ -2660,6 +2826,7 @@ const cardData = [
     "ver.1.0.0, ReGLOSS, 音乃瀬奏",
     {
       type: "happy",
+      leader: "",
       connect: {
         range: "6マス効果",
         cells: { yellow: [12], green: [7, 8, 11, 13, 17, 18] },
@@ -2676,6 +2843,7 @@ const cardData = [
     "ver.1.0.100, ホロライブ0期生, さくらみこ",
     {
       type: "pure",
+      leader: "",
       connect: {
         range: "4マス効果",
         cells: { yellow: [12], green: [2, 7, 13, 14] },
@@ -2692,6 +2860,7 @@ const cardData = [
     "ver.1.0.100, ホロライブ0期生, 星街すいせい",
     {
       type: "cute",
+      leader: "",
       connect: {
         range: "3マス効果",
         cells: { yellow: [13], green: [10, 11, 12] },
@@ -2708,6 +2877,7 @@ const cardData = [
     "ver.1.0.101, ホロライブ2期生, 百鬼あやめ",
     {
       type: "happy",
+      leader: "",
       connect: {
         range: "5マス効果",
         cells: { yellow: [], green: [] },
@@ -2724,6 +2894,7 @@ const cardData = [
     "ver.1.0.101, ホロライブ4期生, 姫森ルーナ",
     {
       type: "pure",
+      leader: "",
       connect: {
         range: "5マス効果",
         cells: { yellow: [], green: [] },
@@ -2740,6 +2911,7 @@ const cardData = [
     "ver.1.0.101, ホロライブID2期生, クレイジー・オリー",
     {
       type: "happy",
+      leader: "",
       connect: {
         range: "要確認",
         cells: { yellow: [], green: [] },
@@ -2756,6 +2928,7 @@ const cardData = [
     "ver.1.0.101, ホロライブEN-Myth, 森カリオペ",
     {
       type: "cute",
+      leader: "",
       connect: {
         range: "3マス効果",
         cells: { yellow: [], green: [] },
@@ -2772,15 +2945,84 @@ const cardData = [
     "ver.1.0.101, ホロライブEN-Myth, 一伊那尓栖",
     {
       type: "happy",
+      leader: "",
       connect: {
         range: "要確認",
         cells: { yellow: [], green: [] },
         effect: "要確認"
       },
       costume: "Mythが2人以上で全員のセンスが135%UP",
-      special: "12秒間スコアサポート効果100%/Mythが2人以上でスキル発動率が40%UP／開花前→開花後 100%→120%、40%→45%",
+      special: "12秒間スコアサポート効果開花前100%→開花後120%/Mythが2人以上でスキル発動率が開花前40%→開花後45%",
       active: "",
       passive: ""
+    }
+  ],
+  [
+    5, "渚で魅せるtwinkle 白上フブキ", "175_白上フブキ.webp",
+    "ver.1.0.101, 1期生, ゲーマーズ, 白上フブキ",
+    {
+      type: "cute",
+      leader: "",
+      connect: {
+        range: "8マス効果",
+        cells: { yellow: [12], green: [2, 6, 7, 10, 11, 16, 17, 22] },
+        effect: "不明"
+      },
+      costume: "キュートタイプ2人以上で全員のセンスが130%UP",
+      special: "12秒間スコアサポート効果135%",
+      active: "35秒毎に中確率で13秒間スコアが115%UP",
+      passive: "キュートタイプ2人のスコアサポート効果11%"
+    }
+  ],
+  [
+    5, "夏にまどろむWolf Heart 大神ミオ", "176_大神ミオ.webp",
+    "ver.1.0.101, ゲーマーズ, 大神ミオ",
+    {
+      type: "pure",
+      leader: "",
+      connect: {
+        range: "6マス効果",
+        cells: { yellow: [12], green: [6, 7, 11, 13, 16, 17] },
+        effect: "不明"
+      },
+      costume: "ピュアタイプ二人以上で全員のテクニックが130%UP",
+      special: "12秒間スコアサポート効果135%",
+      active: "23秒毎に中確率で8秒間スコアが120%UP",
+      passive: "ピュアタイプ2人以上でピュアタイプ2人のテクニックが43%UP"
+    }
+  ],
+  [
+    5, "パラソル下のリバティキャット 猫又おかゆ", "177_猫又おかゆ.webp",
+    "ver.1.0.101, ゲーマーズ, 猫又おかゆ",
+    {
+      type: "happy",
+      leader: "",
+      connect: {
+        range: "8マス効果",
+        cells: { yellow: [12], green: [2, 7, 8, 13, 14, 17, 18, 22] },
+        effect: "不明"
+      },
+      costume: "ゲーマーズが2人以上で全員のパフォーマンスが135%UP",
+      special: "11秒間スコアサポート効果130%／ゲーマーズが2人以上でスキル発動が50%UP",
+      active: "28秒毎に高確率で10秒間スコアが110%UP",
+      passive: "ゲーマーズ2人のパフォーマンスが43%UP"
+    }
+  ],
+  [
+    5, "密林を舞うワイルドサマー！ 戌神ころね", "178_戌神ころね.webp",
+    "ver.1.0.101, ゲーマーズ, 戌神ころね",
+    {
+      type: "pure",
+      leader: "",
+      connect: {
+        range: "6マス効果",
+        cells: { yellow: [12], green: [7, 8, 11, 13, 17, 18] },
+        effect: "不明"
+      },
+      costume: "ピュアタイプ2人以上で全員のテクニックが80%UP／ピュアタイプ2人以上で全員のスコアサポート効果25%",
+      special: "12秒間スコアサポート効果120%／スキル発動率が40%UP",
+      active: "32秒毎に高確率で11秒間スコアが60%UP／ピュアタイプ2人以上でスコアが120%UP",
+      passive: "ピュアタイプ2人のスコアサポート効果11%"
     }
   ],
 ];
