@@ -1,4 +1,4 @@
-﻿function getCardImageGroup(fileName) {
+function getCardImageGroup(fileName) {
     const match = String(fileName || '').match(/^(\d+)/);
     if (!match) return 'misc';
     return String(Math.floor((Number(match[1]) - 1) / 50) + 1);
@@ -178,8 +178,192 @@ function escapeHtml(value) {
         .replace(/'/g, "&#039;");
 }
 
-function formatSkillText(value) {
-    return escapeHtml(value).replace(/／/g, "<br>");
+const BLOOM_LABELS = ["開花前", "開花1", "開花2", "開花3", "開花4", "開花5"];
+let currentBloomStage = 0;
+
+function clampBloomStage(stage) {
+    return Math.max(0, Math.min(BLOOM_LABELS.length - 1, Number(stage) || 0));
+}
+
+function getBloomLabel(stage) {
+    return BLOOM_LABELS[clampBloomStage(stage)];
+}
+
+const BLOOM_STAGE_THRESHOLDS = {
+    active: 1,
+    parameter: 2,
+    special: 3,
+    passive: 4,
+    connect: 5,
+    costume: 5
+};
+
+function getBloomThreshold(key) {
+    return BLOOM_STAGE_THRESHOLDS[key] ?? 5;
+}
+
+function normalizePercentText(value) {
+    const text = String(value || "").trim();
+    return text.endsWith("%") ? text : `${text}%`;
+}
+
+function escapeRegExp(value) {
+    return String(value).replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
+function getBloomValueFromRange(beforeText, afterText, bloomStage, key) {
+    const before = normalizePercentText(beforeText);
+    const after = normalizePercentText(afterText);
+    return clampBloomStage(bloomStage) >= getBloomThreshold(key) ? after : before;
+}
+
+function replaceVisibleBloomPair(text, before, after, chosen) {
+    const beforeValue = normalizePercentText(before);
+    const afterValue = normalizePercentText(after);
+    const chosenValue = normalizePercentText(chosen);
+    const beforeNumber = beforeValue.replace("%", "");
+    const afterNumber = afterValue.replace("%", "");
+    const chosenNumber = chosenValue.replace("%", "");
+    let result = text;
+
+    [
+        [`${beforeNumber}%\\s*[\\/／]\\s*${afterNumber}%`, chosenValue],
+        [`${beforeNumber}\\s*[\\/／]\\s*${afterNumber}%`, `${chosenNumber}%`],
+        [`${beforeNumber}%\\s*[\\/／]\\s*${afterNumber}`, `${chosenNumber}%`],
+        [`${beforeNumber}\\s*[\\/／]\\s*${afterNumber}`, chosenNumber]
+    ].forEach(([pattern, replacement]) => {
+        result = result.replace(new RegExp(pattern, "g"), replacement);
+    });
+
+    const otherValue = chosenValue === afterValue ? beforeValue : afterValue;
+    result = result.replace(new RegExp(`${escapeRegExp(otherValue)}(?=\\s*UP|\\s*効果)`, "g"), chosenValue);
+    return result;
+}
+
+function replaceBloomRanges(text, bloomStage, key = "") {
+    const useAfter = clampBloomStage(bloomStage) >= getBloomThreshold(key);
+    const ranges = [];
+    let result = String(text || "").replace(/開花前\s*(\d+(?:\.\d+)?%?)\s*→\s*開花後\s*(\d+(?:\.\d+)?%?)/g, (_, before, after) => {
+        const chosen = useAfter ? after : before;
+        ranges.push({ before, after, chosen });
+        return "";
+    });
+
+    result = result.replace(/開花前\s*→\s*開花後/g, "");
+    result = result.replace(/(\d+(?:\.\d+)?%?)\s*→\s*(\d+(?:\.\d+)?%?)/g, (_, before, after) => {
+        const chosen = getBloomValueFromRange(before, after, bloomStage, key);
+        ranges.push({ before, after, chosen });
+        return chosen;
+    });
+
+    ranges.forEach(({ before, after, chosen }) => {
+        result = replaceVisibleBloomPair(result, before, after, chosen);
+    });
+
+    return result
+        .replace(/(?:／|\/)\s*(?:$|\n)/g, "")
+        .replace(/\s+／/g, "／")
+        .replace(/／{2,}/g, "／")
+        .trim();
+}
+
+function getStageSkillText(value, bloomStage = 0, key = "") {
+    const rawText = String(value || "").trim();
+    if (!rawText) return "なし";
+    return replaceBloomRanges(rawText.replace(/\\n/g, "\n"), bloomStage, key) || "なし";
+}
+
+function formatSkillText(value, bloomStage = 0, key = "") {
+    return escapeHtml(getStageSkillText(value, bloomStage, key))
+        .replace(/\r?\n/g, "<br>")
+        .replace(/／/g, "<br>");
+}
+
+function normalizeBloomEntries(entries) {
+    if (!entries) return [];
+
+    if (Array.isArray(entries)) {
+        return entries
+            .map((entry) => {
+                if (!entry || typeof entry === "string") return null;
+                const rawStage = entry.stage ?? entry.bloom ?? entry.level ?? 0;
+                const stageNumber = Number(String(rawStage).replace(/[^\d]/g, ""));
+                return {
+                    stage: clampBloomStage(Number.isFinite(stageNumber) ? stageNumber : 0),
+                    text: String(entry.text ?? entry.value ?? "")
+                };
+            })
+            .filter((entry) => entry && entry.text.trim())
+            .sort((a, b) => a.stage - b.stage);
+    }
+
+    if (typeof entries === "object") {
+        return Object.entries(entries)
+            .map(([stage, text]) => ({
+                stage: clampBloomStage(Number(String(stage).replace(/[^\d]/g, "")) || 0),
+                text: String(text ?? "")
+            }))
+            .filter((entry) => entry.text.trim())
+            .sort((a, b) => a.stage - b.stage);
+    }
+
+    return [];
+}
+
+function getBloomStageText(card, key, bloomStage, fallback = "") {
+    const baseSkills = card && card[4] ? card[4] : {};
+    const bloomData = baseSkills.bloom || baseSkills.bloomStages || {};
+    const entries = normalizeBloomEntries(bloomData[key]);
+
+    if (!entries.length) return getStageSkillText(fallback, bloomStage, key);
+
+    const stage = clampBloomStage(bloomStage);
+    let current = "";
+    for (const entry of entries) {
+        if (entry.stage <= stage) current = entry.text;
+    }
+
+    return current || getStageSkillText(fallback, bloomStage, key) || "なし";
+}
+
+function getBloomSkillSet(card, bloomStage) {
+    const baseSkills = card && card[4] ? card[4] : {};
+    const connectBase = normalizeConnectSkill(baseSkills.connect);
+
+    return {
+        type: baseSkills.type,
+        connect: {
+            ...connectBase,
+            effect: getBloomStageText(card, "connect", bloomStage, connectBase.effect)
+        },
+        costume: getBloomStageText(card, "costume", bloomStage, baseSkills.costume || baseSkills.costumeSkill),
+        special: getBloomStageText(card, "special", bloomStage, baseSkills.special),
+        active: getBloomStageText(card, "active", bloomStage, baseSkills.active),
+        passive: getBloomStageText(card, "passive", bloomStage, baseSkills.passive),
+        parameter: getBloomStageText(card, "parameter", bloomStage, "")
+    };
+}
+
+function createBloomStageSelector(stage) {
+    const current = clampBloomStage(stage);
+    return `
+        <div class="bloom-stage-selector" aria-label="開花段階">
+            <button type="button" class="bloom-stage-button" data-bloom-delta="-1">◀</button>
+            <span class="bloom-stage-label">${escapeHtml(getBloomLabel(current))}</span>
+            <button type="button" class="bloom-stage-button" data-bloom-delta="1">▶</button>
+        </div>
+    `;
+}
+
+function setupBloomStageSelector(card, container) {
+    container.querySelectorAll("[data-bloom-delta]").forEach(button => {
+        button.addEventListener("click", event => {
+            event.stopPropagation();
+            const delta = Number(button.dataset.bloomDelta) || 0;
+            const nextStage = (currentBloomStage + delta + BLOOM_LABELS.length) % BLOOM_LABELS.length;
+            openModal(card, nextStage);
+        });
+    });
 }
 function uniqueConnectCells(values) {
     return Array.from(new Set((values || [])
@@ -256,7 +440,8 @@ function createConnectGrid(cells) {
     return html;
 }
 
-function openModal(card) {
+function openModal(card, bloomStage = currentBloomStage) {
+    currentBloomStage = clampBloomStage(bloomStage);
     const overlay = document.getElementById('image-modal');
     const mImg = document.getElementById('modal-image');
     const mRarity = document.getElementById('modal-rarity');
@@ -264,15 +449,18 @@ function openModal(card) {
     const mSkillArea = document.getElementById('modal-text-area');
 
     if (!overlay) return;
+    if (!mSkillArea) return;
 
     const rarityNum = Number(card[0]) || 0;
-    const skills = card[4] || {};
-    const connectSkill = normalizeConnectSkill(skills.connect);
+    const baseSkills = card[4] || {};
+    const skills = getBloomSkillSet(card, currentBloomStage);
+    const connectSkill = skills.connect;
     const costumeSkill = skills.costume || "なし";
     const specialSkill = skills.special || "\u306a\u3057";
     const activeSkill = skills.active || "\u306a\u3057";
     const passiveSkill = skills.passive || "なし";
-    const cardType = normalizeCardType(skills.type);
+    const parameterSkill = skills.parameter || "";
+    const cardType = normalizeCardType(baseSkills.type);
 
     if (mImg) mImg.src = getCardImagePath(card[2]);
     if (mName) {
@@ -287,38 +475,46 @@ function openModal(card) {
     }
     
     mSkillArea.innerHTML = `
+        ${createBloomStageSelector(currentBloomStage)}
         <section class="skill-section connect-skill-section">
             <h3>\u30b3\u30cd\u30af\u30c8\u52b9\u679c</h3>
             <div class="connect-skill-layout">
                 <div class="connect-grid" aria-label="\u30b3\u30cd\u30af\u30c8\u52b9\u679c\u7bc4\u56f2">${createConnectGrid(connectSkill.cells)}</div>
                 <div class="connect-skill-text">
                     <span class="connect-range-label">${escapeHtml(connectSkill.range)}</span>
-                    <p>${formatSkillText(connectSkill.effect)}</p>
+                    <p>${formatSkillText(connectSkill.effect, currentBloomStage)}</p>
                 </div>
             </div>
         </section>
         <section class="skill-section costume-skill-section">
             <h3>\u8863\u88c5\u30b9\u30ad\u30eb</h3>
-            <p>${formatSkillText(costumeSkill)}</p>
+            <p>${formatSkillText(costumeSkill, currentBloomStage)}</p>
         </section>
         <section class="skill-section card-skill-section">
             <h3>\u30b9\u30ad\u30eb\u8a73\u7d30</h3>
             <div class="skill-card-grid">
                 <div class="skill-card special-card">
                     <strong>\u30b9\u30da\u30b7\u30e3\u30eb\u30b9\u30ad\u30eb</strong>
-                    <p>${formatSkillText(specialSkill)}</p>
+                    <p>${formatSkillText(specialSkill, currentBloomStage)}</p>
                 </div>
                 <div class="skill-card active-card">
                     <strong>\u30a2\u30af\u30c6\u30a3\u30d6\u30b9\u30ad\u30eb</strong>
-                    <p>${formatSkillText(activeSkill)}</p>
+                    <p>${formatSkillText(activeSkill, currentBloomStage)}</p>
                 </div>
+                ${parameterSkill && parameterSkill !== "なし" ? `
+                    <div class="skill-card parameter-card">
+                        <strong>パラメータアップ</strong>
+                        <p>${formatSkillText(parameterSkill, currentBloomStage)}</p>
+                    </div>
+                ` : ""}
                 <div class="skill-card passive-card">
                     <strong>\u30d1\u30c3\u30b7\u30d6\u30b9\u30ad\u30eb</strong>
-                    <p>${formatSkillText(passiveSkill)}</p>
+                    <p>${formatSkillText(passiveSkill, currentBloomStage)}</p>
                 </div>
             </div>
         </section>
     `;
+    setupBloomStageSelector(card, mSkillArea);
 
     overlay.classList.add('open');
     document.body.style.overflow = 'hidden';

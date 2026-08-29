@@ -1200,3 +1200,61 @@ main #sort-select {
   box-shadow: none !important;
   filter: none !important;
 }
+
+/* Bloom stage selector */
+.bloom-stage-selector {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin: 0 auto 16px;
+}
+
+.bloom-stage-button,
+.bloom-stage-label {
+  min-height: 36px;
+  border: 2px solid #36c9f4;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.94);
+  color: #008fd7;
+  font-weight: bold;
+  box-shadow: 0 8px 18px rgba(0, 160, 220, 0.12);
+}
+
+.bloom-stage-button {
+  width: 42px;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 1;
+}
+
+.bloom-stage-label {
+  min-width: 112px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 18px;
+  font-size: 15px;
+}
+
+.bloom-stage-button:hover {
+  background: #e9f9ff;
+  transform: translateY(-1px);
+}
+
+@media (max-width: 768px) {
+  .bloom-stage-selector {
+    margin-bottom: 12px;
+  }
+
+  .bloom-stage-button {
+    width: 40px;
+    min-height: 34px;
+  }
+
+  .bloom-stage-label {
+    min-height: 34px;
+    min-width: 100px;
+    font-size: 14px;
+  }
+}
