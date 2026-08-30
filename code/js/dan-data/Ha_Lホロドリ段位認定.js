@@ -650,7 +650,7 @@ window.danRankSets.push({
         {
           "order": "1st",
           "song": "ピ ピカソ ",
-          "difficulty": "EXPERT5",
+          "difficulty": "EXPERT25",
           "notes": ""
         },
         {

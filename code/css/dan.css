@@ -509,3 +509,19 @@
   -webkit-text-fill-color: currentColor;
 }
 
+
+/* dan page footer placement */
+body.dan-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+body.dan-page .dan-main {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+body.dan-page .site-rights-footer {
+  margin-top: auto;
+}
