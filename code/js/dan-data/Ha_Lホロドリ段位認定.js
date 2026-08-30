@@ -9,6 +9,8 @@ window.danRankSets.push({
   "ranks": [
     {
       "rank": "五級",
+      box_collar: "#ffa8e2",
+      text_collar: "#000000",
       "stages": [
         {
           "order": "1st",
@@ -36,6 +38,8 @@ window.danRankSets.push({
     },
     {
       "rank": "四級",
+      box_collar: "#ffa8e2",
+      text_collar: "#000000",
       "stages": [
         {
           "order": "1st",
@@ -63,6 +67,8 @@ window.danRankSets.push({
     },
     {
       "rank": "三級",
+      box_collar: "#67a8f1",
+      text_collar: "#000000",
       "stages": [
         {
           "order": "1st",
@@ -90,6 +96,8 @@ window.danRankSets.push({
     },
     {
       "rank": "二級",
+      box_collar: "#67a8f1",
+      text_collar: "#000000",
       "stages": [
         {
           "order": "1st",
@@ -117,6 +125,8 @@ window.danRankSets.push({
     },
     {
       "rank": "一級",
+      box_collar: "#67a8f1",
+      text_collar: "#000000",
       "stages": [
         {
           "order": "1st",
@@ -144,6 +154,8 @@ window.danRankSets.push({
     },
     {
       "rank": "初段",
+      box_collar: "#4ea74e",
+      text_collar: "#000000",
       "stages": [
         {
           "order": "1st",
@@ -171,6 +183,8 @@ window.danRankSets.push({
     },
     {
       "rank": "二段",
+      box_collar: "#4ea74e",
+      text_collar: "#000000",
       "stages": [
         {
           "order": "1st",
@@ -198,6 +212,8 @@ window.danRankSets.push({
     },
     {
       "rank": "三段",
+      box_collar: "#4ea74e",
+      text_collar: "#000000",
       "stages": [
         {
           "order": "1st",
@@ -225,6 +241,8 @@ window.danRankSets.push({
     },
     {
       "rank": "四段",
+      box_collar: "#1a2e64",
+      text_collar: "#ffffff",
       "stages": [
         {
           "order": "1st",
@@ -252,6 +270,8 @@ window.danRankSets.push({
     },
     {
       "rank": "五段",
+      box_collar: "#1a2e64",
+      text_collar: "#ffffff",
       "stages": [
         {
           "order": "1st",
@@ -279,6 +299,8 @@ window.danRankSets.push({
     },
     {
       "rank": "六段",
+      box_collar: "#1a2e64",
+      text_collar: "#ffffff",
       "stages": [
         {
           "order": "1st",
@@ -306,6 +328,8 @@ window.danRankSets.push({
     },
     {
       "rank": "七段",
+      box_collar: "#9b0000",
+      text_collar: "#000000",
       "stages": [
         {
           "order": "1st",
@@ -333,6 +357,8 @@ window.danRankSets.push({
     },
     {
       "rank": "八段",
+      box_collar: "#9b0000",
+      text_collar: "#000000",
       "stages": [
         {
           "order": "1st",
@@ -360,6 +386,8 @@ window.danRankSets.push({
     },
     {
       "rank": "九段",
+      box_collar: "#9b0000",
+      text_collar: "#000000",
       "stages": [
         {
           "order": "1st",
@@ -387,6 +415,8 @@ window.danRankSets.push({
     },
     {
       "rank": "十段",
+      box_collar: "#000000",
+      text_collar: "#ffffff",
       "stages": [
         {
           "order": "1st",
@@ -413,7 +443,39 @@ window.danRankSets.push({
       }
     },
     {
+      "rank": "皆伝",
+      box_collar: "#d8b907",
+      text_collar: "#000000",
+      "stages": [
+        {
+          "order": "1st",
+          "song": "PSYCHO",
+          "difficulty": "EXPERT29",
+          "notes": ""
+        },
+        {
+          "order": "2d",
+          "song": "Monsters and Men",
+          "difficulty": "EXPERT29",
+          "notes": ""
+        },
+        {
+          "order": "3rd",
+          "song": "星屑カプセル",
+          "difficulty": "CREATE30",
+          "notes": "1417",
+          "ID": "EL67D67U"
+        }
+      ],
+      "conditions": {
+        "great": "12",
+        "goodOrBelow": "5"
+      }
+    },
+    {
       "rank": "裏五段",
+      box_collar: "#2a5f9b",
+      text_collar: "#ffffff",
       "stages": [
         {
           "order": "1st",
@@ -441,6 +503,8 @@ window.danRankSets.push({
     },
     {
       "rank": "裏七段",
+      box_collar: "#d8b907",
+      text_collar: "#000000",
       "stages": [
         {
           "order": "1st",
@@ -468,6 +532,8 @@ window.danRankSets.push({
     },
     {
       "rank": "裏十段",
+      box_collar: "#500a70",
+      text_collar: "#ffffff",
       "stages": [
         {
           "order": "1st",
@@ -495,6 +561,7 @@ window.danRankSets.push({
     },
     {
       "rank": "【外伝】　shortest 3",
+      text_collar: "#ad0000",
       "stages": [
         {
           "order": "1st",
@@ -522,6 +589,7 @@ window.danRankSets.push({
     },
     {
       "rank": "【外伝】　longest 3",
+      text_collar: "#2500ad",
       "stages": [
         {
           "order": "1st",
@@ -546,7 +614,63 @@ window.danRankSets.push({
         "great": "25",
         "goodOrBelow": "10"
       }
-    }
+    },
+    {
+      "rank": "【外伝】　挑戦！BPM240↑",
+      text_collar: "#6800ad",
+      "stages": [
+        {
+          "order": "1st",
+          "song": "全人類\u3000兎化計画！ ",
+          "difficulty": "EXPERT26",
+          "notes": ""
+        },
+        {
+          "order": "2nd",
+          "song": "Los! Los! Los!",
+          "difficulty": "EXPERT27",
+          "notes": ""
+        },
+        {
+          "order": "3rd",
+          "song": "ぽ",
+          "difficulty": "EXPERT28",
+          "notes": ""
+        }
+      ],
+      "conditions": {
+        "great": "24",
+        "goodOrBelow": "6"
+      }
+    },
+    {
+      "rank": "【外伝】　目指せ！3000コンボ！",
+      text_collar: "#008307",
+      "stages": [
+        {
+          "order": "1st",
+          "song": "ピ ピカソ ",
+          "difficulty": "EXPERT5",
+          "notes": ""
+        },
+        {
+          "order": "2nd",
+          "song": "Color Rise Harmony",
+          "difficulty": "EXPERT27",
+          "notes": ""
+        },
+        {
+          "order": "3rd",
+          "song": "KINGWORLD",
+          "difficulty": "EXPERT30",
+          "notes": ""
+        }
+      ],
+      "conditions": {
+        "combo": "3000",
+        "goodOrBelow": "30"
+      }
+    },
   ]
 });
 

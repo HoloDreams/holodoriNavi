@@ -1,4 +1,4 @@
-﻿(function () {
+(function () {
   const root = document.getElementById('dan-rank-list');
   const switcher = document.getElementById('dan-dataset-switcher');
   const prevButton = document.getElementById('dan-dataset-prev');
@@ -64,8 +64,61 @@
     return [];
   }
 
-  function songCell(songName) {
-    const title = String(songName || '').trim();
+  function isCreateDifficulty(value) {
+    return String(value || '').trim().toUpperCase().startsWith('CREATE');
+  }
+
+  function getCreateId(stage) {
+    return String(stage?.ID || stage?.id || '').trim();
+  }
+
+  function normalizeCssColor(value) {
+    const color = String(value || '').trim();
+    if (/^#[0-9a-fA-F]{3,8}$/.test(color)) return color;
+    if (/^[0-9a-fA-F]{3,8}$/.test(color)) return `#${color}`;
+    return '';
+  }
+
+  function safeCssColor(value) {
+    return normalizeCssColor(value);
+  }
+
+  function safeCssBackground(value) {
+    const colors = String(value || '')
+      .split(',')
+      .map((color) => normalizeCssColor(color))
+      .filter(Boolean);
+
+    if (!colors.length) return '';
+    if (colors.length === 1) return colors[0];
+    return `linear-gradient(90deg, ${colors.join(', ')})`;
+  }
+
+  function rankToggleStyle(rank) {
+    const boxColor = safeCssBackground(rank?.box_collar || rank?.box_color || rank?.['box collar']);
+    const textSource = rank?.text_collar || rank?.text_color || rank?.['text collar'];
+    const textColors = String(textSource || '')
+      .split(',')
+      .map((color) => normalizeCssColor(color))
+      .filter(Boolean);
+    const styles = [];
+
+    if (boxColor) styles.push(`--dan-toggle-bg: ${boxColor}`);
+    if (textColors.length === 1) {
+      styles.push(`--dan-toggle-text: ${textColors[0]}`);
+      styles.push('--dan-toggle-title-bg: none');
+      styles.push('--dan-toggle-title-fill: currentColor');
+    } else if (textColors.length > 1) {
+      styles.push(`--dan-toggle-text: ${textColors[0]}`);
+      styles.push(`--dan-toggle-title-bg: linear-gradient(90deg, ${textColors.join(', ')})`);
+      styles.push('--dan-toggle-title-fill: transparent');
+    }
+
+    return styles.length ? ` style="${styles.join('; ')}"` : '';
+  }
+
+  function songCell(stage) {
+    const title = String(stage?.song || '').trim();
     if (!title) return '<span class="dan-empty">未設定</span>';
     return `<a class="dan-song-link" href="music_detail.html?song=${encodeURIComponent(title)}">${escapeHtml(title)}</a>`;
   }
@@ -109,6 +162,24 @@
     return valueCell(getAutoNotes(stage));
   }
 
+  function compactDifficulty(value) {
+    return String(value || '').trim().replace(/\s+/g, '');
+  }
+
+  function createSongCell(stage) {
+    const title = String(stage?.song || '').trim();
+    if (!title) return '<span class="dan-empty">未設定</span>';
+    return `<a class="dan-song-link dan-create-link" href="music_detail.html?song=${encodeURIComponent(title)}">${escapeHtml(title)}</a>`;
+  }
+
+  function createIdCell(stage) {
+    return valueCell(getCreateId(stage) || 'ID未設定');
+  }
+
+  function createDifficultyCell(stage) {
+    return valueCell(compactDifficulty(stage?.difficulty) || 'CREATE');
+  }
+
   function getTotalCombo(stages) {
     let total = 0;
     let hasAny = false;
@@ -129,37 +200,86 @@
     if (text === '×' || text === '-' || text === 'なし') return escapeHtml(text);
     return escapeHtml(text.includes('未満') ? text : `${text}未満`);
   }
+  function minimumText(value) {
+    const text = String(value || '').trim();
+    if (!text) return '';
+    if (text === '×' || text === '-' || text === 'なし') return escapeHtml(text);
+    return escapeHtml(text.includes('以上') ? text : `${text}以上`);
+  }
+  const conditionDefinitions = [
+    { key: 'great', label: 'GREAT', format: limitText },
+    { key: 'combo', label: 'COMBO', format: minimumText },
+    { key: 'goodOrBelow', label: 'GOOD以下の数', format: limitText }
+  ];
+
+  function hasConditionValue(value) {
+    const text = String(value || '').trim();
+    return Boolean(text && text !== '×' && text !== '-' && text !== 'なし');
+  }
+
+  function renderConditions(conditions) {
+    const rows = conditionDefinitions
+      .filter((definition) => hasConditionValue(conditions?.[definition.key]))
+      .map((definition) => `<div><dt>${definition.label}</dt><dd>${definition.format(conditions[definition.key])}</dd></div>`);
+
+    Object.keys(conditions || {}).forEach((key) => {
+      if (conditionDefinitions.some((definition) => definition.key === key)) return;
+      if (!hasConditionValue(conditions[key])) return;
+      rows.push(`<div><dt>${escapeHtml(key)}</dt><dd>${valueCell(conditions[key])}</dd></div>`);
+    });
+
+    return rows.join('');
+  }
 
   function renderRank(rank, index) {
     const stages = Array.isArray(rank.stages) ? rank.stages : [];
     const rows = ['1st', '2nd', '3rd'].map((label, stageIndex) => {
       const stage = stages[stageIndex] || {};
+      const orderText = escapeHtml(stage.order || label);
+      if (isCreateDifficulty(stage.difficulty)) {
+        return `
+        <tr class="dan-create-row">
+          <th scope="row">${orderText}</th>
+          <td class="dan-create-song-cell">${createSongCell(stage)}</td>
+          <td class="dan-create-id-cell">${createIdCell(stage)}</td>
+          <td>${createDifficultyCell(stage)}</td>
+          <td>${notesCell(stage)}</td>
+        </tr>`;
+      }
       return `
         <tr>
-          <th scope="row">${escapeHtml(stage.order || label)}</th>
-          <td>${songCell(stage.song)}</td>
+          <th scope="row">${orderText}</th>
+          <td colspan="2">${songCell(stage)}</td>
           <td>${difficultyCell(stage.difficulty)}</td>
           <td>${notesCell(stage)}</td>
         </tr>`;
     }).join('');
 
     const conditions = rank.conditions || {};
-    const totalCombo = getTotalCombo(stages);
-    const rankName = escapeHtml(rank.rank || '段位');
-    const contentId = `dan-rank-content-${currentDatasetIndex}-${index}`;
-    return `
-      <article class="dan-rank-card">
-        <button class="dan-rank-toggle" type="button" aria-expanded="false" aria-controls="${contentId}">
-          <span class="dan-rank-title">${rankName}</span>
-          <span class="dan-rank-arrow" aria-hidden="true">▼</span>
-        </button>
+  const totalCombo = getTotalCombo(stages);
+  const rankName = escapeHtml(rank.rank || '段位');
+  const contentId = `dan-rank-content-${currentDatasetIndex}-${index}`;
+  const toggleStyle = rankToggleStyle(rank);
+  return `
+    <article class="dan-rank-card">
+      <button class="dan-rank-toggle" type="button" aria-expanded="false" aria-controls="${contentId}"${toggleStyle}>
+        <span class="dan-rank-title">${rankName}</span>
+        <span class="dan-rank-arrow" aria-hidden="true">▼</span>
+      </button>
         <div class="dan-rank-content" id="${contentId}" hidden>
           <div class="dan-table-wrap">
             <table class="dan-stage-table">
+              <colgroup>
+                <col class="dan-col-order">
+                <col class="dan-col-song">
+                <col class="dan-col-create-id">
+                <col class="dan-col-difficulty">
+                <col class="dan-col-notes">
+              </colgroup>
               <thead>
                 <tr>
                   <th>順番</th>
-                  <th>曲名</th>
+                  <th colspan="2">曲名</th>
                   <th>難易度</th>
                   <th>ノーツ数</th>
                 </tr>
@@ -169,10 +289,7 @@
           </div>
           <section class="dan-conditions" aria-label="合格条件">
             <h3>合格条件</h3>
-            <dl>
-              <div><dt>GREAT</dt><dd>${limitText(conditions.great)}</dd></div>
-              <div><dt>GOOD以下の数</dt><dd>${limitText(conditions.goodOrBelow)}</dd></div>
-            </dl>
+            <dl>${renderConditions(conditions)}</dl>
           </section>
           <div class="dan-total-combo"><span>総コンボ数</span><strong>${valueCell(totalCombo)}</strong></div>
         </div>
@@ -265,6 +382,15 @@
     init();
   }
 })();
+
+
+
+
+
+
+
+
+
 
 
 

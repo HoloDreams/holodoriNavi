@@ -1,4 +1,4 @@
-﻿.dan-main {
+.dan-main {
   max-width: 1100px;
   margin: 0 auto;
   padding: 128px 18px 82px;
@@ -103,20 +103,21 @@
   width: 100%;
   min-height: 76px;
   border: 0;
-  background: rgba(211, 245, 255, 0.82);
-  color: #008bd2;
+  background: var(--dan-toggle-bg, rgba(211, 245, 255, 0.82));
+  color: var(--dan-toggle-text, #008bd2);
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 12px;
   cursor: pointer;
   font: inherit;
-  transition: background 0.2s ease, color 0.2s ease;
+  transition: background 0.2s ease, color 0.2s ease, filter 0.2s ease;
 }
 
 .dan-rank-toggle:hover,
 .dan-rank-toggle.is-open {
-  background: rgba(190, 239, 255, 0.96);
+  background: var(--dan-toggle-bg, rgba(190, 239, 255, 0.96));
+  filter: brightness(0.98);
 }
 
 .dan-rank-title {
@@ -157,23 +158,19 @@
   background: #ffffff;
 }
 
-.dan-stage-table th:nth-child(1),
-.dan-stage-table td:nth-child(1) {
+.dan-col-order {
   width: 9.09%;
 }
 
-.dan-stage-table th:nth-child(2),
-.dan-stage-table td:nth-child(2) {
-  width: 54.55%;
+.dan-col-song {
+  width: 36.36%;
 }
 
-.dan-stage-table th:nth-child(3),
-.dan-stage-table td:nth-child(3),
-.dan-stage-table th:nth-child(4),
-.dan-stage-table td:nth-child(4) {
+.dan-col-create-id,
+.dan-col-difficulty,
+.dan-col-notes {
   width: 18.18%;
 }
-
 .dan-stage-table th,
 .dan-stage-table td {
   border: 1px solid #9fe8ff;
@@ -399,22 +396,19 @@
 }
 
 @media (max-width: 420px) {
-  .dan-stage-table th:nth-child(1),
-  .dan-stage-table td:nth-child(1) {
-    width: 12%;
-  }
+  .dan-col-order {
+  width: 9.09%;
+}
 
-  .dan-stage-table th:nth-child(2),
-  .dan-stage-table td:nth-child(2) {
-    width: 48%;
-  }
+.dan-col-song {
+  width: 36.36%;
+}
 
-  .dan-stage-table th:nth-child(3),
-  .dan-stage-table td:nth-child(3),
-  .dan-stage-table th:nth-child(4),
-  .dan-stage-table td:nth-child(4) {
-    width: 20%;
-  }
+.dan-col-create-id,
+.dan-col-difficulty,
+.dan-col-notes {
+  width: 18.18%;
+}
 }
 
 
@@ -453,3 +447,65 @@
   }
 }
 /* dan difficulty split end */
+
+.dan-create-cell {
+  text-align: center;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.dan-create-link {
+  display: inline-block;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 760px) {
+  .dan-create-cell {
+    font-size: 0.95em;
+    line-height: 1.55;
+  }
+}
+
+
+/* dan CREATE id column */
+.dan-create-id-cell {
+  color: #3d3d3d;
+  font-weight: 800;
+  overflow-wrap: anywhere;
+}
+
+.dan-create-song-cell {
+  overflow-wrap: anywhere;
+}
+
+/* dan toggle custom color hard override */
+.dan-rank-toggle,
+.dan-rank-toggle .dan-rank-title,
+.dan-rank-toggle .dan-rank-arrow {
+  color: var(--dan-toggle-text, #008bd2) !important;
+}
+
+.dan-rank-toggle * {
+  color: inherit !important;
+}
+
+
+
+/* dan toggle text gradient fix */
+.dan-rank-toggle .dan-rank-title {
+  display: inline-block;
+  color: var(--dan-toggle-text, #008bd2) !important;
+  background-image: var(--dan-toggle-title-bg, none) !important;
+  background-color: transparent !important;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: var(--dan-toggle-title-fill, currentColor);
+}
+
+.dan-rank-toggle .dan-rank-arrow {
+  color: var(--dan-toggle-text, #008bd2) !important;
+  background: transparent !important;
+  -webkit-text-fill-color: currentColor;
+}
+
