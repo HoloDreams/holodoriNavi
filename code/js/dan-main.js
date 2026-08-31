@@ -233,9 +233,10 @@
 
   function renderRank(rank, index) {
     const stages = Array.isArray(rank.stages) ? rank.stages : [];
-    const rows = ['1st', '2nd', '3rd'].map((label, stageIndex) => {
+    const stageCount = Math.max(3, stages.length);
+    const rows = Array.from({ length: stageCount }, (_, stageIndex) => {
       const stage = stages[stageIndex] || {};
-      const orderText = escapeHtml(stage.order || label);
+      const orderText = escapeHtml(stage.order || `${stageIndex + 1}${stageIndex === 0 ? 'st' : stageIndex === 1 ? 'nd' : stageIndex === 2 ? 'rd' : 'th'}`);
       if (isCreateDifficulty(stage.difficulty)) {
         return `
         <tr class="dan-create-row">
