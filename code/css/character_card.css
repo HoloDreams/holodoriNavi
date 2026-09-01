@@ -998,11 +998,95 @@ main #card-filter-panel {
 .card-type-badge.type-cute { color: #ff4f78; background: rgba(255, 96, 132, 0.18); }
 .card-type-badge.type-pure { color: #25b965; background: rgba(101, 255, 70, 0.18); }
 .card-type-badge.type-happy { color: #f4ad13; background: rgba(255, 215, 73, 0.22); }
+
+/* Performance / technique / sense badge */
+.card-type2-badge {
+  --type2-color: #ff00bf;
+  --type2-bg: rgba(255, 0, 191, 0.1);
+  display: inline-flex;
+  align-items: center;
+  margin-left: 10px;
+  padding: 4px 10px;
+  border: 2px solid currentColor;
+  border-radius: 999px;
+  color: var(--type2-color);
+  background: var(--type2-bg);
+  font-size: 13px;
+  line-height: 1;
+  font-weight: 800;
+  vertical-align: middle;
+}
+
+.card-type2-badge.type2-technique {
+  --type2-color: #007dff;
+  --type2-bg: rgba(0, 125, 255, 0.1);
+}
+
+.card-type2-badge.type2-performance {
+  --type2-color: #ff00bf;
+  --type2-bg: rgba(255, 0, 191, 0.1);
+}
+
+.card-type2-badge.type2-sense {
+  --type2-color: #ffbf00;
+  --type2-bg: rgba(255, 191, 0, 0.14);
+}
+
+.card-type2-icon-wrap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  margin-right: 5px;
+  flex: 0 0 16px;
+}
+
+.card-type2-icon {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Keep the small SVG icon from inheriting the modal card-image dimensions. */
+#modal-rarity .card-type2-icon {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  min-width: 0 !important;
+  min-height: 0 !important;
+  max-width: 100% !important;
+  max-height: 100% !important;
+  aspect-ratio: 1 / 1 !important;
+  object-fit: contain !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  background: transparent !important;
+}
+
+.card-type2-label {
+  white-space: nowrap;
+}
+
 @media (max-width: 520px) {
   .card-type-badge {
     margin-left: 6px;
     padding: 3px 8px;
     font-size: 11px;
+  }
+
+  .card-type2-badge {
+    margin-left: 6px;
+    padding: 3px 8px;
+    font-size: 11px;
+  }
+
+  .card-type2-icon-wrap {
+    width: 14px;
+    height: 14px;
+    margin-right: 4px;
+    flex-basis: 14px;
   }
 }
 
@@ -1044,6 +1128,58 @@ main #card-filter-panel {
 .type-filter-btn.type-cute.active { background: linear-gradient(135deg, #ff8fac, #ff4f78); }
 .type-filter-btn.type-pure.active { background: linear-gradient(135deg, #65ff46, #20b85c); }
 .type-filter-btn.type-happy.active { background: linear-gradient(135deg, #ffd95a, #f4ad13); }
+
+.type2-filter-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: -6px auto 18px;
+  max-width: 760px;
+}
+
+.type2-filter-btn {
+  --filter-type2-color: #008dd2;
+  --filter-type2-bg: rgba(255, 255, 255, 0.92);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-width: 140px;
+  padding: 8px 16px;
+  border: 2px solid var(--filter-type2-color);
+  border-radius: 999px;
+  background: var(--filter-type2-bg);
+  color: var(--filter-type2-color);
+  font-size: 15px;
+  font-weight: 800;
+  line-height: 1.2;
+  box-shadow: 0 8px 18px rgba(0, 148, 216, 0.12);
+  cursor: pointer;
+}
+
+.type2-filter-btn.type2-technique { --filter-type2-color: #007dff; --filter-type2-bg: rgba(0, 125, 255, 0.08); }
+.type2-filter-btn.type2-performance { --filter-type2-color: #ff00bf; --filter-type2-bg: rgba(255, 0, 191, 0.08); }
+.type2-filter-btn.type2-sense { --filter-type2-color: #e5a800; --filter-type2-bg: rgba(255, 191, 0, 0.12); }
+
+.type2-filter-btn img {
+  display: block;
+  width: 18px;
+  height: 18px;
+  flex: 0 0 18px;
+  object-fit: contain;
+}
+
+.type2-filter-btn.active {
+  color: #fff;
+  background: linear-gradient(135deg, #46d4ff, #0094d8);
+  border-color: transparent;
+}
+
+.type2-filter-btn.type2-technique.active { background: linear-gradient(135deg, #54b1ff, #007dff); }
+.type2-filter-btn.type2-performance.active { background: linear-gradient(135deg, #ff71dc, #ff00bf); }
+.type2-filter-btn.type2-sense.active { background: linear-gradient(135deg, #ffd85f, #e5a800); }
 main .sort-container {
   margin: 0 auto 4px !important;
   min-height: 46px;
@@ -1066,6 +1202,21 @@ main #sort-select {
     flex: 1 1 44%;
     padding: 8px 10px;
     font-size: 13px;
+  }
+  .type2-filter-container {
+    gap: 8px;
+    margin: -4px auto 14px;
+  }
+  .type2-filter-btn {
+    min-width: 0;
+    flex: 1 1 44%;
+    padding: 8px 10px;
+    font-size: 13px;
+  }
+  .type2-filter-btn img {
+    width: 16px;
+    height: 16px;
+    flex-basis: 16px;
   }
   main .sort-container {
     flex-wrap: wrap;

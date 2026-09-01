@@ -4,6 +4,7 @@ const cardData = [
     "ver1.0.0, ホロライブ0期生, ときのそら",
     {
       type: "cute",
+      type2: "performance",
       leader: "",
       connect: {
         range: "3マス効果",
@@ -38,6 +39,7 @@ const cardData = [
     "ver1.0.0, ホロライブ0期生, ときのそら",
     {
       type: "pure",
+      type2: "sense",
       leader: "",
       connect: {
         range: "3マス効果",
@@ -76,6 +78,7 @@ const cardData = [
     "ver1.0.0, ホロライブ0期生, ときのそら",
     {
       type: "happy",
+      type2: "technique",
       leader: "",
       connect: {
         range: "",
@@ -110,6 +113,7 @@ const cardData = [
     "ver1.0.0, ホロライブ0期生, ロボ子さん",
     {
       type: "happy",
+      type2: "performance",
       leader: "",
       connect: {
         range: "5マス効果",
@@ -148,6 +152,7 @@ const cardData = [
     "ver1.0.0, ホロライブ0期生, ロボ子さん",
     {
       type: "cute",
+      type2: "technique",
       leader: "",
       connect: {
         range: "4マス効果",
@@ -186,6 +191,7 @@ const cardData = [
     "ver1.0.0, ホロライブ0期生, ロボ子さん",
     {
       type: "pure",
+      type2: "sense",
       leader: "",
       connect: {
         range: "",
@@ -220,6 +226,7 @@ const cardData = [
     "ver1.0.0, ホロライブ0期生, さくらみこ",
     {
       type: "happy",
+      type2: "sense",
       leader: "",
       connect: {
         range: "5マス効果",
@@ -258,6 +265,7 @@ const cardData = [
     "ver1.0.0, ホロライブ0期生, さくらみこ",
     {
       type: "pure",
+      type2: "technique",
       leader: "",
       connect: {
         range: "4マス効果",
@@ -296,6 +304,7 @@ const cardData = [
     "ver1.0.0, ホロライブ0期生, さくらみこ",
     {
       type: "cute",
+      type2: "performance",
       leader: "",
       connect: {
         range: "",
@@ -330,6 +339,7 @@ const cardData = [
     "ver1.0.0, ホロライブ0期生, AZKi",
     {
       type: "pure",
+      type2: "sense",
       leader: "",
       connect: {
         range: "8マス効果",
@@ -368,6 +378,7 @@ const cardData = [
     "ver1.0.0, ホロライブ0期生, AZKi",
     {
       type: "cute",
+      type2: "performance",
       leader: "",
       connect: {
         range: "3マス効果",
@@ -406,6 +417,7 @@ const cardData = [
     "ver1.0.0, ホロライブ0期生, AZKi",
     {
       type: "happy",
+      type2: "technique",
       leader: "",
       connect: {
         range: "",
@@ -440,6 +452,7 @@ const cardData = [
     "ver1.0.0, ホロライブ0期生, 星街すいせい",
     {
       type: "pure",
+      type2: "technique",
       leader: "",
       connect: {
         range: "5マス効果",
@@ -478,6 +491,7 @@ const cardData = [
     "ver1.0.0, ホロライブ0期生, 星街すいせい",
     {
       type: "happy",
+      type2: "sense",
       leader: "",
       connect: {
         range: "3マス効果",
@@ -516,6 +530,7 @@ const cardData = [
     "ver1.0.0, ホロライブ0期生, 星街すいせい",
     {
       type: "cute",
+      type2: "performance",
       leader: "",
       connect: {
         range: "",
@@ -550,6 +565,7 @@ const cardData = [
     "ver1.0.0, ホロライブ1期生, アキ・ローゼンタール",
     {
       type: "cute",
+      type2: "sense",
       leader: "",
       connect: {
         range: "3マス効果",
@@ -588,6 +604,7 @@ const cardData = [
     "ver1.0.0, ホロライブ1期生, アキ・ローゼンタール",
     {
       type: "happy",
+      type2: "technique",
       leader: "",
       connect: {
         range: "3マス効果",
@@ -626,6 +643,7 @@ const cardData = [
     "ver1.0.0, ホロライブ1期生, アキ・ローゼンタール",
     {
       type: "pure",
+      type2: "performance",
       leader: "",
       connect: {
         range: "",
@@ -656,6 +674,7 @@ const cardData = [
     "ver1.0.0, ホロライブ1期生, 赤井はあと",
     {
       type: "pure",
+      type2: "technique",
       leader: "",
       connect: {
         range: "3マス効果",
@@ -690,6 +709,7 @@ const cardData = [
     "ver1.0.0, ホロライブ1期生, 赤井はあと",
     {
       type: "cute",
+      type2: "performance",
       leader: "",
       connect: {
         range: "4マス効果",
@@ -724,6 +744,7 @@ const cardData = [
     "ver1.0.0, ホロライブ1期生, 赤井はあと",
     {
       type: "happy",
+      type2: "sense",
       leader: "",
       connect: {
         range: "",
@@ -758,6 +779,7 @@ const cardData = [
     "ver1.0.0, ホロライブ1期生, 夏色まつり",
     {
       type: "happy",
+      type2: "performance",
       leader: "",
       connect: {
         range: "4マス効果",
@@ -796,6 +818,7 @@ const cardData = [
     "ver1.0.0, ホロライブ1期生, 夏色まつり",
     {
       type: "pure",
+      type2: "sense",
       leader: "",
       connect: {
         range: "3マス効果",
@@ -834,6 +857,7 @@ const cardData = [
     "ver1.0.0, ホロライブ1期生, 夏色まつり",
     {
       type: "cute",
+      type2: "technique",
       leader: "",
       connect: {
         range: "",
@@ -868,6 +892,7 @@ const cardData = [
     "ver1.0.0, ホロライブ1期生, 白上フブキ",
     {
       type: "pure",
+      type2: "performance",
       leader: "",
       connect: {
         range: "4マス効果",
@@ -906,6 +931,7 @@ const cardData = [
     "ver1.0.0, ホロライブ1期生, 白上フブキ",
     {
       type: "cute",
+      type2: "technique",
       leader: "",
       connect: {
         range: "3マス効果",
@@ -944,6 +970,7 @@ const cardData = [
     "ver1.0.0, ホロライブ1期生, 白上フブキ",
     {
       type: "happy",
+      type2: "sense",
       leader: "",
       connect: {
         range: "",
@@ -978,6 +1005,7 @@ const cardData = [
     "ver1.0.0, ホロライブ2期生, 百鬼あやめ",
     {
       type: "pure",
+      type2: "performance",
       leader: "",
       connect: {
         range: "4マス効果",
@@ -1016,6 +1044,7 @@ const cardData = [
     "ver1.0.0, ホロライブ2期生, 百鬼あやめ",
     {
       type: "cute",
+      type2: "technique",
       leader: "",
       connect: {
         range: "3マス効果",
@@ -1054,6 +1083,7 @@ const cardData = [
     "ver1.0.0, ホロライブ2期生, 百鬼あやめ",
     {
       type: "happy",
+      type2: "sense",
       leader: "",
       connect: {
         range: "",
@@ -1088,6 +1118,7 @@ const cardData = [
     "ver1.0.0, ホロライブ2期生, 癒月ちょこ",
     {
       type: "happy",
+      type2: "sense",
       leader: "",
       connect: {
         range: "6マス効果",
@@ -1126,6 +1157,7 @@ const cardData = [
     "ver1.0.0, ホロライブ2期生, 癒月ちょこ",
     {
       type: "pure",
+      type2: "technique",
       leader: "",
       connect: {
         range: "4マス効果",
@@ -1164,6 +1196,7 @@ const cardData = [
     "ver1.0.0, ホロライブ2期生, 癒月ちょこ",
     {
       type: "cute",
+      type2: "performance",
       leader: "",
       connect: {
         range: "",
@@ -1198,6 +1231,7 @@ const cardData = [
     "ver1.0.0, ホロライブ2期生, 大空スバル",
     {
       type: "cute",
+      type2: "performance",
       leader: "",
       connect: {
         range: "6マス効果",
@@ -1236,6 +1270,7 @@ const cardData = [
     "ver1.0.0, ホロライブ2期生, 大空スバル",
     {
       type: "happy",
+      type2: "sense",
       leader: "",
       connect: {
         range: "3マス効果",
@@ -1274,6 +1309,7 @@ const cardData = [
     "ver1.0.0, ホロライブ2期生, 大空スバル",
     {
       type: "pure",
+      type2: "technique",
       leader: "",
       connect: {
         range: "",
@@ -1308,6 +1344,7 @@ const cardData = [
     "ver1.0.0, ホロライブゲーマーズ, 大神ミオ",
     {
       type: "cute",
+      type2: "sense",
       leader: "",
       connect: {
         range: "5マス効果",
@@ -1346,6 +1383,7 @@ const cardData = [
     "ver1.0.0, ホロライブゲーマーズ, 大神ミオ",
     {
       type: "happy",
+      type2: "performance",
       leader: "",
       connect: {
         range: "4マス効果",
@@ -1384,6 +1422,7 @@ const cardData = [
     "ver1.0.0, ホロライブゲーマーズ, 大神ミオ",
     {
       type: "pure",
+      type2: "technique",
       leader: "",
       connect: {
         range: "",
@@ -1418,6 +1457,7 @@ const cardData = [
     "ver1.0.0, ホロライブゲーマーズ, 猫又おかゆ",
     {
       type: "cute",
+      type2: "technique",
       leader: "",
       connect: {
         range: "4マス効果",
@@ -1456,6 +1496,7 @@ const cardData = [
     "ver1.0.0, ホロライブゲーマーズ, 猫又おかゆ",
     {
       type: "pure",
+      type2: "performance",
       leader: "",
       connect: {
         range: "4マス効果",
@@ -1494,6 +1535,7 @@ const cardData = [
     "ver1.0.0, ホロライブゲーマーズ, 猫又おかゆ",
     {
       type: "happy",
+      type2: "sense",
       leader: "",
       connect: {
         range: "",
@@ -1528,6 +1570,7 @@ const cardData = [
     "ver1.0.0, ホロライブゲーマーズ, 戌神ころね",
     {
       type: "happy",
+      type2: "sense",
       leader: "",
       connect: {
         range: "5マス効果",
@@ -1566,6 +1609,7 @@ const cardData = [
     "ver1.0.0, ホロライブゲーマーズ, 戌神ころね",
     {
       type: "cute",
+      type2: "performance",
       leader: "",
       connect: {
         range: "3マス効果",
@@ -1604,6 +1648,7 @@ const cardData = [
     "ver1.0.0, ホロライブゲーマーズ, 戌神ころね",
     {
       type: "pure",
+      type2: "technique",
       leader: "",
       connect: {
         range: "",
@@ -1638,6 +1683,7 @@ const cardData = [
     "ver1.0.0, ホロライブ3期生, 兎田ぺこら",
     {
       type: "cute",
+      type2: "technique",
       leader: "",
       connect: {
         range: "6マス効果",
@@ -1679,6 +1725,7 @@ const cardData = [
     "ver1.0.0, ホロライブ3期生, 兎田ぺこら",
     {
       type: "happy",
+      type2: "sense",
       leader: "",
       connect: {
         range: "4マス効果",
@@ -1717,6 +1764,7 @@ const cardData = [
     "ver1.0.0, ホロライブ3期生, 兎田ぺこら",
     {
       type: "pure",
+      type2: "performance",
       leader: "",
       connect: {
         range: "",
@@ -1751,6 +1799,7 @@ const cardData = [
     "ver1.0.0, ホロライブ3期生, 不知火フレア",
     {
       type: "pure",
+      type2: "performance",
       leader: "",
       connect: {
         range: "6マス効果",
@@ -1789,6 +1838,7 @@ const cardData = [
     "ver1.0.0, ホロライブ3期生, 不知火フレア",
     {
       type: "cute",
+      type2: "sense",
       leader: "",
       connect: {
         range: "3マス効果",
@@ -1827,6 +1877,7 @@ const cardData = [
     "ver1.0.0, ホロライブ3期生, 不知火フレア",
     {
       type: "happy",
+      type2: "technique",
       leader: "",
       connect: {
         range: "",
@@ -1861,6 +1912,7 @@ const cardData = [
     "ver1.0.0, ホロライブ3期生, 白銀ノエル",
     {
       type: "happy",
+      type2: "sense",
       leader: "",
       connect: {
         range: "12マス効果",
@@ -1899,6 +1951,7 @@ const cardData = [
     "ver1.0.0, ホロライブ3期生, 白銀ノエル",
     {
       type: "pure",
+      type2: "technique",
       leader: "",
       connect: {
         range: "3マス効果",
@@ -1937,6 +1990,7 @@ const cardData = [
     "ver1.0.0, ホロライブ3期生, 白銀ノエル",
     {
       type: "cute",
+      type2: "performance",
       leader: "",
       connect: {
         range: "",
@@ -1971,6 +2025,7 @@ const cardData = [
     "ver1.0.0, ホロライブ3期生, 宝鐘マリン",
     {
       type: "happy",
+      type2: "technique",
       leader: "",
       connect: {
         range: "5マス効果",
@@ -2009,6 +2064,7 @@ const cardData = [
     "ver1.0.0, ホロライブ3期生, 宝鐘マリン",
     {
       type: "cute",
+      type2: "sense",
       leader: "",
       connect: {
         range: "4マス効果",
@@ -2047,6 +2103,7 @@ const cardData = [
     "ver1.0.0, ホロライブ3期生, 宝鐘マリン",
     {
       type: "pure",
+      type2: "performance",
       leader: "",
       connect: {
         range: "",
@@ -2077,6 +2134,7 @@ const cardData = [
     "ver1.0.0, ホロライブ4期生, 角巻わため",
     {
       type: "cute",
+      type2: "performance",
       leader: "",
       connect: {
         range: "4マス効果",
@@ -2115,6 +2173,7 @@ const cardData = [
     "ver1.0.0, ホロライブ4期生, 角巻わため",
     {
       type: "happy",
+      type2: "technique",
       leader: "",
       connect: {
         range: "3マス効果",
@@ -2153,6 +2212,7 @@ const cardData = [
     "ver1.0.0, ホロライブ4期生, 角巻わため",
     {
       type: "pure",
+      type2: "sense",
       leader: "",
       connect: {
         range: "",
@@ -2187,6 +2247,7 @@ const cardData = [
     "ver1.0.0, ホロライブ4期生, 常闇トワ",
     {
       type: "pure",
+      type2: "sense",
       leader: "",
       connect: {
         range: "6マス効果",
@@ -2225,6 +2286,7 @@ const cardData = [
     "ver1.0.0, ホロライブ4期生, 常闇トワ",
     {
       type: "happy",
+      type2: "performance",
       leader: "",
       connect: {
         range: "4マス効果",
@@ -2263,6 +2325,7 @@ const cardData = [
     "ver1.0.0, ホロライブ4期生, 常闇トワ",
     {
       type: "cute",
+      type2: "technique",
       leader: "",
       connect: {
         range: "",
@@ -2297,6 +2360,7 @@ const cardData = [
     "ver1.0.0, ホロライブ4期生, 姫森ルーナ",
     {
       type: "happy",
+      type2: "technique",
       leader: "",
       connect: {
         range: "3マス効果",
@@ -2335,6 +2399,7 @@ const cardData = [
     "ver1.0.0, ホロライブ4期生, 姫森ルーナ",
     {
       type: "pure",
+      type2: "performance",
       leader: "",
       connect: {
         range: "3マス効果",
@@ -2373,6 +2438,7 @@ const cardData = [
     "ver1.0.0, ホロライブ4期生, 姫森ルーナ",
     {
       type: "cute",
+      type2: "sense",
       leader: "",
       connect: {
         range: "",
@@ -2403,6 +2469,7 @@ const cardData = [
     "ver1.0.0, hololive Indonesia 1期生, アユンダ・リス",
     {
       type: "happy",
+      type2: "technique",
       leader: "",
       connect: {
         range: "4マス効果",
@@ -2441,6 +2508,7 @@ const cardData = [
     "ver1.0.0, hololive Indonesia 1期生, アユンダ・リス",
     {
       type: "pure",
+      type2: "sense",
       leader: "",
       connect: {
         range: "3マス効果",
@@ -2479,6 +2547,7 @@ const cardData = [
     "ver1.0.0, hololive Indonesia 1期生, アユンダ・リス",
     {
       type: "cute",
+      type2: "performance",
       leader: "",
       connect: {
         range: "",
@@ -2513,6 +2582,7 @@ const cardData = [
     "ver1.0.0, hololive Indonesia 1期生, ムーナ・ホシノヴァ",
     {
       type: "cute",
+      type2: "sense",
       leader: "",
       connect: {
         range: "12マス効果",
@@ -2551,6 +2621,7 @@ const cardData = [
     "ver1.0.0, hololive Indonesia 1期生, ムーナ・ホシノヴァ",
     {
       type: "happy",
+      type2: "performance",
       leader: "",
       connect: {
         range: "3マス効果",
@@ -2589,6 +2660,7 @@ const cardData = [
     "ver1.0.0, hololive Indonesia 1期生, ムーナ・ホシノヴァ",
     {
       type: "pure",
+      type2: "technique",
       leader: "",
       connect: {
         range: "",
@@ -2619,6 +2691,7 @@ const cardData = [
     "ver1.0.0, hololive Indonesia 1期生, アイラニ・イオフィフティーン",
     {
       type: "pure",
+      type2: "technique",
       leader: "",
       connect: {
         range: "4マス効果",
@@ -2657,6 +2730,7 @@ const cardData = [
     "ver1.0.0, hololive Indonesia 1期生, アイラニ・イオフィフティーン",
     {
       type: "happy",
+      type2: "performance",
       leader: "",
       connect: {
         range: "4マス効果",
@@ -2691,6 +2765,7 @@ const cardData = [
     "ver1.0.0, hololive Indonesia 1期生, アイラニ・イオフィフティーン",
     {
       type: "cute",
+      type2: "sense",
       leader: "",
       connect: {
         range: "",
@@ -2725,6 +2800,7 @@ const cardData = [
     "ver1.0.0, ホロライブ5期生, 雪花ラミィ",
     {
       type: "pure",
+      type2: "sense",
       leader: "",
       connect: {
         range: "3マス効果",
@@ -2763,6 +2839,7 @@ const cardData = [
     "ver1.0.0, ホロライブ5期生, 雪花ラミィ",
     {
       type: "happy",
+      type2: "technique",
       leader: "",
       connect: {
         range: "4マス効果",
@@ -2801,6 +2878,7 @@ const cardData = [
     "ver1.0.0, ホロライブ5期生, 雪花ラミィ",
     {
       type: "cute",
+      type2: "performance",
       leader: "",
       connect: {
         range: "",
@@ -2835,6 +2913,7 @@ const cardData = [
     "ver1.0.0, ホロライブ5期生, 桃鈴ねね",
     {
       type: "cute",
+      type2: "performance",
       leader: "",
       connect: {
         range: "8マス効果",
@@ -2873,6 +2952,7 @@ const cardData = [
     "ver1.0.0, ホロライブ5期生, 桃鈴ねね",
     {
       type: "happy",
+      type2: "sense",
       leader: "",
       connect: {
         range: "4マス効果",
@@ -2911,6 +2991,7 @@ const cardData = [
     "ver1.0.0, ホロライブ5期生, 桃鈴ねね",
     {
       type: "pure",
+      type2: "technique",
       leader: "",
       connect: {
         range: "",
@@ -2945,6 +3026,7 @@ const cardData = [
     "ver1.0.0, ホロライブ5期生, 獅白ぼたん",
     {
       type: "happy",
+      type2: "performance",
       leader: "",
       connect: {
         range: "3マス効果",
@@ -2983,6 +3065,7 @@ const cardData = [
     "ver1.0.0, ホロライブ5期生, 獅白ぼたん",
     {
       type: "pure",
+      type2: "technique",
       leader: "",
       connect: {
         range: "3マス効果",
@@ -3021,6 +3104,7 @@ const cardData = [
     "ver1.0.0, ホロライブ5期生, 獅白ぼたん",
     {
       type: "cute",
+      type2: "sense",
       leader: "",
       connect: {
         range: "",
@@ -3055,6 +3139,7 @@ const cardData = [
     "ver1.0.0, ホロライブ5期生, 尾丸ポルカ",
     {
       type: "happy",
+      type2: "sense",
       leader: "",
       connect: {
         range: "6マス効果",
@@ -3093,6 +3178,7 @@ const cardData = [
     "ver1.0.0, ホロライブ5期生, 尾丸ポルカ",
     {
       type: "cute",
+      type2: "performance",
       leader: "",
       connect: {
         range: "3マス効果",
@@ -3131,6 +3217,7 @@ const cardData = [
     "ver1.0.0, ホロライブ5期生, 尾丸ポルカ",
     {
       type: "pure",
+      type2: "technique",
       leader: "",
       connect: {
         range: "",
@@ -3165,6 +3252,7 @@ const cardData = [
     "ver1.0.0, 秘密結社holoX, ラプラス・ダークネス",
     {
       type: "happy",
+      type2: "technique",
       leader: "",
       connect: {
         range: "4マス効果",
@@ -3203,6 +3291,7 @@ const cardData = [
     "ver1.0.0, 秘密結社holoX, ラプラス・ダークネス",
     {
       type: "pure",
+      type2: "performance",
       leader: "",
       connect: {
         range: "4マス効果",
@@ -3241,6 +3330,7 @@ const cardData = [
     "ver1.0.0, 秘密結社holoX, ラプラス・ダークネス",
     {
       type: "cute",
+      type2: "sense",
       leader: "",
       connect: {
         range: "",
@@ -3275,6 +3365,7 @@ const cardData = [
     "ver1.0.0, 秘密結社holoX, 鷹嶺ルイ",
     {
       type: "cute",
+      type2: "technique",
       leader: "",
       connect: {
         range: "8マス効果",
@@ -3313,6 +3404,7 @@ const cardData = [
     "ver1.0.0, 秘密結社holoX, 鷹嶺ルイ",
     {
       type: "happy",
+      type2: "performance",
       leader: "",
       connect: {
         range: "4マス効果",
@@ -3351,6 +3443,7 @@ const cardData = [
     "ver1.0.0, 秘密結社holoX, 鷹嶺ルイ",
     {
       type: "pure",
+      type2: "sense",
       leader: "",
       connect: {
         range: "",
@@ -3385,6 +3478,7 @@ const cardData = [
     "ver1.0.0, 秘密結社holoX, 博衣こより",
     {
       type: "pure",
+      type2: "sense",
       leader: "",
       connect: {
         range: "8マス効果",
@@ -3423,6 +3517,7 @@ const cardData = [
     "ver1.0.0, 秘密結社holoX, 博衣こより",
     {
       type: "cute",
+      type2: "performance",
       leader: "",
       connect: {
         range: "3マス効果",
@@ -3461,6 +3556,7 @@ const cardData = [
     "ver1.0.0, 秘密結社holoX, 博衣こより",
     {
       type: "happy",
+      type2: "technique",
       leader: "",
       connect: {
         range: "",
@@ -3495,6 +3591,7 @@ const cardData = [
     "ver1.0.0, 秘密結社holoX, 風真いろは",
     {
       type: "cute",
+      type2: "technique",
       leader: "",
       connect: {
         range: "3マス効果",
@@ -3533,6 +3630,7 @@ const cardData = [
     "ver1.0.0, 秘密結社holoX, 風真いろは",
     {
       type: "pure",
+      type2: "sense",
       leader: "",
       connect: {
         range: "4マス効果",
@@ -3571,6 +3669,7 @@ const cardData = [
     "ver1.0.0, 秘密結社holoX, 風真いろは",
     {
       type: "happy",
+      type2: "performance",
       leader: "",
       connect: {
         range: "",
@@ -3605,6 +3704,7 @@ const cardData = [
     "ver1.0.0, hololive English -Myth-, 森カリオペ",
     {
       type: "pure",
+      type2: "performance",
       leader: "",
       connect: {
         range: "5マス効果",
@@ -3643,6 +3743,7 @@ const cardData = [
     "ver1.0.0, hololive English -Myth-, 森カリオペ",
     {
       type: "cute",
+      type2: "sense",
       leader: "",
       connect: {
         range: "3マス効果",
@@ -3681,6 +3782,7 @@ const cardData = [
     "ver1.0.0, hololive English -Myth-, 森カリオペ",
     {
       type: "happy",
+      type2: "technique",
       leader: "",
       connect: {
         range: "",
@@ -3715,6 +3817,7 @@ const cardData = [
     "ver1.0.0, hololive English -Myth-, 小鳥遊キアラ",
     {
       type: "cute",
+      type2: "performance",
       leader: "",
       connect: {
         range: "5マス効果",
@@ -3753,6 +3856,7 @@ const cardData = [
     "ver1.0.0, hololive English -Myth-, 小鳥遊キアラ",
     {
       type: "happy",
+      type2: "sense",
       leader: "",
       connect: {
         range: "3マス効果",
@@ -3787,6 +3891,7 @@ const cardData = [
     "ver1.0.0, hololive English -Myth-, 小鳥遊キアラ",
     {
       type: "pure",
+      type2: "technique",
       leader: "",
       connect: {
         range: "",
@@ -3821,6 +3926,7 @@ const cardData = [
     "ver1.0.0, hololive English -Myth-, 一伊那尓栖",
     {
       type: "pure",
+      type2: "technique",
       leader: "",
       connect: {
         range: "5マス効果",
@@ -3859,6 +3965,7 @@ const cardData = [
     "ver1.0.0, hololive English -Myth-, 一伊那尓栖",
     {
       type: "cute",
+      type2: "sense",
       leader: "",
       connect: {
         range: "4マス効果",
@@ -3897,6 +4004,7 @@ const cardData = [
     "ver1.0.0, hololive English -Myth-, 一伊那尓栖",
     {
       type: "happy",
+      type2: "performance",
       leader: "",
       connect: {
         range: "",
@@ -3931,6 +4039,7 @@ const cardData = [
     "ver1.0.0, hololive Indonesia 2期生, クレイジー・オリー",
     {
       type: "pure",
+      type2: "technique",
       leader: "",
       connect: {
         range: "5マス効果",
@@ -3969,6 +4078,7 @@ const cardData = [
     "ver1.0.0, hololive Indonesia 2期生, クレイジー・オリー",
     {
       type: "cute",
+      type2: "performance",
       leader: "",
       connect: {
         range: "4マス効果",
@@ -4007,6 +4117,7 @@ const cardData = [
     "ver1.0.0, hololive Indonesia 2期生, クレイジー・オリー",
     {
       type: "happy",
+      type2: "sense",
       leader: "",
       connect: {
         range: "",
@@ -4041,6 +4152,7 @@ const cardData = [
     "ver1.0.0, hololive Indonesia 2期生, アーニャ・メルフィッサ",
     {
       type: "cute",
+      type2: "sense",
       leader: "",
       connect: {
         range: "5マス効果",
@@ -4079,6 +4191,7 @@ const cardData = [
     "ver1.0.0, hololive Indonesia 2期生, アーニャ・メルフィッサ",
     {
       type: "happy",
+      type2: "technique",
       leader: "",
       connect: {
         range: "3マス効果",
@@ -4117,6 +4230,7 @@ const cardData = [
     "ver1.0.0, hololive Indonesia 2期生, アーニャ・メルフィッサ",
     {
       type: "pure",
+      type2: "performance",
       leader: "",
       connect: {
         range: "",
@@ -4147,6 +4261,7 @@ const cardData = [
     "ver1.0.0, hololive Indonesia 2期生, パヴォリア・レイネ",
     {
       type: "happy",
+      type2: "technique",
       leader: "",
       connect: {
         range: "8マス効果",
@@ -4185,6 +4300,7 @@ const cardData = [
     "ver1.0.0, hololive Indonesia 2期生, パヴォリア・レイネ",
     {
       type: "pure",
+      type2: "sense",
       leader: "",
       connect: {
         range: "3マス効果",
@@ -4223,6 +4339,7 @@ const cardData = [
     "ver1.0.0, hololive Indonesia 2期生, パヴォリア・レイネ",
     {
       type: "cute",
+      type2: "performance",
       leader: "",
       connect: {
         range: "",
@@ -4257,6 +4374,7 @@ const cardData = [
     "ver1.0.0, hololive English -Promise-, IRyS",
     {
       type: "happy",
+      type2: "technique",
       leader: "",
       connect: {
         range: "3マス効果",
@@ -4295,6 +4413,7 @@ const cardData = [
     "ver1.0.0, hololive English -Promise-, IRyS",
     {
       type: "pure",
+      type2: "performance",
       leader: "",
       connect: {
         range: "4マス効果",
@@ -4333,6 +4452,7 @@ const cardData = [
     "ver1.0.0, hololive English -Promise-, IRyS",
     {
       type: "cute",
+      type2: "sense",
       leader: "",
       connect: {
         range: "",
@@ -4363,6 +4483,7 @@ const cardData = [
     "ver1.0.0, hololive English -Promise-, オーロ・クロニー",
     {
       type: "cute",
+      type2: "sense",
       leader: "",
       connect: {
         range: "4マス効果",
@@ -4401,6 +4522,7 @@ const cardData = [
     "ver1.0.0, hololive English -Promise-, オーロ・クロニー",
     {
       type: "happy",
+      type2: "technique",
       leader: "",
       connect: {
         range: "3マス効果",
@@ -4439,6 +4561,7 @@ const cardData = [
     "ver1.0.0, hololive English -Promise-, オーロ・クロニー",
     {
       type: "pure",
+      type2: "performance",
       leader: "",
       connect: {
         range: "",
@@ -4473,6 +4596,7 @@ const cardData = [
     "ver1.0.0, hololive English -Promise-, ハコス・ベールズ",
     {
       type: "pure",
+      type2: "performance",
       leader: "",
       connect: {
         range: "3マス効果",
@@ -4511,6 +4635,7 @@ const cardData = [
     "ver1.0.0, hololive English -Promise-, ハコス・ベールズ",
     {
       type: "happy",
+      type2: "sense",
       leader: "",
       connect: {
         range: "4マス効果",
@@ -4545,6 +4670,7 @@ const cardData = [
     "ver1.0.0, hololive English -Promise-, ハコス・ベールズ",
     {
       type: "cute",
+      type2: "technique",
       leader: "",
       connect: {
         range: "",
@@ -4579,6 +4705,7 @@ const cardData = [
     "ver1.0.0, hololive Indonesia 3期生, ベスティア・ゼータ",
     {
       type: "happy",
+      type2: "performance",
       leader: "",
       connect: {
         range: "5マス効果",
@@ -4617,6 +4744,7 @@ const cardData = [
     "ver1.0.0, hololive Indonesia 3期生, ベスティア・ゼータ",
     {
       type: "cute",
+      type2: "sense",
       leader: "",
       connect: {
         range: "4マス効果",
@@ -4651,6 +4779,7 @@ const cardData = [
     "ver1.0.0, hololive Indonesia 3期生, ベスティア・ゼータ",
     {
       type: "pure",
+      type2: "technique",
       leader: "",
       connect: {
         range: "",
@@ -4681,6 +4810,7 @@ const cardData = [
     "ver1.0.0, hololive Indonesia 3期生, カエラ・コヴァルスキア",
     {
       type: "cute",
+      type2: "technique",
       leader: "",
       connect: {
         range: "5マス効果",
@@ -4719,6 +4849,7 @@ const cardData = [
     "ver1.0.0, hololive Indonesia 3期生, カエラ・コヴァルスキア",
     {
       type: "pure",
+      type2: "sense",
       leader: "",
       connect: {
         range: "3マス効果",
@@ -4753,6 +4884,7 @@ const cardData = [
     "ver1.0.0, hololive Indonesia 3期生, カエラ・コヴァルスキア",
     {
       type: "happy",
+      type2: "performance",
       leader: "",
       connect: {
         range: "",
@@ -4787,6 +4919,7 @@ const cardData = [
     "ver1.0.0, hololive Indonesia 3期生, こぼ・かなえる",
     {
       type: "pure",
+      type2: "performance",
       leader: "",
       connect: {
         range: "8マス効果",
@@ -4825,6 +4958,7 @@ const cardData = [
     "ver1.0.0, hololive Indonesia 3期生, こぼ・かなえる",
     {
       type: "happy",
+      type2: "technique",
       leader: "",
       connect: {
         range: "3マス効果",
@@ -4863,6 +4997,7 @@ const cardData = [
     "ver1.0.0, hololive Indonesia 3期生, こぼ・かなえる",
     {
       type: "cute",
+      type2: "sense",
       leader: "",
       connect: {
         range: "",
@@ -4893,6 +5028,7 @@ const cardData = [
     "ver1.0.0, hololive English -Advent-, シオリ・ノヴェラ",
     {
       type: "happy",
+      type2: "performance",
       leader: "",
       connect: {
         range: "3マス効果",
@@ -4931,6 +5067,7 @@ const cardData = [
     "ver1.0.0, hololive English -Advent-, シオリ・ノヴェラ",
     {
       type: "cute",
+      type2: "technique",
       leader: "",
       connect: {
         range: "4マス効果",
@@ -4969,6 +5106,7 @@ const cardData = [
     "ver1.0.0, hololive English -Advent-, シオリ・ノヴェラ",
     {
       type: "pure",
+      type2: "sense",
       leader: "",
       connect: {
         range: "",
@@ -5003,6 +5141,7 @@ const cardData = [
     "ver1.0.0, hololive English -Advent-, 古石ビジュー",
     {
       type: "pure",
+      type2: "sense",
       leader: "",
       connect: {
         range: "5マス効果",
@@ -5041,6 +5180,7 @@ const cardData = [
     "ver1.0.0, hololive English -Advent-, 古石ビジュー",
     {
       type: "happy",
+      type2: "performance",
       leader: "",
       connect: {
         range: "3マス効果",
@@ -5075,6 +5215,7 @@ const cardData = [
     "ver1.0.0, hololive English -Advent-, 古石ビジュー",
     {
       type: "cute",
+      type2: "technique",
       leader: "",
       connect: {
         range: "",
@@ -5109,6 +5250,7 @@ const cardData = [
     "ver1.0.0, hololive English -Advent-, ネリッサ・レイヴンクロフト",
     {
       type: "pure",
+      type2: "technique",
       leader: "",
       connect: {
         range: "12マス効果",
@@ -5147,6 +5289,7 @@ const cardData = [
     "ver1.0.0, hololive English -Advent-, ネリッサ・レイヴンクロフト",
     {
       type: "cute",
+      type2: "sense",
       leader: "",
       connect: {
         range: "3マス効果",
@@ -5185,6 +5328,7 @@ const cardData = [
     "ver1.0.0, hololive English -Advent-, ネリッサ・レイヴンクロフト",
     {
       type: "happy",
+      type2: "performance",
       leader: "",
       connect: {
         range: "",
@@ -5219,6 +5363,7 @@ const cardData = [
     "ver1.0.0, hololive English -Advent-, フワワ・アビスガード",
     {
       type: "cute",
+      type2: "technique",
       leader: "",
       connect: {
         range: "5マス効果",
@@ -5257,6 +5402,7 @@ const cardData = [
     "ver1.0.0, hololive English -Advent-, フワワ・アビスガード",
     {
       type: "pure",
+      type2: "performance",
       leader: "",
       connect: {
         range: "4マス効果",
@@ -5295,6 +5441,7 @@ const cardData = [
     "ver1.0.0, hololive English -Advent-, フワワ・アビスガード",
     {
       type: "happy",
+      type2: "sense",
       leader: "",
       connect: {
         range: "",
@@ -5329,6 +5476,7 @@ const cardData = [
     "ver1.0.0, hololive English -Advent-, モココ・アビスガード",
     {
       type: "cute",
+      type2: "sense",
       leader: "",
       connect: {
         range: "6マス効果",
@@ -5367,6 +5515,7 @@ const cardData = [
     "ver1.0.0, hololive English -Advent-, モココ・アビスガード",
     {
       type: "pure",
+      type2: "technique",
       leader: "",
       connect: {
         range: "4マス効果",
@@ -5405,6 +5554,7 @@ const cardData = [
     "ver1.0.0, hololive English -Advent-, モココ・アビスガード",
     {
       type: "happy",
+      type2: "performance",
       leader: "",
       connect: {
         range: "",
@@ -5439,6 +5589,7 @@ const cardData = [
     "ver1.0.0, ReGLOSS, 音乃瀬奏",
     {
       type: "pure",
+      type2: "sense",
       leader: "",
       connect: {
         range: "5マス効果",
@@ -5477,6 +5628,7 @@ const cardData = [
     "ver1.0.0, ReGLOSS, 音乃瀬奏",
     {
       type: "cute",
+      type2: "technique",
       leader: "",
       connect: {
         range: "3マス効果",
@@ -5515,6 +5667,7 @@ const cardData = [
     "ver1.0.0, ReGLOSS, 音乃瀬奏",
     {
       type: "happy",
+      type2: "performance",
       leader: "",
       connect: {
         range: "",
@@ -5549,6 +5702,7 @@ const cardData = [
     "ver1.0.0, ReGLOSS, 一条莉々華",
     {
       type: "happy",
+      type2: "performance",
       leader: "",
       connect: {
         range: "5マス効果",
@@ -5587,6 +5741,7 @@ const cardData = [
     "ver1.0.0, ReGLOSS, 一条莉々華",
     {
       type: "cute",
+      type2: "technique",
       leader: "",
       connect: {
         range: "4マス効果",
@@ -5625,6 +5780,7 @@ const cardData = [
     "ver1.0.0, ReGLOSS, 一条莉々華",
     {
       type: "pure",
+      type2: "sense",
       leader: "",
       connect: {
         range: "",
@@ -5655,6 +5811,7 @@ const cardData = [
     "ver1.0.0, ReGLOSS, 儒烏風亭らでん",
     {
       type: "happy",
+      type2: "sense",
       leader: "",
       connect: {
         range: "8マス効果",
@@ -5693,6 +5850,7 @@ const cardData = [
     "ver1.0.0, ReGLOSS, 儒烏風亭らでん",
     {
       type: "pure",
+      type2: "performance",
       leader: "",
       connect: {
         range: "3マス効果",
@@ -5727,6 +5885,7 @@ const cardData = [
     "ver1.0.0, ReGLOSS, 儒烏風亭らでん",
     {
       type: "cute",
+      type2: "technique",
       leader: "",
       connect: {
         range: "",
@@ -5761,6 +5920,7 @@ const cardData = [
     "ver1.0.0, ReGLOSS, 轟はじめ",
     {
       type: "cute",
+      type2: "performance",
       leader: "",
       connect: {
         range: "5マス効果",
@@ -5799,6 +5959,7 @@ const cardData = [
     "ver1.0.0, ReGLOSS, 轟はじめ",
     {
       type: "pure",
+      type2: "technique",
       leader: "",
       connect: {
         range: "3マス効果",
@@ -5837,6 +5998,7 @@ const cardData = [
     "ver1.0.0, ReGLOSS, 轟はじめ",
     {
       type: "happy",
+      type2: "sense",
       leader: "",
       connect: {
         range: "",
@@ -5871,36 +6033,23 @@ const cardData = [
     "ver.1.0.0, 2期生, 大空スバル",
     {
       type: "pure",
+      type2: "sense",
       leader: "",
       connect: {
         range: "4マス効果",
         cells: { yellow: [12], green: [2, 7, 17, 22] },
-        effect: "不明"
+        effect: "範囲内のホロメンボード効果を150%UP"
       },
       costume: "全員のスコアサポート効果60%",
-      special: "10秒間スコアサポート効果160%",
-      active: "17秒毎に中確率で7秒間スコアが55%UP／40コンボ以上でスコアが105%UP",
-      passive: "ピュアタイプ2人の全パラメータが15%UP",
+      special: "10秒間スコアサポート効果135%",
+      active: "17秒毎に中確率で7秒間スコアが45%UP／40コンボ以上でスコアが90%UP",
+      passive: "ピュアタイプ2人の全パラメータが11%UP",
       bloom: {
-        connect: {
-          0: "不明",
-          5: "不明"
-        },
-        special: {
-          0: "10秒間スコアサポート効果135%",
-          5: "10秒間スコアサポート効果160%"
-        },
-        active: {
-          0: "17秒毎に中確率で7秒間スコアが45%UP／40コンボ以上でスコアが90%UP",
-          1: "17秒毎に中確率で7秒間スコアが55%UP／40コンボ以上でスコアが105%UP"
-        },
-        passive: {
-          0: "ピュアタイプ2人の全パラメータが11%UP",
-          5: "ピュアタイプ2人の全パラメータが15%UP"
-        },
-        parameter: {
-          2: "全パラメータが10%UP"
-        }
+        connect: { 5: "範囲内のホロメンボード効果を200%UP" },
+        special: { 3: "10秒間スコアサポート効果160%" },
+        active: { 1: "17秒毎に中確率で7秒間スコアが55%UP／40コンボ以上でスコアが105%UP" },
+        passive: { 4: "ピュアタイプ2人の全パラメータが15%UP" },
+        parameter: { 2: "全パラメータが10%UP" }
       }
     }
   ],
@@ -5909,36 +6058,23 @@ const cardData = [
     "ver.1.0.0, 3期生, 不知火フレア",
     {
       type: "happy",
+      type2: "technique",
       leader: "",
       connect: {
         range: "6マス効果",
         cells: { yellow: [12], green: [6, 7, 11, 13, 16, 17] },
-        effect: "不明"
+        effect: "範囲内のホロメンボード効果を110%UP"
       },
       costume: "ハッピータイプ2人以上で全員のテクニックが80%UP／ハッピータイプ2人以上で全員のスコアサポート効果25%",
-      special: "12秒間スコアサポート効果120%／スキル発動率が40%UP",
-      active: "33秒毎に高確率で11秒間スコアが60%UP／ハッピータイプ2人以上でスコアが125%UP",
-      passive: "ハッピータイプ2人のスコアサポート効果11%",
+      special: "12秒間スコアサポート効果100%／スキル発動率が35%UP",
+      active: "33秒毎に高確率で11秒間スコアが50%UP／ハッピータイプ2人以上でスコアが105%UP",
+      passive: "ハッピータイプ2人のスコアサポート効果8%",
       bloom: {
-        connect: {
-          0: "不明",
-          5: "不明"
-        },
-        special: {
-          0: "12秒間スコアサポート効果100%／スキル発動率が35%UP",
-          3: "12秒間スコアサポート効果120%／スキル発動率が40%UP"
-        },
-        active: {
-          0: "33秒毎に高確率で11秒間スコアが50%UP／ハッピータイプ2人以上でスコアが105%UP",
-          1: "33秒毎に高確率で11秒間スコアが60%UP／ハッピータイプ2人以上でスコアが125%UP"
-        },
-        passive: {
-          0: "ハッピータイプ2人のスコアサポート効果8%",
-          5: "ハッピータイプ2人のスコアサポート効果11%"
-        },
-        parameter: {
-          2: "全パラメータが10%UP"
-        }
+        connect: { 5: "範囲内のホロメンボード効果を160%UP" },
+        special: { 3: "12秒間スコアサポート効果120%／スキル発動率が40%UP" },
+        active: { 1: "33秒毎に高確率で11秒間スコアが60%UP／ハッピータイプ2人以上でスコアが125%UP" },
+        passive: { 4: "ハッピータイプ2人のスコアサポート効果11%" },
+        parameter: { 2: "全パラメータが10%UP" }
       }
     }
   ],
@@ -5947,36 +6083,23 @@ const cardData = [
     "ver.1.0.0, 3期生, 白銀ノエル",
     {
       type: "cute",
+      type2: "performance",
       leader: "",
       connect: {
         range: "8マス効果",
         cells: { yellow: [12], green: [2, 6, 7, 10, 11, 16, 17, 22] },
-        effect: "不明"
+        effect: "範囲内のホロメンボード効果を85%UP"
       },
       costume: "3期生2人以上で全員のパフォーマンスが135%UP",
-      special: "12秒間スコアサポート効果120%／3期生が二人以上でスキル発動率が45%UP",
-      active: "21秒毎に高確率で7秒間スコアが120%UP",
-      passive: "3期生が2人以上で3期生2人のスコアサポート効果12%",
+      special: "12秒間スコアサポート効果100%／3期生が2人以上でスキル発動率が40%UP",
+      active: "21秒毎に高確率で7秒間スコアが100%UP",
+      passive: "3期生が2人以上で3期生2人のスコアサポート効果9%",
       bloom: {
-        connect: {
-          0: "不明",
-          5: "不明"
-        },
-        special: {
-          0: "12秒間スコアサポート効果100%／3期生が二人以上でスキル発動率が40%UP",
-          3: "12秒間スコアサポート効果120%／3期生が二人以上でスキル発動率が45%UP"
-        },
-        active: {
-          0: "21秒毎に高確率で7秒間スコアが100%UP",
-          5: "21秒毎に高確率で7秒間スコアが120%UP"
-        },
-        passive: {
-          0: "3期生が2人以上で3期生2人のスコアサポート効果9%",
-          5: "3期生が2人以上で3期生2人のスコアサポート効果12%"
-        },
-        parameter: {
-          2: "全パラメータが10%UP"
-        }
+        connect: { 5: "範囲内のホロメンボード効果を135%UP" },
+        special: { 3: "12秒間スコアサポート効果120%／3期生が2人以上でスキル発動率が45%UP" },
+        active: { 1: "21秒毎に高確率で7秒間スコアが120%UP" },
+        passive: { 4: "3期生が2人以上で3期生2人のスコアサポート効果12%" },
+        parameter: { 2: "全パラメータが10%UP" }
       }
     }
   ],
@@ -5985,36 +6108,23 @@ const cardData = [
     "ver.1.0.0, 4期生, 角巻わため",
     {
       type: "happy",
+      type2: "sense",
       leader: "",
       connect: {
         range: "5マス効果",
         cells: { yellow: [7], green: [12, 16, 17, 18, 22] },
-        effect: "不明"
+        effect: "範囲内のホロメンボード効果を150%UP"
       },
       costume: "ハッピータイプ2人以上で全員のセンスが80%UP／ハッピータイプ2人以上で全員のスコアサポート効果25%",
-      special: "11秒間スコアサポート効果130%／スキル発動率が45%UP",
-      active: "35秒毎に高確率で12秒間スコアが60%UP／ハッピータイプ2人以上でスコアが120%UP",
-      passive: "ハッピータイプ2人のスコアサポート効果11%",
+      special: "11秒間スコアサポート効果110%／スキル発動率が35%UP",
+      active: "35秒毎に高確率で12秒間スコアが50%UP／ハッピータイプ2人以上でスコアが100%UP",
+      passive: "ハッピータイプ2人のスコアサポート効果8%",
       bloom: {
-        connect: {
-          0: "不明",
-          5: "不明"
-        },
-        special: {
-          0: "11秒間スコアサポート効果110%／スキル発動率が35%UP",
-          3: "11秒間スコアサポート効果130%／スキル発動率が45%UP"
-        },
-        active: {
-          0: "35秒毎に高確率で12秒間スコアが50%UP／ハッピータイプ2人以上でスコアが100%UP",
-          1: "35秒毎に高確率で12秒間スコアが60%UP／ハッピータイプ2人以上でスコアが120%UP"
-        },
-        passive: {
-          0: "ハッピータイプ2人のスコアサポート効果8%",
-          5: "ハッピータイプ2人のスコアサポート効果11%"
-        },
-        parameter: {
-          2: "全パラメータが10%UP"
-        }
+        connect: { 5: "範囲内のホロメンボード効果を200%UP" },
+        special: { 3: "11秒間スコアサポート効果130%／スキル発動率が45%UP" },
+        active: { 1: "35秒毎に高確率で12秒間スコアが60%UP／ハッピータイプ2人以上でスコアが120%UP" },
+        passive: { 4: "ハッピータイプ2人のスコアサポート効果11%" },
+        parameter: { 2: "全パラメータが10%UP" }
       }
     }
   ],
@@ -6023,36 +6133,23 @@ const cardData = [
     "ver.1.0.0, ReGLOSS, 音乃瀬奏",
     {
       type: "happy",
+      type2: "performance",
       leader: "",
       connect: {
         range: "6マス効果",
         cells: { yellow: [12], green: [7, 8, 11, 13, 17, 18] },
-        effect: "不明"
+        effect: "範囲内のホロメンボード効果を110%UP"
       },
       costume: "ハッピータイプ2人以上で全員のパフォーマンスが130%UP",
-      special: "14秒間スコアサポート効果115%",
-      active: "23秒毎に中確率で8秒間スコアが120%UP",
-      passive: "ハッピータイプ2人以上でハッピータイプ2人のパフォーマンスが43%UP",
+      special: "14秒間スコアサポート効果95%",
+      active: "23秒毎に中確率で8秒間スコアが100%UP",
+      passive: "ハッピータイプ2人以上でハッピータイプ2人のパフォーマンスが32%UP",
       bloom: {
-        connect: {
-          0: "不明",
-          5: "不明"
-        },
-        special: {
-          0: "14秒間スコアサポート効果95%",
-          5: "14秒間スコアサポート効果115%"
-        },
-        active: {
-          0: "23秒毎に中確率で8秒間スコアが100%UP",
-          5: "23秒毎に中確率で8秒間スコアが120%UP"
-        },
-        passive: {
-          0: "ハッピータイプ2人以上でハッピータイプ2人のパフォーマンスが32%UP",
-          5: "ハッピータイプ2人以上でハッピータイプ2人のパフォーマンスが43%UP"
-        },
-        parameter: {
-          2: "全パラメータが10%UP"
-        }
+        connect: { 5: "範囲内のホロメンボード効果を160%UP" },
+        special: { 3: "14秒間スコアサポート効果115%" },
+        active: { 1: "23秒毎に中確率で8秒間スコアが120%UP" },
+        passive: { 4: "ハッピータイプ2人以上でハッピータイプ2人のパフォーマンスが43%UP" },
+        parameter: { 2: "全パラメータが10%UP" }
       }
     }
   ],
@@ -6061,6 +6158,7 @@ const cardData = [
     "ver.1.0.100, ホロライブ0期生, さくらみこ",
     {
       type: "pure",
+      type2: "performance",
       leader: "",
       connect: {
         range: "4マス効果",
@@ -6099,6 +6197,7 @@ const cardData = [
     "ver.1.0.100, ホロライブ0期生, 星街すいせい",
     {
       type: "cute",
+      type2: "sense",
       leader: "",
       connect: {
         range: "3マス効果",
@@ -6137,24 +6236,23 @@ const cardData = [
     "ver.1.0.101, ホロライブ2期生, 百鬼あやめ",
     {
       type: "happy",
+      type2: "technique",
       leader: "",
       connect: {
-        range: "5マス効果",
-        cells: { yellow: [], green: [] },
-        effect: "範囲内のホロメンボード効果を190%UP"
+        range: "6マス効果",
+        cells: { yellow: [12], green: [6, 7, 11, 13, 16, 17] },
+        effect: "範囲内のホロメンボード効果を110%UP"
       },
       costume: "2期生が2人以上で全員のテクニックが135%UP",
-      special: "12秒間スコアサポート効果100%/2期生が2人以上でスキル発動率が40%UP",
-      active: "",
-      passive: "",
+      special: "12秒間スコアサポート効果100%／2期生が2人以上でスキル発動率が40%UP",
+      active: "27秒毎に中確率で10秒間スコアが95%UP",
+      passive: "2期生が2人以上で2期生2人のスコアサポート効果9%",
       bloom: {
-        special: {
-          0: "12秒間スコアサポート効果100%/2期生が2人以上でスキル発動率が40%UP",
-          3: "12秒間スコアサポート効果100%/2期生が2人以上でスキル発動率が40%UP"
-        },
-        parameter: {
-          2: "全パラメータが10%UP"
-        }
+        connect: { 5: "範囲内のホロメンボード効果を160%UP" },
+        special: { 3: "12秒間スコアサポート効果120%／2期生が2人以上でスキル発動率が45%UP" },
+        active: { 1: "27秒毎に中確率で10秒間スコアが115%UP" },
+        passive: { 4: "2期生が2人以上で2期生2人のスコアサポート効果12%" },
+        parameter: { 2: "全パラメータが10%UP" }
       }
     }
   ],
@@ -6163,24 +6261,23 @@ const cardData = [
     "ver.1.0.101, ホロライブ4期生, 姫森ルーナ",
     {
       type: "pure",
+      type2: "performance",
       leader: "",
       connect: {
         range: "5マス効果",
-        cells: { yellow: [], green: [] },
-        effect: "範囲内のホロメンボード効果を190%UP"
+        cells: { yellow: [7], green: [12, 16, 17, 18, 22] },
+        effect: "範囲内のホロメンボード効果を150%UP"
       },
       costume: "4期生が2人以上で全員のパフォーマンスが135%UP",
-      special: "11秒間スコアサポート効果110%/4期生が2人以上でスキル発動率が40%UP",
-      active: "",
-      passive: "",
+      special: "11秒間スコアサポート効果110%／4期生が2人以上でスキル発動率が40%UP",
+      active: "21秒毎に中確率で7秒間スコアが105%UP",
+      passive: "4期生2人のパフォーマンスが32%UP",
       bloom: {
-        special: {
-          0: "11秒間スコアサポート効果110%/4期生が2人以上でスキル発動率が40%UP",
-          3: "11秒間スコアサポート効果110%/4期生が2人以上でスキル発動率が40%UP"
-        },
-        parameter: {
-          2: "全パラメータが10%UP"
-        }
+        connect: { 5: "範囲内のホロメンボード効果を200%UP" },
+        special: { 3: "11秒間スコアサポート効果130%／4期生が2人以上でスキル発動率が50%UP" },
+        active: { 1: "21秒毎に中確率で8秒間スコアが110%UP" },
+        passive: { 4: "4期生2人のパフォーマンスが43%UP" },
+        parameter: { 2: "全パラメータが10%UP" }
       }
     }
   ],
@@ -6189,24 +6286,23 @@ const cardData = [
     "ver.1.0.101, ホロライブID2期生, クレイジー・オリー",
     {
       type: "happy",
+      type2: "sense",
       leader: "",
       connect: {
-        range: "要確認",
-        cells: { yellow: [], green: [] },
-        effect: "要確認"
+        range: "4マス効果",
+        cells: { yellow: [7], green: [5, 6, 12, 17] },
+        effect: "範囲内のホロメンボード効果を150%UP"
       },
-      costume: "ハッピータイプが2人以上で全員のセンスが80%UP/ハッピータイプが2人以上で全員にスコアサポート効果25%",
+      costume: "ハッピータイプが2人以上で全員のセンスが80%UP／ハッピータイプが2人以上で全員にスコアサポート効果25%",
       special: "10秒間スコアサポート効果135%",
-      active: "",
-      passive: "",
+      active: "19秒毎に高確率で7秒間スコアが90%UP",
+      passive: "ハッピータイプ2人以上でハッピータイプ2人のセンスが32%UP",
       bloom: {
-        special: {
-          0: "10秒間スコアサポート効果135%",
-          3: "10秒間スコアサポート効果135%"
-        },
-        parameter: {
-          2: "全パラメータが10%UP"
-        }
+        connect: { 5: "範囲内のホロメンボード効果を200%UP" },
+        special: { 3: "10秒間スコアサポート効果160%" },
+        active: { 1: "19秒毎に高確率で7秒間スコアが110%UP" },
+        passive: { 4: "ハッピータイプ2人以上でハッピータイプ2人のセンスが43%UP" },
+        parameter: { 2: "全パラメータが10%UP" }
       }
     }
   ],
@@ -6215,24 +6311,23 @@ const cardData = [
     "ver.1.0.101, ホロライブEN-Myth, 森カリオペ",
     {
       type: "cute",
+      type2: "sense",
       leader: "",
       connect: {
-        range: "3マス効果",
-        cells: { yellow: [], green: [] },
-        effect: "範囲内のホロメンボード効果を260%UP"
+        range: "6マス効果",
+        cells: { yellow: [12], green: [7, 8, 11, 13, 17, 18] },
+        effect: "範囲内のホロメンボード効果を110%UP"
       },
-      costume: "キュートタイプが2人以上で全員のセンスが80%UP/キュートタイプが2人以上で全員にスコアサポート効果25%",
+      costume: "キュートタイプが2人以上で全員のセンスが80%UP／キュートタイプが2人以上で全員にスコアサポート効果25%",
       special: "14秒間スコアサポート効果95%",
-      active: "",
-      passive: "",
+      active: "31秒毎に中確率で12秒間スコアが90%UP",
+      passive: "キュートタイプ2人以上でキュートタイプ2人のセンスが32%UP",
       bloom: {
-        special: {
-          0: "14秒間スコアサポート効果95%",
-          3: "14秒間スコアサポート効果95%"
-        },
-        parameter: {
-          2: "全パラメータが10%UP"
-        }
+        connect: { 5: "範囲内のホロメンボード効果を160%UP" },
+        special: { 3: "14秒間スコアサポート効果115%" },
+        active: { 1: "31秒毎に中確率で12秒間スコアが110%UP" },
+        passive: { 4: "キュートタイプ2人以上でキュートタイプ2人のセンスが43%UP" },
+        parameter: { 2: "全パラメータが10%UP" }
       }
     }
   ],
@@ -6241,16 +6336,24 @@ const cardData = [
     "ver.1.0.101, ホロライブEN-Myth, 一伊那尓栖",
     {
       type: "happy",
+      type2: "sense",
       leader: "",
       connect: {
-        range: "要確認",
-        cells: { yellow: [], green: [] },
-        effect: "要確認"
+        range: "8マス効果",
+        cells: { yellow: [12], green: [2, 7, 8, 13, 14, 17, 18, 22] },
+        effect: "範囲内のホロメンボード効果を85%UP"
       },
       costume: "Mythが2人以上で全員のセンスが135%UP",
-      special: "12秒間スコアサポート効果開花前100%→開花後120%/Mythが2人以上でスキル発動率が開花前40%→開花後45%",
-      active: "",
-      passive: ""
+      special: "12秒間スコアサポート効果100%／Mythが2人以上でスキル発動率が40%UP",
+      active: "24秒毎に中確率で10秒間スコアが85%UP",
+      passive: "Myth2人のセンスが32%UP",
+      bloom: {
+        connect: { 5: "範囲内のホロメンボード効果を135%UP" },
+        special: { 3: "12秒間スコアサポート効果120%／Mythが2人以上でスキル発動率が45%UP" },
+        active: { 1: "24秒毎に中確率で10秒間スコアが100%UP" },
+        passive: { 4: "Myth2人のセンスが43%UP" },
+        parameter: { 2: "全パラメータが10%UP" }
+      }
     }
   ],
 [
@@ -6258,16 +6361,24 @@ const cardData = [
     "ver.1.0.101, 1期生, ゲーマーズ, 白上フブキ",
     {
       type: "cute",
+      type2: "sense",
       leader: "",
       connect: {
         range: "8マス効果",
         cells: { yellow: [12], green: [2, 6, 7, 10, 11, 16, 17, 22] },
-        effect: "不明"
+        effect: "範囲内のホロメンボード効果を85%UP"
       },
       costume: "キュートタイプ2人以上で全員のセンスが130%UP",
-      special: "12秒間スコアサポート効果135%",
-      active: "35秒毎に中確率で13秒間スコアが115%UP",
-      passive: "キュートタイプ2人のスコアサポート効果11%"
+      special: "12秒間スコアサポート効果110%",
+      active: "35秒毎に中確率で13秒間スコアが95%UP",
+      passive: "キュートタイプ2人のスコアサポート効果8%",
+      bloom: {
+        connect: { 5: "範囲内のホロメンボード効果を135%UP" },
+        special: { 3: "12秒間スコアサポート効果135%" },
+        active: { 1: "35秒毎に中確率で13秒間スコアが115%UP" },
+        passive: { 4: "キュートタイプ2人のスコアサポート効果11%" },
+        parameter: { 2: "全パラメータが10%UP" }
+      }
     }
   ],
 [
@@ -6275,16 +6386,24 @@ const cardData = [
     "ver.1.0.101, ゲーマーズ, 大神ミオ",
     {
       type: "pure",
+      type2: "technique",
       leader: "",
       connect: {
         range: "6マス効果",
         cells: { yellow: [12], green: [6, 7, 11, 13, 16, 17] },
-        effect: "不明"
+        effect: "範囲内のホロメンボード効果を110%UP"
       },
       costume: "ピュアタイプ二人以上で全員のテクニックが130%UP",
-      special: "12秒間スコアサポート効果135%",
-      active: "23秒毎に中確率で8秒間スコアが120%UP",
-      passive: "ピュアタイプ2人以上でピュアタイプ2人のテクニックが43%UP"
+      special: "12秒間スコアサポート効果110%",
+      active: "23秒毎に中確率で8秒間スコアが100%UP",
+      passive: "ピュアタイプ2人以上でピュアタイプ2人のテクニックが32%UP",
+      bloom: {
+        connect: { 5: "範囲内のホロメンボード効果を160%UP" },
+        special: { 3: "12秒間スコアサポート効果135%" },
+        active: { 1: "23秒毎に中確率で8秒間スコアが120%UP" },
+        passive: { 4: "ピュアタイプ2人以上でピュアタイプ2人のテクニックが43%UP" },
+        parameter: { 2: "全パラメータが10%UP" }
+      }
     }
   ],
 [
@@ -6292,16 +6411,24 @@ const cardData = [
     "ver.1.0.101, ゲーマーズ, 猫又おかゆ",
     {
       type: "happy",
+      type2: "performance",
       leader: "",
       connect: {
         range: "8マス効果",
         cells: { yellow: [12], green: [2, 7, 8, 13, 14, 17, 18, 22] },
-        effect: "不明"
+        effect: "範囲内のホロメンボード効果を85%UP"
       },
       costume: "ゲーマーズが2人以上で全員のパフォーマンスが135%UP",
-      special: "11秒間スコアサポート効果130%／ゲーマーズが2人以上でスキル発動が50%UP",
-      active: "28秒毎に高確率で10秒間スコアが110%UP",
-      passive: "ゲーマーズ2人のパフォーマンスが43%UP"
+      special: "11秒間スコアサポート効果110%／ゲーマーズが2人以上でスキル発動率が40%UP",
+      active: "28秒毎に高確率で10秒間スコアが95%UP",
+      passive: "ゲーマーズ2人のパフォーマンスが32%UP",
+      bloom: {
+        connect: { 5: "範囲内のホロメンボード効果を135%UP" },
+        special: { 3: "11秒間スコアサポート効果130%／ゲーマーズが2人以上でスキル発動率が50%UP" },
+        active: { 1: "28秒毎に高確率で10秒間スコアが110%UP" },
+        passive: { 4: "ゲーマーズ2人のパフォーマンスが43%UP" },
+        parameter: { 2: "全パラメータが10%UP" }
+      }
     }
   ],
 [
@@ -6309,16 +6436,24 @@ const cardData = [
     "ver.1.0.101, ゲーマーズ, 戌神ころね",
     {
       type: "pure",
+      type2: "technique",
       leader: "",
       connect: {
         range: "6マス効果",
         cells: { yellow: [12], green: [7, 8, 11, 13, 17, 18] },
-        effect: "不明"
+        effect: "範囲内のホロメンボード効果を110%UP"
       },
       costume: "ピュアタイプ2人以上で全員のテクニックが80%UP／ピュアタイプ2人以上で全員のスコアサポート効果25%",
-      special: "12秒間スコアサポート効果120%／スキル発動率が40%UP",
-      active: "32秒毎に高確率で11秒間スコアが60%UP／ピュアタイプ2人以上でスコアが120%UP",
-      passive: "ピュアタイプ2人のスコアサポート効果11%"
+      special: "12秒間スコアサポート効果100%／スキル発動率が35%UP",
+      active: "32秒毎に高確率で11秒間スコアが50%UP／ピュアタイプ2人以上でスコアが100%UP",
+      passive: "ピュアタイプ2人のスコアサポート効果8%",
+      bloom: {
+        connect: { 5: "範囲内のホロメンボード効果を160%UP" },
+        special: { 3: "12秒間スコアサポート効果120%／スキル発動率が40%UP" },
+        active: { 1: "32秒毎に高確率で11秒間スコアが60%UP／ピュアタイプ2人以上でスコアが120%UP" },
+        passive: { 4: "ピュアタイプ2人のスコアサポート効果11%" },
+        parameter: { 2: "全パラメータが10%UP" }
+      }
     }
   ]
 ];

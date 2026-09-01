@@ -48,6 +48,7 @@ let currentPage = 1;
 const itemsPerPage = 28;
 let currentSort = 'default';
 let currentTypeFilter = 'all';
+let currentType2Filter = 'all';
 
 document.addEventListener('DOMContentLoaded', () => {
     renderCards();
@@ -84,6 +85,10 @@ function renderCards() {
 
     if (currentTypeFilter !== 'all') {
         filtered = filtered.filter(card => normalizeCardType(card[4]?.type) === currentTypeFilter);
+    }
+
+    if (currentType2Filter !== 'all') {
+        filtered = filtered.filter(card => normalizeCardType2(card[4]?.type2) === currentType2Filter);
     }
 
 
@@ -152,17 +157,6 @@ function renderCards() {
 
     const pageInfo = document.getElementById('current-page-num');
     if (pageInfo) pageInfo.textContent = `${currentPage} / ${totalPages}`;
-    document.querySelectorAll('.type-filter-btn').forEach(button => {
-        button.addEventListener('click', () => {
-            currentTypeFilter = button.dataset.type || 'all';
-            document.querySelectorAll('.type-filter-btn').forEach(item => {
-                item.classList.toggle('active', item === button);
-            });
-            currentPage = 1;
-            renderCards();
-        });
-    });
-
     const prevBtn = document.getElementById('prev-btn');
     const nextBtn = document.getElementById('next-btn');
     if (prevBtn) prevBtn.disabled = currentPage === 1;
@@ -423,6 +417,37 @@ function createTypeBadge(type) {
     return label ? '<span class="card-type-badge type-' + normalized + '">' + escapeHtml(label) + '</span>' : '';
 }
 
+function normalizeCardType2(value) {
+    const normalized = String(value || '').trim().toLowerCase();
+    if (["technique", "テクニック"].includes(normalized)) return "technique";
+    if (["performance", "パフォーマンス"].includes(normalized)) return "performance";
+    if (["sense", "センス"].includes(normalized)) return "sense";
+    return "";
+}
+
+function getCardType2Label(type2) {
+    const normalized = normalizeCardType2(type2);
+    if (normalized === "technique") return "テクニック";
+    if (normalized === "performance") return "パフォーマンス";
+    if (normalized === "sense") return "センス";
+    return "";
+}
+
+function createType2Badge(type2) {
+    const normalized = normalizeCardType2(type2);
+    const label = getCardType2Label(normalized);
+    if (!label) return "";
+
+    return `
+        <span class="card-type2-badge type2-${normalized}">
+            <span class="card-type2-icon-wrap">
+                <img class="card-type2-icon" src="img/card-type2/${normalized}.svg" alt="" aria-hidden="true">
+            </span>
+            <span class="card-type2-label">${escapeHtml(label)}</span>
+        </span>
+    `;
+}
+
 function createConnectGrid(cells) {
     const cellMap = normalizeConnectCellMap(cells);
     const yellowCells = new Set(cellMap.yellow);
@@ -471,7 +496,7 @@ function openModal(card, bloomStage = currentBloomStage) {
     }
     
     if (mRarity) {
-        mRarity.innerHTML = `<span class="star-group rarity-${rarityNum}">${"\u2605".repeat(rarityNum)}</span>${createTypeBadge(cardType)}`;
+        mRarity.innerHTML = `<span class="star-group rarity-${rarityNum}">${"\u2605".repeat(rarityNum)}</span>${createTypeBadge(cardType)}${createType2Badge(baseSkills.type2)}`;
     }
     
     mSkillArea.innerHTML = `
@@ -561,6 +586,17 @@ function setupEventListeners() {
         button.addEventListener('click', () => {
             currentTypeFilter = button.dataset.type || 'all';
             document.querySelectorAll('.type-filter-btn').forEach(item => {
+                item.classList.toggle('active', item === button);
+            });
+            currentPage = 1;
+            renderCards();
+        });
+    });
+
+    document.querySelectorAll('.type2-filter-btn').forEach(button => {
+        button.addEventListener('click', () => {
+            currentType2Filter = button.dataset.type2 || 'all';
+            document.querySelectorAll('.type2-filter-btn').forEach(item => {
                 item.classList.toggle('active', item === button);
             });
             currentPage = 1;
