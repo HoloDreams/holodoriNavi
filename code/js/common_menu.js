@@ -12,10 +12,17 @@
       title: 'ゲーム説明',
       links: [
         { label: 'ドリームパーク', href: 'dream_park.html' },
-        { label: 'リズムゲーム', href: 'rhythm_game.html' },
-        { label: 'ユニット', href: 'unit.html' }
+        { label: 'リズムゲーム', href: 'rhythm_game.html' }
       ]
-    },,
+    },
+    {
+      title: '一覧系',
+      links: [
+        { label: '収録楽曲一覧', href: 'song.html' },
+        { label: 'キャラクターカード一覧', href: 'character_card.html' },
+        { label: 'アイテム一覧', href: 'item_search.html' }
+      ]
+    },
     {
       title: 'オリジナル',
       links: [
