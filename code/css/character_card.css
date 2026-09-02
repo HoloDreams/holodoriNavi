@@ -1409,3 +1409,75 @@ main #sort-select {
     font-size: 14px;
   }
 }
+
+/* Keep the card information panel usable inside short mobile viewports. */
+@media (max-width: 900px) {
+  .modal-overlay.open {
+    overflow: hidden !important;
+  }
+
+  .modal-card-name,
+  #modal-rarity {
+    position: static !important;
+    top: auto !important;
+  }
+
+  .modal-content {
+    height: calc(100vh - 104px) !important;
+    height: calc(100dvh - 104px) !important;
+    max-height: calc(100vh - 104px) !important;
+    max-height: calc(100dvh - 104px) !important;
+    min-height: 0 !important;
+    overflow: hidden !important;
+  }
+
+  .modal-content > img#modal-image {
+    flex: 0 0 auto !important;
+    max-height: 24vh !important;
+    max-height: 24dvh !important;
+  }
+
+  .skill-wrapper {
+    flex: 1 1 auto !important;
+    min-height: 0 !important;
+    height: auto !important;
+    max-height: none !important;
+    padding-right: 4px !important;
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-gutter: stable;
+  }
+
+  /* Let every skill section contribute to the scrollable content height. */
+  .skill-wrapper .skill-container {
+    display: block !important;
+    flex: none !important;
+    min-height: auto !important;
+    height: auto !important;
+    overflow: visible !important;
+  }
+
+  .card-skill-section {
+    margin-top: 14px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .modal-overlay.open {
+    padding-right: 8px !important;
+    padding-left: 8px !important;
+  }
+
+  .modal-content {
+    max-width: calc(100vw - 16px) !important;
+    padding: 10px !important;
+    gap: 8px !important;
+  }
+
+  .modal-content > img#modal-image {
+    max-height: 21vh !important;
+    max-height: 21dvh !important;
+  }
+}

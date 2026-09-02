@@ -543,6 +543,9 @@ function openModal(card, bloomStage = currentBloomStage) {
 
     overlay.classList.add('open');
     document.body.style.overflow = 'hidden';
+    if (window.cardPageLenis && typeof window.cardPageLenis.stop === 'function') {
+        window.cardPageLenis.stop();
+    }
 }
 
 function setupFilterPanel() {
@@ -626,10 +629,31 @@ function setupEventListeners() {
 
     const overlay = document.getElementById('image-modal');
     if (overlay) {
+        overlay.addEventListener('wheel', (e) => {
+            if (!overlay.classList.contains('open')) return;
+
+            const scrollBox = e.target instanceof Element
+                ? e.target.closest('.skill-wrapper')
+                : null;
+
+            e.preventDefault();
+            e.stopPropagation();
+
+            if (!scrollBox) return;
+
+            let scrollAmount = e.deltaY;
+            if (e.deltaMode === WheelEvent.DOM_DELTA_LINE) scrollAmount *= 16;
+            if (e.deltaMode === WheelEvent.DOM_DELTA_PAGE) scrollAmount *= scrollBox.clientHeight;
+            scrollBox.scrollTop += scrollAmount;
+        }, { passive: false });
+
         overlay.addEventListener('click', (e) => {
             if (e.target === overlay || e.target.id === 'modal-image' || e.target.id === 'close-modal') {
                 overlay.classList.remove('open');
                 document.body.style.overflow = '';
+                if (window.cardPageLenis && typeof window.cardPageLenis.start === 'function') {
+                    window.cardPageLenis.start();
+                }
             }
         });
     }
