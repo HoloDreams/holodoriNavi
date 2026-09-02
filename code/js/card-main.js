@@ -629,6 +629,8 @@ function setupEventListeners() {
 
     const overlay = document.getElementById('image-modal');
     if (overlay) {
+        let modalTouchY = null;
+
         overlay.addEventListener('wheel', (e) => {
             if (!overlay.classList.contains('open')) return;
 
@@ -646,6 +648,36 @@ function setupEventListeners() {
             if (e.deltaMode === WheelEvent.DOM_DELTA_PAGE) scrollAmount *= scrollBox.clientHeight;
             scrollBox.scrollTop += scrollAmount;
         }, { passive: false });
+
+        overlay.addEventListener('touchstart', (e) => {
+            const scrollBox = e.target instanceof Element
+                ? e.target.closest('.skill-wrapper')
+                : null;
+            if (!scrollBox || e.touches.length !== 1) {
+                modalTouchY = null;
+                return;
+            }
+            modalTouchY = e.touches[0].clientY;
+        }, { passive: true });
+
+        overlay.addEventListener('touchmove', (e) => {
+            const scrollBox = e.target instanceof Element
+                ? e.target.closest('.skill-wrapper')
+                : null;
+            if (!scrollBox || modalTouchY === null || e.touches.length !== 1) return;
+
+            const nextTouchY = e.touches[0].clientY;
+            scrollBox.scrollTop += modalTouchY - nextTouchY;
+            modalTouchY = nextTouchY;
+            e.preventDefault();
+            e.stopPropagation();
+        }, { passive: false });
+
+        const clearModalTouch = () => {
+            modalTouchY = null;
+        };
+        overlay.addEventListener('touchend', clearModalTouch, { passive: true });
+        overlay.addEventListener('touchcancel', clearModalTouch, { passive: true });
 
         overlay.addEventListener('click', (e) => {
             if (e.target === overlay || e.target.id === 'modal-image' || e.target.id === 'close-modal') {
