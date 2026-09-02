@@ -43,7 +43,7 @@ const cardData = [
       leader: "",
       connect: {
         range: "3マス効果",
-        cells: { yellow: [], green: [] },
+        cells: { yellow: [13], green: [10, 11, 12] },
         effect: "範囲内のホロメンボード効果を200%UP"
       },
       costume: "全員のセンスが100%UP",
@@ -156,7 +156,7 @@ const cardData = [
       leader: "",
       connect: {
         range: "4マス効果",
-        cells: { yellow: [], green: [] },
+        cells: { yellow: [12], green: [2, 7, 13, 14] },
         effect: "範囲内のホロメンボード効果を165%UP"
       },
       costume: "全員の全パラメータが35%UP",
@@ -268,8 +268,8 @@ const cardData = [
       type2: "technique",
       leader: "",
       connect: {
-        range: "4マス効果",
-        cells: { yellow: [], green: [] },
+        range: "3マス効果",
+        cells: { yellow: [17], green: [2, 7, 12] },
         effect: "範囲内のホロメンボード効果を165%UP"
       },
       costume: "全員のテクニックが100%UP",
@@ -381,8 +381,8 @@ const cardData = [
       type2: "performance",
       leader: "",
       connect: {
-        range: "3マス効果",
-        cells: { yellow: [], green: [] },
+        range: "4マス効果",
+        cells: { yellow: [12], green: [2, 7, 10, 11] },
         effect: "範囲内のホロメンボード効果を215%UP"
       },
       costume: "0期生が2人以上で全員の全パラメータが40%UP",
@@ -495,7 +495,7 @@ const cardData = [
       leader: "",
       connect: {
         range: "3マス効果",
-        cells: { yellow: [], green: [] },
+        cells: { yellow: [17], green: [2, 7, 12] },
         effect: "範囲内のホロメンボード効果を215%UP"
       },
       costume: "全員の全パラメータが35%UP",
@@ -608,7 +608,7 @@ const cardData = [
       leader: "",
       connect: {
         range: "3マス効果",
-        cells: { yellow: [], green: [] },
+        cells: { yellow: [17], green: [2, 7, 12] },
         effect: "範囲内のホロメンボード効果を215%UP"
       },
       costume: "全員の全パラメータが35%UP",
@@ -713,7 +713,7 @@ const cardData = [
       leader: "",
       connect: {
         range: "4マス効果",
-        cells: { yellow: [], green: [] },
+        cells: { yellow: [12], green: [2, 7, 10, 11] },
         effect: "範囲内のホロメンボード効果を165%UP"
       },
       costume: "1期生が2人以上で全員の全パラメータが40%UP",
@@ -822,7 +822,7 @@ const cardData = [
       leader: "",
       connect: {
         range: "3マス効果",
-        cells: { yellow: [], green: [] },
+        cells: { yellow: [13], green: [10, 11, 12] },
         effect: "範囲内のホロメンボード効果を210%UP"
       },
       costume: "全員の全パラメータが35%UP",
@@ -935,7 +935,7 @@ const cardData = [
       leader: "",
       connect: {
         range: "3マス効果",
-        cells: { yellow: [], green: [] },
+        cells: { yellow: [10], green: [11, 12, 13] },
         effect: "範囲内のホロメンボード効果を200%UP"
       },
       costume: "全員のテクニックが100%UP",
@@ -1048,7 +1048,7 @@ const cardData = [
       leader: "",
       connect: {
         range: "3マス効果",
-        cells: { yellow: [], green: [] },
+        cells: { yellow: [13], green: [10, 11, 12] },
         effect: "範囲内のホロメンボード効果を200%UP"
       },
       costume: "2期生が2人以上で全員の全パラメータが40%UP",
@@ -1161,7 +1161,7 @@ const cardData = [
       leader: "",
       connect: {
         range: "4マス効果",
-        cells: { yellow: [], green: [] },
+        cells: { yellow: [12], green: [2, 7, 13, 14] },
         effect: "範囲内のホロメンボード効果を165%UP"
       },
       costume: "全員のテクニックが100%UP",
@@ -1274,7 +1274,7 @@ const cardData = [
       leader: "",
       connect: {
         range: "3マス効果",
-        cells: { yellow: [], green: [] },
+        cells: { yellow: [10], green: [11, 12, 13] },
         effect: "範囲内のホロメンボード効果を210%UP"
       },
       costume: "全員のセンスが100%UP",
@@ -1387,7 +1387,7 @@ const cardData = [
       leader: "",
       connect: {
         range: "4マス効果",
-        cells: { yellow: [], green: [] },
+        cells: { yellow: [12], green: [2, 7, 13, 14] },
         effect: "範囲内のホロメンボード効果を165%UP"
       },
       costume: "全員のパフォーマンスが100%UP",
@@ -1500,7 +1500,7 @@ const cardData = [
       leader: "",
       connect: {
         range: "4マス効果",
-        cells: { yellow: [], green: [] },
+        cells: { yellow: [12], green: [2, 7, 10, 11] },
         effect: "範囲内のホロメンボード効果を165%UP"
       },
       costume: "全員のパフォーマンスが100%UP",
@@ -1613,7 +1613,7 @@ const cardData = [
       leader: "",
       connect: {
         range: "3マス効果",
-        cells: { yellow: [], green: [] },
+        cells: { yellow: [10], green: [11, 12, 13] },
         effect: "範囲内のホロメンボード効果を210%UP"
       },
       costume: "ゲーマーズが2人以上で全員の全パラメータが40%UP",
@@ -1729,7 +1729,7 @@ const cardData = [
       leader: "",
       connect: {
         range: "4マス効果",
-        cells: { yellow: [], green: [] },
+        cells: { yellow: [12], green: [2, 7, 10, 11] },
         effect: "範囲内のホロメンボード効果を165%UP"
       },
       costume: "全員のセンスが100%UP",
@@ -1842,7 +1842,7 @@ const cardData = [
       leader: "",
       connect: {
         range: "3マス効果",
-        cells: { yellow: [], green: [] },
+        cells: { yellow: [17], green: [2, 7, 12] },
         effect: "範囲内のホロメンボード効果を215%UP"
       },
       costume: "キュートタイプ2人以上で全員の全パラメータが20%UP／キュートタイプ2人以上で全員のスコアサポート効果25%",
@@ -1955,7 +1955,7 @@ const cardData = [
       leader: "",
       connect: {
         range: "3マス効果",
-        cells: { yellow: [], green: [] },
+        cells: { yellow: [17], green: [2, 7, 12] },
         effect: "範囲内のホロメンボード効果を215%UP"
       },
       costume: "3期生が2人以上で全員の全パラメータが40%UP",
@@ -2068,7 +2068,7 @@ const cardData = [
       leader: "",
       connect: {
         range: "4マス効果",
-        cells: { yellow: [], green: [] },
+        cells: { yellow: [12], green: [2, 7, 13, 14] },
         effect: "範囲内のホロメンボード効果を165%UP"
       },
       costume: "全員のセンスが100%UP",
@@ -2177,7 +2177,7 @@ const cardData = [
       leader: "",
       connect: {
         range: "3マス効果",
-        cells: { yellow: [], green: [] },
+        cells: { yellow: [13], green: [10, 11, 12] },
         effect: "範囲内のホロメンボード効果を200%UP"
       },
       costume: "全員のテクニックが100%UP",
@@ -2290,7 +2290,7 @@ const cardData = [
       leader: "",
       connect: {
         range: "4マス効果",
-        cells: { yellow: [], green: [] },
+        cells: { yellow: [12], green: [2, 7, 13, 14] },
         effect: "範囲内のホロメンボード効果を165%UP"
       },
       costume: "全員のパフォーマンスが100%UP",
@@ -2403,7 +2403,7 @@ const cardData = [
       leader: "",
       connect: {
         range: "3マス効果",
-        cells: { yellow: [], green: [] },
+        cells: { yellow: [13], green: [10, 11, 12] },
         effect: "範囲内のホロメンボード効果を200%UP"
       },
       costume: "4期生が2人以上で全員の全パラメータが40%UP",
@@ -2511,8 +2511,8 @@ const cardData = [
       type2: "sense",
       leader: "",
       connect: {
-        range: "3マス効果",
-        cells: { yellow: [], green: [] },
+        range: "4マス効果",
+        cells: { yellow: [12], green: [2, 7, 10, 11] },
         effect: "範囲内のホロメンボード効果を215%UP"
       },
       costume: "全員の全パラメータが35%UP",
@@ -2624,8 +2624,8 @@ const cardData = [
       type2: "performance",
       leader: "",
       connect: {
-        range: "3マス効果",
-        cells: { yellow: [], green: [] },
+        range: "4マス効果",
+        cells: { yellow: [12], green: [2, 7, 13, 14] },
         effect: "範囲内のホロメンボード効果を215%UP"
       },
       costume: "全員のパフォーマンスが100%UP",
@@ -2733,8 +2733,8 @@ const cardData = [
       type2: "performance",
       leader: "",
       connect: {
-        range: "4マス効果",
-        cells: { yellow: [], green: [] },
+        range: "3マス効果",
+        cells: { yellow: [13], green: [10, 11, 12] },
         effect: "範囲内のホロメンボード効果を165%UP"
       },
       costume: "ID1期生が2人以上で全員の全パラメータが40%UP",
@@ -2842,8 +2842,8 @@ const cardData = [
       type2: "technique",
       leader: "",
       connect: {
-        range: "4マス効果",
-        cells: { yellow: [], green: [] },
+        range: "3マス効果",
+        cells: { yellow: [13], green: [10, 11, 12] },
         effect: "範囲内のホロメンボード効果を165%UP"
       },
       costume: "全員のテクニックが100%UP",
@@ -2956,7 +2956,7 @@ const cardData = [
       leader: "",
       connect: {
         range: "4マス効果",
-        cells: { yellow: [], green: [] },
+        cells: { yellow: [12], green: [2, 7, 13, 14] },
         effect: "範囲内のホロメンボード効果を165%UP"
       },
       costume: "5期生が2人以上で全員の全パラメータが40%UP",
@@ -3068,8 +3068,8 @@ const cardData = [
       type2: "technique",
       leader: "",
       connect: {
-        range: "3マス効果",
-        cells: { yellow: [], green: [] },
+        range: "4マス効果",
+        cells: { yellow: [12], green: [2, 7, 10, 11] },
         effect: "範囲内のホロメンボード効果を200%UP"
       },
       costume: "全員のテクニックが100%UP",
@@ -3182,7 +3182,7 @@ const cardData = [
       leader: "",
       connect: {
         range: "3マス効果",
-        cells: { yellow: [], green: [] },
+        cells: { yellow: [17], green: [2, 7, 12] },
         effect: "範囲内のホロメンボード効果を200%UP"
       },
       costume: "全員のパフォーマンスが100%UP",
@@ -3295,7 +3295,7 @@ const cardData = [
       leader: "",
       connect: {
         range: "4マス効果",
-        cells: { yellow: [], green: [] },
+        cells: { yellow: [12], green: [2, 7, 10, 11] },
         effect: "範囲内のホロメンボード効果を165%UP"
       },
       costume: "全員のパフォーマンスが100%UP",
@@ -3407,8 +3407,8 @@ const cardData = [
       type2: "performance",
       leader: "",
       connect: {
-        range: "4マス効果",
-        cells: { yellow: [], green: [] },
+        range: "3マス効果",
+        cells: { yellow: [17], green: [2, 7, 12] },
         effect: "範囲内のホロメンボード効果を165%UP"
       },
       costume: "全員のスコアサポート効果50%",
@@ -3521,7 +3521,7 @@ const cardData = [
       leader: "",
       connect: {
         range: "3マス効果",
-        cells: { yellow: [], green: [] },
+        cells: { yellow: [17], green: [2, 7, 12] },
         effect: "範囲内のホロメンボード効果を215%UP"
       },
       costume: "全員のパフォーマンスが100%UP",
@@ -3634,7 +3634,7 @@ const cardData = [
       leader: "",
       connect: {
         range: "4マス効果",
-        cells: { yellow: [], green: [] },
+        cells: { yellow: [12], green: [2, 7, 13, 14] },
         effect: "範囲内のホロメンボード効果を165%UP"
       },
       costume: "holoXが2人以上で全員の全パラメータが40%UP",
@@ -3746,8 +3746,8 @@ const cardData = [
       type2: "sense",
       leader: "",
       connect: {
-        range: "3マス効果",
-        cells: { yellow: [], green: [] },
+        range: "4マス効果",
+        cells: { yellow: [12], green: [2, 7, 10, 11] },
         effect: "範囲内のホロメンボード効果を210%UP"
       },
       costume: "全員のセンスが100%UP",
@@ -3860,7 +3860,7 @@ const cardData = [
       leader: "",
       connect: {
         range: "3マス効果",
-        cells: { yellow: [], green: [] },
+        cells: { yellow: [13], green: [10, 11, 12] },
         effect: "範囲内のホロメンボード効果を200%UP"
       },
       costume: "Mythが2人以上で全員の全パラメータが40%UP",
@@ -3968,8 +3968,8 @@ const cardData = [
       type2: "sense",
       leader: "",
       connect: {
-        range: "4マス効果",
-        cells: { yellow: [], green: [] },
+        range: "3マス効果",
+        cells: { yellow: [13], green: [10, 11, 12] },
         effect: "範囲内のホロメンボード効果を165%UP"
       },
       costume: "全員のセンスが100%UP",
@@ -4082,7 +4082,7 @@ const cardData = [
       leader: "",
       connect: {
         range: "4マス効果",
-        cells: { yellow: [], green: [] },
+        cells: { yellow: [12], green: [2, 7, 13, 14] },
         effect: "範囲内のホロメンボード効果を165%UP"
       },
       costume: "全員のパフォーマンスが100%UP",
@@ -4195,7 +4195,7 @@ const cardData = [
       leader: "",
       connect: {
         range: "3マス効果",
-        cells: { yellow: [], green: [] },
+        cells: { yellow: [10], green: [11, 12, 13] },
         effect: "範囲内のホロメンボード効果を200%UP"
       },
       costume: "全員のテクニックが100%UP",
@@ -4304,7 +4304,7 @@ const cardData = [
       leader: "",
       connect: {
         range: "3マス効果",
-        cells: { yellow: [], green: [] },
+        cells: { yellow: [10], green: [11, 12, 13] },
         effect: "範囲内のホロメンボード効果を200%UP"
       },
       costume: "ID2期生が2人以上で全員の全パラメータが40%UP",
@@ -4416,8 +4416,8 @@ const cardData = [
       type2: "performance",
       leader: "",
       connect: {
-        range: "4マス効果",
-        cells: { yellow: [], green: [] },
+        range: "3マス効果",
+        cells: { yellow: [10], green: [11, 12, 13] },
         effect: "範囲内のホロメンボード効果を165%UP"
       },
       costume: "全員のパフォーマンスが100%UP",
@@ -4526,7 +4526,7 @@ const cardData = [
       leader: "",
       connect: {
         range: "3マス効果",
-        cells: { yellow: [], green: [] },
+        cells: { yellow: [13], green: [10, 11, 12] },
         effect: "範囲内のホロメンボード効果を210%UP"
       },
       costume: "Promiseが2人以上で全員の全パラメータが40%UP",
@@ -4639,7 +4639,7 @@ const cardData = [
       leader: "",
       connect: {
         range: "4マス効果",
-        cells: { yellow: [], green: [] },
+        cells: { yellow: [12], green: [2, 7, 10, 11] },
         effect: "範囲内のホロメンボード効果を165%UP"
       },
       costume: "全員のセンスが100%UP",
@@ -4748,7 +4748,7 @@ const cardData = [
       leader: "",
       connect: {
         range: "4マス効果",
-        cells: { yellow: [], green: [] },
+        cells: { yellow: [12], green: [2, 7, 13, 14] },
         effect: "範囲内のホロメンボード効果を165%UP"
       },
       costume: "全員のセンスが100%UP",
@@ -4853,7 +4853,7 @@ const cardData = [
       leader: "",
       connect: {
         range: "3マス効果",
-        cells: { yellow: [], green: [] },
+        cells: { yellow: [10], green: [11, 12, 13] },
         effect: "範囲内のホロメンボード効果を210%UP"
       },
       costume: "ID3期生が2人以上で全員の全パラメータが40%UP",
@@ -4961,8 +4961,8 @@ const cardData = [
       type2: "technique",
       leader: "",
       connect: {
-        range: "3マス効果",
-        cells: { yellow: [], green: [] },
+        range: "4マス効果",
+        cells: { yellow: [12], green: [2, 7, 10, 11] },
         effect: "範囲内のホロメンボード効果を210%UP"
       },
       costume: "全員のテクニックが100%UP",
@@ -5071,7 +5071,7 @@ const cardData = [
       leader: "",
       connect: {
         range: "4マス効果",
-        cells: { yellow: [], green: [] },
+        cells: { yellow: [12], green: [2, 7, 13, 14] },
         effect: "範囲内のホロメンボード効果を165%UP"
       },
       costume: "Adventが2人以上で全員の全パラメータが40%UP",
@@ -5184,7 +5184,7 @@ const cardData = [
       leader: "",
       connect: {
         range: "3マス効果",
-        cells: { yellow: [], green: [] },
+        cells: { yellow: [13], green: [10, 11, 12] },
         effect: "範囲内のホロメンボード効果を200%UP"
       },
       costume: "ハッピータイプ2人以上で全員の全パラメータが20%UP／ハッピータイプ2人以上で全員のスコアサポート効果25%",
@@ -5293,7 +5293,7 @@ const cardData = [
       leader: "",
       connect: {
         range: "3マス効果",
-        cells: { yellow: [], green: [] },
+        cells: { yellow: [13], green: [10, 11, 12] },
         effect: "範囲内のホロメンボード効果を200%UP"
       },
       costume: "全員のセンスが100%UP",
@@ -5406,7 +5406,7 @@ const cardData = [
       leader: "",
       connect: {
         range: "4マス効果",
-        cells: { yellow: [], green: [] },
+        cells: { yellow: [12], green: [2, 7, 10, 11] },
         effect: "範囲内のホロメンボード効果を165%UP"
       },
       costume: "全員のスコアサポート効果50%",
@@ -5519,7 +5519,7 @@ const cardData = [
       leader: "",
       connect: {
         range: "4マス効果",
-        cells: { yellow: [], green: [] },
+        cells: { yellow: [12], green: [2, 7, 13, 14] },
         effect: "範囲内のホロメンボード効果を165%UP"
       },
       costume: "全員の全パラメータが35%UP",
@@ -5632,7 +5632,7 @@ const cardData = [
       leader: "",
       connect: {
         range: "3マス効果",
-        cells: { yellow: [], green: [] },
+        cells: { yellow: [10], green: [11, 12, 13] },
         effect: "範囲内のホロメンボード効果を210%UP"
       },
       costume: "ReGLOSSが2人以上で全員の全パラメータが40%UP",
@@ -5745,7 +5745,7 @@ const cardData = [
       leader: "",
       connect: {
         range: "4マス効果",
-        cells: { yellow: [], green: [] },
+        cells: { yellow: [12], green: [2, 7, 10, 11] },
         effect: "範囲内のホロメンボード効果を165%UP"
       },
       costume: "全員のスコアサポート効果50%",
@@ -5854,7 +5854,7 @@ const cardData = [
       leader: "",
       connect: {
         range: "3マス効果",
-        cells: { yellow: [], green: [] },
+        cells: { yellow: [10], green: [11, 12, 13] },
         effect: "範囲内のホロメンボード効果を210%UP"
       },
       costume: "ピュアタイプ2人以上で全員の全パラメータが20%UP／ピュアタイプ2人以上で全員のスコアサポート効果25%",
@@ -5963,7 +5963,7 @@ const cardData = [
       leader: "",
       connect: {
         range: "3マス効果",
-        cells: { yellow: [], green: [] },
+        cells: { yellow: [17], green: [2, 7, 12] },
         effect: "範囲内のホロメンボード効果を215%UP"
       },
       costume: "全員のテクニックが100%UP",
