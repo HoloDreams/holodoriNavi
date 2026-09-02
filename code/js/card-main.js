@@ -405,16 +405,25 @@ function normalizeCardType(value) {
 
 function getCardTypeLabel(type) {
     const normalized = normalizeCardType(type);
-    if (normalized === "cute") return "❤ キュートタイプ";
-    if (normalized === "pure") return "🍃 ピュアタイプ";
-    if (normalized === "happy") return "☀ ハッピータイプ";
+    if (normalized === "cute") return "キュートタイプ";
+    if (normalized === "pure") return "ピュアタイプ";
+    if (normalized === "happy") return "ハッピータイプ";
     return "";
 }
 
 function createTypeBadge(type) {
     const normalized = normalizeCardType(type);
     const label = getCardTypeLabel(normalized);
-    return label ? '<span class="card-type-badge type-' + normalized + '">' + escapeHtml(label) + '</span>' : '';
+    if (!label) return "";
+
+    return `
+        <span class="card-type-badge type-${normalized}">
+            <span class="card-type-icon-wrap">
+                <img class="card-type-icon" src="img/card-type/${normalized}.svg" alt="" aria-hidden="true">
+            </span>
+            <span class="card-type-label">${escapeHtml(label)}</span>
+        </span>
+    `;
 }
 
 function normalizeCardType2(value) {

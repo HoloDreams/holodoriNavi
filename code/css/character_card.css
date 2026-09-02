@@ -999,6 +999,43 @@ main #card-filter-panel {
 .card-type-badge.type-pure { color: #25b965; background: rgba(101, 255, 70, 0.18); }
 .card-type-badge.type-happy { color: #f4ad13; background: rgba(255, 215, 73, 0.22); }
 
+.card-type-icon-wrap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  margin-right: 5px;
+  flex: 0 0 16px;
+}
+
+.card-type-icon {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Keep the small SVG icon from inheriting the modal card-image dimensions. */
+#modal-rarity .card-type-icon {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  min-width: 0 !important;
+  min-height: 0 !important;
+  max-width: 100% !important;
+  max-height: 100% !important;
+  aspect-ratio: 1 / 1 !important;
+  object-fit: contain !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  background: transparent !important;
+}
+
+.card-type-label {
+  white-space: nowrap;
+}
+
 /* Performance / technique / sense badge */
 .card-type2-badge {
   --type2-color: #ff00bf;
@@ -1076,6 +1113,13 @@ main #card-filter-panel {
     font-size: 11px;
   }
 
+  .card-type-icon-wrap {
+    width: 14px;
+    height: 14px;
+    margin-right: 4px;
+    flex-basis: 14px;
+  }
+
   .card-type2-badge {
     margin-left: 6px;
     padding: 3px 8px;
@@ -1108,6 +1152,10 @@ main #card-filter-panel {
   max-width: 760px;
 }
 .type-filter-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
   min-width: 116px;
   padding: 8px 16px;
   border: 2px solid #46d4ff;
@@ -1119,6 +1167,13 @@ main #card-filter-panel {
   line-height: 1.2;
   box-shadow: 0 8px 18px rgba(0, 148, 216, 0.12);
   cursor: pointer;
+}
+.type-filter-btn img {
+  display: block;
+  width: 20px;
+  height: 20px;
+  flex: 0 0 20px;
+  object-fit: contain;
 }
 .type-filter-btn.active {
   color: #fff;
@@ -1202,6 +1257,11 @@ main #sort-select {
     flex: 1 1 44%;
     padding: 8px 10px;
     font-size: 13px;
+  }
+  .type-filter-btn img {
+    width: 18px;
+    height: 18px;
+    flex-basis: 18px;
   }
   .type2-filter-container {
     gap: 8px;
