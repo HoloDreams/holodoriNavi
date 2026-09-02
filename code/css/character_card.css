@@ -1492,9 +1492,10 @@ main #sort-select {
 
   .skill-wrapper {
     min-height: 0 !important;
-    height: 100% !important;
+    height: auto !important;
     max-height: calc(100vh - 104px) !important;
     max-height: calc(100dvh - 104px) !important;
+    align-self: start !important;
     overflow-x: hidden !important;
     overflow-y: auto !important;
     overscroll-behavior: contain;
