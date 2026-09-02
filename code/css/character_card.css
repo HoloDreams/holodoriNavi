@@ -1481,3 +1481,36 @@ main #sort-select {
     max-height: 21dvh !important;
   }
 }
+
+/* Tablet landscape keeps two columns, but the entire right panel must scroll. */
+@media (min-width: 901px) and (max-width: 1366px) {
+  .modal-card-name,
+  #modal-rarity {
+    position: static !important;
+    top: auto !important;
+  }
+
+  .skill-wrapper {
+    min-height: 0 !important;
+    height: 100% !important;
+    max-height: calc(100vh - 104px) !important;
+    max-height: calc(100dvh - 104px) !important;
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-gutter: stable;
+  }
+
+  .skill-wrapper .skill-container {
+    display: block !important;
+    flex: none !important;
+    min-height: auto !important;
+    height: auto !important;
+    overflow: visible !important;
+  }
+
+  .card-skill-section {
+    margin-top: 14px !important;
+  }
+}
