@@ -411,6 +411,11 @@ h1 {
   border-bottom: 2px solid rgb(0, 171, 238);
 }
 
+.parameter-card strong {
+  color: #0094d8;
+  border-bottom: 2px solid rgb(0, 171, 238);
+}
+
 .passive-card strong {
   color: #c99026;
   border-bottom: 2px solid rgb(0, 171, 238);

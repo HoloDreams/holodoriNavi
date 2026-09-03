@@ -323,6 +323,10 @@ function getBloomStageText(card, key, bloomStage, fallback = "") {
 function getBloomSkillSet(card, bloomStage) {
     const baseSkills = card && card[4] ? card[4] : {};
     const connectBase = normalizeConnectSkill(baseSkills.connect);
+    const rarity = Number(card && card[0]) || 0;
+    const defaultParameterSkill = rarity >= 4 && clampBloomStage(bloomStage) >= getBloomThreshold("parameter")
+        ? "全パラメータが10%UP"
+        : "";
 
     return {
         type: baseSkills.type,
@@ -334,7 +338,7 @@ function getBloomSkillSet(card, bloomStage) {
         special: getBloomStageText(card, "special", bloomStage, baseSkills.special),
         active: getBloomStageText(card, "active", bloomStage, baseSkills.active),
         passive: getBloomStageText(card, "passive", bloomStage, baseSkills.passive),
-        parameter: getBloomStageText(card, "parameter", bloomStage, "")
+        parameter: getBloomStageText(card, "parameter", bloomStage, defaultParameterSkill)
     };
 }
 

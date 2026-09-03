@@ -287,9 +287,9 @@ window.danRankSets.push({
         },
         {
           "order": "3rd",
-          "song": "アンリアルヴェイル",
+          "song": "また傷に触れる",
           "difficulty": "EXPERT26",
-          "notes": "1119"
+          "notes": ""
         }
       ],
       "conditions": {
