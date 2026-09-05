@@ -377,7 +377,7 @@ window.danRankSets.push({
         {
           "order": "3rd",
           "song": "星屑カプセル",
-          "difficulty": "EXPERT29",
+          "difficulty": "EXPERT28",
           "notes": ""
         },
         {
