@@ -9,8 +9,8 @@ window.danRankSets.push({
   "ranks": [
     {
       "rank": "五級",
-      box_collar: "#ffa8e2",
-      text_collar: "#000000",
+      "box_collar": "#ffa8e2",
+      "text_collar": "#000000",
       "stages": [
         {
           "order": "1st",
@@ -38,8 +38,8 @@ window.danRankSets.push({
     },
     {
       "rank": "四級",
-      box_collar: "#ffa8e2",
-      text_collar: "#000000",
+      "box_collar": "#ffa8e2",
+      "text_collar": "#000000",
       "stages": [
         {
           "order": "1st",
@@ -67,8 +67,8 @@ window.danRankSets.push({
     },
     {
       "rank": "三級",
-      box_collar: "#67a8f1",
-      text_collar: "#000000",
+      "box_collar": "#67a8f1",
+      "text_collar": "#000000",
       "stages": [
         {
           "order": "1st",
@@ -96,8 +96,8 @@ window.danRankSets.push({
     },
     {
       "rank": "二級",
-      box_collar: "#67a8f1",
-      text_collar: "#000000",
+      "box_collar": "#67a8f1",
+      "text_collar": "#000000",
       "stages": [
         {
           "order": "1st",
@@ -125,8 +125,8 @@ window.danRankSets.push({
     },
     {
       "rank": "一級",
-      box_collar: "#67a8f1",
-      text_collar: "#000000",
+      "box_collar": "#67a8f1",
+      "text_collar": "#000000",
       "stages": [
         {
           "order": "1st",
@@ -154,8 +154,8 @@ window.danRankSets.push({
     },
     {
       "rank": "初段",
-      box_collar: "#4ea74e",
-      text_collar: "#000000",
+      "box_collar": "#4ea74e",
+      "text_collar": "#000000",
       "stages": [
         {
           "order": "1st",
@@ -183,8 +183,8 @@ window.danRankSets.push({
     },
     {
       "rank": "二段",
-      box_collar: "#4ea74e",
-      text_collar: "#000000",
+      "box_collar": "#4ea74e",
+      "text_collar": "#000000",
       "stages": [
         {
           "order": "1st",
@@ -212,8 +212,8 @@ window.danRankSets.push({
     },
     {
       "rank": "三段",
-      box_collar: "#4ea74e",
-      text_collar: "#000000",
+      "box_collar": "#4ea74e",
+      "text_collar": "#000000",
       "stages": [
         {
           "order": "1st",
@@ -241,8 +241,8 @@ window.danRankSets.push({
     },
     {
       "rank": "四段",
-      box_collar: "#1a2e64",
-      text_collar: "#ffffff",
+      "box_collar": "#1a2e64",
+      "text_collar": "#ffffff",
       "stages": [
         {
           "order": "1st",
@@ -270,8 +270,8 @@ window.danRankSets.push({
     },
     {
       "rank": "五段",
-      box_collar: "#1a2e64",
-      text_collar: "#ffffff",
+      "box_collar": "#1a2e64",
+      "text_collar": "#ffffff",
       "stages": [
         {
           "order": "1st",
@@ -299,8 +299,8 @@ window.danRankSets.push({
     },
     {
       "rank": "六段",
-      box_collar: "#1a2e64",
-      text_collar: "#ffffff",
+      "box_collar": "#1a2e64",
+      "text_collar": "#ffffff",
       "stages": [
         {
           "order": "1st",
@@ -328,8 +328,8 @@ window.danRankSets.push({
     },
     {
       "rank": "七段",
-      box_collar: "#9b0000",
-      text_collar: "#000000",
+      "box_collar": "#9b0000",
+      "text_collar": "#000000",
       "stages": [
         {
           "order": "1st",
@@ -357,8 +357,8 @@ window.danRankSets.push({
     },
     {
       "rank": "八段",
-      box_collar: "#9b0000",
-      text_collar: "#000000",
+      "box_collar": "#9b0000",
+      "text_collar": "#000000",
       "stages": [
         {
           "order": "1st",
@@ -386,8 +386,8 @@ window.danRankSets.push({
     },
     {
       "rank": "九段",
-      box_collar: "#9b0000",
-      text_collar: "#000000",
+      "box_collar": "#9b0000",
+      "text_collar": "#000000",
       "stages": [
         {
           "order": "1st",
@@ -415,8 +415,8 @@ window.danRankSets.push({
     },
     {
       "rank": "十段",
-      box_collar: "#000000",
-      text_collar: "#ffffff",
+      "box_collar": "#000000",
+      "text_collar": "#ffffff",
       "stages": [
         {
           "order": "1st",
@@ -444,8 +444,8 @@ window.danRankSets.push({
     },
     {
       "rank": "皆伝",
-      box_collar: "#d8b907",
-      text_collar: "#000000",
+      "box_collar": "#d8b907",
+      "text_collar": "#000000",
       "stages": [
         {
           "order": "1st",
@@ -474,8 +474,8 @@ window.danRankSets.push({
     },
     {
       "rank": "裏五段",
-      box_collar: "#2a5f9b",
-      text_collar: "#ffffff",
+      "box_collar": "#2a5f9b",
+      "text_collar": "#ffffff",
       "stages": [
         {
           "order": "1st",
@@ -503,8 +503,8 @@ window.danRankSets.push({
     },
     {
       "rank": "裏七段",
-      box_collar: "#d8b907",
-      text_collar: "#000000",
+      "box_collar": "#d8b907",
+      "text_collar": "#000000",
       "stages": [
         {
           "order": "1st",
@@ -532,8 +532,8 @@ window.danRankSets.push({
     },
     {
       "rank": "裏十段",
-      box_collar: "#500a70",
-      text_collar: "#ffffff",
+      "box_collar": "#500a70",
+      "text_collar": "#ffffff",
       "stages": [
         {
           "order": "1st",
@@ -561,7 +561,7 @@ window.danRankSets.push({
     },
     {
       "rank": "【外伝】　shortest 3",
-      text_collar: "#ad0000",
+      "text_collar": "#ad0000",
       "stages": [
         {
           "order": "1st",
@@ -589,7 +589,7 @@ window.danRankSets.push({
     },
     {
       "rank": "【外伝】　longest 3",
-      text_collar: "#2500ad",
+      "text_collar": "#2500ad",
       "stages": [
         {
           "order": "1st",
@@ -617,11 +617,11 @@ window.danRankSets.push({
     },
     {
       "rank": "【外伝】　挑戦！BPM240↑",
-      text_collar: "#6800ad",
+      "text_collar": "#6800ad",
       "stages": [
         {
           "order": "1st",
-          "song": "全人類\u3000兎化計画！ ",
+          "song": "全人類　兎化計画！ ",
           "difficulty": "EXPERT26",
           "notes": ""
         },
@@ -645,7 +645,7 @@ window.danRankSets.push({
     },
     {
       "rank": "【外伝】　目指せ！3000コンボ！",
-      text_collar: "#008307",
+      "text_collar": "#008307",
       "stages": [
         {
           "order": "1st",
@@ -670,8 +670,6 @@ window.danRankSets.push({
         "combo": "3000",
         "goodOrBelow": "30"
       }
-    },
+    }
   ]
 });
-
-

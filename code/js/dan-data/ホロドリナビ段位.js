@@ -9,10 +9,8 @@ window.danRankSets.push({
   "ranks": [
     {
       "rank": "coming soon…",
-      box_collar: "#ff34f5,#3734ff",
-      text_collar: "#fefeff",
-      //box_collar: "#fff134,#1200b4,#4c005f",
-      //text_collar: "#fefeff",
+      "box_collar": "#ff34f5,#3734ff",
+      "text_collar": "#fefeff",
       "stages": [
         {
           "order": "1st",
@@ -37,8 +35,6 @@ window.danRankSets.push({
         "great": "×",
         "goodOrBelow": "×"
       }
-    },
+    }
   ]
 });
-
-

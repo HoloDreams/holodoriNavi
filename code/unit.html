@@ -20,15 +20,15 @@
   </script>
   <link rel="stylesheet" href="css/site_notice.css">
   <link rel="stylesheet" href="css/unit.css">
-  <meta property="og:title" content="holodoriNavi">
+  <meta property="og:title" content="ホロドリナビ">
   <meta property="og:description" content="ホロライブドリームスを更に知るならここ！">
-  <meta property="og:image" content="https://holodreams.github.io/holodoriNavi/code/img/view.png">
-  <meta property="og:url" content="https://holodreams.github.io/holodoriNavi/code/unit.html">
+  <meta property="og:image" content="https://holodorinavi.com/code/img/view.png">
+  <meta property="og:url" content="https://holodorinavi.com/code/unit.html">
   <meta property="og:type" content="website">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="holodoriNavi">
+  <meta name="twitter:title" content="ホロドリナビ">
   <meta name="twitter:description" content="ホロライブドリームスを更に知るならここ！">
-  <meta name="twitter:image" content="https://holodreams.github.io/holodoriNavi/code/img/view.png">
+  <meta name="twitter:image" content="https://holodorinavi.com/code/img/view.png">
 </head>
 
 <body id="page-top">
@@ -67,34 +67,122 @@
     <h1 class="page-title">ユニット</h1>
     <p class="unit-intro-text">ホロメンを編成して、ライブやドリームパークを進めるための基本情報をまとめます。</p>
 
+    <!-- 仮素材（公開前に利用条件を再確認または差し替え）
+         出典: カバー株式会社 PR TIMES 2026-07-23
+         https://prtimes.jp/main/html/rd/p/000001254.000030268.html -->
+    <figure class="image-box unit-official-visual fade-in-up">
+      <img src="unit/official-game-overview.webp" alt="hololive Dreamsのゲームジャンル紹介" class="content-image" loading="lazy">
+      <figcaption>リズムゲームを中心に、ドリームパークを楽しむリズム＆RPG</figcaption>
+    </figure>
+
     <nav class="page-toc fade-in-up" aria-label="ページ内目次">
       <p class="toc-title">目次</p>
       <div class="toc-links">
         <a href="#unit-formation">ユニット編成</a>
+        <a href="#unit-parameters">タイプ・パラメータ</a>
+        <a href="#unit-skills">スキル</a>
         <a href="#member-training">メンバー育成</a>
+        <a href="#holomen-board">ホロメンボード</a>
         <a href="#costume-card">カード・衣装</a>
       </div>
     </nav>
 
     <p class="double-space unit-heading" id="unit-formation"><span class="title-explanation">ユニット編成</span></p>
     <div class="operation-block fade-in-up">
+      <!-- ユーザー提供のゲーム画面 -->
       <p class="image-box"><img src="unit/初回ガチャ.png" alt="初回ガチャ" class="content-image"></p>
+      <p class="image-caption">ゲーム開始時の初回ガチャ画面</p>
       <p>ゲーム開始時には、選んだ推しホロメンの★5メンバーを入手できる初回ガチャがあります。</p>
-      <p>ユニットはリーダー1人とメンバー4人の合計5人で編成します。</p>
-      <p>総合スコアは、リーダー衣装、メンバーのパラメータ、スキルの組み合わせに関係します。</p>
+      <!-- 仮素材（公開前に利用条件を再確認または差し替え）
+           出典: カバー株式会社 PR TIMES 2026-07-23
+           https://prtimes.jp/main/html/rd/p/000001254.000030268.html -->
+      <figure class="unit-inline-official">
+        <img src="unit/official-select-favorite.webp" alt="好きなタレントの星5メンバーを獲得できる公式案内" loading="lazy">
+        <figcaption>公式リリース時の「好きな★5メンバーを選べる」案内</figcaption>
+      </figure>
+      <div class="formation-visual" role="img" aria-label="リーダー1人とメンバー4人による5人編成の図">
+        <div class="formation-slot leader-slot"><span>LEADER</span><strong>リーダー</strong><small>衣装を設定</small></div>
+        <div class="member-slots">
+          <div class="formation-slot"><span>MEMBER 1</span><strong>メンバー</strong></div>
+          <div class="formation-slot"><span>MEMBER 2</span><strong>メンバー</strong></div>
+          <div class="formation-slot"><span>MEMBER 3</span><strong>メンバー</strong></div>
+          <div class="formation-slot"><span>MEMBER 4</span><strong>メンバー</strong></div>
+        </div>
+      </div>
+      <p class="image-caption">ユニットはリーダー1人＋メンバー4人の合計5人</p>
+      <p>総合スコアは、リーダーの衣装、5人のパラメータ、スキルの組み合わせによって変化します。</p>
+    </div>
+
+    <p class="double-space unit-heading" id="unit-parameters"><span class="title-explanation">タイプ・パラメータ</span></p>
+    <div class="operation-block fade-in-up">
+      <div class="type-parameter-visual">
+        <div class="type-column">
+          <h2>カードタイプ</h2>
+          <span class="unit-pill cute">キュート</span>
+          <span class="unit-pill pure">ピュア</span>
+          <span class="unit-pill happy">ハッピー</span>
+        </div>
+        <div class="visual-arrow" aria-hidden="true">＋</div>
+        <div class="parameter-column">
+          <h2>パラメータ</h2>
+          <span class="parameter-bar performance">パフォーマンス</span>
+          <span class="parameter-bar technique">テクニック</span>
+          <span class="parameter-bar sense">センス</span>
+        </div>
+      </div>
+      <p>メンバーカードにはキュート・ピュア・ハッピーのタイプがあり、パフォーマンス・テクニック・センスの3つのパラメータを持ちます。</p>
+      <p>カードによって得意なパラメータが異なるため、衣装スキルやほかのメンバーのスキル条件に合わせて編成します。</p>
+    </div>
+
+    <p class="double-space unit-heading" id="unit-skills"><span class="title-explanation">ユニットで働くスキル</span></p>
+    <div class="operation-block fade-in-up">
+      <div class="skill-visual">
+        <article><strong>衣装スキル</strong><span>リーダーに設定した衣装の効果</span></article>
+        <article><strong>スペシャルスキル</strong><span>ライブ中に発動する強力な効果</span></article>
+        <article><strong>アクティブスキル</strong><span>一定間隔・確率などの条件で発動</span></article>
+        <article><strong>パッシブスキル</strong><span>編成条件を満たすことで効果を発揮</span></article>
+      </div>
+      <p>衣装スキルには「特定の所属が2人以上」「特定タイプが2人以上」などの条件があります。効果だけでなく、発動条件を満たしているかも確認しましょう。</p>
     </div>
 
     <p class="double-space unit-heading" id="member-training"><span class="title-explanation">メンバー育成</span></p>
     <div class="operation-block fade-in-up">
-      <div class="image-box unit-image-placeholder">画像をここに追加予定</div>
-      <p>メンバー育成では、レベルUP、特訓、開花、ホロメンボードなどで強化できます。</p>
+      <div class="training-visual" role="img" aria-label="レベルUP、特訓、開花、ホロメンボードの育成順を示した図">
+        <div><span>1</span><strong>レベルUP</strong><small>基礎パラメータ上昇</small></div>
+        <i aria-hidden="true">›</i>
+        <div><span>2</span><strong>特訓</strong><small>レベル上限を拡張</small></div>
+        <i aria-hidden="true">›</i>
+        <div><span>3</span><strong>開花</strong><small>カード性能を強化</small></div>
+        <i aria-hidden="true">›</i>
+        <div><span>4</span><strong>ホロメンボード</strong><small>全体をさらに強化</small></div>
+      </div>
+      <p>メンバー育成では、レベルUP、特訓、開花、ホロメンボードなどを利用して強化できます。</p>
       <p>育成したメンバーをユニットに編成することで、ライブや各コンテンツを進めやすくなります。</p>
+    </div>
+
+    <p class="double-space unit-heading" id="holomen-board"><span class="title-explanation">ホロメンボードとコネクト</span></p>
+    <div class="operation-block fade-in-up">
+      <div class="board-guide-visual">
+        <div class="mini-board" aria-label="コネクト範囲の例">
+          <span></span><span></span><span></span><span></span><span></span>
+          <span></span><span class="active"></span><span class="active"></span><span></span><span></span>
+          <span></span><span class="active"></span><span class="core"></span><span class="active"></span><span></span>
+          <span></span><span></span><span class="active"></span><span></span><span></span>
+          <span></span><span></span><span></span><span></span><span></span>
+        </div>
+        <div class="board-copy"><strong>コネクトマスにカードを設定</strong><span>色の付いた範囲にある解放済みマスへ、カードのコネクト効果が適用されます。</span></div>
+      </div>
+      <p>コネクト効果と範囲はカードごとに異なります。★4以上のカードを使い、伸ばしたいパラメータや効果へ範囲が届くように配置します。</p>
     </div>
 
     <p class="double-space unit-heading" id="costume-card"><span class="title-explanation">カード・衣装</span></p>
     <div class="operation-block fade-in-up">
-      <div class="image-box unit-image-placeholder">画像をここに追加予定</div>
-      <p>★5カードにはパーク用衣装が付属し、操作時の着替えに使えるものがあります。</p>
+      <div class="card-costume-visual">
+        <figure><img src="character_card/2/55_宝鐘マリン1.webp" alt="宝鐘マリンのカード画像例" loading="lazy"><figcaption>メンバーカード</figcaption></figure>
+        <div class="visual-arrow" aria-hidden="true">＋</div>
+        <div class="costume-panel"><span>LEADER COSTUME</span><strong>リーダー衣装</strong><small>衣装スキルでユニットを強化</small></div>
+      </div>
+      <p>★5カードにはパーク用衣装が付属し、パークで操作するホロメンの着替えに使えるものがあります。</p>
       <p>カードごとの性能や衣装を確認しながら、自分の遊び方に合ったユニットを組みましょう。</p>
     </div>
   </main>

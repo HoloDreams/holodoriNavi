@@ -1,8 +1,8 @@
-﻿window.holodoriSiteUpdates = [
+window.holodoriSiteUpdates = [
   {
   date: '2026-07-23',
   page: 'HOME',
-  title: '「holodoriNavi」を公開しました。',
+  title: '「ホロドリナビ」を公開しました。',
   summary: 'これから楽曲情報などを収集していきます。',
   tag: 'サイト'
 },
