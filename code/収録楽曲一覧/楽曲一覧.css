@@ -317,14 +317,72 @@ body::-webkit-scrollbar {
   }
 
   .side-jacket img { width: 220px; }
-  .song-info-area { width: 100%; text-align: center; }
+  .song-info-area {
+    width: 100%;
+    max-width: 430px;
+    min-width: 0;
+    margin-inline: auto;
+    text-align: center;
+  }
   .bpm-area { justify-content: center; margin: 10px 0; width: 100%; }
+
+  .song-stats-vertical {
+    display: grid;
+    gap: 10px;
+    width: 100%;
+    max-width: 430px;
+    height: auto;
+    margin: 20px auto 0;
+  }
+
+  .stat-row {
+    position: static;
+    display: grid;
+    grid-template-columns: minmax(96px, 140px) minmax(54px, auto) minmax(0, 1fr);
+    align-items: center;
+    gap: clamp(5px, 2vw, 12px);
+    width: 100%;
+    min-width: 0;
+  }
+
+  .stat-row img {
+    width: 100%;
+    max-width: 140px;
+    height: auto;
+  }
+
+  .lv-text,
+  .combo-text {
+    min-width: 0;
+    font-size: clamp(18px, 6vw, 28px);
+  }
+
+  .combo-text {
+    text-align: left;
+  }
 }
 
 @media (max-width: 480px) {
   .display-title {
   color: #ffffff; font-size: 26px; }
   .section-title { font-size: 28px; }
+
+  .song-detail-flex {
+    padding-inline: clamp(10px, 4vw, 20px);
+  }
+
+  .song-stats-vertical {
+    max-width: 100%;
+  }
+
+  .stat-row {
+    grid-template-columns: minmax(88px, 34%) minmax(48px, auto) minmax(0, 1fr);
+  }
+
+  .lv-text,
+  .combo-text {
+    font-size: clamp(17px, 5.8vw, 24px);
+  }
 }
 /* Keep: boxed text sections and small heading underline */
 .operation-block,
@@ -368,4 +426,3 @@ h1::after,
   border-radius: 999px;
   background: #46d4ff;
 }
-
