@@ -321,6 +321,9 @@ body::-webkit-scrollbar {
     width: 100%;
     max-width: 430px;
     min-width: 0;
+    height: auto;
+    min-height: 0;
+    justify-content: flex-start;
     margin-inline: auto;
     text-align: center;
   }
@@ -328,10 +331,13 @@ body::-webkit-scrollbar {
 
   .song-stats-vertical {
     display: grid;
-    gap: 10px;
+    grid-auto-rows: max-content;
+    align-content: start;
+    gap: 2px;
     width: 100%;
     max-width: 430px;
     height: auto;
+    min-height: 0;
     margin: 20px auto 0;
   }
 
@@ -343,12 +349,16 @@ body::-webkit-scrollbar {
     gap: clamp(5px, 2vw, 12px);
     width: 100%;
     min-width: 0;
+    min-height: 0;
+    margin: 0;
   }
 
   .stat-row img {
     width: 100%;
     max-width: 140px;
-    height: auto;
+    height: clamp(34px, 10vw, 42px);
+    object-fit: cover;
+    object-position: center;
   }
 
   .lv-text,
