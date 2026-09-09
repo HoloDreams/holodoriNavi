@@ -18,13 +18,25 @@ function getSongCoverSrc(songData) {
 function parseSongReleaseDate(value) {
     if (!value) return 0;
     const text = String(value).trim();
-    const jpMatch = text.match(/(\d{4})年\s*(\d{1,2})月\s*(\d{1,2})日/);
+    const jpMatch = text.match(/(\d{4})年\s*(\d{1,2})月\s*(\d{1,2})日(?:\s+(\d{1,2}):(\d{2}))?/);
     if (jpMatch) {
-        return new Date(Number(jpMatch[1]), Number(jpMatch[2]) - 1, Number(jpMatch[3])).getTime();
+        return new Date(
+            Number(jpMatch[1]),
+            Number(jpMatch[2]) - 1,
+            Number(jpMatch[3]),
+            Number(jpMatch[4] || 0),
+            Number(jpMatch[5] || 0)
+        ).getTime();
     }
-    const slashMatch = text.match(/(\d{4})[\/-](\d{1,2})[\/-](\d{1,2})/);
+    const slashMatch = text.match(/(\d{4})[\/-](\d{1,2})[\/-](\d{1,2})(?:\s+(\d{1,2}):(\d{2}))?/);
     if (slashMatch) {
-        return new Date(Number(slashMatch[1]), Number(slashMatch[2]) - 1, Number(slashMatch[3])).getTime();
+        return new Date(
+            Number(slashMatch[1]),
+            Number(slashMatch[2]) - 1,
+            Number(slashMatch[3]),
+            Number(slashMatch[4] || 0),
+            Number(slashMatch[5] || 0)
+        ).getTime();
     }
     const parsed = Date.parse(text);
     return Number.isNaN(parsed) ? 0 : parsed;
@@ -484,7 +496,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     updateDisplay();
 });
-
 
 
 
