@@ -146,18 +146,22 @@ h3::before, h3::after {
 
 .news-container {
   padding-top: 20px;
-  padding-left: 20px;
   display: flex;
+  justify-content: center;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .news-label {
   display: inline-block;
-  background-color: #ffffff;
-  color: #00aeff;
-  font-weight: bold;
-  font-size: 27px;
-  padding: 6px 16px;
-  border-radius: 27px;
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  color: #008fd3;
+  font-size: clamp(28px, 3vw, 42px);
+  font-weight: 900;
+  line-height: 1.25;
+  text-align: center;
 }
 
 .carousel-wrapper {
@@ -329,13 +333,6 @@ h3::before, h3::after {
 
   .news-container {
     padding-top: 42px;
-    padding-left: 20px;
-  }
-
-  .news-label {
-    font-size: 22px;
-    padding: 5px 15px;
-    border-radius: 24px;
   }
 
   .carousel-wrapper {
