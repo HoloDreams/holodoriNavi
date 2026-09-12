@@ -108,7 +108,10 @@
 }
 
 .holodori-menu-link {
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
   padding: 10px 12px;
   border-radius: 12px;
   color: #333;
@@ -116,6 +119,18 @@
   font-weight: 800;
   text-decoration: none;
   transition: background-color 0.18s ease, color 0.18s ease, transform 0.18s ease;
+}
+
+.holodori-menu-link-label {
+  min-width: 0;
+}
+
+.holodori-menu-link-count {
+  flex: 0 0 auto;
+  margin-left: auto;
+  color: inherit;
+  font: inherit;
+  text-align: right;
 }
 
 .holodori-menu-link:hover,

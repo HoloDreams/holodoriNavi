@@ -18,9 +18,9 @@
     {
       title: '一覧系',
       links: [
-        { label: '収録楽曲一覧', href: 'song.html' },
-        { label: 'キャラクターカード一覧', href: 'character_card.html' },
-        { label: 'アイテム一覧', href: 'item_search.html' }
+        { label: '収録楽曲一覧', href: 'song.html', count: 198 },
+        { label: 'キャラクターカード一覧', href: 'character_card.html', count: 181 },
+        { label: 'アイテム一覧', href: 'item_search.html', count: 44 }
       ]
     },
     {
@@ -91,7 +91,16 @@
         const anchor = document.createElement('a');
         anchor.className = 'holodori-menu-link';
         anchor.href = link.href;
-        anchor.textContent = link.label;
+        const label = document.createElement('span');
+        label.className = 'holodori-menu-link-label';
+        label.textContent = link.label;
+        anchor.appendChild(label);
+        if (Number.isFinite(link.count)) {
+          const count = document.createElement('span');
+          count.className = 'holodori-menu-link-count';
+          count.textContent = String(link.count);
+          anchor.appendChild(count);
+        }
         if (link.href === current) anchor.classList.add('is-current');
         section.appendChild(anchor);
       });
@@ -123,5 +132,4 @@
     buildMenu();
   }
 })();
-
 
