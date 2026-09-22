@@ -18,9 +18,9 @@
     {
       title: '一覧系',
       links: [
-        { label: '収録楽曲一覧', href: 'song.html', count: 198 },
-        { label: 'キャラクターカード一覧', href: 'character_card.html', count: 181 },
-        { label: 'アイテム一覧', href: 'item_search.html', count: 44 }
+        { label: '収録楽曲一覧', href: 'song.html', countKey: 'songs', countFallback: 200 },
+        { label: 'キャラクターカード一覧', href: 'character_card.html', countKey: 'cards', countFallback: 185 },
+        { label: 'アイテム一覧', href: 'item_search.html', countKey: 'items', countFallback: 44 }
       ]
     },
     {
@@ -30,6 +30,59 @@
       ]
     }
   ];
+
+  const countSources = {
+    songs: 'js/song-data.js',
+    cards: 'js/card-data.js',
+    items: 'js/item-data.js'
+  };
+
+  function getLoadedCount(key) {
+    if (key === 'songs' && typeof songList !== 'undefined' && Array.isArray(songList)) {
+      return songList.length;
+    }
+    if (key === 'cards' && typeof cardData !== 'undefined' && Array.isArray(cardData)) {
+      return cardData.length;
+    }
+    if (key === 'items' && typeof itemList !== 'undefined' && Array.isArray(itemList)) {
+      return itemList.length;
+    }
+    return null;
+  }
+
+  function loadCountSource(key) {
+    const loadedCount = getLoadedCount(key);
+    if (loadedCount !== null) return Promise.resolve(loadedCount);
+
+    const source = countSources[key];
+    if (!source) return Promise.resolve(null);
+
+    const existingScript = Array.from(document.scripts).find(script => {
+      if (!script.src) return false;
+      return new URL(script.src, document.baseURI).pathname.endsWith(`/${source}`);
+    });
+    if (existingScript) return Promise.resolve(getLoadedCount(key));
+
+    return new Promise(resolve => {
+      const script = document.createElement('script');
+      script.src = source;
+      script.async = true;
+      script.dataset.menuCountSource = key;
+      script.addEventListener('load', () => resolve(getLoadedCount(key)), { once: true });
+      script.addEventListener('error', () => resolve(null), { once: true });
+      document.head.appendChild(script);
+    });
+  }
+
+  function refreshMenuCounts(panel) {
+    Object.keys(countSources).forEach(key => {
+      loadCountSource(key).then(count => {
+        if (!Number.isFinite(count)) return;
+        const countElement = panel.querySelector(`[data-count-key="${key}"]`);
+        if (countElement) countElement.textContent = String(count);
+      });
+    });
+  }
 
   function currentFileName() {
     const path = window.location.pathname.replace(/\\/g, '/');
@@ -95,10 +148,11 @@
         label.className = 'holodori-menu-link-label';
         label.textContent = link.label;
         anchor.appendChild(label);
-        if (Number.isFinite(link.count)) {
+        if (link.countKey) {
           const count = document.createElement('span');
           count.className = 'holodori-menu-link-count';
-          count.textContent = String(link.count);
+          count.dataset.countKey = link.countKey;
+          count.textContent = String(link.countFallback ?? '');
           anchor.appendChild(count);
         }
         if (link.href === current) anchor.classList.add('is-current');
@@ -124,6 +178,7 @@
     document.body.appendChild(button);
     document.body.appendChild(backdrop);
     document.body.appendChild(panel);
+    refreshMenuCounts(panel);
   }
 
   if (document.readyState === 'loading') {
@@ -132,4 +187,3 @@
     buildMenu();
   }
 })();
-
