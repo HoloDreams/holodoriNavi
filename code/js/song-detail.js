@@ -10,7 +10,9 @@ function escapeHtml(value) {
 }
 
 function normalizeSongName(value) {
-  return decodeURIComponent(String(value || "")).replace(/\+/g, " ").trim();
+  // URLSearchParams already decodes the query value. Decoding it again and
+  // replacing "+" with a space breaks song titles that contain a real plus.
+  return String(value || "").trim();
 }
 
 function getRequestedSongName() {
