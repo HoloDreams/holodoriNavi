@@ -1,4 +1,4 @@
-name: Update Instagram news
+name: Update official news
 on:
   schedule:
     - cron: '7,17,27,37,47,57 * * * *'
@@ -6,12 +6,12 @@ on:
   push:
     branches: [main]
     paths:
-      - 'code/news_img/update-instagram.mjs'
-      - '.github/workflows/instagram-news.yml'
+      - 'code/news_img/update-official-news.mjs'
+      - '.github/workflows/official-news.yml'
 permissions:
   contents: write
 concurrency:
-  group: instagram-news-main
+  group: official-news-main
 jobs:
   update:
     runs-on: ubuntu-latest
@@ -23,13 +23,13 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '24'
-      - name: Fetch public Instagram posts
-        run: node code/news_img/update-instagram.mjs
+      - name: Fetch hololive Dreams news
+        run: node code/news_img/update-official-news.mjs
       - name: Commit updated feed
         run: |
-          git add code/news_img/instagram-live.js
+          git add code/news_img/official-news.js
           if git diff --cached --quiet; then exit 0; fi
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git commit -m 'Update Instagram news'
+          git commit -m 'Update official news'
           git push origin HEAD:main

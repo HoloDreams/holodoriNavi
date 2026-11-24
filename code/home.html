@@ -152,7 +152,7 @@
   </main>
 
   <script src="news_img/instagram-news.js"></script>
-  <script src="news_img/instagram-live.js"></script>
+  <script src="news_img/official-news.js"></script>
   <script src="https://unpkg.com/@studio-freight/lenis@1.0.33/dist/lenis.min.js"></script>
 
   <script>
@@ -242,7 +242,7 @@
       const fallbackPosts = [
         { url: 'https://www.instagram.com/hololivedreams_info/' },
       ];
-      const livePosts = window.instagramLivePosts;
+      const livePosts = window.officialNewsPosts;
       const cachedPosts = window.instagramNewsPosts;
       const newsPosts = livePosts?.length ? livePosts : cachedPosts;
       const posts = newsPosts?.length ? newsPosts.slice(0, 5) : fallbackPosts;
@@ -291,6 +291,12 @@
         }
         button.className = 'instagram-image-card';
 
+        if (post.href && !post.image) {
+          button.textContent = post.title;
+          item.appendChild(button);
+          return item;
+        }
+
         const img = document.createElement('img');
         img.src = post.img || post.image || `news_img/${String((index % posts.length) + 1).padStart(2, '0')}.jpg`;
         img.alt = post.title || post.alt || 'ホロドリニュース画像';
@@ -299,7 +305,7 @@
         button.appendChild(img);
         if (post.href) {
           img.addEventListener('error', () => {
-            button.textContent = 'Instagramで投稿を見る';
+            button.textContent = post.title || '公式のお知らせを見る';
           }, { once: true });
         } else {
           button.addEventListener('click', () => openViewer(img.src, img.alt));
