@@ -141,8 +141,31 @@ h3 {
 }
 
 #harmony-garden,
-#mega-sphere {
+#mega-sphere,
+#soda-pop-lagoon {
   scroll-margin-top: 150px;
+}
+.soda-lagoon-text-link {
+  display: inline-block;
+  padding: 14px 24px;
+  border-radius: 999px;
+  color: #fff !important;
+  background: linear-gradient(135deg, #08aeea, #31dfd4);
+  font-size: clamp(16px, 2.5vw, 22px);
+  text-decoration: none;
+  box-shadow: 0 10px 24px rgba(0, 148, 216, .2);
+}
+.soda-treasure-summary {
+  margin-top: 42px;
+}
+.soda-treasure-table th:first-child,
+.soda-treasure-table td:first-child {
+  width: 56px;
+  text-align: center;
+}
+.soda-treasure-table th:nth-child(2),
+.soda-treasure-table td:nth-child(2) {
+  width: 180px;
 }
 #content-root .operation-block p,
 #content-root .title-explanation {

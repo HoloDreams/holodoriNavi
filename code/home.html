@@ -152,6 +152,7 @@
   </main>
 
   <script src="news_img/instagram-news.js"></script>
+  <script src="news_img/instagram-live.js"></script>
   <script src="https://unpkg.com/@studio-freight/lenis@1.0.33/dist/lenis.min.js"></script>
 
   <script>
@@ -241,9 +242,10 @@
       const fallbackPosts = [
         { url: 'https://www.instagram.com/hololivedreams_info/' },
       ];
-      const posts = Array.isArray(window.instagramNewsPosts) && window.instagramNewsPosts.length
-        ? window.instagramNewsPosts.slice(0, 5)
-        : fallbackPosts;
+      const livePosts = window.instagramLivePosts;
+      const cachedPosts = window.instagramNewsPosts;
+      const newsPosts = livePosts?.length ? livePosts : cachedPosts;
+      const posts = newsPosts?.length ? newsPosts.slice(0, 5) : fallbackPosts;
 
       const imageViewer = document.createElement('div');
       imageViewer.className = 'news-image-viewer';
@@ -279,17 +281,29 @@
         item.className = 'carousel-item instagram-news-item';
         item.dataset.newsIndex = String(index % posts.length);
 
-        const button = document.createElement('button');
-        button.type = 'button';
+        const button = document.createElement(post.href ? 'a' : 'button');
+        if (post.href) {
+          button.href = post.href;
+          button.target = '_blank';
+          button.rel = 'noopener noreferrer';
+        } else {
+          button.type = 'button';
+        }
         button.className = 'instagram-image-card';
 
         const img = document.createElement('img');
         img.src = post.img || post.image || `news_img/${String((index % posts.length) + 1).padStart(2, '0')}.jpg`;
-        img.alt = post.alt || 'ホロドリニュース画像';
+        img.alt = post.title || post.alt || 'ホロドリニュース画像';
         img.loading = 'lazy';
 
         button.appendChild(img);
-        button.addEventListener('click', () => openViewer(img.src, img.alt));
+        if (post.href) {
+          img.addEventListener('error', () => {
+            button.textContent = 'Instagramで投稿を見る';
+          }, { once: true });
+        } else {
+          button.addEventListener('click', () => openViewer(img.src, img.alt));
+        }
         item.appendChild(button);
         return item;
       };
