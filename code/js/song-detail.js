@@ -21,6 +21,7 @@ function getRequestedSongName() {
 }
 
 function getCoverSrc(song) {
+  if (song[3] === "") return "img/ロゴ.png";
   const title = song[0] || "";
   const fileName = song[3] || `${title}.jpg`;
   return `img/cover_art/${encodeURIComponent(fileName)}`;

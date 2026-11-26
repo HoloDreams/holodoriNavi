@@ -10,6 +10,7 @@ function getSongDetailHref(songName) {
     return `music_detail.html?song=${encodeURIComponent(songName)}`;
 }
 function getSongCoverSrc(songData) {
+    if (songData[3] === "") return "img/ロゴ.png";
     const songName = songData[0];
     const fileName = songData[3] || `${songName}.jpg`;
     return `img/cover_art/${encodeURIComponent(fileName)}`;
